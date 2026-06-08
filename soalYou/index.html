@@ -1,0 +1,912 @@
+<!-- ============================================================
+     LATIHAN SOAL N3 — 15 Nomor
+     Modul 5 : 「よう」のいろいろな使い方
+     用法 1〜4 : Perumpamaan · Keserupaan · Contoh
+                Latar Bersama · Harapan/Tujuan · Permintaan Tak Langsung
+     WordPress → paste ke blok Custom HTML
+     ============================================================ -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&family=Source+Serif+4:wght@300;400;600&display=swap');
+
+.jlpt-you-wrap {
+  --ink:            #1a1a1a;
+  --ink-light:      #3d3d3d;
+  --ink-muted:      #707070;
+  --paper:          #faf9f7;
+  --paper-warm:     #f5f3ef;
+  --rule:           #d8d4cc;
+  --correct:        #1e7e45;
+  --correct-bg:     #edfaf3;
+  --correct-bd:     #6fcf97;
+  --wrong:          #c0392b;
+  --wrong-bg:       #fff0ef;
+  --wrong-bd:       #e07070;
+  --accent:         #2a5f6b;   /* teal — identitas modul よう */
+  --accent-soft:    #e4f0f2;
+  --accent-gold:    #a08030;
+  --font-jp:   'Noto Serif JP', serif;
+  --font-ui:   'Noto Sans JP', sans-serif;
+  --font-body: 'Source Serif 4', 'Noto Serif JP', serif;
+  font-family: var(--font-body);
+  color: var(--ink);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.jlpt-you-wrap .qhdr {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 12px 12px 0 0;
+  padding: 22px 26px 18px;
+}
+.jlpt-you-wrap .qhdr-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.jlpt-you-wrap .qhdr-deco {
+  font-family: var(--font-jp);
+  font-size: 52px;
+  line-height: 1;
+  color: rgba(255,255,255,0.08);
+  font-weight: 700;
+  user-select: none;
+  flex-shrink: 0;
+}
+.jlpt-you-wrap .qhdr h2 {
+  font-family: var(--font-jp);
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 5px;
+  color: #fff;
+}
+.jlpt-you-wrap .qhdr p {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+  line-height: 1.6;
+}
+.jlpt-you-wrap .yoho-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+.jlpt-you-wrap .yoho-chip {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 9px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ── Top Panel (name + score) ── */
+.jlpt-you-wrap .top-panel {
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  border-top: none;
+  padding: 14px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.jlpt-you-wrap .name-field {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-ui); font-size: 13px; font-weight: 600;
+  color: var(--ink-light);
+}
+.jlpt-you-wrap .name-field input {
+  padding: 7px 12px;
+  border: 1.5px solid var(--rule);
+  border-radius: 6px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  width: 190px;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fff;
+}
+.jlpt-you-wrap .name-field input:focus { border-color: var(--accent); }
+.jlpt-you-wrap .score-display {
+  font-family: var(--font-ui); font-size: 13px; color: var(--ink-light);
+  display: flex; align-items: center; gap: 5px;
+}
+.jlpt-you-wrap .snum {
+  font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1;
+}
+
+/* ── 用法 Section divider ── */
+.jlpt-you-wrap .yoho-label {
+  display: flex; align-items: center; gap: 10px;
+  margin: 20px 0 9px;
+  font-family: var(--font-ui); font-size: 10.5px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted);
+}
+.jlpt-you-wrap .yoho-label::before,
+.jlpt-you-wrap .yoho-label::after { content:''; flex:1; height:1px; background:var(--rule); }
+.jlpt-you-wrap .yoho-label span {
+  background: var(--accent); color: #fff;
+  padding: 3px 11px; border-radius: 3px; font-size: 10px; white-space: nowrap;
+}
+
+/* ── Dropdown Card ── */
+.jlpt-you-wrap details {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  margin-bottom: 9px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.045);
+  transition: box-shadow 0.2s;
+}
+.jlpt-you-wrap details[open] { box-shadow: 0 4px 18px rgba(0,0,0,0.09); }
+
+.jlpt-you-wrap summary {
+  cursor: pointer;
+  padding: 13px 17px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-ui); font-size: 13.5px; font-weight: 600;
+  color: var(--ink); list-style: none; user-select: none;
+  background: var(--paper-warm); transition: background 0.15s;
+}
+.jlpt-you-wrap summary::-webkit-details-marker { display: none; }
+.jlpt-you-wrap summary:hover { background: #ece8df; }
+.jlpt-you-wrap .q-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  font-size: 11px; font-weight: 700; flex-shrink: 0;
+}
+.jlpt-you-wrap .q-preview {
+  flex: 1; font-family: var(--font-jp); font-size: 13.5px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;
+}
+.jlpt-you-wrap .q-tag {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
+  padding: 2px 7px; border-radius: 3px; color: #fff;
+  background: var(--accent); flex-shrink: 0;
+}
+.jlpt-you-wrap .q-chevron {
+  font-size: 11px; color: var(--ink-muted);
+  transition: transform 0.2s; flex-shrink: 0; margin-left: 3px;
+}
+.jlpt-you-wrap details[open] summary .q-chevron { transform: rotate(180deg); }
+
+/* ── Body ── */
+.jlpt-you-wrap .quiz-body {
+  padding: 17px 19px 19px; border-top: 1px solid var(--rule);
+}
+.jlpt-you-wrap .quiz-question {
+  font-family: var(--font-jp); font-size: 17px; line-height: 2.1;
+  color: var(--ink); margin-bottom: 15px; padding: 12px 15px;
+  background: #eef4f5; border-radius: 8px; border-left: 3px solid var(--accent);
+}
+.jlpt-you-wrap .blank {
+  display: inline-block; min-width: 52px;
+  border-bottom: 2.5px solid var(--accent);
+  color: var(--accent); font-weight: 700; text-align: center; padding: 0 3px;
+}
+.jlpt-you-wrap .q-tr {
+  display: block; font-family: var(--font-ui); font-size: 12.5px;
+  color: var(--ink-muted); font-style: italic; margin-top: 5px; line-height: 1.5;
+}
+
+/* ── Options ── */
+.jlpt-you-wrap .options-list {
+  display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;
+}
+.jlpt-you-wrap .option-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; border: 2px solid var(--rule); border-radius: 8px;
+  background: #fff; cursor: pointer; font-family: var(--font-jp);
+  font-size: 14.5px; color: var(--ink); text-align: left; width: 100%;
+  line-height: 1.65; transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+.jlpt-you-wrap .option-btn:hover:not([disabled]) {
+  border-color: var(--accent); background: var(--accent-soft); transform: translateX(3px);
+}
+.jlpt-you-wrap .opt-label {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #e8e5e0; font-family: var(--font-ui); font-size: 11px;
+  font-weight: 700; flex-shrink: 0; transition: background 0.15s, color 0.15s;
+}
+.jlpt-you-wrap .opt-text { flex: 1; }
+.jlpt-you-wrap .opt-icon { font-size: 14px; flex-shrink: 0; opacity: 0; transition: opacity 0.2s; }
+
+/* ── States ── */
+.jlpt-you-wrap .option-btn.is-correct {
+  border-color: var(--correct-bd); background: var(--correct-bg);
+  animation: pulse-c 0.3s ease;
+}
+.jlpt-you-wrap .option-btn.is-correct .opt-label { background: var(--correct); color: #fff; }
+.jlpt-you-wrap .option-btn.is-correct .opt-icon { opacity: 1; }
+.jlpt-you-wrap .option-btn.is-wrong {
+  border-color: var(--wrong-bd); background: var(--wrong-bg);
+  animation: shake-w 0.3s ease;
+}
+.jlpt-you-wrap .option-btn.is-wrong .opt-label { background: var(--wrong); color: #fff; }
+.jlpt-you-wrap .option-btn.is-wrong .opt-icon { opacity: 1; }
+.jlpt-you-wrap .option-btn.is-locked { opacity: 0.42; pointer-events: none; cursor: not-allowed; }
+
+/* ── Pembahasan ── */
+.jlpt-you-wrap .pembahasan {
+  display: none; background: #fffdf0;
+  border: 1px solid #e8d89a; border-left: 4px solid var(--accent-gold);
+  border-radius: 8px; padding: 12px 15px;
+  font-size: 13px; line-height: 1.85; color: #4a3800;
+  margin-top: 4px; animation: fadeIn 0.3s ease;
+}
+.jlpt-you-wrap .pembahasan.show { display: block; }
+.jlpt-you-wrap .p-title {
+  font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent-gold); margin-bottom: 7px;
+}
+.jlpt-you-wrap .p-kunci {
+  font-family: var(--font-jp); font-size: 14px; font-weight: 700;
+  color: var(--correct); margin-bottom: 6px;
+}
+.jlpt-you-wrap .p-yoho {
+  display: inline-block; font-family: var(--font-ui); font-size: 10px;
+  font-weight: 700; padding: 1px 8px; border-radius: 3px;
+  background: var(--accent); color: #fff; margin-bottom: 7px;
+}
+.jlpt-you-wrap .p-tip {
+  margin-top: 8px; padding: 7px 11px;
+  background: rgba(42,95,107,0.08); border-radius: 5px;
+  font-size: 12px; color: var(--accent); font-family: var(--font-ui);
+}
+.jlpt-you-wrap .p-tip::before { content: '⚡ Cara cepat: '; font-weight: 700; }
+
+/* ── Submit ── */
+.jlpt-you-wrap .submit-area {
+  text-align: center; margin-top: 26px;
+  padding-top: 20px; border-top: 1px solid var(--rule);
+}
+.jlpt-you-wrap #you-submit-btn {
+  background: var(--accent); color: #fff; border: none;
+  padding: 12px 34px; border-radius: 30px;
+  font-family: var(--font-ui); font-size: 15px; font-weight: 700;
+  cursor: pointer; transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 3px 14px rgba(42,95,107,0.28);
+}
+.jlpt-you-wrap #you-submit-btn:hover { background: #1e4751; transform: translateY(-1px); }
+.jlpt-you-wrap #you-submit-btn:disabled { background: #7aa3ab; cursor: not-allowed; transform: none; }
+.jlpt-you-wrap #you-status {
+  margin-top: 11px; font-family: var(--font-ui); font-size: 14px; font-weight: 600;
+}
+
+/* ── Animations ── */
+@keyframes pulse-c { 0%{transform:scale(1)} 50%{transform:scale(1.012)} 100%{transform:scale(1)} }
+@keyframes shake-w { 0%{transform:translateX(0)} 20%{transform:translateX(-5px)} 40%{transform:translateX(5px)} 60%{transform:translateX(-3px)} 80%{transform:translateX(3px)} 100%{transform:translateX(0)} }
+@keyframes fadeIn  { from{opacity:0;transform:translateY(-5px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── Responsive ── */
+@media (max-width:600px){
+  .jlpt-you-wrap .qhdr { padding:16px 14px; }
+  .jlpt-you-wrap .qhdr-deco { font-size:38px; }
+  .jlpt-you-wrap .top-panel { padding:12px 13px; }
+  .jlpt-you-wrap .name-field input { width:150px; }
+  .jlpt-you-wrap .quiz-question { font-size:15px; padding:11px 13px; }
+  .jlpt-you-wrap summary { padding:11px 13px; }
+  .jlpt-you-wrap .option-btn { font-size:13.5px; padding:10px 12px; }
+}
+</style>
+
+<!-- ═══════════════ HTML ═══════════════ -->
+<div class="jlpt-you-wrap">
+
+<!-- Header -->
+<div class="qhdr">
+  <div class="qhdr-top">
+    <div class="qhdr-deco">よう</div>
+    <div>
+      <h2>📝 Latihan Soal — 「よう」の使い方</h2>
+      <p>Modul 5 &nbsp;|&nbsp; 15 Soal Pilihan Ganda &nbsp;|&nbsp; JLPT N3<br>
+      Mencakup seluruh 用法 1〜4 beserta sub-pola</p>
+      <div class="yoho-chips">
+        <span class="yoho-chip">用法１ Perumpamaan</span>
+        <span class="yoho-chip">用法２a Keserupaan</span>
+        <span class="yoho-chip">用法２b Contoh</span>
+        <span class="yoho-chip">用法３a Latar Bersama</span>
+        <span class="yoho-chip">用法３b Harapan/Tujuan</span>
+        <span class="yoho-chip">用法４ Permintaan Tak Langsung</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Name + Score -->
+<div class="top-panel">
+  <div class="name-field">
+    <label for="you-name">👤 Nama:</label>
+    <input type="text" id="you-name" placeholder="Masukkan nama kamu...">
+  </div>
+  <div class="score-display">
+    Skor: <span class="snum" id="you-score">0</span>/15 &nbsp;|&nbsp; <span id="you-correct">0</span> benar
+  </div>
+</div>
+
+<!-- ══════ 用法１ : Perumpamaan ══════ -->
+<div class="yoho-label"><span>用法１ — Perumpamaan Imajinatif</span></div>
+
+<!-- SOAL 1 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">1</span>
+    <span class="q-preview">まるで映画の主人公___、颯爽と歩いていた。</span>
+    <span class="q-tag">用法１</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      まるで映画の主人公<span class="blank">___</span>、颯爽と歩いていた。
+      <span class="q-tr">Bak tokoh utama film, dia berjalan dengan gagah.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">ように</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">みたいに</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">のように</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">そうに</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法１ — Perumpamaan</div>
+      <div class="p-kunci">Jawaban: C — のように</div>
+      <p>Setelah nomina (映画の主人公 = tokoh utama film), wajib menggunakan <strong>N + のように</strong>. まるで adalah penanda perumpamaan imajinatif yang selalu berpasangan dengan のようだ/のように. ように (tanpa の) digunakan setelah verba/adjektiva, bukan nomina. みたいに kasual dan tidak berpasangan dengan まるで di konteks formal.</p>
+      <div class="p-tip">まるで + N + のように/のような → struktur baku perumpamaan. N wajib pakai の sebelum よう.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 2 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">2</span>
+    <span class="q-preview">彼女の笑顔は___花が咲いたようだ。</span>
+    <span class="q-tag">用法１</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      彼女の笑顔は<span class="blank">___</span>花が咲いたようだ。
+      <span class="q-tr">Senyumnya bak bunga yang mekar. (Gaya sastrawi/dramatis)</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">たとえば</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">ご存知の</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">まるで</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">予想した</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法１ — Perumpamaan</div>
+      <div class="p-kunci">Jawaban: C — まるで</div>
+      <p>Kalimat berakhiran 「〜ようだ」dengan nuansa imajinatif (senyum ≠ bunga secara harfiah) → ini perumpamaan. まるで adalah penanda khas yang mempertegas perumpamaan imajinatif. たとえば digunakan untuk memberi contoh konkret; ご存知の untuk latar yang diketahui bersama; 予想した untuk keserupaan faktual.</p>
+      <div class="p-tip">まるで〜ようだ = ciri khas perumpamaan imajinatif. Kalau ada ようだ + imajinasi → cek apakah ada まるで/かのよう.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 3 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">3</span>
+    <span class="q-preview">この静けさは、まるで時間が止まった___だ。</span>
+    <span class="q-tag">用法１</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      この静けさは、まるで時間が止まった<span class="blank">___</span>だ。
+      <span class="q-tr">Keheningan ini seolah-olah waktu telah berhenti. (Gaya formal/sastrawi)</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">よう</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">みたい</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">かのよう</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">らしい</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法１ — Perumpamaan (かのよう)</div>
+      <div class="p-kunci">Jawaban: C — かのよう</div>
+      <p>「かのようだ」= bentuk lebih dramatis dan sastrawi dari ようだ. Digunakan dalam tulisan formal/sastra. よう (tanpa か) secara teknis bisa tapi kurang dramatis. みたい bersifat kasual — tidak cocok dengan nuansa sastrawi. らしい menyatakan kesimpulan dari bukti tidak langsung, bukan perumpamaan.</p>
+      <div class="p-tip">まるで〜かのようだ = perumpamaan paling dramatis. Sering muncul di soal JLPT karena menguji pemahaman nuansa register.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══════ 用法２a : Keserupaan Nyata ══════ -->
+<div class="yoho-label"><span>用法２a — Keserupaan Faktual</span></div>
+
+<!-- SOAL 4 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">4</span>
+    <span class="q-preview">聞いていた___、現地の食事はとても辛かった。</span>
+    <span class="q-tag">用法２a</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      聞いていた<span class="blank">___</span>、現地の食事はとても辛かった。
+      <span class="q-tr">Sesuai dengan yang sudah kudengar, makanan di sana memang sangat pedas.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">かのように</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">ように</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">ような</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ようにと</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法２a — Keserupaan Faktual</div>
+      <div class="p-kunci">Jawaban: B — ように</div>
+      <p>「聞いていたように」= "sesuai dengan yang sudah didengar" → keserupaan faktual antara informasi yang diterima dan kenyataan. Ini bukan imajinasi (bukan かのように). ような adalah bentuk atributif yang memodifikasi nomina setelahnya, tidak tepat di sini karena tidak ada nomina setelah blank. ようにと hanya untuk permintaan tak langsung.</p>
+      <div class="p-tip">V過去形 + ように + S₂ → kenyataan selaras dengan informasi/prediksi sebelumnya. Ini 用法２a.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 5 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">5</span>
+    <span class="q-preview">いつもの___、彼は時間通りに到着した。</span>
+    <span class="q-tag">用法２a</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      いつもの<span class="blank">___</span>、彼は時間通りに到着した。
+      <span class="q-tr">Seperti biasanya, dia tiba tepat waktu.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">かのように</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">ように言う</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">ように</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ようにする</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法２a — Keserupaan Faktual</div>
+      <div class="p-kunci">Jawaban: C — ように</div>
+      <p>「いつものように」= "seperti biasanya" — keserupaan faktual antara kebiasaan yang ada dan yang terjadi saat ini. いつも (biasanya) + のように adalah ekspresi setengah beku yang sangat umum. かのように tidak tepat karena tidak ada unsur imajinatif. ようにする adalah pola usaha/niat, bukan penghubung dua klausa.</p>
+      <div class="p-tip">いつものように・習慣のように = "seperti biasanya" → 用法２a. Ekspresi ini sangat sering muncul.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══════ 用法２b : Memberikan Contoh ══════ -->
+<div class="yoho-label"><span>用法２b — Memberikan Contoh</span></div>
+
+<!-- SOAL 6 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">6</span>
+    <span class="q-preview">たとえば京都や奈良___、歴史ある都市が人気観光地だ。</span>
+    <span class="q-tag">用法２b</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      たとえば京都や奈良<span class="blank">___</span>、歴史ある都市が人気観光地だ。
+      <span class="q-tr">Seperti misalnya Kyoto dan Nara, kota-kota bersejarah adalah destinasi wisata populer.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">まるで</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">ように</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">のように</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">のような</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法２b — Memberikan Contoh</div>
+      <div class="p-kunci">Jawaban: C — のように</div>
+      <p>Pola 「たとえば N のように + S」= menggunakan N sebagai contoh untuk pernyataan umum. Setelah nomina (京都や奈良) wajib の sebelum よう. のような memodifikasi nomina setelahnya (butuh nomina sesudahnya), sedangkan di sini kalimat dilanjutkan dengan klausa, bukan nomina. まるで untuk perumpamaan imajinatif.</p>
+      <div class="p-tip">たとえば + N + のように → N dipakai sebagai contoh konkret untuk pernyataan umum. のような butuh nomina setelahnya.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 7 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">7</span>
+    <span class="q-preview">次の___、記入してください。（書類案内）</span>
+    <span class="q-tag">用法２b</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      次の<span class="blank">___</span>、記入してください。
+      <span class="q-tr">Tolong isi sesuai contoh berikut. (Instruksi formulir)</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">ようにと</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">ような</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">ように</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ようだ</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法２b — Memberikan Contoh</div>
+      <div class="p-kunci">Jawaban: C — ように</div>
+      <p>「次のように + V命令/依頼」= "sesuai/sebagaimana contoh berikut, (tolong lakukan)". 次のように adalah frasa tetap untuk memberikan contoh atau instruksi. ような memodifikasi nomina (tidak ada nomina setelah blank di sini); ようにと dipakai untuk meneruskan permintaan (用法４); ようだ adalah predikat, tidak cocok di tengah kalimat perintah.</p>
+      <div class="p-tip">次のように・以下のように = "sebagai berikut / seperti contoh ini". Frasa beku, sangat sering di dokumen/formulir.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══════ 用法３a : Latar Bersama ══════ -->
+<div class="yoho-label"><span>用法３a — Informasi Latar yang Sudah Diketahui</span></div>
+
+<!-- SOAL 8 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">8</span>
+    <span class="q-preview">___のように、今年の夏は記録的な猛暑でした。</span>
+    <span class="q-tag">用法３a</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      <span class="blank">___</span>のように、今年の夏は記録的な猛暑でした。
+      <span class="q-tr">Seperti yang sudah Anda ketahui, musim panas tahun ini mencatat suhu terpanas. (Konteks: presentasi formal)</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">まるで</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">たとえば</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">ご存知</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">予想した</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法３a — Latar Diketahui Bersama</div>
+      <div class="p-kunci">Jawaban: C — ご存知</div>
+      <p>「ご存知のように」= "seperti yang sudah Anda ketahui" → membangun common ground dengan pendengar. Pola ini khas untuk pembuka presentasi/pidato formal. まるで untuk perumpamaan imajinatif; たとえば untuk contoh konkret; 予想した untuk keserupaan faktual dengan prediksi.</p>
+      <div class="p-tip">ご存知のように / 広く知られているように → pembuka kalimat formal yang membangun "kita semua tahu ini". Sinyal 用法３a.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 9 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">9</span>
+    <span class="q-preview">先ほど申し上げた___、提出期限は明日です。</span>
+    <span class="q-tag">用法３a</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      先ほど申し上げた<span class="blank">___</span>、提出期限は明日です。
+      <span class="q-tr">Seperti yang sudah saya sampaikan tadi, batas pengumpulan adalah besok.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">かのように</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">ように</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">ようになる</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ように言う</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法３a — Latar Diketahui Bersama</div>
+      <div class="p-kunci">Jawaban: B — ように</div>
+      <p>「先ほど申し上げたように」= "seperti yang sudah saya sampaikan tadi". Ini merujuk informasi yang sudah diketahui pendengar → 用法３a. Penanda khasnya: verba komunikasi/laporan di masa lalu (申し上げた・述べた・説明した) + ように. かのように untuk perumpamaan dramatis; ようになる untuk perubahan bertahap.</p>
+      <div class="p-tip">Verba komunikasi past + ように + info = "seperti yang sudah disampaikan tadi". Ciri 用法３a dalam konteks rapat/kuliah.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══════ 用法３b : Harapan & Tujuan ══════ -->
+<div class="yoho-label"><span>用法３b — Harapan &amp; Tujuan</span></div>
+
+<!-- SOAL 10 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">10</span>
+    <span class="q-preview">寝る前にスマホを見ない___にしています。</span>
+    <span class="q-tag">用法３b</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      寝る前にスマホを見ない<span class="blank">___</span>にしています。
+      <span class="q-tr">Saya membiasakan diri untuk tidak melihat ponsel sebelum tidur.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">ように言う</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">ようになる</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">よう</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ような</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法３b — Harapan/Tujuan (ようにする)</div>
+      <div class="p-kunci">Jawaban: C — よう</div>
+      <p>Pola 「〜ようにする」= membiasakan diri / berusaha melakukan secara sengaja. Kalimat lengkap: 見ないようにしています. Perhatikan: 見ない + よう + にして = Vない形 + ようにする. ようになる beda makna (perubahan bertahap yang terjadi sendiri). ように言う untuk permintaan tak langsung.</p>
+      <div class="p-tip">ようにする = usaha aktif yang disengaja. ようになる = perubahan yang terjadi bertahap (tidak perlu usaha sadar).</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 11 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">11</span>
+    <span class="q-preview">今では一人で料理ができる___なりました。</span>
+    <span class="q-tag">用法３b</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      今では一人で料理ができる<span class="blank">___</span>なりました。
+      <span class="q-tr">Sekarang sudah bisa memasak sendiri. (Perubahan bertahap dari tidak bisa)</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">ようにして</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">ように</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">ような</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ようだ</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法３b — Harapan/Tujuan (ようになる)</div>
+      <div class="p-kunci">Jawaban: B — ように</div>
+      <p>Pola 「V可能形 + ようになる」= menjadi bisa melakukan (perubahan bertahap). Kalimat: できる + ように + なる. ようにして adalah sambung dari ようにする (usaha aktif), bukan ようになる. ような memodifikasi nomina. ようだ adalah predikat perumpamaan, tidak bisa berdiri sebelum なる.</p>
+      <div class="p-tip">V可能形 + ようになる = akhirnya menjadi bisa. V不可能形 + ようになる = akhirnya tidak bisa (perubahan negatif).</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 12 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">12</span>
+    <span class="q-preview">大学に合格できる___、毎日お祈りしています。</span>
+    <span class="q-tag">用法３b</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      大学に合格できる<span class="blank">___</span>、毎日お祈りしています。
+      <span class="q-tr">Setiap hari saya berdoa agar bisa lulus seleksi universitas.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">ようになる</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">ようにする</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">ように</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">かのように</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法３b — Harapan/Doa (ように祈る)</div>
+      <div class="p-kunci">Jawaban: C — ように</div>
+      <p>「〜ように + 祈る/願う/頼む」= berdoa/berharap agar kondisi X terwujud. Ini pola harapan/doa dalam 用法３b. ようになる adalah perubahan bertahap (tidak cocok berpasangan langsung dengan 祈る); ようにする adalah usaha sadar sendiri, bukan doa untuk sesuatu di luar kendali; かのように untuk perumpamaan imajinatif.</p>
+      <div class="p-tip">〜ように + 祈る/願う/希望する = doa/harapan agar keadaan X terwujud. Ini pola tetap 用法３b.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══════ 用法４ : Permintaan Tak Langsung ══════ -->
+<div class="yoho-label"><span>用法４ — Permintaan &amp; Instruksi Tidak Langsung</span></div>
+
+<!-- SOAL 13 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">13</span>
+    <span class="q-preview">母は私に早く帰ってくる___言いました。</span>
+    <span class="q-tag">用法４</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      母は私に早く帰ってくる<span class="blank">___</span>言いました。
+      <span class="q-tr">Ibu meminta saya untuk segera pulang.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">かのように</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">ような</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">ように</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ようだと</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法４ — Permintaan Tak Langsung</div>
+      <div class="p-kunci">Jawaban: C — ように</div>
+      <p>Pola 「〜ように言う」= melaporkan permintaan secara tidak langsung (indirect request). Kalimat: 早く帰ってくるように言いました. Ini berbeda dari kutipan langsung 「早く帰ってきて」と言いました. Pola 用法４ selalu: [V辞書形/Vない形] + ように + [verba komunikasi: 言う/頼む/命令する]. かのように hanya untuk perumpamaan imajinatif.</p>
+      <div class="p-tip">〜ように言う/頼む/命令する = indirect request. Bandingkan dengan kutipan langsung 〜と言う yang mengutip kata-kata aslinya.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 14 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">14</span>
+    <span class="q-preview">先生は授業中に静かにする___と注意した。</span>
+    <span class="q-tag">用法４</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      先生は授業中に静かにする<span class="blank">___</span>と注意した。
+      <span class="q-tr">Guru menegur (dengan emfatik) agar diam selama pelajaran.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">ように</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">ようにと</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">ような</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ようにして</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法４ — Permintaan Tak Langsung (ようにと)</div>
+      <div class="p-kunci">Jawaban: B — ようにと</div>
+      <p>「〜ようにと + 言う/伝える/注意する」= versi lebih emfatik dari 〜ように言う. と sebelum verba komunikasi menambah nuansa "dengan kata-kata itu". Perhatikan kalimat ini sudah ada と setelah blank: ようにと + 注意した. ように (tanpa と) juga secara teknis bisa, tapi ようにと adalah bentuk yang lebih natural berpasangan dengan 注意した dalam konteks peringatan.</p>
+      <div class="p-tip">ようにと lebih emfatik dari ように. Berpasangan paling natural dengan 言う・伝える・注意する di konteks serius.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 15 -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">15</span>
+    <span class="q-preview">この文、どの「よう」の用法？判別問題</span>
+    <span class="q-tag">総合</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      下の文の「ように」は何の用法ですか？<br>
+      <span style="font-size:16px; display:block; margin-top:8px; line-height:2.1;">
+        「健康のために、毎日野菜を食べる<strong>ように</strong>心がけています。」
+      </span>
+      <span class="q-tr">Demi kesehatan, saya berusaha untuk makan sayuran setiap hari.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">用法１ — Perumpamaan imajinatif (まるで〜のようだ)</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">用法２a — Keserupaan faktual antara dua klausa</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">用法３a — Latar informasi yang sudah diketahui bersama</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">D</span><span class="opt-text">用法３b — Harapan/tujuan (〜ようにする)</span><span class="opt-icon">✓</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">総合判別問題</div>
+      <div class="p-kunci">Jawaban: D — 用法３b (ようにする)</div>
+      <p>「〜ようにする/心がける」= usaha aktif yang disengaja untuk mewujudkan kondisi tertentu. Cirinya: ada kata usaha (心がける・努力する・気をつける) dan klausa sebelumnya adalah tujuan yang ingin diwujudkan. Bukan 用法１ (tidak ada まるで/imajinasi); bukan 用法２a (tidak ada dua klausa faktual yang paralel); bukan 用法３a (tidak ada referensi ke informasi yang diketahui pendengar).</p>
+      <div class="p-tip">Panduan cepat: ようにする/心がける/努力する → 用法３b. ようになる → 用法３b perubahan. ように言う → 用法４.</div>
+    </div>
+  </div>
+</details>
+
+<!-- Submit Area -->
+<div class="submit-area">
+  <button id="you-submit-btn">📤 Kirim Nilai ke Sensei</button>
+  <p id="you-status"></p>
+</div>
+
+</div><!-- .jlpt-you-wrap -->
+
+<!-- ═══════════════ JAVASCRIPT ═══════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── Konfigurasi — ganti URL sesuai Apps Script kamu ── */
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwbXRXE-M6quwLbLCV6IuNoPVzwzLWiwZEHtokSkOpi7w38kiprxK0ZJ7bv7hsFET6H4w/exec";
+  const NAMA_KUIS       = "Latihan N3 — Modul 5: よう の使い方 (15 Soal)";
+  const TOTAL           = 15;
+
+  /* ── State ── */
+  const state = { answered: 0, correct: 0 };
+
+  /* ── DOM refs ── */
+  const scoreEl   = document.getElementById('you-score');
+  const correctEl = document.getElementById('you-correct');
+  const submitBtn = document.getElementById('you-submit-btn');
+  const statusMsg = document.getElementById('you-status');
+
+  /* ── Update skor ── */
+  function updateScore() {
+    if (scoreEl)   scoreEl.textContent   = state.answered;
+    if (correctEl) correctEl.textContent = state.correct;
+  }
+
+  /* ── Handler klik ── */
+  function handleClick(e) {
+    const btn  = e.target.closest('.option-btn');
+    if (!btn)  return;
+    const card = btn.closest('.quiz-card');
+    if (!card) return;
+
+    const allOpts = card.querySelectorAll('.option-btn');
+    const done = [...allOpts].some(b =>
+      b.classList.contains('is-correct') || b.classList.contains('is-wrong')
+    );
+    if (done) return;
+
+    const isCorrect = btn.dataset.correct === 'true';
+    btn.classList.add(isCorrect ? 'is-correct' : 'is-wrong');
+
+    allOpts.forEach(b => {
+      if (b === btn) { b.style.pointerEvents = 'none'; return; }
+      b.style.pointerEvents = 'none';
+      b.classList.add(b.dataset.correct === 'true' ? 'is-correct' : 'is-locked');
+    });
+
+    const p = card.querySelector('.pembahasan');
+    if (p) p.classList.add('show');
+
+    state.answered++;
+    if (isCorrect) state.correct++;
+    updateScore();
+  }
+
+  /* ── Event delegation ── */
+  const wrap = document.querySelector('.jlpt-you-wrap');
+  if (wrap) wrap.addEventListener('click', handleClick);
+
+  /* ── Kirim ke Google Sheets ── */
+  if (submitBtn) {
+    submitBtn.addEventListener('click', function () {
+      const nameEl = document.getElementById('you-name');
+      const nama   = nameEl ? nameEl.value.trim() : '';
+
+      if (!nama) { alert('Mohon isi nama lengkap kamu terlebih dahulu!'); return; }
+      if (state.answered === 0) { alert('Kamu belum menjawab soal apa pun!'); return; }
+
+      submitBtn.disabled    = true;
+      submitBtn.textContent = '⏳ Mengirim...';
+      statusMsg.textContent = '';
+
+      // Hitung persentase nilai secara langsung untuk notifikasi
+      const hitungPersen = Math.round((state.correct / TOTAL) * 100);
+
+      // 📜 PAYLOAD YANG SUDAH DISINKRONKAN:
+      const payload = {
+        nama: nama,                       // Menggunakan variabel "nama" yang benar
+        skor: `${state.correct}/${TOTAL}`,  // Menggunakan konstanta TOTAL (15)
+        total: TOTAL,
+        benar: state.correct,
+        namaKuis: "Latihan N3 — Modul 5: よう の使い方"               // Mengambil otomatis dari variabel di atas ("Latihan N3 — Modul 5...")
+      };
+
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST', mode: 'no-cors', cache: 'no-cache',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        statusMsg.style.color = '#1e7e45';
+        statusMsg.textContent = `✅ Nilai terkirim! Skor: ${state.correct}/${TOTAL} (${hitungPersen}%)`;
+        submitBtn.textContent = '✅ Sudah Terkirim';
+      })
+      .catch(err => {
+        console.error(err);
+        statusMsg.style.color = '#c0392b';
+        statusMsg.textContent = '❌ Gagal mengirim. Periksa koneksi dan coba lagi.';
+        submitBtn.disabled    = false;
+        submitBtn.textContent = '📤 Kirim Nilai ke Sensei';
+      });
+    });
+  }
+
+})();
+</script>
