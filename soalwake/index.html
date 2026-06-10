@@ -1,0 +1,907 @@
+<!-- ============================================================
+     LATIHAN SOAL N3〜N2 — 15 Nomor
+     Modul : 「わけ」のいろいろな使い方
+     用法１ わけだ／というわけだ
+     用法２ わけにはいかない
+     用法３ ないわけにはいかない
+     + Ekspresi Turunan: わけがない・わけではない・どういうわけか
+     WordPress → paste ke blok Custom HTML
+     ============================================================ -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&family=Source+Serif+4:wght@300;400;600&display=swap');
+
+.jlpt-wake-wrap {
+  --ink:          #1a1a1a;
+  --ink-light:    #3d3d3d;
+  --ink-muted:    #707070;
+  --paper:        #faf9f7;
+  --paper-warm:   #f5f3ef;
+  --rule:         #d8d4cc;
+  --correct:      #1e7e45;
+  --correct-bg:   #edfaf3;
+  --correct-bd:   #6fcf97;
+  --wrong:        #c0392b;
+  --wrong-bg:     #fff0ef;
+  --wrong-bd:     #e07070;
+  --acc:          #c0392b;   /* merah — identitas modul わけ */
+  --acc-soft:     #fdf0ee;
+  --acc-gold:     #a08030;
+  --acc-indigo:   #2c3e6b;
+  --badge-n3:     #6b4a2a;
+  --badge-n2:     #7a2a6b;
+  --font-jp:   'Noto Serif JP', serif;
+  --font-ui:   'Noto Sans JP', sans-serif;
+  --font-body: 'Source Serif 4', 'Noto Serif JP', serif;
+  font-family: var(--font-body);
+  color: var(--ink);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.jlpt-wake-wrap .qhdr {
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 12px 12px 0 0;
+  padding: 24px 28px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.jlpt-wake-wrap .qhdr::after {
+  content: 'わけ';
+  position: absolute;
+  right: 28px; top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-jp);
+  font-size: 110px; font-weight: 700; line-height: 1;
+  color: rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+.jlpt-wake-wrap .qhdr-inner { position: relative; }
+.jlpt-wake-wrap .qhdr h2 {
+  font-family: var(--font-jp);
+  font-size: 20px; font-weight: 700;
+  color: #f0e6c8; margin: 0 0 5px;
+}
+.jlpt-wake-wrap .qhdr p {
+  font-family: var(--font-ui); font-size: 12px;
+  color: rgba(255,255,255,0.48); margin: 0; line-height: 1.7;
+}
+.jlpt-wake-wrap .hdr-badges {
+  display: flex; gap: 7px; flex-wrap: wrap; margin-top: 12px;
+}
+.jlpt-wake-wrap .hb {
+  font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em; padding: 3px 9px; border-radius: 3px;
+  color: #fff;
+}
+.jlpt-wake-wrap .hb-n3 { background: var(--badge-n3); }
+.jlpt-wake-wrap .hb-n2 { background: var(--badge-n2); }
+.jlpt-wake-wrap .hb-chip {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.7);
+}
+
+/* ── Top Panel ── */
+.jlpt-wake-wrap .top-panel {
+  background: var(--paper-warm);
+  border: 1px solid var(--rule); border-top: none;
+  padding: 14px 20px; margin-bottom: 18px;
+  display: flex; flex-wrap: wrap; gap: 12px;
+  align-items: center; justify-content: space-between;
+}
+.jlpt-wake-wrap .name-field {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-ui); font-size: 13px; font-weight: 600;
+  color: var(--ink-light);
+}
+.jlpt-wake-wrap .name-field input {
+  padding: 7px 12px;
+  border: 1.5px solid var(--rule); border-radius: 6px;
+  font-family: var(--font-ui); font-size: 13px; width: 190px;
+  outline: none; transition: border-color 0.2s; background: #fff;
+}
+.jlpt-wake-wrap .name-field input:focus { border-color: var(--acc); }
+.jlpt-wake-wrap .score-display {
+  font-family: var(--font-ui); font-size: 13px; color: var(--ink-light);
+  display: flex; align-items: center; gap: 5px;
+}
+.jlpt-wake-wrap .snum { font-size: 22px; font-weight: 700; color: var(--acc); line-height: 1; }
+
+/* ── Section Divider ── */
+.jlpt-wake-wrap .sec-label {
+  display: flex; align-items: center; gap: 10px;
+  margin: 20px 0 9px;
+  font-family: var(--font-ui); font-size: 10.5px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted);
+}
+.jlpt-wake-wrap .sec-label::before,
+.jlpt-wake-wrap .sec-label::after { content:''; flex:1; height:1px; background:var(--rule); }
+.jlpt-wake-wrap .sec-label span {
+  color: #fff; padding: 3px 11px; border-radius: 3px;
+  font-size: 10px; white-space: nowrap;
+}
+.jlpt-wake-wrap .sl-1 span { background: var(--badge-n3); }
+.jlpt-wake-wrap .sl-2 span { background: var(--badge-n2); }
+.jlpt-wake-wrap .sl-3 span { background: var(--badge-n2); }
+.jlpt-wake-wrap .sl-x span { background: var(--acc-indigo); }
+
+/* ── Card ── */
+.jlpt-wake-wrap details {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--acc);
+  border-radius: 10px;
+  margin-bottom: 9px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.045);
+  transition: box-shadow 0.2s;
+}
+.jlpt-wake-wrap details.u1 { border-left-color: var(--badge-n3); }
+.jlpt-wake-wrap details.u2 { border-left-color: var(--badge-n2); }
+.jlpt-wake-wrap details.u3 { border-left-color: #7a2a6b; }
+.jlpt-wake-wrap details.ux { border-left-color: var(--acc-indigo); }
+.jlpt-wake-wrap details[open] { box-shadow: 0 4px 18px rgba(0,0,0,0.09); }
+
+.jlpt-wake-wrap summary {
+  cursor: pointer; padding: 13px 17px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-ui); font-size: 13.5px; font-weight: 600;
+  color: var(--ink); list-style: none; user-select: none;
+  background: var(--paper-warm); transition: background 0.15s;
+}
+.jlpt-wake-wrap summary::-webkit-details-marker { display: none; }
+.jlpt-wake-wrap summary:hover { background: #ece8df; }
+
+.jlpt-wake-wrap .q-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 28px; height: 28px; border-radius: 50%;
+  font-size: 11px; font-weight: 700; color: #fff; flex-shrink: 0;
+}
+.jlpt-wake-wrap details.u1 .q-num { background: var(--badge-n3); }
+.jlpt-wake-wrap details.u2 .q-num { background: var(--badge-n2); }
+.jlpt-wake-wrap details.u3 .q-num { background: #7a2a6b; }
+.jlpt-wake-wrap details.ux .q-num { background: var(--acc-indigo); }
+
+.jlpt-wake-wrap .q-preview {
+  flex: 1; font-family: var(--font-jp); font-size: 13.5px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;
+}
+.jlpt-wake-wrap .q-tag {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
+  padding: 2px 7px; border-radius: 3px; color: #fff; flex-shrink: 0;
+}
+.jlpt-wake-wrap details.u1 .q-tag { background: var(--badge-n3); }
+.jlpt-wake-wrap details.u2 .q-tag { background: var(--badge-n2); }
+.jlpt-wake-wrap details.u3 .q-tag { background: #7a2a6b; }
+.jlpt-wake-wrap details.ux .q-tag { background: var(--acc-indigo); }
+
+.jlpt-wake-wrap .q-chevron {
+  font-size: 11px; color: var(--ink-muted);
+  transition: transform 0.2s; flex-shrink: 0; margin-left: 3px;
+}
+.jlpt-wake-wrap details[open] summary .q-chevron { transform: rotate(180deg); }
+
+/* ── Body ── */
+.jlpt-wake-wrap .quiz-body {
+  padding: 17px 19px 19px; border-top: 1px solid var(--rule);
+}
+.jlpt-wake-wrap .quiz-question {
+  font-family: var(--font-jp); font-size: 17px; line-height: 2.1;
+  color: var(--ink); margin-bottom: 15px; padding: 12px 16px;
+  background: #f5f0f0; border-radius: 8px;
+}
+.jlpt-wake-wrap details.u1 .quiz-question { border-left: 3px solid var(--badge-n3); }
+.jlpt-wake-wrap details.u2 .quiz-question { border-left: 3px solid var(--badge-n2); }
+.jlpt-wake-wrap details.u3 .quiz-question { border-left: 3px solid #7a2a6b; }
+.jlpt-wake-wrap details.ux .quiz-question { border-left: 3px solid var(--acc-indigo); background: #f0f2f8; }
+
+.jlpt-wake-wrap .blank {
+  display: inline-block; min-width: 64px;
+  border-bottom: 2.5px solid var(--acc);
+  color: var(--acc); font-weight: 700; text-align: center; padding: 0 3px;
+}
+.jlpt-wake-wrap .q-tr {
+  display: block; font-family: var(--font-ui); font-size: 12.5px;
+  color: var(--ink-muted); font-style: italic; margin-top: 5px; line-height: 1.5;
+}
+.jlpt-wake-wrap .q-ctx {
+  display: block; font-family: var(--font-ui); font-size: 11.5px;
+  color: #8a5a00; background: #fff8e0; padding: 4px 10px;
+  border-radius: 4px; margin-top: 7px;
+}
+
+/* ── Options ── */
+.jlpt-wake-wrap .options-list {
+  display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;
+}
+.jlpt-wake-wrap .option-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; border: 2px solid var(--rule); border-radius: 8px;
+  background: #fff; cursor: pointer; font-family: var(--font-jp);
+  font-size: 14.5px; color: var(--ink); text-align: left; width: 100%;
+  line-height: 1.65; transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+.jlpt-wake-wrap .option-btn:hover:not([disabled]) {
+  border-color: var(--acc); background: var(--acc-soft); transform: translateX(3px);
+}
+.jlpt-wake-wrap .opt-label {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #e8e5e0; font-family: var(--font-ui); font-size: 11px;
+  font-weight: 700; flex-shrink: 0; transition: background 0.15s, color 0.15s;
+}
+.jlpt-wake-wrap .opt-text { flex: 1; }
+.jlpt-wake-wrap .opt-icon { font-size: 14px; flex-shrink: 0; opacity: 0; transition: opacity 0.2s; }
+
+.jlpt-wake-wrap .option-btn.is-correct {
+  border-color: var(--correct-bd); background: var(--correct-bg);
+  animation: pulse-c .3s ease;
+}
+.jlpt-wake-wrap .option-btn.is-correct .opt-label { background: var(--correct); color: #fff; }
+.jlpt-wake-wrap .option-btn.is-correct .opt-icon { opacity: 1; }
+.jlpt-wake-wrap .option-btn.is-wrong {
+  border-color: var(--wrong-bd); background: var(--wrong-bg);
+  animation: shake-w .3s ease;
+}
+.jlpt-wake-wrap .option-btn.is-wrong .opt-label { background: var(--wrong); color: #fff; }
+.jlpt-wake-wrap .option-btn.is-wrong .opt-icon { opacity: 1; }
+.jlpt-wake-wrap .option-btn.is-locked { opacity: 0.42; pointer-events: none; cursor: not-allowed; }
+
+/* ── Pembahasan ── */
+.jlpt-wake-wrap .pembahasan {
+  display: none; background: #fffdf0;
+  border: 1px solid #e8d89a; border-left: 4px solid var(--acc-gold);
+  border-radius: 8px; padding: 13px 16px;
+  font-size: 13px; line-height: 1.85; color: #4a3800;
+  margin-top: 4px; animation: fadeIn .3s ease;
+}
+.jlpt-wake-wrap .pembahasan.show { display: block; }
+.jlpt-wake-wrap .p-title {
+  font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--acc-gold); margin-bottom: 7px;
+}
+.jlpt-wake-wrap .p-kunci {
+  font-family: var(--font-jp); font-size: 14px; font-weight: 700;
+  color: var(--correct); margin-bottom: 6px;
+}
+.jlpt-wake-wrap .p-yoho {
+  display: inline-block; font-family: var(--font-ui); font-size: 10px;
+  font-weight: 700; padding: 1px 8px; border-radius: 3px;
+  background: var(--acc); color: #fff; margin-bottom: 7px;
+}
+.jlpt-wake-wrap .p-tip {
+  margin-top: 8px; padding: 7px 11px;
+  background: rgba(44,62,107,0.07); border-radius: 5px;
+  font-size: 12px; color: var(--acc-indigo); font-family: var(--font-ui);
+}
+.jlpt-wake-wrap .p-tip::before { content: '⚡ Cara cepat: '; font-weight: 700; }
+
+/* ── Submit ── */
+.jlpt-wake-wrap .submit-area {
+  text-align: center; margin-top: 26px;
+  padding-top: 20px; border-top: 1px solid var(--rule);
+}
+.jlpt-wake-wrap #wake-submit-btn {
+  background: #1a1a1a; color: #fff; border: none;
+  padding: 13px 36px; border-radius: 30px;
+  font-family: var(--font-ui); font-size: 15px; font-weight: 700;
+  cursor: pointer; transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.22);
+}
+.jlpt-wake-wrap #wake-submit-btn:hover { background: #c0392b; transform: translateY(-1px); }
+.jlpt-wake-wrap #wake-submit-btn:disabled { background: #888; cursor: not-allowed; transform: none; }
+.jlpt-wake-wrap #wake-status {
+  margin-top: 11px; font-family: var(--font-ui); font-size: 14px; font-weight: 600;
+}
+
+/* ── Animations ── */
+@keyframes pulse-c { 0%{transform:scale(1)} 50%{transform:scale(1.012)} 100%{transform:scale(1)} }
+@keyframes shake-w { 0%{transform:translateX(0)} 20%{transform:translateX(-5px)} 40%{transform:translateX(5px)} 60%{transform:translateX(-3px)} 80%{transform:translateX(3px)} 100%{transform:translateX(0)} }
+@keyframes fadeIn  { from{opacity:0;transform:translateY(-5px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── Responsive ── */
+@media (max-width:600px){
+  .jlpt-wake-wrap .qhdr::after { font-size:70px; }
+  .jlpt-wake-wrap .top-panel { padding:12px 13px; }
+  .jlpt-wake-wrap .name-field input { width:150px; }
+  .jlpt-wake-wrap .quiz-question { font-size:15px; padding:11px 13px; }
+  .jlpt-wake-wrap summary { padding:11px 13px; font-size:13px; }
+  .jlpt-wake-wrap .option-btn { font-size:13.5px; padding:10px 12px; }
+}
+</style>
+
+<!-- ═══════════ HTML ═══════════ -->
+<div class="jlpt-wake-wrap">
+
+<!-- Header -->
+<div class="qhdr">
+  <div class="qhdr-inner">
+    <h2>📝 Latihan Soal — 「わけ」のいろいろな使い方</h2>
+    <p>N3〜N2 &nbsp;|&nbsp; 15 Soal Pilihan Ganda &nbsp;|&nbsp; 用法 1〜3 + Ekspresi Turunan</p>
+    <div class="hdr-badges">
+      <span class="hb hb-n3">N3</span>
+      <span class="hb hb-n2">N2</span>
+      <span class="hb hb-chip">わけだ</span>
+      <span class="hb hb-chip">というわけだ</span>
+      <span class="hb hb-chip">わけにはいかない</span>
+      <span class="hb hb-chip">ないわけにはいかない</span>
+      <span class="hb hb-chip">わけがない・わけではない</span>
+    </div>
+  </div>
+</div>
+
+<!-- Name + Score -->
+<div class="top-panel">
+  <div class="name-field">
+    <label for="wake-name">👤 Nama:</label>
+    <input type="text" id="wake-name" placeholder="Masukkan nama kamu...">
+  </div>
+  <div class="score-display">
+    Skor: <span class="snum" id="wake-score">0</span>/15
+    &nbsp;|&nbsp; <span id="wake-correct">0</span> benar
+  </div>
+</div>
+
+<!-- ══ 用法１ わけだ ══ -->
+<div class="sec-label sl-1"><span>用法１ · わけだ／というわけだ — N3</span></div>
+
+<!-- SOAL 1 -->
+<details class="quiz-card u1">
+  <summary>
+    <span class="q-num">1</span>
+    <span class="q-preview">毎朝５時に起きているなら、眠い___。</span>
+    <span class="q-tag">わけだ</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      毎朝５時に起きているなら、眠い<span class="blank">___</span>。
+      <span class="q-tr">Kalau bangun jam 5 setiap pagi, pantas saja ngantuk.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">はずだ</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">わけだ</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">らしい</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ようだ</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法１ — わけだ</div>
+      <div class="p-kunci">Jawaban: B — わけだ</div>
+      <p>Fakta konkret (bangun jam 5 tiap hari) → kesimpulan logis yang tak terbantahkan (ngantuk). Ini adalah fungsi inti わけだ: "pantas saja / berarti memang". はずだ berarti "seharusnya" (ekspektasi/dugaan); らしい berarti "sepertinya/katanya" (bukti tidak langsung/hearsay); ようだ berarti "sepertinya" (pengamatan langsung tapi tidak pasti).</p>
+      <div class="p-tip">Ada fakta konkret → tarik kesimpulan yang masuk akal → わけだ. Kalau hanya perkiraan/dugaan → はずだ.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 2 -->
+<details class="quiz-card u1">
+  <summary>
+    <span class="q-num">2</span>
+    <span class="q-preview">彼女は小さい頃からピアノを習っていた___、上手な___。</span>
+    <span class="q-tag">わけだ</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      彼女は小さい頃からピアノを習っていた<span class="blank">___</span>、上手な<span class="blank" style="min-width:52px;">___</span>。
+      <span class="q-tr">Dia belajar piano sejak kecil, ___, permainannya memang bagus ___.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">ので ／ はずだ</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">のだから ／ わけだ</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">から ／ らしい</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">けれど ／ わけだ</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法１ — わけだ</div>
+      <div class="p-kunci">Jawaban: B — のだから ／ わけだ</div>
+      <p>Pola klasik: 「〜のだから、〜わけだ」= fakta yang diketahui (のだから) → kesimpulan logis (わけだ). のだから menegaskan landasan fakta; わけだ menarik kesimpulan. ので + はずだ tidak salah secara gramatikal tapi nuansanya berbeda — はずだ lebih ke ekspektasi, bukan kesimpulan dari fakta yang sudah terbukti. けれど kontradiktif, tidak bisa berpasangan dengan わけだ.</p>
+      <div class="p-tip">〜のだから＋わけだ = pasangan klasik. のだから memperkuat fakta; わけだ menyimpulkan.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 3 -->
+<details class="quiz-card u1">
+  <summary>
+    <span class="q-num">3</span>
+    <span class="q-preview">つまり、今月の赤字は新規投資によるもの___。</span>
+    <span class="q-tag">というわけだ</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      つまり、今月の赤字は新規投資によるものだ<span class="blank">___</span>。
+      <span class="q-tr">Singkatnya, defisit bulan ini disebabkan oleh investasi baru ___. (Merangkum presentasi)</span>
+      <span class="q-ctx">Konteks: pembicara baru selesai menjelaskan laporan keuangan panjang</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">わけがない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">わけにはいかない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">というわけです</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">わけではない</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法１ — というわけだ (merangkum)</div>
+      <div class="p-kunci">Jawaban: C — というわけです</div>
+      <p>「つまり〜というわけです」= merangkum penjelasan panjang menjadi satu kalimat inti. Ini fungsi khusus というわけだ yang berbeda dari わけだ biasa. Konteks presentasi formal → bentuk polite (です). わけがない = tidak mungkin; わけにはいかない = tidak bisa melakukan; わけではない = bukan berarti.</p>
+      <div class="p-tip">つまり / 要するに + というわけだ = kesimpulan rangkuman. Sering muncul di akhir presentasi atau penjelasan panjang.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 4 -->
+<details class="quiz-card u1">
+  <summary>
+    <span class="q-num">4</span>
+    <span class="q-preview">1日10単語覚えれば、1年で___単語覚える___。</span>
+    <span class="q-tag">わけだ</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      1日10単語覚えれば、1年で3650単語覚える<span class="blank">___</span>。
+      <span class="q-tr">Kalau hafal 10 kata per hari, berarti dalam setahun akan hafal 3.650 kata.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">はずだ</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">らしい</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">かもしれない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">D</span><span class="opt-text">わけだ</span><span class="opt-icon">✓</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法１ — わけだ (kalkulasi logis)</div>
+      <div class="p-kunci">Jawaban: D — わけだ</div>
+      <p>Ini adalah fungsi わけだ untuk <em>kalkulasi matematis / logis yang tak terbantahkan</em>: 10 × 365 = 3.650. Hasilnya pasti, bukan perkiraan. はずだ mengandung nuansa "seharusnya" (mungkin ada hambatan); かもしれない terlalu tidak pasti; らしい mengandung unsur hearsay. Kalkulasi logis yang pasti → わけだ.</p>
+      <div class="p-tip">Rumus/hitungan menghasilkan kesimpulan pasti → わけだ. Bukan はずだ, bukan かもしれない.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 5 -->
+<details class="quiz-card u1">
+  <summary>
+    <span class="q-num">5</span>
+    <span class="q-preview">な形容詞 + ___わけだ。正しい接続は？</span>
+    <span class="q-tag">接続</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      「大変」という<em>な形容詞</em>に接続する場合、正しい形はどれですか？
+      <span class="q-tr">Cara menyambungkan na-adjektiva "taihen (大変)" ke わけだ yang benar adalah?</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">大変わけだ</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">大変いわけだ</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">大変なわけだ</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">大変だわけだ</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法１ — Koneksi Na-Adjektiva</div>
+      <div class="p-kunci">Jawaban: C — 大変なわけだ</div>
+      <p>Na-adjektiva dan nomina wajib menggunakan <strong>な</strong> sebelum わけ: 大変<strong>な</strong>わけだ。Bandingkan: い形容詞 langsung tanpa な (忙し<em>い</em>わけだ ✓). Nomina juga butuh な: 学生<strong>な</strong>わけだ. Ini adalah jebakan klasik yang sering muncul di JLPT.</p>
+      <div class="p-tip">Na-adj／Nomina + <strong>な</strong> + わけだ. い-adj + わけだ langsung. Jangan tertukar!</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ 用法２ わけにはいかない ══ -->
+<div class="sec-label sl-2"><span>用法２ · わけにはいかない — N2</span></div>
+
+<!-- SOAL 6 -->
+<details class="quiz-card u2">
+  <summary>
+    <span class="q-num">6</span>
+    <span class="q-preview">大切な発表の前日なのに、お酒を飲む___。</span>
+    <span class="q-tag">わけにはいかない</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      大切な発表の前日なのに、お酒を飲む<span class="blank">___</span>。
+      <span class="q-tr">Padahal besok presentasi penting, tidak mungkin bisa minum alkohol.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">ないわけにはいかない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">わけだ</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">わけにはいかない</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">てはいけない</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法２ — わけにはいかない</div>
+      <div class="p-kunci">Jawaban: C — わけにはいかない</div>
+      <p>Hambatan datang dari <em>dalam diri</em>: rasa tanggung jawab terhadap presentasi penting besok. Tidak ada yang melarang secara eksplisit. てはいけない salah karena itu larangan dari <em>luar</em> (aturan). ないわけにはいかない adalah kebalikannya: "terpaksa harus minum" — maknanya berlawanan. わけだ adalah kesimpulan logis, bukan menyatakan ketidakmungkinan.</p>
+      <div class="p-tip">わけにはいかない = hambatan dari DALAM diri (rasa tanggung jawab, moral). てはいけない = larangan dari LUAR (aturan, orang lain).</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 7 -->
+<details class="quiz-card u2">
+  <summary>
+    <span class="q-num">7</span>
+    <span class="q-preview">社長に直接頼まれたので、断る___。</span>
+    <span class="q-tag">わけにはいかない</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      社長に直接頼まれたので、断る<span class="blank">___</span>。
+      <span class="q-tr">Karena diminta langsung oleh direktur, tidak mungkin bisa menolak.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">わけがない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">わけではない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">ないわけにはいかない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">D</span><span class="opt-text">わけにはいかない</span><span class="opt-icon">✓</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法２ — わけにはいかない</div>
+      <div class="p-kunci">Jawaban: D — わけにはいかない</div>
+      <p>「断る」(menolak) + わけにはいかない = tidak bisa melakukan tindakan tersebut karena hambatan sosial (hierarki perusahaan). わけがない = tidak mungkin (kemustahilan logis, bukan hambatan sosial). わけではない = bukan berarti. ないわけにはいかない akan bermakna "terpaksa harus menolak" — berlawanan.</p>
+      <div class="p-tip">わけにはいかない selalu V辞書形 (bentuk kamus positif) + わけにはいかない. Tindakan positifnya yang "tidak bisa dilakukan".</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 8 -->
+<details class="quiz-card u2">
+  <summary>
+    <span class="q-num">8</span>
+    <span class="q-preview">同じ間違いを何度も繰り返す___と思い、頑張った。</span>
+    <span class="q-tag">わけにはいかない</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      同じ間違いを何度も繰り返す<span class="blank">___</span>と思い、必死に練習した。
+      <span class="q-tr">Berpikir bahwa tidak boleh terus mengulangi kesalahan yang sama, aku berlatih mati-matian.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">わけだ</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">わけがない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">わけにはいかない</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">わけではない</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法２ — わけにはいかない (dorongan internal)</div>
+      <div class="p-kunci">Jawaban: C — わけにはいかない</div>
+      <p>Hambatan di sini adalah rasa harga diri dan motivasi internal: "tidak etis / tidak boleh bagi saya untuk terus mengulangi kesalahan". Ini motivasi dari dalam yang mendorong dia berlatih keras. わけがない = kemustahilan logis (dia "tidak mungkin" mengulangi → maknanya beda). わけだ = kesimpulan logis (tidak cocok di sini karena tidak ada fakta → kesimpulan).</p>
+      <div class="p-tip">わけにはいかない bisa menyatakan hambatan dari harga diri / motivasi pribadi, bukan hanya norma sosial.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 9 -->
+<details class="quiz-card u2">
+  <summary>
+    <span class="q-num">9</span>
+    <span class="q-preview">体調が悪くても、大会当日は棄権する___。</span>
+    <span class="q-tag">わけにはいかない</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      体調が悪くても、大会当日は棄権する<span class="blank">___</span>。
+      <span class="q-tr">Meski kondisi badan tidak fit, tidak mungkin bisa mundur di hari kompetisi.</span>
+      <span class="q-ctx">Pilih pasangan yang paling tepat dan wajar secara nuansa.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">わけにはいかない／棄権することを強く望む</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">わけにはいかない／チームのために出場を決意する</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">ないわけにはいかない／チームのために出場を決意する</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">わけだ／体調管理が大事だと感じる</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法２ — わけにはいかない + konteks</div>
+      <div class="p-kunci">Jawaban: B</div>
+      <p>「棄権するわけにはいかない」= tidak bisa mundur (hambatan: tanggung jawab ke tim). Tindakan yang dihalangi adalah "棄権する (mundur)". Konsekuensi logisnya: memutuskan untuk tetap bertanding demi tim. Pilihan C salah karena ないわけにはいかない berarti "terpaksa harus mundur" — berlawanan. Pilihan A absurd karena kontradiksi nuansa.</p>
+      <div class="p-tip">Setelah わけにはいかない (tidak bisa melakukan X), konsekuensinya adalah melakukan Y (kebalikan X). Cek konsistensi konteks.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ 用法３ ないわけにはいかない ══ -->
+<div class="sec-label sl-3"><span>用法３ · ないわけにはいかない — N2</span></div>
+
+<!-- SOAL 10 -->
+<details class="quiz-card u3">
+  <summary>
+    <span class="q-num">10</span>
+    <span class="q-preview">迷惑をかけたのだから、謝ら___。</span>
+    <span class="q-tag">ないわけにはいかない</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      迷惑をかけてしまったのだから、謝ら<span class="blank">___</span>。
+      <span class="q-tr">Karena sudah menyusahkan orang, terpaksa harus minta maaf.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">なければならない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">わけにはいかない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">ないわけにはいかない</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">わけがない</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法３ — ないわけにはいかない</div>
+      <div class="p-kunci">Jawaban: C — ないわけにはいかない</div>
+      <p>「謝らないわけにはいかない」= negasi ganda → terpaksa harus minta maaf, meski mungkin tidak ingin. Ada nuansa keterpaksaan/keberatan yang tidak bisa dihindari karena rasa bersalah. なければならない juga gramatikal tapi <em>lebih netral</em> — tidak mengandung nuansa keberatan/keterpaksaan yang khas ないわけにはいかない. わけにはいかない berlawanan (tidak bisa minta maaf).</p>
+      <div class="p-tip">ないわけにはいかない ≠ なければならない. Yang pertama mengandung nuansa "sebetulnya tidak ingin, tapi terpaksa harus". Yang kedua lebih netral.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 11 -->
+<details class="quiz-card u3">
+  <summary>
+    <span class="q-num">11</span>
+    <span class="q-preview">友達が困っているのに、助け___よ。</span>
+    <span class="q-tag">ないわけにはいかない</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      友達が困っているのに、助け<span class="blank">___</span>よ。
+      <span class="q-tr">Masa temannya sedang susah, ya mau tidak mau harus membantu, dong.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">るわけにはいかない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">ないわけにはいかない</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">るわけがない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ないわけだ</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法３ — ないわけにはいかない (dilema personal)</div>
+      <div class="p-kunci">Jawaban: B — ないわけにはいかない</div>
+      <p>「助けないわけにはいかない」= tidak bisa tidak membantu → terpaksa harus membantu (karena rasa persahabatan/moral). 助け + ない + わけにはいかない. 助けるわけにはいかない (pilihan A) akan bermakna "tidak bisa membantu" — maknanya berlawanan. わけがない = kemustahilan logis. ないわけだ tidak ada sebagai pola gramatikal standar.</p>
+      <div class="p-tip">助け<strong>ない</strong>わけにはいかない = tidak bisa TIDAK membantu = terpaksa harus membantu. Perhatikan posisi ない.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 12 -->
+<details class="quiz-card u3">
+  <summary>
+    <span class="q-num">12</span>
+    <span class="q-preview">「ないわけにはいかない」と「ざるを得ない」の違いは？</span>
+    <span class="q-tag">比較問題</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      「ないわけにはいかない」と「ざるを得ない」に関して、正しい説明はどれですか？
+      <span class="q-tr">Mana penjelasan yang benar tentang perbedaan keduanya?</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">「ざるを得ない」の方が口語的で気軽に使える。</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">どちらも同じ意味で、完全に入れ替えて使える。</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">「ざるを得ない」の方が強制・やむを得ない感が強く、よりフォーマルな場面で使われる。</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">「ないわけにはいかない」は外部からの強制を表し、「ざるを得ない」は内部からの意志を表す。</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">用法３ — Perbandingan Pola Kewajiban</div>
+      <div class="p-kunci">Jawaban: C</div>
+      <p>Urutan kekuatan nuansa keterpaksaan: <strong>なければならない ＜ ないわけにはいかない ＜ ざるを得ない</strong>. ざるを得ない adalah ekspresi paling kuat dan formal, digunakan ketika benar-benar tidak ada pilihan lain sama sekali. Keduanya menyatakan dorongan dari dalam (bukan larangan luar). A salah — ざるを得ない justru lebih formal. B salah — nuansanya berbeda. D terbalik.</p>
+      <div class="p-tip">Tingkatan: なければならない (netral) → ないわけにはいかない (ada keberatan) → ざるを得ない (paling terpaksa/formal).</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ Ekspresi Turunan ══ -->
+<div class="sec-label sl-x"><span>Ekspresi Turunan — わけがない · わけではない · どういうわけか</span></div>
+
+<!-- SOAL 13 -->
+<details class="quiz-card ux">
+  <summary>
+    <span class="q-num">13</span>
+    <span class="q-preview">あの人が犯人の___。彼はずっとここにいた。</span>
+    <span class="q-tag">わけがない</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      あの人が犯人な<span class="blank">___</span>。彼はずっとここにいたんだから。
+      <span class="q-tr">Tidak mungkin dia pelakunya. Dia sudah di sini terus dari tadi.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">わけだ</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">わけではない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">わけがない</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">わけにはいかない</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">Turunan — わけがない (kemustahilan logis)</div>
+      <div class="p-kunci">Jawaban: C — わけがない</div>
+      <p>「〜わけがない」= tidak mungkin sama sekali (secara logis mustahil). Pembicara punya bukti kuat: dia ada di sini terus. わけではない = "bukan berarti" (sanggahan halus, tidak sekuat ini). わけだ = kesimpulan logis (berlawanan — itu akan menyimpulkan dia ADALAH pelaku). Jangan tertukar: わけが<em>ない</em> (kemustahilan) vs わけで<em>はない</em> (sanggahan halus).</p>
+      <div class="p-tip">わけがない = tidak mungkin (ada bukti logis). わけではない = bukan berarti (sanggahan halus terhadap asumsi). Bentuknya mirip, maknanya beda!</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 14 -->
+<details class="quiz-card ux">
+  <summary>
+    <span class="q-num">14</span>
+    <span class="q-preview">彼が嫌いな___。ただ、今は話しかけたくないだけ。</span>
+    <span class="q-tag">わけではない</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      彼が嫌いな<span class="blank">___</span>。ただ、今は話しかけたくないだけ。
+      <span class="q-tr">Bukan berarti aku tidak suka dia. Hanya saja sekarang tidak ingin diajak bicara.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">わけがない</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">わけではない</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">わけだ</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">わけにはいかない</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">Turunan — わけではない (sanggahan halus)</div>
+      <div class="p-kunci">Jawaban: B — わけではない</div>
+      <p>「〜わけではない」= "bukan berarti ~" / "tidak selalu begitu" → menyangkal asumsi lawan bicara secara halus. Di sini pembicara mengoreksi kesan bahwa dia tidak suka — "bukan tidak suka, hanya tidak mau bicara sekarang". Ini berbeda dari わけがない yang menyatakan kemustahilan logis dengan bukti kuat.</p>
+      <div class="p-tip">わけではない sangat berguna untuk mengklarifikasi: "jangan salah paham, bukan berarti X". Sering berpasangan dengan ただ / でも sesudahnya.</div>
+    </div>
+  </div>
+</details>
+
+<!-- SOAL 15 -->
+<details class="quiz-card ux">
+  <summary>
+    <span class="q-num">15</span>
+    <span class="q-preview">総合判別 — 文中の「わけ」はどの用法？</span>
+    <span class="q-tag">総合</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      次の文の「わけ」の用法として最も適切なものはどれですか？<br>
+      <span style="display:block;margin-top:8px;font-size:16px;line-height:2.2;">
+        「契約を結んだ以上、途中でやめる<strong>わけにはいかない</strong>。そう<strong>いうわけで</strong>、もう少し続けることにした。」
+      </span>
+      <span class="q-tr">"Karena kontrak sudah ditandatangani, tidak mungkin berhenti di tengah jalan. Oleh karena itu, aku memutuskan untuk melanjutkan sedikit lagi."</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">両方とも 用法１（わけだ）— kesimpulan logis</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">両方とも 用法３（ないわけにはいかない）— keterpaksaan</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">わけにはいかない＝用法２、そういうわけで＝「oleh karena itu」(接続詞的用法)</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">わけにはいかない＝用法３、そういうわけで＝用法１</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-yoho">総合判別問題</div>
+      <div class="p-kunci">Jawaban: C</div>
+      <p>Kalimat pertama: 「やめるわけにはいかない」= tidak bisa berhenti karena hambatan moral/komitmen kontrak → <strong>用法２</strong>. Kalimat kedua: 「そういうわけで」= "oleh karena itu / dengan demikian" → ini adalah ekspresi turunan fungsi konjungtif yang merangkum alasan sebelumnya dan menyambung ke konsekuensi. Bukan 用法３ karena bukan negasi ganda; bukan 用法１ (わけだ) karena tidak menarik kesimpulan dari fakta baru.</p>
+      <div class="p-tip">そういうわけで = "oleh karena itu / demikianlah". Frasa konjungtif formal, sering di akhir paragraf. Hafalkan sebagai frasa utuh.</div>
+    </div>
+  </div>
+</details>
+
+<!-- Submit -->
+<div class="submit-area">
+  <button id="wake-submit-btn">📤 Kirim Nilai ke Sensei</button>
+  <p id="wake-status"></p>
+</div>
+
+</div><!-- .jlpt-wake-wrap -->
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+(function () {
+  'use strict';
+
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwISeCyix6brT0r_-Andnz895tdkbYEBDdgE861hbJZecAjYAZkZSlToJt2mRCHHuAhmA/exec";
+  const NAMA_KUIS = "Latihan N3 — わけ";
+  const TOTAL = 15;
+
+  const state = { answered: 0, correct: 0 };
+  const scoreEl   = document.getElementById('wake-score');
+  const correctEl = document.getElementById('wake-correct');
+  const submitBtn = document.getElementById('wake-submit-btn');
+  const statusMsg = document.getElementById('wake-status');
+
+  function updateScore() {
+    if (scoreEl)   scoreEl.textContent   = state.answered;
+    if (correctEl) correctEl.textContent = state.correct;
+  }
+
+  function handleClick(e) {
+    const btn  = e.target.closest('.option-btn');
+    if (!btn)  return;
+    const card = btn.closest('.quiz-card');
+    if (!card) return;
+
+    const allOpts = card.querySelectorAll('.option-btn');
+    const done = [...allOpts].some(b =>
+      b.classList.contains('is-correct') || b.classList.contains('is-wrong')
+    );
+    if (done) return;
+
+    const isCorrect = btn.dataset.correct === 'true';
+    btn.classList.add(isCorrect ? 'is-correct' : 'is-wrong');
+
+    allOpts.forEach(b => {
+      if (b === btn) { b.style.pointerEvents = 'none'; return; }
+      b.style.pointerEvents = 'none';
+      b.classList.add(b.dataset.correct === 'true' ? 'is-correct' : 'is-locked');
+    });
+
+    const p = card.querySelector('.pembahasan');
+    if (p) p.classList.add('show');
+
+    state.answered++;
+    if (isCorrect) state.correct++;
+    updateScore();
+  }
+
+  const wrap = document.querySelector('.jlpt-wake-wrap');
+  if (wrap) wrap.addEventListener('click', handleClick);
+
+  /* ── Kirim ke Google Sheets ── */
+  if (submitBtn) {
+    submitBtn.addEventListener('click', function () {
+      const nameEl = document.getElementById('wake-name');
+      const nama   = nameEl ? nameEl.value.trim() : '';
+
+      if (!nama) { alert('Mohon isi nama lengkap kamu terlebih dahulu!'); return; }
+      if (state.answered === 0) { alert('Kamu belum menjawab soal apa pun!'); return; }
+
+      submitBtn.disabled    = true;
+      submitBtn.textContent = '⏳ Mengirim...';
+      statusMsg.textContent = '';
+
+      // Hitung persentase nilai secara langsung untuk notifikasi
+      const hitungPersen = Math.round((state.correct / TOTAL) * 100);
+
+      // 📜 PAYLOAD YANG SUDAH DISINKRONKAN:
+      const payload = {
+        nama: nama,                       // Menggunakan variabel "nama" yang benar
+        skor: `${state.correct}/${TOTAL}`,  // Menggunakan konstanta TOTAL (15)
+        total: TOTAL,
+        benar: state.correct,
+        namaKuis: NAMA_KUIS               // Mengambil otomatis dari variabel di atas ("Latihan N3 — Modul 5...")
+      };
+
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST', mode: 'no-cors', cache: 'no-cache',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        statusMsg.style.color = '#1e7e45';
+        statusMsg.textContent = `✅ Nilai terkirim! Skor: ${state.correct}/${TOTAL} (${hitungPersen}%)`;
+        submitBtn.textContent = '✅ Sudah Terkirim';
+      })
+      .catch(err => {
+        console.error(err);
+        statusMsg.style.color = '#c0392b';
+        statusMsg.textContent = '❌ Gagal mengirim. Periksa koneksi dan coba lagi.';
+        submitBtn.disabled    = false;
+        submitBtn.textContent = '📤 Kirim Nilai ke Sensei';
+      });
+    });
+  }
+
+})();
+</script>
