@@ -1,0 +1,751 @@
+<!-- ============================================================
+     LATIHAN SOAL N5〜N2 — 15 Nomor (DIACAK)
+     Modul : 「する・なる」の整理
+     用法１  する vs なる — Prinsip Dasar
+     用法２-１ 〜く・〜に + する / なる
+     用法２-２ 〜ことに + する / なる
+     用法２-３ 〜ことに + している / なっている
+     用法２-４ 〜ように + する・している・なる・なっている
+     Soal DIACAK — tidak dikelompokkan per 用法
+     WordPress → paste ke blok Custom HTML
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&family=Source+Serif+4:wght@300;400;600&display=swap');
+
+.jlpt-sn-wrap {
+  --ink:          #1a1a1a;
+  --ink-light:    #3d3d3d;
+  --ink-muted:    #707070;
+  --paper:        #faf9f7;
+  --paper-warm:   #f5f3ef;
+  --rule:         #d8d4cc;
+  --correct:      #1e7e45;
+  --correct-bg:   #edfaf3;
+  --correct-bd:   #6fcf97;
+  --wrong:        #c0392b;
+  --wrong-bg:     #fff0ef;
+  --wrong-bd:     #e07070;
+  --suru:         #2c3e6b;
+  --naru:         #6b2a2a;
+  --suru-soft:    #eef1f9;
+  --naru-soft:    #f9eeee;
+  --gold:         #a08030;
+  --font-jp:   'Noto Serif JP', serif;
+  --font-ui:   'Noto Sans JP', sans-serif;
+  --font-body: 'Source Serif 4','Noto Serif JP',serif;
+  font-family: var(--font-body);
+  color: var(--ink);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.jlpt-sn-wrap .qhdr {
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  position: relative;
+}
+.jlpt-sn-wrap .qhdr-stripe {
+  display: flex; height: 7px;
+}
+.jlpt-sn-wrap .qhdr-stripe .s1 { flex: 1; background: var(--suru); }
+.jlpt-sn-wrap .qhdr-stripe .s2 { flex: 1; background: var(--naru); }
+
+.jlpt-sn-wrap .qhdr-body {
+  background: #1a1a1a; padding: 20px 28px 18px; position: relative; overflow: hidden;
+}
+.jlpt-sn-wrap .qhdr-body::after {
+  content: 'するなる';
+  position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+  font-family: var(--font-jp); font-size: 68px; font-weight: 700; line-height: 1;
+  color: rgba(255,255,255,0.04); pointer-events: none; white-space: nowrap;
+}
+.jlpt-sn-wrap .qhdr-inner { position: relative; }
+.jlpt-sn-wrap .qhdr-body h2 {
+  font-family: var(--font-jp); font-size: 19px; font-weight: 700;
+  color: #fff; margin: 0 0 5px;
+}
+.jlpt-sn-wrap .qhdr-body h2 .hs { color: #aac0f0; }
+.jlpt-sn-wrap .qhdr-body h2 .hn { color: #f0a0a0; }
+.jlpt-sn-wrap .qhdr-body p {
+  font-family: var(--font-ui); font-size: 12px;
+  color: rgba(255,255,255,0.45); margin: 0; line-height: 1.7;
+}
+.jlpt-sn-wrap .hdr-pills {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px;
+}
+.jlpt-sn-wrap .hp {
+  font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.07em; padding: 3px 9px; border-radius: 3px; color: #fff;
+}
+.jlpt-sn-wrap .hp-s  { background: var(--suru); }
+.jlpt-sn-wrap .hp-n  { background: var(--naru); }
+.jlpt-sn-wrap .hp-mix { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); }
+
+/* ── Shuffle Banner ── */
+.jlpt-sn-wrap .shuffle-banner {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 11px 20px;
+  background: linear-gradient(90deg, #1e2e1e 0%, #2a3e2a 100%);
+  font-family: var(--font-ui); font-size: 12.5px; color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+.jlpt-sn-wrap .shuffle-banner .si { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Top Panel ── */
+.jlpt-sn-wrap .top-panel {
+  background: var(--paper-warm);
+  border: 1px solid var(--rule); border-top: none;
+  padding: 13px 20px; margin-bottom: 14px;
+  display: flex; flex-wrap: wrap; gap: 12px;
+  align-items: center; justify-content: space-between;
+}
+.jlpt-sn-wrap .name-field {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-ui); font-size: 13px; font-weight: 600; color: var(--ink-light);
+}
+.jlpt-sn-wrap .name-field input {
+  padding: 7px 12px; border: 1.5px solid var(--rule); border-radius: 6px;
+  font-family: var(--font-ui); font-size: 13px; width: 185px;
+  outline: none; transition: border-color 0.2s; background: #fff;
+}
+.jlpt-sn-wrap .name-field input:focus { border-color: var(--suru); }
+.jlpt-sn-wrap .score-display {
+  font-family: var(--font-ui); font-size: 13px; color: var(--ink-light);
+  display: flex; align-items: center; gap: 5px;
+}
+.jlpt-sn-wrap .snum { font-size: 22px; font-weight: 700; color: var(--suru); line-height: 1; }
+
+/* ── Progress ── */
+.jlpt-sn-wrap .prog-row {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+  font-family: var(--font-ui); font-size: 11px; color: var(--ink-muted);
+}
+.jlpt-sn-wrap .prog-track {
+  flex: 1; height: 5px; background: var(--rule); border-radius: 3px; overflow: hidden;
+}
+.jlpt-sn-wrap .prog-fill {
+  height: 100%; width: 0%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--suru) 0%, var(--naru) 100%);
+  transition: width 0.4s ease;
+}
+
+/* ── Card ── */
+.jlpt-sn-wrap details {
+  background: var(--paper);
+  border: 1px solid var(--rule); border-radius: 10px;
+  margin-bottom: 9px; overflow: hidden;
+  box-shadow: 0 2px 9px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s;
+}
+.jlpt-sn-wrap details[open]   { box-shadow: 0 4px 18px rgba(0,0,0,0.09); }
+.jlpt-sn-wrap details.c-suru  { border-left: 4px solid var(--suru); }
+.jlpt-sn-wrap details.c-naru  { border-left: 4px solid var(--naru); }
+.jlpt-sn-wrap details.c-both  { border-left: 4px solid #5a3a6b; }
+
+.jlpt-sn-wrap summary {
+  cursor: pointer; padding: 12px 16px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-ui); font-size: 13.5px; font-weight: 600;
+  color: var(--ink); list-style: none; user-select: none;
+  background: var(--paper-warm); transition: background 0.15s;
+}
+.jlpt-sn-wrap summary::-webkit-details-marker { display: none; }
+.jlpt-sn-wrap summary:hover { background: #ece8df; }
+
+.jlpt-sn-wrap .q-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 28px; height: 28px; border-radius: 50%;
+  font-size: 11px; font-weight: 700; color: #fff; flex-shrink: 0;
+}
+.jlpt-sn-wrap details.c-suru .q-num { background: var(--suru); }
+.jlpt-sn-wrap details.c-naru .q-num { background: var(--naru); }
+.jlpt-sn-wrap details.c-both .q-num { background: #5a3a6b; }
+
+.jlpt-sn-wrap .q-preview {
+  flex: 1; font-family: var(--font-jp); font-size: 13.5px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;
+}
+.jlpt-sn-wrap .q-tag {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.09em;
+  padding: 2px 7px; border-radius: 3px; color: #fff; flex-shrink: 0;
+}
+.jlpt-sn-wrap details.c-suru .q-tag { background: var(--suru); }
+.jlpt-sn-wrap details.c-naru .q-tag { background: var(--naru); }
+.jlpt-sn-wrap details.c-both .q-tag { background: #5a3a6b; }
+
+.jlpt-sn-wrap .q-chevron {
+  font-size: 11px; color: var(--ink-muted);
+  transition: transform 0.2s; flex-shrink: 0; margin-left: 2px;
+}
+.jlpt-sn-wrap details[open] summary .q-chevron { transform: rotate(180deg); }
+
+/* ── Body ── */
+.jlpt-sn-wrap .quiz-body { padding: 16px 18px 18px; border-top: 1px solid var(--rule); }
+.jlpt-sn-wrap .quiz-question {
+  font-family: var(--font-jp); font-size: 17px; line-height: 2.1;
+  color: var(--ink); margin-bottom: 14px; padding: 12px 15px; border-radius: 8px;
+}
+.jlpt-sn-wrap details.c-suru .quiz-question { background: var(--suru-soft); border-left: 3px solid var(--suru); }
+.jlpt-sn-wrap details.c-naru .quiz-question { background: var(--naru-soft); border-left: 3px solid var(--naru); }
+.jlpt-sn-wrap details.c-both .quiz-question { background: #f3eef9; border-left: 3px solid #5a3a6b; }
+
+.jlpt-sn-wrap .blank {
+  display: inline-block; min-width: 64px; font-weight: 700;
+  text-align: center; padding: 0 3px;
+}
+.jlpt-sn-wrap details.c-suru .blank { border-bottom: 2.5px solid var(--suru); color: var(--suru); }
+.jlpt-sn-wrap details.c-naru .blank { border-bottom: 2.5px solid var(--naru); color: var(--naru); }
+.jlpt-sn-wrap details.c-both .blank { border-bottom: 2.5px solid #5a3a6b; color: #5a3a6b; }
+
+.jlpt-sn-wrap .q-tr  { display: block; font-family: var(--font-ui); font-size: 12px; color: var(--ink-muted); font-style: italic; margin-top: 5px; line-height: 1.5; }
+.jlpt-sn-wrap .q-ctx { display: block; font-family: var(--font-ui); font-size: 11.5px; color: #8a5a00; background: #fff8e0; padding: 3px 10px; border-radius: 4px; margin-top: 6px; }
+
+/* ── Options ── */
+.jlpt-sn-wrap .options-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 11px; }
+.jlpt-sn-wrap .option-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; border: 2px solid var(--rule); border-radius: 8px;
+  background: #fff; cursor: pointer; font-family: var(--font-jp);
+  font-size: 14.5px; color: var(--ink); text-align: left; width: 100%;
+  line-height: 1.65; transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+.jlpt-sn-wrap details.c-suru .option-btn:hover:not([disabled]) { border-color: var(--suru); background: var(--suru-soft); transform: translateX(3px); }
+.jlpt-sn-wrap details.c-naru .option-btn:hover:not([disabled]) { border-color: var(--naru); background: var(--naru-soft); transform: translateX(3px); }
+.jlpt-sn-wrap details.c-both .option-btn:hover:not([disabled]) { border-color: #5a3a6b; background: #f3eef9; transform: translateX(3px); }
+
+.jlpt-sn-wrap .opt-label {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #e8e5e0; font-family: var(--font-ui); font-size: 11px;
+  font-weight: 700; flex-shrink: 0; transition: background 0.15s, color 0.15s;
+}
+.jlpt-sn-wrap .opt-text { flex: 1; }
+.jlpt-sn-wrap .opt-icon { font-size: 14px; flex-shrink: 0; opacity: 0; transition: opacity 0.2s; }
+
+.jlpt-sn-wrap .option-btn.is-correct { border-color: var(--correct-bd); background: var(--correct-bg); animation: pulse-c .3s ease; }
+.jlpt-sn-wrap .option-btn.is-correct .opt-label { background: var(--correct); color: #fff; }
+.jlpt-sn-wrap .option-btn.is-correct .opt-icon { opacity: 1; }
+.jlpt-sn-wrap .option-btn.is-wrong   { border-color: var(--wrong-bd); background: var(--wrong-bg); animation: shake-w .3s ease; }
+.jlpt-sn-wrap .option-btn.is-wrong   .opt-label { background: var(--wrong); color: #fff; }
+.jlpt-sn-wrap .option-btn.is-wrong   .opt-icon { opacity: 1; }
+.jlpt-sn-wrap .option-btn.is-locked  { opacity: 0.42; pointer-events: none; cursor: not-allowed; }
+
+/* ── Pembahasan ── */
+.jlpt-sn-wrap .pembahasan {
+  display: none; background: #fffdf0;
+  border: 1px solid #e8d89a; border-left: 4px solid var(--gold);
+  border-radius: 8px; padding: 12px 15px;
+  font-size: 13px; line-height: 1.85; color: #4a3800;
+  margin-top: 4px; animation: fadeIn .3s ease;
+}
+.jlpt-sn-wrap .pembahasan.show { display: block; }
+.jlpt-sn-wrap .p-title { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.jlpt-sn-wrap .p-kunci { font-family: var(--font-jp); font-size: 14px; font-weight: 700; color: var(--correct); margin-bottom: 6px; }
+.jlpt-sn-wrap .p-badge {
+  display: inline-block; font-family: var(--font-ui); font-size: 10px;
+  font-weight: 700; padding: 2px 8px; border-radius: 3px; color: #fff; margin-bottom: 7px;
+}
+.jlpt-sn-wrap .pb-s { background: var(--suru); }
+.jlpt-sn-wrap .pb-n { background: var(--naru); }
+.jlpt-sn-wrap .pb-b { background: #5a3a6b; }
+.jlpt-sn-wrap .p-tip {
+  margin-top: 8px; padding: 7px 11px;
+  background: rgba(44,62,107,0.07); border-radius: 5px;
+  font-size: 12px; color: #2c3e6b; font-family: var(--font-ui);
+}
+.jlpt-sn-wrap .p-tip::before { content: '⚡ Cara cepat: '; font-weight: 700; }
+
+/* ── Submit ── */
+.jlpt-sn-wrap .submit-area { text-align: center; margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--rule); }
+.jlpt-sn-wrap #sn-submit-btn {
+  background: linear-gradient(90deg, var(--suru) 0%, var(--naru) 100%);
+  color: #fff; border: none; padding: 13px 38px; border-radius: 30px;
+  font-family: var(--font-ui); font-size: 15px; font-weight: 700;
+  cursor: pointer; transition: opacity 0.2s, transform 0.1s;
+  box-shadow: 0 3px 14px rgba(44,62,107,0.28);
+}
+.jlpt-sn-wrap #sn-submit-btn:hover    { opacity: 0.88; transform: translateY(-1px); }
+.jlpt-sn-wrap #sn-submit-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+.jlpt-sn-wrap #sn-status { margin-top: 11px; font-family: var(--font-ui); font-size: 14px; font-weight: 600; }
+
+@keyframes pulse-c { 0%{transform:scale(1)} 50%{transform:scale(1.012)} 100%{transform:scale(1)} }
+@keyframes shake-w { 0%{transform:translateX(0)} 20%{transform:translateX(-5px)} 40%{transform:translateX(5px)} 60%{transform:translateX(-3px)} 80%{transform:translateX(3px)} 100%{transform:translateX(0)} }
+@keyframes fadeIn  { from{opacity:0;transform:translateY(-5px)} to{opacity:1;transform:translateY(0)} }
+
+@media (max-width:600px){
+  .jlpt-sn-wrap .qhdr-body::after { font-size:44px; }
+  .jlpt-sn-wrap .top-panel { padding:12px 13px; }
+  .jlpt-sn-wrap .name-field input { width:148px; }
+  .jlpt-sn-wrap .quiz-question { font-size:15px; padding:10px 12px; }
+  .jlpt-sn-wrap summary { padding:11px 12px; font-size:13px; }
+  .jlpt-sn-wrap .option-btn { font-size:13.5px; padding:10px 12px; }
+}
+</style>
+
+<!-- ═══════════ HTML ═══════════ -->
+<div class="jlpt-sn-wrap">
+
+<!-- Header -->
+<div class="qhdr">
+  <div class="qhdr-stripe"><div class="s1"></div><div class="s2"></div></div>
+  <div class="qhdr-body">
+    <div class="qhdr-inner">
+      <h2>📝 Latihan Soal — <span class="hs">する</span>・<span class="hn">なる</span> の整理</h2>
+      <p>N5〜N2 &nbsp;|&nbsp; 15 Soal Pilihan Ganda &nbsp;|&nbsp; Soal Diacak Lintas 用法</p>
+      <div class="hdr-pills">
+        <span class="hp hp-mix">🔀 Soal Diacak</span>
+        <span class="hp hp-s">する — Tindakan Disengaja</span>
+        <span class="hp hp-n">なる — Perubahan Alami</span>
+        <span class="hp hp-mix">〜くに + する/なる</span>
+        <span class="hp hp-mix">ことにする/なる</span>
+        <span class="hp hp-mix">ようにする/なる/している/なっている</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="shuffle-banner">
+  <span class="si">🎯</span>
+  <span>Soal dari semua 用法 dicampur. Sebelum menjawab, tanyakan dulu pada diri sendiri: <strong>「Ada pelaku atau tidak?」「Keputusan dari dalam atau dari luar?」</strong> — itulah kunci soal する・なる.</span>
+</div>
+
+<div class="top-panel">
+  <div class="name-field">
+    <label for="sn-name">👤 Nama:</label>
+    <input type="text" id="sn-name" placeholder="Masukkan nama kamu...">
+  </div>
+  <div class="score-display">
+    Skor: <span class="snum" id="sn-score">0</span>/15
+    &nbsp;|&nbsp; <span id="sn-correct">0</span> benar
+  </div>
+</div>
+
+<div class="prog-row">
+  <span id="sn-prog-label">0 / 15 terjawab</span>
+  <div class="prog-track"><div class="prog-fill" id="sn-prog-fill"></div></div>
+</div>
+
+<!-- ══ SOAL 1 ══ -->
+<details class="quiz-card c-both">
+  <summary><span class="q-num">1</span><span class="q-preview">音楽の音を小さく___。（自分で操作した）</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      音楽の音を小さく<span class="blank">___</span>。
+      <span class="q-ctx">文脈：自分でリモコンを操作して音量を下げた</span>
+      <span class="q-tr">Saya mengecilkan volume musik. (Dilakukan sendiri secara sengaja)</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="true"><span class="opt-label">A</span><span class="opt-text">した</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">なった</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">になった</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">くなった</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-s">する — 用法１ 基本</div><div class="p-kunci">Jawaban: A — した</div>
+    <p>Ada pelaku yang sengaja mengubah sesuatu (menekan remote) → <strong>する</strong>. Pola: 音を + 小さく + する (い-adj → く + する). なった / くなった bermakna volume mengecil <em>dengan sendirinya</em> — tanpa ada yang melakukannya. になった dipakai untuk na-adj/nomina, bukan い-adj.</p>
+    <div class="p-tip">Tes cepat: "Ada orang yang melakukan?" → Ya → する. Tidak, terjadi sendiri → なる.</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 2 ══ -->
+<details class="quiz-card c-naru">
+  <summary><span class="q-num">2</span><span class="q-preview">来月から海外に赴任する___になりました。</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      来月から海外に赴任する<span class="blank">___</span>になりました。
+      <span class="q-ctx">文脈：上司から辞令をもらった社員が同僚に報告している</span>
+      <span class="q-tr">Terjadilah keadaan bahwa saya akan ditugaskan ke luar negeri mulai bulan depan.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">こと（ことになりました）</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">こと（ことに + なりました）</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">よう（ようになりました）</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">よう（ようにしました）</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-n">なる — 用法２-２ ことになる</div><div class="p-kunci">Jawaban: B — ことになりました</div>
+    <p>「〜ことになる」= keputusan atau situasi yang datang <em>dari luar</em> — perusahaan yang memutuskan, bukan orang itu sendiri. Konteks: menerima surat tugas (辞令) → bukan keputusan pribadi. ことにしました berarti dia sendiri yang memutuskan (salah untuk konteks ini). ようになる untuk perubahan kemampuan/kebiasaan, bukan keputusan organisasi.</p>
+    <div class="p-tip">Siapa yang memutuskan? Perusahaan/sistem/keadaan → ことになる. Diri sendiri → ことにする.</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 3 ══ -->
+<details class="quiz-card c-suru">
+  <summary><span class="q-num">3</span><span class="q-preview">毎晩、寝る前にスマホを見ない___にしている。</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      毎晩、寝る前にスマホを見ない<span class="blank">___</span>にしている。
+      <span class="q-tr">Setiap malam saya membiasakan diri untuk tidak melihat HP sebelum tidur.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">よう</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">こと</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">よりも</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">はず</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-s">する — 用法２-３ ことにしている</div><div class="p-kunci">Jawaban: B — こと</div>
+    <p>「〜ことにしている」= aturan/kebiasaan yang <em>ditetapkan dan dipertahankan sendiri</em> oleh subjek. Di sini: "saya sendiri yang menetapkan aturan ini untuk diri sendiri dan terus menjalankannya". ようにしている juga bermakna serupa, tapi perbedaannya: ことにしている lebih menekankan <em>aturan yang sudah ditetapkan secara sadar</em>, sementara ようにしている lebih ke <em>usaha/upaya yang terus dilakukan</em>. Di sini konteksnya aturan malam hari yang konsisten → ことにしている lebih tepat.</p>
+    <div class="p-tip">ことにしている = aturan pribadi yang sudah ditetapkan dan konsisten. ようにしている = upaya yang terus diusahakan. Keduanya する-side.</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 4 ══ -->
+<details class="quiz-card c-naru">
+  <summary><span class="q-num">4</span><span class="q-preview">この学校では、授業中に携帯を使わない___になっている。</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      この学校では、授業中に携帯を使わない<span class="blank">___</span>になっている。
+      <span class="q-tr">Di sekolah ini, sudah ada aturan bahwa HP tidak boleh digunakan saat pelajaran.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="true"><span class="opt-label">A</span><span class="opt-text">こと</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">よう</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">はず</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">もの</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-n">なる — 用法２-３ ことになっている</div><div class="p-kunci">Jawaban: A — こと</div>
+    <p>「〜ことになっている」= aturan sistem/institusi yang sudah berlaku — <em>bukan keputusan satu orang</em>, melainkan peraturan sekolah. Ciri khas: "di sekolah ini" (institusi) + ルール → ことになっている. ようになっている lebih untuk menggambarkan desain/mekanisme sistem (mis. 自動的に送られるようになっている), bukan larangan/aturan peraturan.</p>
+    <div class="p-tip">Aturan institusi/perusahaan/masyarakat yang sudah berlaku → ことになっている. Desain mekanisme alat/sistem → ようになっている.</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 5 ══ -->
+<details class="quiz-card c-both">
+  <summary><span class="q-num">5</span><span class="q-preview">息子を医者に___つもりだ vs 彼女は医者に___。</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      ①「息子を医者に<span class="blank">___</span>つもりだ。」<br>
+      ②「彼女は努力して医者に<span class="blank">___</span>。」<br>
+      <span class="q-tr">① Saya bermaksud menjadikan anak saya dokter. ② Dia menjadi dokter berkat kerja kerasnya.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">①なる ／ ②する</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">①する ／ ②する</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">①する ／ ②なった</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">①なる ／ ②なった</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-b">する vs なる — 用法２-１</div><div class="p-kunci">Jawaban: C — ①する ／ ②なった</div>
+    <p>① 「息子を医者にする」= ayah/ibu yang dari luar <em>memutuskan/memproyeksikan</em> anak jadi dokter → ada pelaku eksternal → <strong>にする</strong>. ② 「医者になった」= dia sendiri yang berproses dan <em>berhasil menjadi</em> dokter → perubahan dari dalam/proses → <strong>になる</strong>. Perbedaan inilah yang diuji: にする (dari luar) vs になる (dari dalam/proses sendiri).</p>
+    <div class="p-tip">N + にする = menjadikan dari luar (ada yang memutuskan). N + になる = menjadi sendiri melalui proses. Soal ini wajib muncul di N4〜N3!</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 6 ══ -->
+<details class="quiz-card c-suru">
+  <summary><span class="q-num">6</span><span class="q-preview">来年から早起きする___にした。</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      来年から早起きする<span class="blank">___</span>にした。
+      <span class="q-tr">Saya memutuskan untuk bangun pagi mulai tahun depan.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">よう</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">こと</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">もの</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">だけ</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-s">する — 用法２-２ ことにする</div><div class="p-kunci">Jawaban: B — こと</div>
+    <p>「〜ことにする」= keputusan sadar yang dibuat oleh subjek sendiri. Di sini: "saya sendiri yang memutuskan". ようにする berbeda: berarti "berusaha agar ~" (niat/upaya), bukan keputusan yang sudah final. Perbedaan halus: ことにした = keputusan sudah dibuat. ようにする = masih berupa upaya/niat.</p>
+    <div class="p-tip">ことにした = keputusan final (sudah diputuskan). ようにする = usaha/niat (masih berusaha). Cek: sudah diputuskan atau masih berupaya?</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 7 ══ -->
+<details class="quiz-card c-naru">
+  <summary><span class="q-num">7</span><span class="q-preview">半年間練習して、ギターが弾ける___なった。</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      半年間練習して、ギターが弾ける<span class="blank">___</span>なった。
+      <span class="q-tr">Setelah berlatih setengah tahun, akhirnya bisa bermain gitar.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">ことに</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">ように</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">ような</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ようにして</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-n">なる — 用法２-４ ようになる</div><div class="p-kunci">Jawaban: B — ように</div>
+    <p>「V可能形 + ようになる」= perubahan bertahap dari tidak bisa → bisa. Ini adalah pola ようになる: kemampuan yang berkembang secara alami setelah proses. ことになる berbeda: untuk keputusan/situasi dari luar, bukan perubahan kemampuan. ようにして = sambungan dari ようにする (usaha), bukan untuk perubahan alami.</p>
+    <div class="p-tip">Kemampuan baru: V可能形 + ようになる. Keputusan dari luar: V + ことになる. Jangan tertukar!</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 8 ══ -->
+<details class="quiz-card c-suru">
+  <summary><span class="q-num">8</span><span class="q-preview">部屋を暖かく___か、セーターを着る___か。</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      部屋を暖かく<span class="blank">___</span>か、セーターを着る<span class="blank" style="min-width:40px;">___</span>か。
+      <span class="q-tr">Haruskah menghangatkan ruangan, atau memakai sweater?</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">なる ／ なる</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">する ／ する</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">なる ／ する</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">する ／ なる</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-s">する — 用法２-１ 両者</div><div class="p-kunci">Jawaban: B — する ／ する</div>
+    <p>Kedua tindakan dilakukan secara sengaja oleh seseorang: ① "menghangatkan ruangan" (menyalakan pemanas) → 暖かく<strong>する</strong>. ② "memakai sweater" → tindakan aktif juga → <strong>する</strong>. Kalau ruangan menjadi hangat dengan sendirinya (misal matahari sore) → 暖かく<strong>なる</strong>. Kalimat ini tentang pilihan tindakan sadar.</p>
+    <div class="p-tip">Dua pilihan tindakan yang keduanya dilakukan sengaja → keduanya する. Kalau ada yang terjadi sendiri → なる.</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 9 ══ -->
+<details class="quiz-card c-naru">
+  <summary><span class="q-num">9</span><span class="q-preview">このドアは自動的に閉まる___なっている。</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      このドアは自動的に閉まる<span class="blank">___</span>なっている。
+      <span class="q-tr">Pintu ini sudah dirancang agar otomatis tertutup.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">ことに</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">ように</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">ようにして</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ことにして</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-n">なる — 用法２-４ ようになっている</div><div class="p-kunci">Jawaban: B — ように</div>
+    <p>「〜ようになっている」= kondisi/mekanisme yang sudah dirancang demikian. Khas untuk menggambarkan <em>desain sistem atau alat</em>: pintu otomatis, aplikasi yang terkirim otomatis, dll. ことになっている lebih untuk aturan/kebijakan manusia (peraturan sekolah, jadwal rapat), bukan mekanisme fisik alat.</p>
+    <div class="p-tip">Mekanisme alat/sistem otomatis → ようになっている. Aturan/kebijakan institusi → ことになっている.</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 10 ══ -->
+<details class="quiz-card c-suru">
+  <summary><span class="q-num">10</span><span class="q-preview">電車の中ではなるべく静かに___ようにしている。</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      電車の中ではなるべく静かに<span class="blank">___</span>ようにしている。
+      <span class="q-tr">Di dalam kereta, saya selalu berusaha untuk tetap tenang.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="true"><span class="opt-label">A</span><span class="opt-text">する</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">なる</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">した</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">なった</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-s">する — 用法２-４ ようにしている</div><div class="p-kunci">Jawaban: A — する</div>
+    <p>「静かにする」= tindakan sengaja (menjaga ketenangan secara aktif). Lalu ようにしている = kebiasaan yang terus dipertahankan. Jadi: 静かにするようにしている = "membiasakan diri untuk bersikap tenang". なる tidak tepat karena "menjadi tenang dengan sendirinya" bukan tindakan aktif yang bisa dipertahankan sebagai kebiasaan. した/なった bentuk past, tidak cocok sebelum ようにしている.</p>
+    <div class="p-tip">〜にするようにしている = membiasakan diri melakukan tindakan sengaja secara konsisten. Dobel する: satu untuk aksi, satu untuk kebiasaan.</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 11 ══ -->
+<details class="quiz-card c-both">
+  <summary><span class="q-num">11</span><span class="q-preview">結婚することに___ました。（発表の仕方の違い）</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      「結婚することに<span class="blank">___</span>ました」<br>
+      上の文に関して、日本語の文化的ニュアンスとして正しいのはどれですか？
+      <span class="q-tr">Tentang kalimat di atas, mana pernyataan yang benar dari sisi nuansa budaya Jepang?</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">「しました」も「なりました」も全く同じ意味で使える。</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">「なりました」は誤りで、「しました」だけが正しい。</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">「なりました」の方が謙虚に聞こえ、フォーマルな場面で好まれる。</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">「しました」の方が丁寧で、目上の人への報告に適している。</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-b">文化的ニュアンス — する vs なる</div><div class="p-kunci">Jawaban: C — なりましたの方が謙虚</div>
+    <p>日本語では <strong>なる</strong> を使うことで「自分が強引に決めた」という印象を避け、<em>より謙虚で柔らかい表現</em>になる。「結婚することに<strong>なりました</strong>」= "terjadilah keadaan kami akan menikah" → terkesan tidak memaksakan. 「結婚することに<strong>しました</strong>」= "kami memutuskan menikah" → lebih asertif, terasa kurang sopan dalam pengumuman formal. Ini adalah fitur kultural khas bahasa Jepang.</p>
+    <div class="p-tip">なる = terkesan rendah hati, tidak memaksakan (kultural Jepang). する = asertif, terkesan memaksa. Pengumuman formal → なる lebih aman.</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 12 ══ -->
+<details class="quiz-card c-both">
+  <summary><span class="q-num">12</span><span class="q-preview">夜になると、辺りが静かに___。</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      夜になると、辺りが静かに<span class="blank">___</span>。
+      <span class="q-tr">Ketika malam tiba, sekitar menjadi sunyi dengan sendirinya.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">する</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">している</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">なる</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">にする</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-n">なる — 用法２-１ 自然変化</div><div class="p-kunci">Jawaban: C — なる</div>
+    <p>「辺りが静かになる」= lingkungan menjadi sunyi <em>secara alami</em> saat malam tiba — tidak ada orang yang sengaja membuat sunyi. Subjek: 辺り (lingkungan) = bukan pelaku aktif. Na-adjektiva (静か) + に + なる untuk perubahan alami. する akan mengimplikasikan ada seseorang yang sengaja membuat keadaan menjadi sunyi.</p>
+    <div class="p-tip">Alam/lingkungan/waktu berubah sendiri → なる. Seseorang sengaja mengubah sesuatu → する.</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 13 ══ -->
+<details class="quiz-card c-both">
+  <summary><span class="q-num">13</span><span class="q-preview">4つの形の識別：ようにする／している／なる／なっている</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      下の4文と説明の組み合わせで<strong>正しいもの</strong>はどれですか？
+      <span class="q-tr">Mana pasangan kalimat dan penjelasan yang benar?</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">「毎日野菜を食べるようにした」＝継続中の習慣</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">「野菜が食べられるようになった」＝一回の意志決定</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">「毎日野菜を食べるようにしている」＝継続中の習慣・努力</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">「野菜が自動的に配達されるようにした」＝システムの状態</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-b">用法２-４ 4形識別</div><div class="p-kunci">Jawaban: C — ようにしている＝継続習慣</div>
+    <p>4 bentuk ようにする-group: ① <strong>ようにする</strong> = niat/usaha satu kali (A salah: itu bukan kebiasaan, sudah selesai). ② <strong>ようにしている</strong> = kebiasaan yang terus dipertahankan ✓ (C benar). ③ <strong>ようになる</strong> = titik perubahan bertahap (B salah: itu perubahan, bukan keputusan). ④ <strong>ようになっている</strong> = kondisi sistem yang sudah mapan (D salah: した bukan なっている).</p>
+    <div class="p-tip">した = satu kali / sudah selesai. している = sedang/kebiasaan berlanjut. なった = perubahan sudah terjadi. なっている = kondisi sudah mapan/stabil.</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 14 ══ -->
+<details class="quiz-card c-naru">
+  <summary><span class="q-num">14</span><span class="q-preview">子供が大きく___につれて、親は心配が増える。</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      子供が大きく<span class="blank">___</span>につれて、親は心配が増える。
+      <span class="q-tr">Seiring anak tumbuh besar, kekhawatiran orang tua pun semakin bertambah.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">する</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">した</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">なる</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">している</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-n">なる — 用法１ 自然成長</div><div class="p-kunci">Jawaban: C — なる</div>
+    <p>「大きくなる」= tumbuh besar secara alami — proses pertumbuhan yang tidak ada yang mengendalikan secara aktif. Pola: い-adj (大きい) → 大きく + なる. 「〜につれて」= seiring dengan (pola yang menyatakan perubahan paralel). する tidak tepat karena bukan tindakan sengaja. している menunjukkan kondisi statis, bukan perubahan bertahap.</p>
+    <div class="p-tip">大きくなる・小さくなる・良くなる = perubahan alami (なる). 大きくする・小さくする = ada yang mengubah secara sengaja (する).</div></div>
+  </div>
+</details>
+
+<!-- ══ SOAL 15 ══ -->
+<details class="quiz-card c-both">
+  <summary><span class="q-num">15</span><span class="q-preview">総合 — 3文の「する・なる」を正しく識別せよ</span><span class="q-chevron">▼</span></summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      次の①②③の空欄に入る正しい組み合わせはどれですか？<br>
+      <span style="display:block;font-size:15px;line-height:2.4;margin-top:8px;">
+        ① 「子供の部屋を静かに<u>___</u>た。」（親が意図的に環境を整えた）<br>
+        ② 「日本に来て、納豆が食べられる<u>___</u>なった。」<br>
+        ③ 「会議は毎週月曜日に行われる<u>___</u>になっている。」
+      </span>
+      <span class="q-tr">① Orang tua menata kamar anak menjadi tenang. ② Setelah ke Jepang, akhirnya bisa makan natto. ③ Rapat sudah dijadwalkan setiap Senin.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">①なっ ②ように ③こと</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">①し ②こと ③よう</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">①し ②ように ③こと</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">①なっ ②こと ③よう</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan"><div class="p-title">★ Pembahasan</div><div class="p-badge pb-b">総合 — する・なる 全用法</div><div class="p-kunci">Jawaban: C — ①し ②ように ③こと</div>
+    <p>
+      ① 「静かに<strong>した</strong>」= orang tua secara sengaja menata → ada pelaku → <strong>する</strong> (した).<br>
+      ② 「食べられる<strong>ように</strong>なった」= kemampuan baru yang berkembang bertahap → <strong>ようになる</strong> (ように + なった).<br>
+      ③ 「行われる<strong>こと</strong>になっている」= jadwal/aturan dari sistem/organisasi yang sudah berlaku → <strong>ことになっている</strong> (こと + になっている).
+    </p>
+    <div class="p-tip">①する(ada pelaku) / ②ようになる(perubahan kemampuan) / ③ことになっている(aturan sistem). Tiga pola berbeda dalam satu soal!</div></div>
+  </div>
+</details>
+
+<!-- Submit -->
+<div class="submit-area">
+  <button id="sn-submit-btn">📤 Kirim Nilai ke Sensei</button>
+  <p id="sn-status"></p>
+</div>
+
+</div><!-- .jlpt-sn-wrap -->
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+(function () {
+  'use strict';
+
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwISeCyix6brT0r_-Andnz895tdkbYEBDdgE861hbJZecAjYAZkZSlToJt2mRCHHuAhmA/exec";
+  const NAMA_KUIS = "Latihan N3 — する・なる";
+  const TOTAL     = 15;
+
+  const state = { answered: 0, correct: 0 };
+  const scoreEl   = document.getElementById('sn-score');
+  const correctEl = document.getElementById('sn-correct');
+  const progFill  = document.getElementById('sn-prog-fill');
+  const progLabel = document.getElementById('sn-prog-label');
+  const submitBtn = document.getElementById('sn-submit-btn');
+  const statusMsg = document.getElementById('sn-status');
+
+  function updateUI() {
+    if (scoreEl)   scoreEl.textContent   = state.answered;
+    if (correctEl) correctEl.textContent = state.correct;
+    if (progFill)  progFill.style.width  = Math.round((state.answered / TOTAL) * 100) + '%';
+    if (progLabel) progLabel.textContent = `${state.answered} / ${TOTAL} terjawab`;
+  }
+
+  function handleClick(e) {
+    const btn  = e.target.closest('.option-btn');
+    if (!btn)  return;
+    const card = btn.closest('.quiz-card');
+    if (!card) return;
+
+    const allOpts = card.querySelectorAll('.option-btn');
+    const done = [...allOpts].some(b =>
+      b.classList.contains('is-correct') || b.classList.contains('is-wrong')
+    );
+    if (done) return;
+
+    const isCorrect = btn.dataset.correct === 'true';
+    btn.classList.add(isCorrect ? 'is-correct' : 'is-wrong');
+    allOpts.forEach(b => {
+      if (b === btn) { b.style.pointerEvents = 'none'; return; }
+      b.style.pointerEvents = 'none';
+      b.classList.add(b.dataset.correct === 'true' ? 'is-correct' : 'is-locked');
+    });
+
+    const p = card.querySelector('.pembahasan');
+    if (p) p.classList.add('show');
+
+    state.answered++;
+    if (isCorrect) state.correct++;
+    updateUI();
+  }
+
+  const wrap = document.querySelector('.jlpt-sn-wrap');
+  if (wrap) wrap.addEventListener('click', handleClick);
+
+  /* ── Kirim ke Google Sheets ── */
+  if (submitBtn) {
+    submitBtn.addEventListener('click', function () {
+      const nameEl = document.getElementById('sn-name');
+      const nama   = nameEl ? nameEl.value.trim() : '';
+
+      if (!nama) { alert('Mohon isi nama lengkap kamu terlebih dahulu!'); return; }
+      if (state.answered === 0) { alert('Kamu belum menjawab soal apa pun!'); return; }
+
+      submitBtn.disabled    = true;
+      submitBtn.textContent = '⏳ Mengirim...';
+      statusMsg.textContent = '';
+
+      // Hitung persentase nilai secara langsung untuk notifikasi
+      const hitungPersen = Math.round((state.correct / TOTAL) * 100);
+
+      // 📜 PAYLOAD YANG SUDAH DISINKRONKAN:
+      const payload = {
+        nama: nama,                       // Menggunakan variabel "nama" yang benar
+        skor: `${state.correct}/${TOTAL}`,  // Menggunakan konstanta TOTAL (15)
+        total: TOTAL,
+        benar: state.correct,
+        namaKuis: NAMA_KUIS               // Mengambil otomatis dari variabel di atas ("Latihan N3 — Modul 5...")
+      };
+
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST', mode: 'no-cors', cache: 'no-cache',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        statusMsg.style.color = '#1e7e45';
+        statusMsg.textContent = `✅ Nilai terkirim! Skor: ${state.correct}/${TOTAL} (${hitungPersen}%)`;
+        submitBtn.textContent = '✅ Sudah Terkirim';
+      })
+      .catch(err => {
+        console.error(err);
+        statusMsg.style.color = '#c0392b';
+        statusMsg.textContent = '❌ Gagal mengirim. Periksa koneksi dan coba lagi.';
+        submitBtn.disabled    = false;
+        submitBtn.textContent = '📤 Kirim Nilai ke Sensei';
+      });
+    });
+  }
+
+})();
+</script>
