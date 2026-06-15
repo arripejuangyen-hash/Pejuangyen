@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文法 — 「する・なる」の整理 | JLPT N5〜N2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap');
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-light: #3d3d3d;
+    --ink-muted: #707070;
+    --paper: #faf9f7;
+    --paper-warm: #f5f3ef;
+    --rule: #d8d4cc;
+    --rule-light: #e8e5e0;
+    --accent-red: #c0392b;
+    --accent-indigo: #2c3e6b;
+    --accent-gold: #a08030;
+    --accent-teal: #1f6b5a;
+    --suru-col: #2c3e6b;
+    --naru-col: #6b2a2a;
+    --suru-bg: #eef1f9;
+    --naru-bg: #f9eeee;
+    --badge-n5: #2a6b4a;
+    --badge-n4: #2c5f8a;
+    --badge-n3: #6b4a2a;
+    --badge-n2: #7a2a6b;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.05);
+    --font-jp: 'Noto Serif JP', 'Noto Sans JP', serif;
+    --font-body: 'Source Serif 4', 'Noto Serif JP', serif;
+    --font-ui: 'Noto Sans JP', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    background: #edeae4;
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 15px;
+    padding: 32px 16px 64px;
+  }
+
+  .book {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: var(--shadow), 0 0 0 1px rgba(0,0,0,0.04);
+    border-radius: 2px;
+  }
+
+  /* ── Header ── */
+  .book-header {
+    background: var(--ink);
+    color: #fff;
+    padding: 40px 52px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .book-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg, transparent, transparent 59px,
+      rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px
+    );
+  }
+  .book-header::after {
+    content: 'する・なる';
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-jp);
+    font-size: 72px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    pointer-events: none;
+    letter-spacing: 0.02em;
+  }
+  .book-header-inner { position: relative; }
+  .book-series {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.42);
+    margin-bottom: 12px;
+  }
+  .book-title {
+    font-family: var(--font-jp);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #fff;
+  }
+  .book-title .main-kana {
+    font-size: 40px;
+    letter-spacing: 0.06em;
+    color: #f0e6c8;
+  }
+  /* する in blue, なる in red in header */
+  .book-title .suru { color: #8ab0f0; }
+  .book-title .naru { color: #f09090; }
+  .book-title span {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.52);
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+  .book-meta { margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* ── Legend chips ── */
+  .legend-strip {
+    display: flex;
+    gap: 16px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .legend-chip {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+  }
+  .legend-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .legend-dot.s { background: #8ab0f0; }
+  .legend-dot.n { background: #f09090; }
+
+  /* ── Body ── */
+  .book-body { padding: 44px 52px 52px; }
+
+  /* ── Chapter Intro ── */
+  .chapter-intro {
+    border-left: 4px solid var(--accent-red);
+    padding: 14px 20px;
+    background: var(--paper-warm);
+    margin-bottom: 36px;
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 1.9;
+  }
+  .chapter-intro strong { font-weight: 600; color: var(--ink); }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+  }
+  .toc-title {
+    font-family: var(--font-ui);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .toc-list li { display: flex; align-items: baseline; gap: 10px; font-size: 13px; color: var(--ink-light); }
+  .toc-num { font-family: var(--font-ui); font-size: 10px; font-weight: 700; color: var(--accent-red); white-space: nowrap; min-width: 28px; }
+  .toc-jp { font-family: var(--font-jp); font-size: 15px; color: var(--ink); }
+  .toc-desc { color: var(--ink-muted); font-size: 12px; }
+
+  /* ── JLPT Badge ── */
+  .jlpt-badge {
+    display: inline-flex; align-items: center;
+    padding: 3px 9px; border-radius: 2px;
+    font-family: var(--font-ui); font-size: 10px;
+    font-weight: 700; letter-spacing: 0.12em; color: #fff;
+  }
+  .jlpt-badge.n5 { background: var(--badge-n5); }
+  .jlpt-badge.n4 { background: var(--badge-n4); }
+  .jlpt-badge.n3 { background: var(--badge-n3); }
+  .jlpt-badge.n2 { background: var(--badge-n2); }
+
+  /* ── Section ── */
+  .section { margin-bottom: 60px; }
+  .section-header {
+    background: #1e1e1e; color: #fff;
+    padding: 16px 22px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .section-num {
+    font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.36); white-space: nowrap;
+  }
+  .section-jp { font-family: var(--font-jp); font-size: 20px; font-weight: 700; color: #f0e6c8; letter-spacing: 0.06em; }
+  .section-id { font-family: var(--font-ui); font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  /* ── Subsection ── */
+  .subsection { border: 1px solid var(--rule); border-top: none; }
+  .subsection-body { padding: 26px 24px; }
+
+  /* Sub-sub header */
+  .sub-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 24px;
+    background: #f0ede7;
+    border-bottom: 1px solid var(--rule);
+    border-top: 1px solid var(--rule);
+    margin: 0 -24px 20px;
+  }
+  .sub-label { font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); }
+  .sub-title { font-family: var(--font-ui); font-size: 12.5px; font-weight: 600; color: var(--ink); }
+  .sub-divider { border: none; border-top: 1px solid var(--rule-light); margin: 32px 0; }
+
+  /* ── する・なる Dual Column ── */
+  /* The main visual device of this chapter */
+  .sn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .sn-col { display: flex; flex-direction: column; }
+  .sn-col-head {
+    padding: 10px 16px;
+    font-family: var(--font-ui);
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .sn-col.s-col .sn-col-head { background: var(--suru-col); color: #fff; border-right: 1px solid var(--rule); }
+  .sn-col.n-col .sn-col-head { background: var(--naru-col); color: #fff; }
+  .sn-col-head .jp { font-family: var(--font-jp); font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 400; text-transform: none; }
+  .sn-col-body { padding: 16px 18px; flex: 1; font-size: 13px; color: var(--ink-light); line-height: 1.85; }
+  .sn-col.s-col .sn-col-body { background: var(--suru-bg); border-right: 1px solid var(--rule); }
+  .sn-col.n-col .sn-col-body { background: var(--naru-bg); }
+  .sn-col-body strong { font-weight: 600; color: var(--ink); }
+  .sn-col-body .pola { font-family: var(--font-jp); font-size: 14px; color: var(--ink); display: block; margin-bottom: 6px; line-height: 1.9; }
+  .sn-col-body .kana-ex { font-family: var(--font-jp); font-size: 15px; line-height: 2; }
+
+  /* Keyword pills */
+  .pill-s { display: inline-block; background: var(--suru-col); color: #fff; font-family: var(--font-ui); font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 10px; letter-spacing: 0.08em; vertical-align: middle; margin: 0 2px; }
+  .pill-n { display: inline-block; background: var(--naru-col); color: #fff; font-family: var(--font-ui); font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 10px; letter-spacing: 0.08em; vertical-align: middle; margin: 0 2px; }
+
+  /* ── Grammar Box ── */
+  .grammar-box {
+    background: #1e2a3a; border-radius: 3px;
+    padding: 15px 20px; margin-bottom: 20px;
+    display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap;
+  }
+  .gb-label { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.38); padding-top: 3px; white-space: nowrap; }
+  .gb-pola { font-family: var(--font-jp); font-size: 15.5px; color: #f0e6c8; line-height: 1.9; letter-spacing: 0.04em; }
+  .gb-pola .alt { color: rgba(240,230,200,0.52); font-size: 13px; }
+
+  /* ── Desc ── */
+  .desc { font-size: 13.5px; color: var(--ink-light); line-height: 1.9; margin-bottom: 18px; }
+  .desc strong { font-weight: 600; color: var(--ink); }
+
+  /* ── Core Concept Box (used for section 1) ── */
+  .concept-box {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .concept-box-head {
+    background: #2a2a2a; color: #fff;
+    padding: 10px 18px;
+    font-family: var(--font-ui); font-size: 9.5px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .concept-box-body { padding: 16px 18px; background: var(--paper); font-size: 13.5px; color: var(--ink-light); line-height: 1.9; }
+  .concept-box-body strong { color: var(--ink); font-weight: 600; }
+
+  /* ── Table ── */
+  .grammar-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 22px; border: 1px solid var(--rule); }
+  .grammar-table thead tr { background: #2a2a2a; color: #fff; }
+  .grammar-table thead th { padding: 10px 13px; text-align: left; font-family: var(--font-ui); font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+  .grammar-table tbody tr:nth-child(even) { background: var(--paper-warm); }
+  .grammar-table tbody tr:hover { background: #ece8df; transition: background 0.15s; }
+  .grammar-table td { padding: 11px 13px; border-bottom: 1px solid var(--rule-light); vertical-align: top; line-height: 1.75; color: var(--ink-light); font-size: 13px; }
+  .grammar-table td.pola-cell { font-family: var(--font-jp); font-size: 13.5px; color: var(--accent-indigo); line-height: 1.9; }
+  .grammar-table td.makna { font-weight: 600; color: var(--ink); }
+  .grammar-table td.suru-cell { background: var(--suru-bg); font-family: var(--font-jp); font-size: 13.5px; color: var(--suru-col); font-weight: 600; }
+  .grammar-table td.naru-cell { background: var(--naru-bg); font-family: var(--font-jp); font-size: 13.5px; color: var(--naru-col); font-weight: 600; }
+
+  /* ── Example Box ── */
+  .example-box { border: 1px solid var(--rule); border-left: 3px solid var(--accent-indigo); border-radius: 2px; margin-bottom: 10px; overflow: hidden; }
+  .example-box.ex-s { border-left-color: var(--suru-col); }
+  .example-box.ex-n { border-left-color: var(--naru-col); }
+  .example-box-head { background: #eceaf5; padding: 4px 14px; font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-indigo); border-bottom: 1px solid #d8d4f0; display: flex; align-items: center; gap: 8px; }
+  .example-box.ex-s .example-box-head { background: #e8edf8; color: var(--suru-col); border-bottom-color: #c8d4f0; }
+  .example-box.ex-n .example-box-head { background: #f8e8e8; color: var(--naru-col); border-bottom-color: #f0c8c8; }
+  .example-box-body { padding: 13px 17px; background: var(--paper); }
+  .example-jp { font-family: var(--font-jp); font-size: 17px; font-weight: 400; line-height: 2.1; color: var(--ink); margin-bottom: 5px; }
+  .example-jp .hs { color: var(--suru-col); font-weight: 700; border-bottom: 1.5px solid var(--suru-col); padding-bottom: 1px; }
+  .example-jp .hn { color: var(--naru-col); font-weight: 700; border-bottom: 1.5px solid var(--naru-col); padding-bottom: 1px; }
+  .example-jp .highlight { color: var(--accent-red); font-weight: 700; border-bottom: 1.5px solid var(--accent-red); padding-bottom: 1px; }
+  .example-id { font-size: 13px; color: var(--ink-muted); font-style: italic; line-height: 1.6; }
+  .example-note { margin-top: 6px; font-size: 11.5px; color: var(--accent-indigo); font-family: var(--font-ui); font-style: normal; }
+
+  .ctx { display: inline-block; background: #2a2a2a; color: rgba(255,255,255,0.85); font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; padding: 1px 7px; border-radius: 2px; text-transform: uppercase; }
+  .ctx-s { background: var(--suru-col); }
+  .ctx-n { background: var(--naru-col); }
+
+  /* ── Note boxes ── */
+  .note-box { background: #fff9ec; border: 1px solid #e8d89a; border-left: 4px solid var(--accent-gold); border-radius: 2px; padding: 14px 18px; margin-top: 16px; font-size: 13px; line-height: 1.85; color: #4a3800; }
+  .note-box .note-title { font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .note-box .note-title::before { content: '★'; }
+  .note-box ul { padding-left: 18px; }
+  .note-box li { margin-bottom: 5px; }
+  .note-box p { margin-bottom: 6px; }
+
+  .warning-box { background: #fff4f4; border: 1px solid #e8a0a0; border-left: 4px solid var(--accent-red); border-radius: 2px; padding: 14px 18px; margin-top: 12px; font-size: 13px; line-height: 1.85; color: #4a0000; }
+  .warning-box .note-title { font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-red); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .warning-box .note-title::before { content: '✕'; }
+  .warning-box ul { padding-left: 18px; }
+  .warning-box li { margin-bottom: 5px; }
+
+  .info-box { background: #f0f4ff; border: 1px solid #aab8e8; border-left: 4px solid var(--accent-indigo); border-radius: 2px; padding: 14px 18px; margin-top: 14px; font-size: 13px; line-height: 1.85; color: #1a2240; }
+  .info-box .note-title { font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-indigo); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .info-box .note-title::before { content: '◆'; font-size: 10px; }
+  .info-box ul { padding-left: 18px; }
+  .info-box li { margin-bottom: 5px; }
+  .info-box p { margin-bottom: 6px; }
+
+  .teal-box { background: #f0faf7; border: 1px solid #9ad4c4; border-left: 4px solid var(--accent-teal); border-radius: 2px; padding: 14px 18px; margin-top: 14px; font-size: 13px; line-height: 1.85; color: #0d2e26; }
+  .teal-box .note-title { font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-teal); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .teal-box .note-title::before { content: '▶'; font-size: 9px; }
+  .teal-box ul { padding-left: 18px; }
+  .teal-box li { margin-bottom: 5px; }
+
+  /* ── Agent / No-agent diagram ── */
+  .agent-diagram {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    align-items: center;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .agent-col { padding: 18px 20px; }
+  .agent-col.s-side { background: var(--suru-bg); border-right: 1px solid var(--rule); }
+  .agent-col.n-side { background: var(--naru-bg); }
+  .agent-mid {
+    background: var(--paper-warm);
+    padding: 8px 4px;
+    text-align: center;
+    font-size: 18px;
+    color: var(--ink-muted);
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--rule);
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+  .agent-col-head { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; }
+  .agent-col.s-side .agent-col-head { color: var(--suru-col); }
+  .agent-col.n-side .agent-col-head { color: var(--naru-col); }
+  .agent-keyword { font-family: var(--font-jp); font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .agent-col.s-side .agent-keyword { color: var(--suru-col); }
+  .agent-col.n-side .agent-keyword { color: var(--naru-col); }
+  .agent-desc { font-size: 12.5px; color: var(--ink-light); line-height: 1.7; }
+  .agent-icon { font-size: 28px; margin-bottom: 8px; }
+
+  /* ── 4-column する/している/なる/なっている grid ── */
+  .four-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .fg-col { display: flex; flex-direction: column; }
+  .fg-col-head {
+    padding: 9px 12px;
+    font-family: var(--font-ui);
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+  }
+  .fg-col:nth-child(1) .fg-col-head, .fg-col:nth-child(2) .fg-col-head { background: var(--suru-col); color: #fff; }
+  .fg-col:nth-child(3) .fg-col-head, .fg-col:nth-child(4) .fg-col-head { background: var(--naru-col); color: #fff; }
+  .fg-col:not(:last-child) .fg-col-head { border-right: 1px solid rgba(255,255,255,0.2); }
+  .fg-col-body { padding: 12px 14px; flex: 1; font-size: 12.5px; color: var(--ink-light); line-height: 1.8; }
+  .fg-col:nth-child(1) .fg-col-body, .fg-col:nth-child(2) .fg-col-body { background: var(--suru-bg); border-right: 1px solid var(--rule); }
+  .fg-col:nth-child(3) .fg-col-body, .fg-col:nth-child(4) .fg-col-body { background: var(--naru-bg); }
+  .fg-col:nth-child(2) .fg-col-body, .fg-col:nth-child(4) .fg-col-body { border-right: 1px solid var(--rule); }
+  .fg-col-body .fg-jp { font-family: var(--font-jp); font-size: 13px; color: var(--ink); margin-bottom: 5px; }
+  .fg-col-head .jp { font-family: var(--font-jp); font-size: 13px; font-weight: 400; text-transform: none; color: rgba(255,255,255,0.85); }
+
+  /* ── Nuance Chain ── */
+  .nuance-chain { display: flex; align-items: stretch; margin: 20px 0; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+  .nuance-step { flex: 1; padding: 14px 16px; background: var(--paper-warm); border-right: 1px solid var(--rule); font-size: 12.5px; color: var(--ink-light); line-height: 1.75; }
+  .nuance-step:last-child { border-right: none; }
+  .nuance-step .ns-label { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; }
+  .nuance-step .ns-jp { font-family: var(--font-jp); font-size: 14px; color: var(--ink); margin-bottom: 4px; }
+  .nuance-arrow { display: flex; align-items: center; padding: 0 6px; font-size: 16px; color: var(--ink-muted); background: var(--paper-warm); border-right: 1px solid var(--rule); }
+
+  /* ── Section divider ── */
+  .section-divider { border: none; border-top: 1px solid var(--rule); margin: 52px 0; }
+
+  /* ── Comparison section ── */
+  .comparison-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule); }
+  .comparison-section h3 { font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 16px; border-left: 3px solid var(--accent-indigo); padding-left: 10px; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid var(--rule); margin-bottom: 18px; }
+  .compare-table thead tr { background: #3d3d3d; color: #fff; }
+  .compare-table thead th { padding: 9px 12px; text-align: left; font-family: var(--font-ui); font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .compare-table tbody tr:nth-child(even) { background: var(--paper-warm); }
+  .compare-table tbody tr:hover { background: #ece8df; }
+  .compare-table td { padding: 11px 13px; border-bottom: 1px solid var(--rule-light); vertical-align: top; line-height: 1.75; color: var(--ink-light); font-size: 13px; }
+  .compare-table td:first-child { font-family: var(--font-jp); font-size: 14px; font-weight: 700; color: var(--accent-red); white-space: nowrap; }
+
+  /* ── Tags ── */
+  .tag-formal { display: inline-block; background: #e8eaf4; color: var(--accent-indigo); font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; margin-left: 4px; vertical-align: middle; text-transform: uppercase; }
+  .tag-informal { display: inline-block; background: #f4e8ea; color: #8a2a3a; font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; margin-left: 4px; vertical-align: middle; text-transform: uppercase; }
+
+  /* ── Ruby ── */
+  ruby { ruby-align: center; }
+  rt { font-size: 0.55em; font-family: var(--font-ui); color: var(--ink-muted); letter-spacing: 0.01em; }
+
+  /* ── Footer ── */
+  .book-footer { border-top: 2px solid var(--ink); padding: 22px 52px; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-ui); font-size: 10px; color: var(--ink-muted); letter-spacing: 0.08em; }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    body { padding: 0 0 48px; }
+    .book { border-radius: 0; }
+    .book-header { padding: 28px 20px 24px; }
+    .book-header::after { display: none; }
+    .book-body { padding: 22px 18px 36px; }
+    .book-footer { padding: 18px 20px; flex-direction: column; gap: 8px; text-align: center; }
+    .book-title .main-kana { font-size: 26px; }
+    .sn-grid { grid-template-columns: 1fr; }
+    .sn-col.s-col .sn-col-body { border-right: none; border-bottom: 1px solid var(--rule); }
+    .agent-diagram { grid-template-columns: 1fr; }
+    .agent-mid { writing-mode: horizontal-tb; border-right: none; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 8px; }
+    .four-grid { grid-template-columns: 1fr 1fr; }
+    .fg-col:nth-child(2) .fg-col-body { border-right: none; }
+    .fg-col:nth-child(1) .fg-col-body, .fg-col:nth-child(2) .fg-col-body { border-bottom: 1px solid var(--rule); }
+    .nuance-chain { flex-direction: column; }
+    .nuance-step { border-right: none; border-bottom: 1px solid var(--rule); }
+    .nuance-arrow { display: none; }
+    .grammar-table, .compare-table { font-size: 12px; }
+    .grammar-table thead th, .compare-table thead th { font-size: 9px; padding: 8px; }
+    .grammar-table td, .compare-table td { padding: 9px 8px; }
+    .example-jp { font-size: 15px; }
+    .sub-header { margin: 0 -18px 18px; padding: 10px 18px; }
+    .toc-desc { display: none; }
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .book { box-shadow: none; }
+    .example-box, .note-box, .warning-box, .info-box { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<article class="book">
+
+  <!-- ══ HEADER ══ -->
+  <header class="book-header">
+    <div class="book-header-inner">
+      <p class="book-series">Pejuangyen · Seri Buku Grammar JLPT</p>
+      <h1 class="book-title">
+        <span class="main-kana"><span class="suru naru">する・なる</span>の整理</span>
+        Pemetaan Penggunaan 「する」dan 「なる」
+        <span>Kehendak vs Perubahan Alami — Kontrol Subjek vs Transisi Situasi</span>
+      </h1>
+      <div class="book-meta">
+        <span class="jlpt-badge n5">N5</span>
+        <span class="jlpt-badge n4">N4</span>
+        <span class="jlpt-badge n3">N3</span>
+        <span class="jlpt-badge n2">N2</span>
+      </div>
+      <div class="legend-strip">
+        <div class="legend-chip"><span class="legend-dot s"></span> する — Tindakan Disengaja (Agen)</div>
+        <div class="legend-chip"><span class="legend-dot n"></span> なる — Perubahan Alami (Tanpa Agen)</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ BODY ══ -->
+  <main class="book-body">
+
+    <div class="chapter-intro">
+      <strong>Pengantar Bab —</strong>
+      <strong>する</strong> dan <strong>なる</strong> adalah dua kata kerja paling fundamental dalam bahasa Jepang. Perbedaan intinya sederhana namun sangat dalam: <em>する menyatakan tindakan yang dilakukan secara sengaja oleh seseorang</em>, sedangkan <em>なる menyatakan perubahan yang terjadi secara alami atau hasil dari suatu proses</em>. Memahami kapan memakai masing-masing — termasuk bentuk progresif している dan なっている — adalah kunci untuk berbicara dengan nuansa yang tepat dan alami di semua level JLPT.
+    </div>
+
+    <!-- TOC -->
+    <nav class="toc">
+      <div class="toc-title">Daftar Isi Bab</div>
+      <ul class="toc-list">
+        <li>
+          <span class="toc-num">１</span>
+          <span class="toc-jp">する と なる の使い分けの基本</span>
+          <span class="toc-desc">— Prinsip dasar perbedaan する dan なる</span>
+        </li>
+        <li>
+          <span class="toc-num">２－１</span>
+          <span class="toc-jp">「〜く・〜に」する・なる</span>
+          <span class="toc-desc">— Perubahan sifat / kondisi (adjektiva)</span>
+        </li>
+        <li>
+          <span class="toc-num">２－２</span>
+          <span class="toc-jp">「〜に・〜ことに」する・なる</span>
+          <span class="toc-desc">— Keputusan vs kesimpulan yang terjadi</span>
+        </li>
+        <li>
+          <span class="toc-num">２－３</span>
+          <span class="toc-jp">「〜に・〜ことに」している・なっている</span>
+          <span class="toc-desc">— Aturan yang dibuat vs kondisi yang sudah berubah</span>
+        </li>
+        <li>
+          <span class="toc-num">２－４</span>
+          <span class="toc-jp">「〜ように」する・している・なる・なっている</span>
+          <span class="toc-desc">— Usaha / niat vs perubahan bertahap (4 bentuk)</span>
+        </li>
+      </ul>
+    </nav>
+
+
+    <!-- ══════════════════════════════ -->
+    <!--  SECTION 1: Prinsip Dasar     -->
+    <!-- ══════════════════════════════ -->
+    <section class="section" id="sn-1">
+
+      <div class="section-header">
+        <span class="section-num">用法 １</span>
+        <span class="section-jp">する と なる の使い分けの基本</span>
+        <span class="section-id">Prinsip Dasar Perbedaan する dan なる</span>
+        <span class="jlpt-badge n5" style="margin-left:auto;">N5〜</span>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-body">
+
+          <!-- Core agent diagram -->
+          <div class="agent-diagram">
+            <div class="agent-col s-side">
+              <div class="agent-icon">👤→🎯</div>
+              <div class="agent-col-head">する — Ada Pelaku (Agen)</div>
+              <div class="agent-keyword">する</div>
+              <div class="agent-desc">
+                Seseorang <strong>secara aktif dan sengaja melakukan</strong> sesuatu. Ada subjek yang mengontrol tindakan. Perubahan terjadi <em>karena kehendak seseorang</em>.
+                <br><br>
+                Kata kunci: <strong>意志・意図・決定</strong><br>
+                (kehendak / niat / keputusan)
+              </div>
+            </div>
+            <div class="agent-mid">VS</div>
+            <div class="agent-col n-side">
+              <div class="agent-icon">🌱→🌳</div>
+              <div class="agent-col-head">なる — Tanpa Pelaku / Alami</div>
+              <div class="agent-keyword">なる</div>
+              <div class="agent-desc">
+                Sesuatu <strong>berubah dengan sendirinya</strong> atau sebagai hasil proses alami. Tidak ada subjek yang secara aktif mengendalikan. Perubahan <em>terjadi begitu saja</em>.
+                <br><br>
+                Kata kunci: <strong>変化・結果・自然</strong><br>
+                (perubahan / hasil / alami)
+              </div>
+            </div>
+          </div>
+
+          <div class="concept-box">
+            <div class="concept-box-head">Prinsip Inti — Tes Sederhana untuk Memilih する atau なる</div>
+            <div class="concept-box-body">
+              Tanyakan: <strong>"Apakah ada seseorang yang <em>memutuskan / melakukan</em> perubahan ini?"</strong><br>
+              → <strong>Ya, ada pelaku</strong> → gunakan <span class="pill-s">する</span><br>
+              → <strong>Tidak, terjadi sendiri / secara alami</strong> → gunakan <span class="pill-n">なる</span>
+              <br><br>
+              Contoh: <em>「音楽を<strong>静かに</strong>する」</em> (seseorang mengecilkan volume → する) vs <em>「音楽が<strong>静かに</strong>なる」</em> (musiknya menjadi pelan dengan sendirinya / memudar → なる).
+            </div>
+          </div>
+
+          <div class="sn-grid">
+            <div class="sn-col s-col">
+              <div class="sn-col-head">する <span class="jp">— Tindakan Aktif</span></div>
+              <div class="sn-col-body">
+                <span class="pola">主語 + を / に + する</span>
+                <ul style="padding-left:16px; font-size:13px; color:var(--ink-light);">
+                  <li>Ada pelaku yang memutuskan</li>
+                  <li>Perubahan disengaja</li>
+                  <li>Subjek = manusia / organisasi</li>
+                  <li>Bisa dilarang / diminta</li>
+                </ul>
+              </div>
+            </div>
+            <div class="sn-col n-col">
+              <div class="sn-col-head">なる <span class="jp">— Perubahan Alami</span></div>
+              <div class="sn-col-body">
+                <span class="pola">主語 + が / に + なる</span>
+                <ul style="padding-left:16px; font-size:13px; color:var(--ink-light);">
+                  <li>Tidak ada pelaku aktif</li>
+                  <li>Perubahan terjadi sendiri</li>
+                  <li>Subjek = benda / situasi / orang yang berubah</li>
+                  <li>Tidak bisa dilarang secara langsung</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <div class="note-title">Penting — Perspektif Bahasa Jepang</div>
+            <p>Bahasa Jepang secara kultural cenderung menggunakan <span class="pill-n">なる</span> untuk menghindari kesan memaksakan kehendak. Misalnya, daripada berkata <em>「私はこの仕事をします」</em> (saya akan melakukan pekerjaan ini — terkesan memaksa), dalam konteks formal lebih umum digunakan <em>「この仕事をすることになりました」</em> (terjadilah keadaan dimana saya akan melakukan pekerjaan ini) — nuansanya lebih rendah hati dan tidak konfrontatif.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+
+    <!-- ══════════════════════════════ -->
+    <!--  SECTION 2-1: 〜く/に する・なる -->
+    <!-- ══════════════════════════════ -->
+    <section class="section" id="sn-2-1">
+
+      <div class="section-header">
+        <span class="section-num">用法 ２－１</span>
+        <span class="section-jp">「〜く・〜に」する・なる</span>
+        <span class="section-id">Perubahan Sifat / Kondisi — Adjektiva + する・なる</span>
+        <span class="jlpt-badge n5" style="margin-left:auto;">N5〜N4</span>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-body">
+
+          <div class="grammar-box">
+            <span class="gb-label">Pola</span>
+            <div class="gb-pola">
+              い形容詞 → 語幹 + く + する / なる<br>
+              <span class="alt">な形容詞 / 名詞 → 〜 + に + する / なる</span>
+            </div>
+          </div>
+
+          <p class="desc">
+            Pola paling dasar: mengubah adjektiva menjadi adverb lalu menghubungkannya dengan する atau なる. Perubahan bentuk ini adalah wajib dan sistematis — <strong>adjektiva い → く</strong>, <strong>adjektiva な dan nomina → に</strong>.
+          </p>
+
+          <table class="grammar-table">
+            <thead>
+              <tr>
+                <th>Jenis Kata</th>
+                <th>Bentuk Dasar</th>
+                <th class="suru-cell" style="background:#2c3e6b;color:#fff;">〜にする (Sengaja)</th>
+                <th class="naru-cell" style="background:#6b2a2a;color:#fff;">〜になる (Alami)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="makna">い形容詞</td>
+                <td class="pola-cell"><ruby>大<rt>おお</rt></ruby>きい</td>
+                <td class="suru-cell"><ruby>大<rt>おお</rt></ruby>きく<span style="color:var(--suru-col);font-weight:700;">する</span></td>
+                <td class="naru-cell"><ruby>大<rt>おお</rt></ruby>きく<span style="color:var(--naru-col);font-weight:700;">なる</span></td>
+              </tr>
+              <tr>
+                <td class="makna">い形容詞</td>
+                <td class="pola-cell"><ruby>早<rt>はや</rt></ruby>い</td>
+                <td class="suru-cell"><ruby>早<rt>はや</rt></ruby>く<span style="color:var(--suru-col);font-weight:700;">する</span></td>
+                <td class="naru-cell"><ruby>早<rt>はや</rt></ruby>く<span style="color:var(--naru-col);font-weight:700;">なる</span></td>
+              </tr>
+              <tr>
+                <td class="makna">な形容詞</td>
+                <td class="pola-cell"><ruby>静<rt>しず</rt></ruby>かだ</td>
+                <td class="suru-cell"><ruby>静<rt>しず</rt></ruby>かに<span style="color:var(--suru-col);font-weight:700;">する</span></td>
+                <td class="naru-cell"><ruby>静<rt>しず</rt></ruby>かに<span style="color:var(--naru-col);font-weight:700;">なる</span></td>
+              </tr>
+              <tr>
+                <td class="makna">な形容詞</td>
+                <td class="pola-cell"><ruby>便利<rt>べんり</rt></ruby>だ</td>
+                <td class="suru-cell"><ruby>便利<rt>べんり</rt></ruby>に<span style="color:var(--suru-col);font-weight:700;">する</span></td>
+                <td class="naru-cell"><ruby>便利<rt>べんり</rt></ruby>に<span style="color:var(--naru-col);font-weight:700;">なる</span></td>
+              </tr>
+              <tr>
+                <td class="makna">名詞</td>
+                <td class="pola-cell"><ruby>医者<rt>いしゃ</rt></ruby></td>
+                <td class="suru-cell"><ruby>医者<rt>いしゃ</rt></ruby>に<span style="color:var(--suru-col);font-weight:700;">する</span></td>
+                <td class="naru-cell"><ruby>医者<rt>いしゃ</rt></ruby>に<span style="color:var(--naru-col);font-weight:700;">なる</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="example-box ex-s">
+            <div class="example-box-head"><span class="ctx ctx-s">する</span> Contoh 1 — Tindakan Sengaja</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                テレビの<ruby>音<rt>おと</rt></ruby>を<ruby>小<rt>ちい</rt></ruby>さく<span class="hs">する</span>。
+              </p>
+              <p class="example-id">Mengecilkan volume TV. (seseorang aktif mengubah volume)</p>
+              <p class="example-note">→ Ada orang yang secara sengaja mengubah → する</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-n">
+            <div class="example-box-head"><span class="ctx ctx-n">なる</span> Contoh 2 — Perubahan Alami</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>夜<rt>よる</rt></ruby>になると、<ruby>辺り<rt>あたり</rt></ruby>が<ruby>静<rt>しず</rt></ruby>かに<span class="hn">なる</span>。
+              </p>
+              <p class="example-id">Ketika malam tiba, sekitar menjadi sunyi. (perubahan alami)</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-s">
+            <div class="example-box-head"><span class="ctx ctx-s">する</span> Contoh 3 — Memilih / Menetapkan</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>息子<rt>むすこ</rt></ruby>を<ruby>医者<rt>いしゃ</rt></ruby>に<span class="hs">する</span>つもりです。
+              </p>
+              <p class="example-id">Saya berencana menjadikan anak laki-laki saya seorang dokter. (keputusan orang tua)</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-n">
+            <div class="example-box-head"><span class="ctx ctx-n">なる</span> Contoh 4 — Hasil yang Dicapai Sendiri</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>彼女<rt>かのじょ</rt></ruby>は<ruby>努力<rt>どりょく</rt></ruby>して<ruby>医者<rt>いしゃ</rt></ruby>に<span class="hn">なった</span>。
+              </p>
+              <p class="example-id">Dia berusaha keras dan akhirnya menjadi dokter. (proses / hasil alami dari usaha)</p>
+              <p class="example-note">→ Proses yang menghasilkan perubahan status → なる</p>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <div class="note-title">Catatan Penting</div>
+            <ul>
+              <li>「〜くする / 〜にする」selalu membutuhkan objek (を atau に) yang diubah oleh pelaku.</li>
+              <li>「〜くなる / 〜になる」subjeknya adalah entitas yang berubah — tidak ada objek yang diubah oleh orang lain.</li>
+              <li>「医者にする」= memutuskan seseorang jadi dokter (dari luar). 「医者になる」= seseorang sendiri menjadi dokter (dari dalam/proses).</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+
+    <!-- ══════════════════════════════ -->
+    <!--  SECTION 2-2: 〜に/ことに する・なる -->
+    <!-- ══════════════════════════════ -->
+    <section class="section" id="sn-2-2">
+
+      <div class="section-header">
+        <span class="section-num">用法 ２－２</span>
+        <span class="section-jp">「〜に・〜ことに」する・なる</span>
+        <span class="section-id">Keputusan (する) vs Kesimpulan yang Terjadi (なる)</span>
+        <span class="jlpt-badge n4" style="margin-left:auto;">N4〜N3</span>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-body">
+
+          <div class="grammar-box">
+            <span class="gb-label">Pola</span>
+            <div class="gb-pola">
+              V辞書形 / V ない形 + ことに + する / なる<br>
+              <span class="alt">N + に + する / なる（選択・決定）</span>
+            </div>
+          </div>
+
+          <p class="desc">
+            Di sini, <strong>〜ことにする</strong> menyatakan <em>keputusan yang dibuat secara sadar oleh subjek</em> — "saya memutuskan untuk ~". Sementara <strong>〜ことになる</strong> menyatakan <em>kesimpulan atau situasi yang terjadi dari luar kehendak subjek</em> — "terjadilah keadaan bahwa ~", sering untuk mengumumkan keputusan organisasi, nasib, atau hal yang sudah ditentukan dari luar.
+          </p>
+
+          <div class="sn-grid">
+            <div class="sn-col s-col">
+              <div class="sn-col-head">〜ことにする <span class="jp">— Keputusan Pribadi</span></div>
+              <div class="sn-col-body">
+                <span class="pola">V + ことにする</span>
+                Pembicara <strong>sendiri memutuskan</strong> untuk melakukan sesuatu. Kehendak penuh ada di tangan subjek.<br><br>
+                <span class="kana-ex"><ruby>毎朝<rt>まいあさ</rt></ruby><ruby>走る<rt>はしる</rt></ruby>ことに<strong>した</strong>。</span>
+                <span style="font-size:12px;color:var(--ink-muted);">Saya memutuskan untuk berlari setiap pagi.</span>
+              </div>
+            </div>
+            <div class="sn-col n-col">
+              <div class="sn-col-head">〜ことになる <span class="jp">— Keputusan / Nasib dari Luar</span></div>
+              <div class="sn-col-body">
+                <span class="pola">V + ことになる</span>
+                Keadaan / pihak lain / situasi yang <strong>menentukan</strong>. Subjek tidak sepenuhnya berkehendak.<br><br>
+                <span class="kana-ex"><ruby>大阪<rt>おおさか</rt></ruby>に<ruby>転勤<rt>てんきん</rt></ruby>することに<strong>なった</strong>。</span>
+                <span style="font-size:12px;color:var(--ink-muted);">Terjadilah bahwa saya dipindahkan ke Osaka.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-box ex-s">
+            <div class="example-box-head"><span class="ctx ctx-s">することにした</span> Contoh 1 — Keputusan Pribadi</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>健康<rt>けんこう</rt></ruby>のために、タバコをやめる<span class="hs">ことにした</span>。
+              </p>
+              <p class="example-id">Demi kesehatan, saya memutuskan untuk berhenti merokok.</p>
+              <p class="example-note">→ Keputusan murni dari diri sendiri. Bisa diubah kapan saja.</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-n">
+            <div class="example-box-head"><span class="ctx ctx-n">することになった</span> Contoh 2 — Keputusan dari Luar / Perusahaan</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>来月<rt>らいげつ</rt></ruby>から<ruby>海外<rt>かいがい</rt></ruby>に<ruby>赴任<rt>ふにん</rt></ruby>する<span class="hn">ことになりました</span>。<span class="tag-formal">Formal</span>
+              </p>
+              <p class="example-id">Terjadilah bahwa mulai bulan depan saya akan bertugas ke luar negeri.</p>
+              <p class="example-note">→ Keputusan perusahaan, bukan kehendak pribadi. Nuansa rendah hati / pengumuman.</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-s">
+            <div class="example-box-head"><span class="ctx ctx-s">にする</span> Contoh 3 — Memilih dari Menu / Pilihan</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                ランチはラーメン<span class="hs">にします</span>。<span class="tag-informal">Kasual</span>
+              </p>
+              <p class="example-id">Untuk makan siang, saya pilih ramen.</p>
+              <p class="example-note">→ N + にする = memilih/menetapkan sesuatu sebagai pilihan</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-n">
+            <div class="example-box-head"><span class="ctx ctx-n">になった</span> Contoh 4 — Hasil / Nasib yang Terjadi</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>試合<rt>しあい</rt></ruby>は<ruby>中止<rt>ちゅうし</rt></ruby><span class="hn">になった</span>。
+              </p>
+              <p class="example-id">Pertandingan menjadi batal / terjadilah pembatalan pertandingan.</p>
+              <p class="example-note">→ Tidak ada satu orang pun yang secara pribadi memutuskan — kondisi yang terjadi</p>
+            </div>
+          </div>
+
+          <div class="teal-box">
+            <div class="note-title">Panduan Sosiolingustik — Mengapa ことになる Lebih Sopan?</div>
+            <ul>
+              <li>Dalam budaya Jepang, <strong>ことになりました</strong> (bukan ことにしました) digunakan untuk pengumuman keputusan yang menyangkut orang lain — terasa lebih rendah hati karena seolah-olah "situasilah yang memutuskan, bukan saya".</li>
+              <li>Misalnya: saat menikah, lebih sopan mengatakan 「結婚することになりました」(terjadilah kami akan menikah) daripada 「結婚することにしました」(kami memutuskan menikah) — yang terakhir terasa terlalu asertif.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!--  SECTION 2-3: 〜に/ことに している・なっている -->
+    <!-- ══════════════════════════════════════════ -->
+    <section class="section" id="sn-2-3">
+
+      <div class="section-header">
+        <span class="section-num">用法 ２－３</span>
+        <span class="section-jp">「〜に・〜ことに」している・なっている</span>
+        <span class="section-id">Aturan yang Diterapkan (している) vs Kondisi yang Sudah Berubah (なっている)</span>
+        <span class="jlpt-badge n3" style="margin-left:auto;">N3〜N2</span>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-body">
+
+          <div class="grammar-box">
+            <span class="gb-label">Pola</span>
+            <div class="gb-pola">
+              〜ことに + している（継続する意志・ルール）<br>
+              <span class="alt">〜ことに + なっている（制度・仕組み・変化の結果）</span>
+            </div>
+          </div>
+
+          <p class="desc">
+            Bentuk progresif て形 mempertegas kontras antara する dan なる. <strong>〜ことにしている</strong> menyatakan bahwa subjek <em>telah membuat keputusan dan terus mempertahankannya sebagai kebiasaan atau aturan pribadi</em>. <strong>〜ことになっている</strong> menyatakan bahwa <em>suatu sistem, aturan, atau keadaan sudah berlaku demikian</em> — ada aturan dari luar yang sudah ditetapkan.
+          </p>
+
+          <div class="sn-grid">
+            <div class="sn-col s-col">
+              <div class="sn-col-head">〜ことにしている <span class="jp">— Aturan Pribadi</span></div>
+              <div class="sn-col-body">
+                <span class="pola">ことにしている</span>
+                Saya <strong>sudah memutuskan dan terus melakukan</strong> kebiasaan ini atas kehendak sendiri. "Kebiasaan yang saya terapkan sendiri".<br><br>
+                <span class="kana-ex"><ruby>毎日<rt>まいにち</rt></ruby>日記を<ruby>書<rt>か</rt></ruby>くことに<strong>している</strong>。</span>
+                <span style="font-size:12px;color:var(--ink-muted);">Saya menjadikan kebiasaan menulis jurnal setiap hari.</span>
+              </div>
+            </div>
+            <div class="sn-col n-col">
+              <div class="sn-col-head">〜ことになっている <span class="jp">— Aturan Sistem / Eksternal</span></div>
+              <div class="sn-col-body">
+                <span class="pola">ことになっている</span>
+                Ada <strong>aturan, sistem, atau kesepakatan</strong> yang sudah berlaku. "Sudah diatur demikian oleh sistem/pihak lain".<br><br>
+                <span class="kana-ex"><ruby>学校<rt>がっこう</rt></ruby>では<ruby>制服<rt>せいふく</rt></ruby>を<ruby>着<rt>き</rt></ruby>ることに<strong>なっている</strong>。</span>
+                <span style="font-size:12px;color:var(--ink-muted);">Di sekolah sudah ada aturan memakai seragam.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="example-box ex-s">
+            <div class="example-box-head"><span class="ctx ctx-s">ことにしている</span> Contoh 1 — Kebiasaan Pribadi yang Diterapkan</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>健康<rt>けんこう</rt></ruby>のために、<ruby>エレベーター<rt>えれべーたー</rt></ruby>を<ruby>使<rt>つか</rt></ruby>わない<span class="hs">ことにしています</span>。
+              </p>
+              <p class="example-id">Demi kesehatan, saya membiasakan diri untuk tidak menggunakan lift.</p>
+              <p class="example-note">→ Aturan pribadi yang saya tetapkan dan pertahankan sendiri</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-n">
+            <div class="example-box-head"><span class="ctx ctx-n">ことになっている</span> Contoh 2 — Aturan / Sistem yang Berlaku</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                この<ruby>会社<rt>かいしゃ</rt></ruby>では、<ruby>毎週<rt>まいしゅう</rt></ruby><ruby>金曜日<rt>きんようび</rt></ruby>に<ruby>会議<rt>かいぎ</rt></ruby>をする<span class="hn">ことになっています</span>。
+              </p>
+              <p class="example-id">Di perusahaan ini, sudah ada ketentuan bahwa rapat dilaksanakan setiap hari Jumat.</p>
+              <p class="example-note">→ Aturan perusahaan — bukan keputusan pribadi satu orang</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-s">
+            <div class="example-box-head"><span class="ctx ctx-s">ことにしている</span> Contoh 3 — Pantang Pribadi</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>夜<rt>よる</rt></ruby>１０<ruby>時<rt>じ</rt></ruby>以降は<ruby>甘<rt>あま</rt></ruby>いものを<ruby>食<rt>た</rt></ruby>べない<span class="hs">ことにしている</span>。<span class="tag-informal">Kasual</span>
+              </p>
+              <p class="example-id">Saya menetapkan aturan pribadi untuk tidak makan makanan manis setelah pukul 22.00.</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-n">
+            <div class="example-box-head"><span class="ctx ctx-n">になっている</span> Contoh 4 — Kondisi yang Sudah Berlaku</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                この<ruby>建物<rt>たてもの</rt></ruby>は<ruby>全面禁煙<rt>ぜんめんきんえん</rt></ruby>に<span class="hn">なっています</span>。<span class="tag-formal">Formal</span>
+              </p>
+              <p class="example-id">Gedung ini sudah menjadi kawasan bebas rokok sepenuhnya.</p>
+              <p class="example-note">→ Kondisi / peraturan yang sudah diterapkan — siapapun tidak bisa mengubahnya sendiri</p>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <div class="note-title">Catatan Penting</div>
+            <ul>
+              <li><strong>ことにしている</strong>：selalu bisa dijawab dengan "siapa yang memutuskan?" → subjek kalimat sendiri.</li>
+              <li><strong>ことになっている</strong>：jawabannya "sistem / perusahaan / aturan / kebiasaan masyarakat" — bukan individu tertentu.</li>
+              <li>「〜ことになっている」juga bisa berarti "sudah direncanakan / dijadwalkan" untuk acara di masa depan: 「来週、会議がある<strong>ことになっている</strong>」(sudah dijadwalkan ada rapat minggu depan).</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+
+    <!-- ══════════════════════════════════════════════════════════════ -->
+    <!--  SECTION 2-4: 〜ように する・している・なる・なっている (4 forms) -->
+    <!-- ══════════════════════════════════════════════════════════════ -->
+    <section class="section" id="sn-2-4">
+
+      <div class="section-header">
+        <span class="section-num">用法 ２－４</span>
+        <span class="section-jp">「〜ように」する・している・なる・なっている</span>
+        <span class="section-id">Empat Bentuk — Niat, Kebiasaan, Perubahan, dan Kondisi Final</span>
+        <span class="jlpt-badge n3" style="margin-left:auto;">N3〜N2</span>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-body">
+
+          <div class="grammar-box">
+            <span class="gb-label">Pola</span>
+            <div class="gb-pola">
+              V + ように + する / している / なる / なっている<br>
+              <span class="alt">（４形の意味は文脈と時制によって異なる）</span>
+            </div>
+          </div>
+
+          <p class="desc">
+            「〜ように」diikuti oleh empat bentuk berbeda yang masing-masing menghasilkan makna yang khas. Peta keempatnya membentuk sebuah matriks antara <strong>agen (する vs なる)</strong> dan <strong>aspek (sekarang/tunggal vs progresif/kebiasaan)</strong>.
+          </p>
+
+          <!-- 4-column grid -->
+          <div class="four-grid">
+            <div class="fg-col">
+              <div class="fg-col-head">ようにする<br><span class="jp">（一回の意志）</span></div>
+              <div class="fg-col-body">
+                <div class="fg-jp">Niat / usaha satu kali</div>
+                "Berusaha agar ~" (sekali, saat ini)
+              </div>
+            </div>
+            <div class="fg-col">
+              <div class="fg-col-head">ようにしている<br><span class="jp">（継続する習慣）</span></div>
+              <div class="fg-col-body">
+                <div class="fg-jp">Kebiasaan / niat berkelanjutan</div>
+                "Membiasakan diri agar ~" (terus-menerus)
+              </div>
+            </div>
+            <div class="fg-col">
+              <div class="fg-col-head">ようになる<br><span class="jp">（変化の結果）</span></div>
+              <div class="fg-col-body">
+                <div class="fg-jp">Perubahan bertahap yang selesai</div>
+                "Akhirnya bisa / menjadi ~" (titik perubahan)
+              </div>
+            </div>
+            <div class="fg-col">
+              <div class="fg-col-head">ようになっている<br><span class="jp">（変化後の状態）</span></div>
+              <div class="fg-col-body">
+                <div class="fg-jp">Kondisi yang sudah berubah</div>
+                "Sudah dalam keadaan di mana ~" (kondisi final)
+              </div>
+            </div>
+          </div>
+
+          <!-- Nuance chain for the 4 forms -->
+          <div class="nuance-chain">
+            <div class="nuance-step">
+              <div class="ns-label">① ようにする</div>
+              <div class="ns-jp" style="font-size:13px; color:var(--suru-col);">意図・一回</div>
+              <div style="font-size:12px;color:var(--ink-muted);margin-top:4px;">Usaha satu kali</div>
+            </div>
+            <div class="nuance-arrow">→</div>
+            <div class="nuance-step">
+              <div class="ns-label">② ようにしている</div>
+              <div class="ns-jp" style="font-size:13px; color:var(--suru-col);">継続する習慣</div>
+              <div style="font-size:12px;color:var(--ink-muted);margin-top:4px;">Kebiasaan yang dipertahankan</div>
+            </div>
+            <div class="nuance-arrow">→</div>
+            <div class="nuance-step">
+              <div class="ns-label">③ ようになる</div>
+              <div class="ns-jp" style="font-size:13px; color:var(--naru-col);">変化の完成点</div>
+              <div style="font-size:12px;color:var(--ink-muted);margin-top:4px;">Titik perubahan tercapai</div>
+            </div>
+            <div class="nuance-arrow">→</div>
+            <div class="nuance-step">
+              <div class="ns-label">④ ようになっている</div>
+              <div class="ns-jp" style="font-size:13px; color:var(--naru-col);">変化後の定着状態</div>
+              <div style="font-size:12px;color:var(--ink-muted);margin-top:4px;">Kondisi yang sudah mapan</div>
+            </div>
+          </div>
+
+          <!-- Sub: ようにする -->
+          <div class="sub-header">
+            <span class="sub-label">① ようにする</span>
+            <span class="sub-title">Berusaha agar ~ / Mengupayakan (niat satu kali)</span>
+          </div>
+
+          <div class="example-box ex-s">
+            <div class="example-box-head"><span class="ctx ctx-s">ようにする</span> Contoh 1</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>忘<rt>わす</rt></ruby>れないようにメモ<span class="hs">するようにします</span>。
+              </p>
+              <p class="example-id">Saya akan berusaha mencatat agar tidak lupa.</p>
+              <p class="example-note">→ Satu kali usaha / niat yang segera dilakukan</p>
+            </div>
+          </div>
+
+          <div class="sub-divider"></div>
+
+          <!-- Sub: ようにしている -->
+          <div class="sub-header">
+            <span class="sub-label">② ようにしている</span>
+            <span class="sub-title">Membiasakan diri agar ~ / Terus berusaha secara rutin (kebiasaan aktif)</span>
+          </div>
+
+          <div class="example-box ex-s">
+            <div class="example-box-head"><span class="ctx ctx-s">ようにしている</span> Contoh 1</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>毎日<rt>まいにち</rt></ruby>８<ruby>時間<rt>じかん</rt></ruby><ruby>寝<rt>ね</rt></ruby>る<span class="hs">ようにしています</span>。
+              </p>
+              <p class="example-id">Saya selalu berusaha untuk tidur 8 jam setiap hari.</p>
+              <p class="example-note">→ Kebiasaan yang terus dipertahankan atas kehendak sendiri</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-s">
+            <div class="example-box-head"><span class="ctx ctx-s">ようにしている</span> Contoh 2</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                なるべく<ruby>野菜<rt>やさい</rt></ruby>を<ruby>多<rt>おお</rt></ruby>く<ruby>食<rt>た</rt></ruby>べる<span class="hs">ようにしています</span>。
+              </p>
+              <p class="example-id">Saya membiasakan diri untuk makan banyak sayuran setiap saat.</p>
+            </div>
+          </div>
+
+          <div class="sub-divider"></div>
+
+          <!-- Sub: ようになる -->
+          <div class="sub-header">
+            <span class="sub-label">③ ようになる</span>
+            <span class="sub-title">Akhirnya bisa ~ / Menjadi ~ (perubahan bertahap yang mencapai titik baru)</span>
+          </div>
+
+          <div class="example-box ex-n">
+            <div class="example-box-head"><span class="ctx ctx-n">ようになった</span> Contoh 1</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>練習<rt>れんしゅう</rt></ruby>を<ruby>続<rt>つづ</rt></ruby>けて、ピアノが<ruby>弾<rt>ひ</rt></ruby>ける<span class="hn">ようになった</span>。
+              </p>
+              <p class="example-id">Setelah terus berlatih, akhirnya bisa bermain piano.</p>
+              <p class="example-note">→ Perubahan dari "tidak bisa" → "bisa" yang terjadi secara bertahap</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-n">
+            <div class="example-box-head"><span class="ctx ctx-n">ようになった</span> Contoh 2 — Perubahan Kebiasaan</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>てから、<ruby>納豆<rt>なっとう</rt></ruby>を<ruby>食<rt>た</rt></ruby>べられる<span class="hn">ようになりました</span>。
+              </p>
+              <p class="example-id">Setelah datang ke Jepang, akhirnya bisa makan natto.</p>
+              <p class="example-note">→ Perubahan sikap / kemampuan yang terjadi secara alami dari waktu ke waktu</p>
+            </div>
+          </div>
+
+          <div class="sub-divider"></div>
+
+          <!-- Sub: ようになっている -->
+          <div class="sub-header">
+            <span class="sub-label">④ ようになっている</span>
+            <span class="sub-title">Sudah dalam keadaan di mana ~ / Sudah dirancang agar ~ (kondisi final yang mapan)</span>
+          </div>
+
+          <div class="example-box ex-n">
+            <div class="example-box-head"><span class="ctx ctx-n">ようになっている</span> Contoh 1 — Sistem / Mekanisme</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                このアプリは<ruby>自動的<rt>じどうてき</rt></ruby>に<ruby>保存<rt>ほぞん</rt></ruby>される<span class="hn">ようになっています</span>。
+              </p>
+              <p class="example-id">Aplikasi ini sudah dirancang agar tersimpan secara otomatis.</p>
+              <p class="example-note">→ Kondisi / sistem yang sudah mapan dan berlaku — bukan keputusan satu orang</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-n">
+            <div class="example-box-head"><span class="ctx ctx-n">ようになっている</span> Contoh 2 — Perubahan yang Sudah Stabil</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>最近<rt>さいきん</rt></ruby>では<ruby>多<rt>おお</rt></ruby>くの<ruby>店<rt>みせ</rt></ruby>でキャッシュレス<ruby>決済<rt>けっさい</rt></ruby>ができる<span class="hn">ようになっています</span>。<span class="tag-formal">Formal</span>
+              </p>
+              <p class="example-id">Belakangan ini sudah menjadi keadaan di mana pembayaran tanpa uang tunai bisa dilakukan di banyak toko.</p>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <div class="note-title">Ringkasan 4 Bentuk 〜ように dalam Satu Pandangan</div>
+            <ul>
+              <li><strong>ようにする</strong>："Saya akan berusaha agar ~" (niat, satu kali, ada kehendak)</li>
+              <li><strong>ようにしている</strong>："Saya membiasakan diri agar ~" (kebiasaan rutin, terus-menerus, ada kehendak)</li>
+              <li><strong>ようになる</strong>："Akhirnya menjadi ~ / bisa ~" (titik perubahan bertahap, tidak ada pelaku khusus)</li>
+              <li><strong>ようになっている</strong>："Sudah dalam kondisi ~ / sudah dirancang agar ~" (kondisi yang sudah mapan, sering untuk sistem/mekanisme)</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ COMPARISON ══ -->
+    <div class="comparison-section">
+      <h3>Tabel Perbandingan Besar — Semua Pola する・なる</h3>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Pola</th>
+            <th>する / している</th>
+            <th>なる / なっている</th>
+            <th>Kunci Pembeda</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>〜く/〜に ＋</td>
+            <td>〜く/〜にする<br><span style="font-size:11px;color:var(--suru-col);">Sengaja mengubah kondisi</span></td>
+            <td>〜く/〜になる<br><span style="font-size:11px;color:var(--naru-col);">Kondisi berubah sendiri</span></td>
+            <td>Ada pelaku yang mengubah vs tidak ada</td>
+          </tr>
+          <tr>
+            <td>〜ことに ＋</td>
+            <td>〜ことにする<br><span style="font-size:11px;color:var(--suru-col);">Keputusan pribadi</span></td>
+            <td>〜ことになる<br><span style="font-size:11px;color:var(--naru-col);">Keputusan dari luar / nasib</span></td>
+            <td>Siapa yang memutuskan?</td>
+          </tr>
+          <tr>
+            <td>〜ことに ＋ 継続</td>
+            <td>〜ことにしている<br><span style="font-size:11px;color:var(--suru-col);">Aturan pribadi yang dipertahankan</span></td>
+            <td>〜ことになっている<br><span style="font-size:11px;color:var(--naru-col);">Aturan sistem yang berlaku</span></td>
+            <td>Aturan dari diri sendiri vs dari sistem luar</td>
+          </tr>
+          <tr>
+            <td>〜ように ＋ 一回</td>
+            <td>〜ようにする<br><span style="font-size:11px;color:var(--suru-col);">Niat / usaha satu kali</span></td>
+            <td>〜ようになる<br><span style="font-size:11px;color:var(--naru-col);">Perubahan bertahap tercapai</span></td>
+            <td>Usaha aktif vs titik perubahan alami</td>
+          </tr>
+          <tr>
+            <td>〜ように ＋ 継続</td>
+            <td>〜ようにしている<br><span style="font-size:11px;color:var(--suru-col);">Kebiasaan aktif yang dijaga</span></td>
+            <td>〜ようになっている<br><span style="font-size:11px;color:var(--naru-col);">Kondisi / sistem yang sudah mapan</span></td>
+            <td>Kebiasaan pribadi vs kondisi yang sudah ada</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <div class="note-title">Panduan Cepat Memilih する atau なる</div>
+        <ul>
+          <li>Ada <strong>manusia / organisasi yang secara aktif memutuskan atau mengubah</strong> sesuatu → <span class="pill-s">する</span></li>
+          <li>Perubahan terjadi <strong>secara alami, bertahap, atau karena kondisi eksternal</strong> → <span class="pill-n">なる</span></li>
+          <li>Ingin menyatakan <strong>kebiasaan / aturan yang saya tetapkan sendiri</strong> → <span class="pill-s">〜ことにしている / ようにしている</span></li>
+          <li>Ingin menyatakan <strong>aturan perusahaan / sistem / jadwal yang sudah ada</strong> → <span class="pill-n">〜ことになっている / ようになっている</span></li>
+          <li>Ingin menyatakan <strong>keputusan penting yang menyangkut orang lain</strong> dengan sopan → <span class="pill-n">〜ことになりました</span> (lebih rendah hati dari ことにしました)</li>
+        </ul>
+      </div>
+
+      <div class="warning-box">
+        <div class="note-title">Jebakan yang Sering Muncul di Soal JLPT</div>
+        <ul>
+          <li><strong>× 毎朝走ることになした</strong> → ○ 毎朝走ることにした (keputusan pribadi = する bukan なる)</li>
+          <li><strong>× 会社の規則で残業することにしている</strong> → ○ 〜ことになっている (aturan perusahaan = なっている)</li>
+          <li><strong>ようになった vs ようにした</strong>: ようになった = perubahan alami bertahap; ようにした = satu keputusan aktif yang saya ambil.</li>
+          <li><strong>ことになっている vs ことにしている</strong>: tanyakan "siapa yang membuat aturan ini?" — diri sendiri → している; sistem/orang lain → なっている.</li>
+          <li>「〜ようになっている」sering menggambarkan <em>desain / mekanisme</em> suatu alat atau sistem — perhatikan konteksnya.</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="book-footer">
+    <span>「する・なる」の整理 · JLPT N5〜N2 · 用法 1〜2-4</span>
+    <span>PejuangYen Series · © 2026</span>
+  </footer>
+
+</article>
+</body>
+</html>
