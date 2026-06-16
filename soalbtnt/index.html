@@ -1,0 +1,846 @@
+<!-- ============================================================
+     LATIHAN SOAL N3〜N2 — 15 Nomor (DIACAK)
+     Modul : 「たら・ば・と・なら」特別な使い方
+     用法１  〜と/たら…た (Kejadian Nyata Lampau)
+     用法２  〜と…た (Urutan Langsung / Cepat)
+     用法３  〜も…ば〜も / 〜も…なら〜も
+     WordPress → paste ke blok Custom HTML
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latihan Soal — たら・ば・と・なら の特別な使い方</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&family=Source+Serif+4:wght@300;400;600&display=swap');
+
+.jlpt-cond-wrap {
+  --ink:         #1a1a1a;
+  --ink-light:   #3d3d3d;
+  --ink-muted:   #707070;
+  --paper:       #faf9f7;
+  --paper-warm:  #f5f3ef;
+  --rule:        #d8d4cc;
+  --correct:     #1e7e45;
+  --correct-bg:  #edfaf3;
+  --correct-bd:  #6fcf97;
+  --wrong:       #c0392b;
+  --wrong-bg:    #fff0ef;
+  --wrong-bd:    #e07070;
+  --acc:         #2c3e6b;
+  --acc-soft:    #eef1f9;
+  --gold:        #a08030;
+  --font-jp:   'Noto Serif JP', serif;
+  --font-ui:   'Noto Sans JP', sans-serif;
+  --font-body: 'Source Serif 4','Noto Serif JP',serif;
+  font-family: var(--font-body);
+  color: var(--ink);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.jlpt-cond-wrap .qhdr {
+  background: #1a1a1a;
+  border-radius: 12px 12px 0 0;
+  padding: 22px 28px 18px;
+  position: relative; overflow: hidden;
+}
+.jlpt-cond-wrap .qhdr::after {
+  content: 'たらばと';
+  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  font-family: var(--font-jp); font-size: 64px; font-weight: 700;
+  line-height: 1; color: rgba(255,255,255,0.04); pointer-events: none; white-space: nowrap;
+}
+.jlpt-cond-wrap .qhdr-inner { position: relative; }
+.jlpt-cond-wrap .qhdr h2 {
+  font-family: var(--font-jp); font-size: 19px; font-weight: 700;
+  color: #fff; margin: 0 0 5px; line-height: 1.4;
+}
+.jlpt-cond-wrap .qhdr p {
+  font-family: var(--font-ui); font-size: 12px;
+  color: rgba(255,255,255,0.45); margin: 0; line-height: 1.7;
+}
+.jlpt-cond-wrap .hdr-pills {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px;
+}
+.jlpt-cond-wrap .hp {
+  font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.07em; padding: 3px 9px; border-radius: 3px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.16); color: rgba(255,255,255,0.72);
+}
+
+/* ── Shuffle Banner ── */
+.jlpt-cond-wrap .shuffle-banner {
+  display: flex; align-items: flex-start; gap: 11px;
+  padding: 11px 20px;
+  background: var(--acc);
+  font-family: var(--font-ui); font-size: 12.5px;
+  color: rgba(255,255,255,0.82); line-height: 1.6;
+}
+.jlpt-cond-wrap .shuffle-banner .si { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Top Panel ── */
+.jlpt-cond-wrap .top-panel {
+  background: var(--paper-warm);
+  border: 1px solid var(--rule); border-top: none;
+  padding: 13px 20px; margin-bottom: 14px;
+  display: flex; flex-wrap: wrap; gap: 12px;
+  align-items: center; justify-content: space-between;
+}
+.jlpt-cond-wrap .name-field {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-ui); font-size: 13px;
+  font-weight: 600; color: var(--ink-light);
+}
+.jlpt-cond-wrap .name-field input {
+  padding: 7px 12px; border: 1.5px solid var(--rule); border-radius: 6px;
+  font-family: var(--font-ui); font-size: 13px; width: 185px;
+  outline: none; transition: border-color 0.2s; background: #fff;
+}
+.jlpt-cond-wrap .name-field input:focus { border-color: var(--acc); }
+.jlpt-cond-wrap .score-display {
+  font-family: var(--font-ui); font-size: 13px; color: var(--ink-light);
+  display: flex; align-items: center; gap: 5px;
+}
+.jlpt-cond-wrap .snum {
+  font-size: 22px; font-weight: 700; color: var(--acc); line-height: 1;
+}
+
+/* ── Progress ── */
+.jlpt-cond-wrap .prog-row {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+  font-family: var(--font-ui); font-size: 11px; color: var(--ink-muted);
+}
+.jlpt-cond-wrap .prog-track {
+  flex: 1; height: 5px; background: var(--rule);
+  border-radius: 3px; overflow: hidden;
+}
+.jlpt-cond-wrap .prog-fill {
+  height: 100%; width: 0%; background: var(--acc);
+  border-radius: 3px; transition: width 0.4s ease;
+}
+
+/* ── Card ── */
+.jlpt-cond-wrap details {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--acc);
+  border-radius: 10px;
+  margin-bottom: 9px; overflow: hidden;
+  box-shadow: 0 2px 9px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s;
+}
+.jlpt-cond-wrap details[open] { box-shadow: 0 4px 18px rgba(0,0,0,0.09); }
+
+.jlpt-cond-wrap summary {
+  cursor: pointer; padding: 12px 16px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-ui); font-size: 13.5px; font-weight: 600;
+  color: var(--ink); list-style: none; user-select: none;
+  background: var(--paper-warm); transition: background 0.15s;
+}
+.jlpt-cond-wrap summary::-webkit-details-marker { display: none; }
+.jlpt-cond-wrap summary:hover { background: #ece8df; }
+
+/* Nomor — warna netral, tidak dibedakan per grammar */
+.jlpt-cond-wrap .q-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 28px; height: 28px; border-radius: 50%;
+  background: var(--ink-light); color: #fff;
+  font-size: 11px; font-weight: 700; flex-shrink: 0;
+}
+
+.jlpt-cond-wrap .q-preview {
+  flex: 1; font-family: var(--font-jp); font-size: 13.5px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;
+}
+
+.jlpt-cond-wrap .q-chevron {
+  font-size: 11px; color: var(--ink-muted);
+  transition: transform 0.2s; flex-shrink: 0; margin-left: 4px;
+}
+.jlpt-cond-wrap details[open] summary .q-chevron { transform: rotate(180deg); }
+
+/* ── Body ── */
+.jlpt-cond-wrap .quiz-body {
+  padding: 16px 18px 18px; border-top: 1px solid var(--rule);
+}
+.jlpt-cond-wrap .quiz-question {
+  font-family: var(--font-jp); font-size: 17px; line-height: 2.1;
+  color: var(--ink); margin-bottom: 14px; padding: 12px 15px;
+  background: var(--acc-soft); border-left: 3px solid var(--acc); border-radius: 8px;
+}
+.jlpt-cond-wrap .blank {
+  display: inline-block; min-width: 68px; font-weight: 700;
+  border-bottom: 2.5px solid var(--acc); color: var(--acc);
+  text-align: center; padding: 0 3px;
+}
+.jlpt-cond-wrap .q-tr {
+  display: block; font-family: var(--font-ui); font-size: 12px;
+  color: var(--ink-muted); font-style: italic; margin-top: 5px; line-height: 1.5;
+}
+.jlpt-cond-wrap .q-ctx {
+  display: block; font-family: var(--font-ui); font-size: 11.5px;
+  color: #8a5a00; background: #fff8e0;
+  padding: 4px 10px; border-radius: 4px; margin-top: 6px;
+}
+
+/* ── Options ── */
+.jlpt-cond-wrap .options-list {
+  display: flex; flex-direction: column; gap: 8px; margin-bottom: 11px;
+}
+.jlpt-cond-wrap .option-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; border: 2px solid var(--rule); border-radius: 8px;
+  background: #fff; cursor: pointer; font-family: var(--font-jp);
+  font-size: 14.5px; color: var(--ink); text-align: left; width: 100%;
+  line-height: 1.65;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+.jlpt-cond-wrap .option-btn:hover:not([disabled]) {
+  border-color: var(--acc); background: var(--acc-soft); transform: translateX(3px);
+}
+.jlpt-cond-wrap .opt-label {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #e8e5e0; font-family: var(--font-ui);
+  font-size: 11px; font-weight: 700; flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+}
+.jlpt-cond-wrap .opt-text { flex: 1; }
+.jlpt-cond-wrap .opt-icon { font-size: 14px; flex-shrink: 0; opacity: 0; transition: opacity 0.2s; }
+
+.jlpt-cond-wrap .option-btn.is-correct {
+  border-color: var(--correct-bd); background: var(--correct-bg);
+  animation: pulse-c .3s ease;
+}
+.jlpt-cond-wrap .option-btn.is-correct .opt-label { background: var(--correct); color: #fff; }
+.jlpt-cond-wrap .option-btn.is-correct .opt-icon { opacity: 1; }
+.jlpt-cond-wrap .option-btn.is-wrong {
+  border-color: var(--wrong-bd); background: var(--wrong-bg);
+  animation: shake-w .3s ease;
+}
+.jlpt-cond-wrap .option-btn.is-wrong .opt-label { background: var(--wrong); color: #fff; }
+.jlpt-cond-wrap .option-btn.is-wrong .opt-icon { opacity: 1; }
+.jlpt-cond-wrap .option-btn.is-locked { opacity: 0.42; pointer-events: none; cursor: not-allowed; }
+
+/* ── Pembahasan ── */
+.jlpt-cond-wrap .pembahasan {
+  display: none; background: #fffdf0;
+  border: 1px solid #e8d89a; border-left: 4px solid var(--gold);
+  border-radius: 8px; padding: 13px 15px;
+  font-size: 13px; line-height: 1.85; color: #4a3800;
+  margin-top: 4px; animation: fadeIn .3s ease;
+}
+.jlpt-cond-wrap .pembahasan.show { display: block; }
+.jlpt-cond-wrap .p-title {
+  font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 6px;
+}
+.jlpt-cond-wrap .p-kunci {
+  font-family: var(--font-jp); font-size: 14px; font-weight: 700;
+  color: var(--correct); margin-bottom: 7px;
+}
+.jlpt-cond-wrap .p-tip {
+  margin-top: 8px; padding: 7px 11px;
+  background: rgba(44,62,107,0.07); border-radius: 5px;
+  font-size: 12px; color: var(--acc); font-family: var(--font-ui);
+}
+.jlpt-cond-wrap .p-tip::before { content: '⚡ Cara cepat: '; font-weight: 700; }
+
+/* ── Submit ── */
+.jlpt-cond-wrap .submit-area {
+  text-align: center; margin-top: 26px;
+  padding-top: 20px; border-top: 1px solid var(--rule);
+}
+.jlpt-cond-wrap #cond-submit-btn {
+  background: var(--acc); color: #fff; border: none;
+  padding: 13px 38px; border-radius: 30px;
+  font-family: var(--font-ui); font-size: 15px; font-weight: 700;
+  cursor: pointer; transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 3px 14px rgba(44,62,107,0.28);
+}
+.jlpt-cond-wrap #cond-submit-btn:hover { background: #1e2e55; transform: translateY(-1px); }
+.jlpt-cond-wrap #cond-submit-btn:disabled { background: #8a9ab8; cursor: not-allowed; transform: none; }
+.jlpt-cond-wrap #cond-status {
+  margin-top: 11px; font-family: var(--font-ui); font-size: 14px; font-weight: 600;
+}
+
+@keyframes pulse-c { 0%{transform:scale(1)} 50%{transform:scale(1.012)} 100%{transform:scale(1)} }
+@keyframes shake-w { 0%{transform:translateX(0)} 20%{transform:translateX(-5px)} 40%{transform:translateX(5px)} 60%{transform:translateX(-3px)} 80%{transform:translateX(3px)} 100%{transform:translateX(0)} }
+@keyframes fadeIn  { from{opacity:0;transform:translateY(-5px)} to{opacity:1;transform:translateY(0)} }
+
+@media (max-width:600px){
+  .jlpt-cond-wrap .qhdr::after { font-size:44px; }
+  .jlpt-cond-wrap .top-panel { padding:12px 13px; }
+  .jlpt-cond-wrap .name-field input { width:148px; }
+  .jlpt-cond-wrap .quiz-question { font-size:15px; padding:10px 12px; }
+  .jlpt-cond-wrap summary { padding:11px 12px; font-size:13px; }
+  .jlpt-cond-wrap .option-btn { font-size:13.5px; padding:10px 12px; }
+}
+</style>
+
+<!-- ═══════════ HTML ═══════════ -->
+<div class="jlpt-cond-wrap">
+
+<div class="qhdr">
+  <div class="qhdr-inner">
+    <h2>📝 Latihan Soal — たら・ば・と・なら の特別な使い方</h2>
+    <p>N3〜N2 &nbsp;|&nbsp; 15 Soal Pilihan Ganda &nbsp;|&nbsp; Soal Diacak</p>
+    <div class="hdr-pills">
+      <span class="hp">🔀 Soal Diacak</span>
+      <span class="hp">〜と/たら…た 3 Nuansa</span>
+      <span class="hp">〜と…た Urutan Langsung</span>
+      <span class="hp">〜も…ば〜も</span>
+      <span class="hp">〜も…なら〜も</span>
+    </div>
+  </div>
+</div>
+
+<div class="shuffle-banner">
+  <span class="si">🎯</span>
+  <span>Soal diacak dari semua 用法. Sebelum menjawab, tanyakan: <strong>「Ini kejadian nyata atau hipotesis?」「Terjadi langsung atau ada jeda?」「Siapa yang melakukan?」</strong></span>
+</div>
+
+<div class="top-panel">
+  <div class="name-field">
+    <label for="cond-name">👤 Nama:</label>
+    <input type="text" id="cond-name" placeholder="Masukkan nama kamu...">
+  </div>
+  <div class="score-display">
+    Skor: <span class="snum" id="cond-score">0</span>/15
+    &nbsp;|&nbsp; <span id="cond-correct">0</span> benar
+  </div>
+</div>
+
+<div class="prog-row">
+  <span id="cond-prog-label">0 / 15 terjawab</span>
+  <div class="prog-track"><div class="prog-fill" id="cond-prog-fill"></div></div>
+</div>
+
+<!-- ══ SOAL 1 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">1</span>
+    <span class="q-preview">冷蔵庫を開ける___、牛乳が一本もなかった。</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      冷蔵庫を開ける<span class="blank">___</span>、牛乳が一本もなかった。
+      <span class="q-tr">Ketika membuka kulkas, ternyata tidak ada susu sama sekali.</span>
+      <span class="q-ctx">文脈：過去に実際に起きたこと（冷蔵庫を開けて気がついた）</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="true"><span class="opt-label">A</span><span class="opt-text">と</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">なら</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">ば</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">もし〜たら</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: A — と</div>
+      <p>「〜と…た」= narasi kejadian nyata di masa lampau — membuka kulkas dan menyadari sesuatu. と di sini bukan hipotesis, melainkan melaporkan urutan kejadian nyata. なら dan ば adalah kondisional hipotesis, tidak cocok untuk menceritakan kejadian lampau yang sudah terjadi. もし〜たら tidak bisa dipakai untuk narasi kejadian nyata (もし menandai hipotesis).</p>
+      <div class="p-tip">〜と…た = menceritakan fakta lampau ("ketika ~ ternyata..."). Tidak ada もし. Bukan hipotesis.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 2 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">2</span>
+    <span class="q-preview">名前を呼ばれる___、彼はすぐに振り向いた。</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      名前を呼ばれる<span class="blank">___</span>、彼はすぐに振り向いた。
+      <span class="q-tr">Begitu namanya dipanggil, dia langsung berbalik.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="true"><span class="opt-label">A</span><span class="opt-text">と</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">たら</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">なら</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ば</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: A — と</div>
+      <p>「〜と…た」— fungsi urutan langsung (用法２): stimulus → respons tanpa jeda. Dipanggil → langsung berbalik, tidak ada jeda. と menyatakan urutan cepat yang hampir bersamaan. たら juga bisa secara gramatikal, tetapi nuansanya lebih personal/subjektif. Untuk respons langsung yang mekanis/alami, と lebih tepat dan lebih natural.</p>
+      <div class="p-tip">Stimulus → respons langsung tanpa jeda → と. Semakin otomatis/alami responnya, semakin kuat preferensi と.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 3 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">3</span>
+    <span class="q-preview">財布を確認し___、お金が全然なかった。</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      財布を確認し<span class="blank">___</span>、お金が全然なかった。
+      <span class="q-tr">Begitu mengecek dompet, ternyata uangnya tidak ada sama sekali.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">と</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">たら</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">なら</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ので</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: B — たら</div>
+      <p>「確認し<strong>たら</strong>」= mengecek dompet dan menyadari kondisinya (menemukan fakta mengejutkan). Perhatikan: kata kerja sebelum blank adalah 確認し (bentuk て tanpa て → disambung langsung ke たら sebagai 確認したら). た + ら. Nuansa たら di sini: tindakan yang dilakukan → menemukan/menyadari sesuatu yang tidak terduga. と kurang natural untuk "menyadari" sesuatu yang mengejutkan secara personal.</p>
+      <div class="p-tip">Melakukan tindakan → menyadari/menemukan sesuatu yang mengejutkan → たら lebih natural. と lebih ke urutan yang otomatis/mekanis.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 4 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">4</span>
+    <span class="q-preview">彼女は頭___よければ、顔もいい。（完全な文に）</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      彼女は頭<span class="blank">___</span>よければ、顔もいい。
+      <span class="q-tr">Dia tidak hanya otaknya encer, wajahnya pun cantik.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">が</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">も</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">は</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">の</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: B — も</div>
+      <p>Pola 「〜<strong>も</strong>…ば〜も〜」= tidak hanya A, juga B. Partikel も wajib ada di kedua sisi untuk membentuk pola ini. Kalimat lengkap: 頭<strong>も</strong>よければ、顔<strong>も</strong>いい. が hanya menandai subjek biasa; は menandai topik; どちらも adalah ekspresi terpisah. Perhatikan: よければ = い形容詞 (よい/いい) bentuk kondisional ば (よ + ければ).</p>
+      <div class="p-tip">Pola 〜も…ば〜も: partikel も wajib di kedua slot. い形容詞 → [語幹] + ければ (いい → よければ).</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 5 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">5</span>
+    <span class="q-preview">道を歩いてい___、昔の友人にばったり会った。</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      道を歩いてい<span class="blank">___</span>、昔の友人にばったり会った。
+      <span class="q-tr">Sedang berjalan di jalan, tiba-tiba bertemu teman lama secara tidak terduga.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="true"><span class="opt-label">A</span><span class="opt-text">ると</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">れば</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">るなら</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">るので</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: A — ると</div>
+      <p>「〜ていると…た」= sedang melakukan ~ ketika tiba-tiba sesuatu terjadi (pertemuan tak terduga). Pola ini khas untuk menceritakan kejadian yang muncul secara mengejutkan saat seseorang sedang dalam keadaan tertentu. ばったり会った (berpapasan secara tidak terduga) adalah sinyal kuat untuk pola ini. れば adalah hipotesis; るなら adalah kondisional; るので adalah sebab.</p>
+      <div class="p-tip">〜ていると + ばったり/突然/偶然 + kejadian = pertemuan atau kejadian tak terduga. Selalu cerita masa lampau.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 6 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">6</span>
+    <span class="q-preview">あの店は料理___まずいなら、値段も高い。</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      あの店は料理<span class="blank">___</span>まずいなら、値段も高い。
+      <span class="q-tr">Restoran itu, tidak hanya makanannya tidak enak, harganya pun mahal.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">が</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">は</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">も</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">さえ</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: C — も</div>
+      <p>Pola 「〜<strong>も</strong>…なら〜も〜」= tidak hanya A, juga B (serba negatif di sini). Kalimat: 料理<strong>も</strong>まずいなら、値段<strong>も</strong>高い. Kedua も wajib. Pola ini dipakai untuk menumpuk dua kekurangan (atau dua kelebihan) sekaligus, dengan nuansa evaluatif. なら di sini bukan kondisional biasa, melainkan bagian dari pola もなら.</p>
+      <div class="p-tip">〜も…なら〜も = A pun [buruk/baik], B pun [buruk/baik]. Khas untuk evaluasi menumpuk — keluhan atau pujian ganda.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 7 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">7</span>
+    <span class="q-preview">試験が始まる___、教室が静かになった。</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      試験が始まる<span class="blank">___</span>、教室が静かになった。
+      <span class="q-tr">Begitu ujian dimulai, kelas seketika menjadi sunyi.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="true"><span class="opt-label">A</span><span class="opt-text">と</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">なら</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">ば</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">もし〜たら</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: A — と</div>
+      <p>Ujian dimulai → kelas langsung sunyi: urutan kausal yang hampir bersamaan dan natural (用法２). と ideal karena: ① kejadian nyata lampau, ② kondisi kedua (kelas sunyi) terjadi secara langsung/otomatis. たら bisa dipakai tapi nuansanya lebih personal; untuk "kelas menjadi sunyi" yang bersifat kolektif dan mekanis, と lebih alami. なら dan ば tidak cocok untuk narasi lampau.</p>
+      <div class="p-tip">Kejadian A → kondisi B terjadi otomatis/langsung + narasi lampau → と. Makin "mekanis" urutannya, makin kuat pilihan と.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 8 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">8</span>
+    <span class="q-preview">先生に相談し___、いい解決策を教えてくれた。</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      先生に相談し<span class="blank">___</span>、いい解決策を教えてくれた。
+      <span class="q-tr">Ketika berkonsultasi dengan guru, beliau memberi solusi yang bagus.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">ていると</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">たら</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">なら</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ば</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: B — たら</div>
+      <p>「相談したら、教えてくれた」= berkonsultasi → mendapat respons yang menguntungkan. Ini adalah 用法１ nuansa "きっかけ" (pemicu): tindakan A menjadi pemicu terjadinya hasil B yang positif. たら sangat natural untuk narasi "saya melakukan ini dan hasilnya adalah...". ていると tidak cocok karena konsultasi bukan tindakan yang dilakukan terus-menerus. なら/ば untuk hipotesis.</p>
+      <div class="p-tip">Tindakan A → mendapat hasil/respons yang tak terduga (positif/negatif) → たら. Nuansa: "ternyata begini hasilnya".</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 9 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">9</span>
+    <span class="q-preview">あの会社は給料___安ければ、休みも少ない。</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      あの会社は給料<span class="blank">___</span>安ければ、休みも少ない。
+      <span class="q-tr">Di perusahaan itu, tidak hanya gajinya rendah, liburannya pun sedikit.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">は</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">が</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">も</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">こそ</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: C — も</div>
+      <p>Pola 「〜<strong>も</strong>…ば〜も〜」dengan nuansa negatif: serba buruk. Kalimat: 給料<strong>も</strong>安ければ、休み<strong>も</strong>少ない. Kedua も harus hadir. Perhatikan: 安ければ = い形容詞 (安い) bentuk ば (安 + ければ). Efek kumulatif: menumpuk dua kekurangan sekaligus untuk efek keluhan/kritik yang lebih kuat.</p>
+      <div class="p-tip">Keluhan menumpuk: も…ば〜も. Pujian menumpuk: も…ば〜も. Pola yang sama, nuansa tergantung isi kalimatnya.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 10 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">10</span>
+    <span class="q-preview">本を読んでい___、突然停電になった。</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      本を読んでい<span class="blank">___</span>、突然停電になった。
+      <span class="q-tr">Sedang membaca buku, tiba-tiba lampu mati.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">ると</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">たら</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">れば</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">るなら</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: B — たら</div>
+      <p>「〜ていたら、突然…た」= sedang melakukan ~ ketika tiba-tiba sesuatu terjadi. たら di sini menangkap nuansa pengalaman subjektif yang mengejutkan: "saya sedang asyik membaca, lalu tiba-tiba lampu mati". ると juga bisa (ていると) tapi nuansanya lebih objektif/reportif. Untuk kejadian yang menginterupsi dan terasa mengejutkan secara personal, たら lebih natural dan lebih sering digunakan.</p>
+      <div class="p-tip">〜ていたら + 突然/いきなり/偶然 = kejadian mengejutkan yang memotong aktivitas. Lebih personal dari ていると.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 11 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">11</span>
+    <span class="q-preview">この料理は見た目___きれいなら、味もおいしい。</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      この料理は見た目<span class="blank">___</span>きれいなら、味もおいしい。
+      <span class="q-tr">Masakan ini tidak hanya tampilannya cantik, rasanya pun enak.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">が</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">B</span><span class="opt-text">も</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">さえ</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">ばかり</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: B — も</div>
+      <p>Pola 「〜<strong>も</strong>…なら〜も〜」dengan nuansa positif (pujian ganda). 見た目<strong>も</strong>きれいなら、味<strong>も</strong>おいしい. Bedakan pola も〜なら〜も dari も〜ば〜も: なら dipakai setelah nomina atau klausa (見た目がきれい = na-adjektiva → きれいなら), sedangkan ば dipakai setelah bentuk kondisional kata kerja atau い-adjektiva (良い → よければ).</p>
+      <div class="p-tip">も〜なら〜も: なら setelah na-adj/nomina/klausa. も〜ば〜も: ければ setelah い-adj, atau V条件形. Bedakan koneksinya!</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 12 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">12</span>
+    <span class="q-preview">家に帰る___、すぐ横になった。</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      家に帰る<span class="blank">___</span>、すぐ横になった。
+      <span class="q-tr">Begitu pulang ke rumah, langsung berbaring.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="true"><span class="opt-label">A</span><span class="opt-text">と</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">たら</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">ば</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">なら</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: A — と</div>
+      <p>「帰ると、すぐ横になった」= urutan langsung tanpa jeda (用法２). すぐ (langsung) adalah sinyal kuat untuk pola と urutan cepat. Pulang → langsung berbaring, nyaris bersamaan. たら juga gramatikal (帰ったら) tapi nuansanya lebih ke "setelah pulang, kemudian...". Untuk menekankan kecepatan/langsung tanpa jeda dengan すぐ, と jauh lebih tepat.</p>
+      <div class="p-tip">すぐ / すぐに setelah と = sinyal kuat urutan langsung. 帰るとすぐ / 着くとすぐ = pola yang sangat sering muncul.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 13 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">13</span>
+    <span class="q-preview">公園で休んでい___、子供たちが声をかけてきた。</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      公園で休んでい<span class="blank">___</span>、子供たちが声をかけてきた。
+      <span class="q-tr">Sedang beristirahat di taman, tiba-tiba anak-anak menyapa.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">れば</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">たら</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">ると</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">るなら</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: C — ると</div>
+      <p>「〜ていると…た」= sedang ~ ketika sesuatu muncul/terjadi (pertemuan/kejadian dari luar). ていると lebih tepat di sini karena: kejadian yang datang (anak-anak menyapa) bersifat dari luar dan terasa spontan — lebih cocok dengan nuansa objektif と dibanding pengalaman personal たら. Bedakan: ていたら lebih ke "saya yang merasakannya secara personal"; ていると lebih ke "ada yang terjadi dari luar".</p>
+      <div class="p-tip">Sesuatu datang dari luar menghampiri subjek saat sedang beraktivitas → ていると. Pengalaman lebih personal/mengejutkan → ていたら.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 14 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">14</span>
+    <span class="q-preview">山田さんはテニス___できれば、水泳もできる。</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      山田さんはテニス<span class="blank">___</span>できれば、水泳もできる。
+      <span class="q-tr">Yamada-san tidak hanya bisa tenis, renang pun bisa.</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">が</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">は</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">C</span><span class="opt-text">さえ</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">D</span><span class="opt-text">も</span><span class="opt-icon">✓</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: D — も</div>
+      <p>Pola 「〜<strong>も</strong>…ば〜も〜」dengan nuansa pujian: tidak hanya bisa tenis, renang pun bisa. Kalimat lengkap: テニス<strong>も</strong>できれば、水泳<strong>も</strong>できる. Perhatikan: できれば = V可能形 (できる) bentuk ば (でき + れば). Ini menunjukkan pola も〜ば dengan kata kerja. さえ tidak tepat karena さえ untuk penekanan ekstrem, bukan untuk pola kumulatif ini.</p>
+      <div class="p-tip">も〜ば dengan kata kerja: V可能形 + れば (できれば / 話せれば / 書ければ). Pola pujian kemampuan ganda yang khas.</div>
+    </div>
+  </div>
+</details>
+
+<!-- ══ SOAL 15 ══ -->
+<details class="quiz-card">
+  <summary>
+    <span class="q-num">15</span>
+    <span class="q-preview">総合 — と/たら/ていると/ていたら の判別</span>
+    <span class="q-chevron">▼</span>
+  </summary>
+  <div class="quiz-body">
+    <p class="quiz-question">
+      次の4文と説明の組み合わせで<strong>最も正確なもの</strong>はどれですか？
+      <span class="q-tr">Mana pasangan kalimat dan penjelasan yang paling tepat?</span>
+    </p>
+    <div class="options-list">
+      <button class="option-btn" data-correct="false"><span class="opt-label">A</span><span class="opt-text">「ドアを開けると、犬がいた」＝過去の仮定（もしドアを開けたら）</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">B</span><span class="opt-text">「散歩していたら、雨が降ってきた」＝常に起こる自然現象</span><span class="opt-icon">✗</span></button>
+      <button class="option-btn" data-correct="true"><span class="opt-label">C</span><span class="opt-text">「駅に着くと、すぐに電車が来た」＝二つの出来事が直後に連続した叙述</span><span class="opt-icon">✓</span></button>
+      <button class="option-btn" data-correct="false"><span class="opt-label">D</span><span class="opt-text">「歩いていると、疲れた」＝「もし歩けば疲れる」という仮定の意味</span><span class="opt-icon">✗</span></button>
+    </div>
+    <div class="pembahasan">
+      <div class="p-title">★ Pembahasan</div>
+      <div class="p-kunci">Jawaban: C — 直後の連続叙述</div>
+      <p>
+        C が正しい: 「着くと、すぐに電車が来た」= tiba → langsung kereta datang, dua kejadian berturut-turut (用法２ urutan langsung).<br><br>
+        A 間違い: 「ドアを開けると、犬がいた」は仮定ではなく、<em>過去の実際の発見</em>を述べている (用法１).<br>
+        B 間違い: 「散歩していたら、雨が降ってきた」は自然現象の叙述ではなく、<em>活動中に予期せぬことが起きた</em>体験談 (用法１).<br>
+        D 間違い: 「歩いていると、疲れた」は仮定ではなく<em>実際の体験</em>。仮定なら「歩けば疲れる」になる.
+      </p>
+      <div class="p-tip">判別の核心: と/たら +「た」= 過去の事実・発見・体験. もし + ば/なら = 仮定. 文末が「た」→ 叙述, 文末が「る」→ 仮定の可能性大.</div>
+    </div>
+  </div>
+</details>
+
+<!-- Submit -->
+<div class="submit-area">
+  <button id="cond-submit-btn">📤 Kirim Nilai ke Sensei</button>
+  <p id="cond-status"></p>
+</div>
+
+</div><!-- .jlpt-cond-wrap -->
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+(function () {
+  'use strict';
+
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwISeCyix6brT0r_-Andnz895tdkbYEBDdgE861hbJZecAjYAZkZSlToJt2mRCHHuAhmA/exec";
+  const NAMA_KUIS = "Latihan N3 — たら・ば・と・なら";
+  const TOTAL     = 15;
+
+  const state     = { answered: 0, correct: 0 };
+  const scoreEl   = document.getElementById('cond-score');
+  const correctEl = document.getElementById('cond-correct');
+  const progFill  = document.getElementById('cond-prog-fill');
+  const progLabel = document.getElementById('cond-prog-label');
+  const submitBtn = document.getElementById('cond-submit-btn');
+  const statusMsg = document.getElementById('cond-status');
+
+  function updateUI() {
+    if (scoreEl)   scoreEl.textContent  = state.answered;
+    if (correctEl) correctEl.textContent = state.correct;
+    if (progFill)  progFill.style.width  = Math.round((state.answered / TOTAL) * 100) + '%';
+    if (progLabel) progLabel.textContent = `${state.answered} / ${TOTAL} terjawab`;
+  }
+
+  function handleClick(e) {
+    const btn  = e.target.closest('.option-btn');
+    if (!btn)  return;
+    const card = btn.closest('.quiz-card');
+    if (!card) return;
+
+    const allOpts = card.querySelectorAll('.option-btn');
+    const done    = [...allOpts].some(b =>
+      b.classList.contains('is-correct') || b.classList.contains('is-wrong')
+    );
+    if (done) return;
+
+    const isCorrect = btn.dataset.correct === 'true';
+    btn.classList.add(isCorrect ? 'is-correct' : 'is-wrong');
+
+    allOpts.forEach(b => {
+      if (b === btn) { b.style.pointerEvents = 'none'; return; }
+      b.style.pointerEvents = 'none';
+      b.classList.add(b.dataset.correct === 'true' ? 'is-correct' : 'is-locked');
+    });
+
+    const p = card.querySelector('.pembahasan');
+    if (p) p.classList.add('show');
+
+    state.answered++;
+    if (isCorrect) state.correct++;
+    updateUI();
+  }
+
+  const wrap = document.querySelector('.jlpt-cond-wrap');
+  if (wrap) wrap.addEventListener('click', handleClick);
+
+  /* ── Kirim ke Google Sheets ── */
+  if (submitBtn) {
+    submitBtn.addEventListener('click', function () {
+      const nameEl = document.getElementById('cond-name');
+      const nama   = nameEl ? nameEl.value.trim() : '';
+
+      if (!nama) { alert('Mohon isi nama lengkap kamu terlebih dahulu!'); return; }
+      if (state.answered === 0) { alert('Kamu belum menjawab soal apa pun!'); return; }
+
+      submitBtn.disabled    = true;
+      submitBtn.textContent = '⏳ Mengirim...';
+      statusMsg.textContent = '';
+
+      // Hitung persentase nilai secara langsung untuk notifikasi
+      const hitungPersen = Math.round((state.correct / TOTAL) * 100);
+
+      // 📜 PAYLOAD YANG SUDAH DISINKRONKAN:
+      const payload = {
+        nama: nama,                       // Menggunakan variabel "nama" yang benar
+        skor: `${state.correct}/${TOTAL}`,  // Menggunakan konstanta TOTAL (15)
+        total: TOTAL,
+        benar: state.correct,
+        namaKuis: NAMA_KUIS               // Mengambil otomatis dari variabel di atas ("Latihan N3 — Modul 5...")
+      };
+
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST', mode: 'no-cors', cache: 'no-cache',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        statusMsg.style.color = '#1e7e45';
+        statusMsg.textContent = `✅ Nilai terkirim! Skor: ${state.correct}/${TOTAL} (${hitungPersen}%)`;
+        submitBtn.textContent = '✅ Sudah Terkirim';
+      })
+      .catch(err => {
+        console.error(err);
+        statusMsg.style.color = '#c0392b';
+        statusMsg.textContent = '❌ Gagal mengirim. Periksa koneksi dan coba lagi.';
+        submitBtn.disabled    = false;
+        submitBtn.textContent = '📤 Kirim Nilai ke Sensei';
+      });
+    });
+  }
+
+})();
+</script>
