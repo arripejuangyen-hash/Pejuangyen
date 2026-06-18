@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modul Pembelajaran JLPT N3 — Adverbia, Pengandaian & Sufiks Tata Bahasa</title>
+<style>
+  .jlptn3mod * { box-sizing: border-box; }
+  .jlptn3mod {
+    font-family: "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    color: #2b2730;
+    background: #fbf9f6;
+    line-height: 1.7;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 16px 60px;
+  }
+  .jlptn3mod h1, .jlptn3mod h2, .jlptn3mod h3, .jlptn3mod h4 {
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  .jlptn3mod .cover {
+    background: linear-gradient(135deg, #5b3a8e 0%, #8a4fbd 55%, #c2589e 100%);
+    color: #fff;
+    border-radius: 18px;
+    padding: 38px 32px;
+    margin: 28px 0 36px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(91,58,142,0.25);
+  }
+  .jlptn3mod .cover .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 999px;
+    padding: 5px 16px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+  }
+  .jlptn3mod .cover h1 {
+    font-size: 28px;
+    margin: 6px 0 10px;
+  }
+  .jlptn3mod .cover p {
+    font-size: 15px;
+    opacity: 0.92;
+    margin: 4px 0;
+  }
+  .jlptn3mod nav.toc {
+    background: #fff;
+    border: 1px solid #e8e1f2;
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin-bottom: 36px;
+  }
+  .jlptn3mod nav.toc h2 {
+    margin-top: 0;
+    font-size: 17px;
+    color: #5b3a8e;
+  }
+  .jlptn3mod nav.toc ol {
+    margin: 10px 0 0;
+    padding-left: 22px;
+    columns: 2;
+    column-gap: 28px;
+  }
+  .jlptn3mod nav.toc li { margin-bottom: 6px; font-size: 14.5px; break-inside: avoid; }
+  .jlptn3mod nav.toc a { color: #6b3fa0; text-decoration: none; }
+  .jlptn3mod nav.toc a:hover { text-decoration: underline; }
+
+  .jlptn3mod section.block {
+    margin: 0 0 46px;
+  }
+  .jlptn3mod section.block > h2 {
+    font-size: 23px;
+    color: #fff;
+    background: #5b3a8e;
+    padding: 14px 22px;
+    border-radius: 12px;
+    margin: 0 0 22px;
+  }
+  .jlptn3mod .sub-h3 {
+    font-size: 18px;
+    color: #5b3a8e;
+    border-left: 5px solid #c2589e;
+    padding-left: 12px;
+    margin: 26px 0 14px;
+  }
+
+  /* Pemanasan / icebreaking cards */
+  .jlptn3mod .ice-card {
+    background: #fff7ec;
+    border: 1px solid #f3dca6;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .jlptn3mod .ice-card .q { font-weight: 700; color: #9a6a00; }
+
+  /* Grammar point card */
+  .jlptn3mod .gp-card {
+    background: #fff;
+    border: 1px solid #ece5f6;
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 26px;
+    box-shadow: 0 2px 10px rgba(91,58,142,0.05);
+  }
+  .jlptn3mod .gp-card .gp-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .jlptn3mod .gp-card .gp-num {
+    background: #5b3a8e;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 3px 10px;
+  }
+  .jlptn3mod .gp-card .gp-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #2b2730;
+  }
+  .jlptn3mod .gp-card .gp-meaning {
+    color: #8a4fbd;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  .jlptn3mod .gp-pattern {
+    background: #f4eefb;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 15px;
+    margin-bottom: 14px;
+    color: #4a2d77;
+  }
+  .jlptn3mod .gp-card p { margin: 8px 0; font-size: 15px; }
+  .jlptn3mod .gp-example {
+    background: #f7f5fb;
+    border-left: 4px solid #8a4fbd;
+    padding: 10px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 10px 0;
+    font-size: 15px;
+  }
+  .jlptn3mod .gp-example .jp { font-size: 16px; }
+  .jlptn3mod .gp-example .id { color: #5a5460; font-size: 14px; margin-top: 2px; }
+  .jlptn3mod .gp-examples-list {
+    margin: 10px 0 6px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .jlptn3mod .gp-examples-list li {
+    background: #faf9fc;
+    border: 1px solid #ece5f6;
+    border-radius: 8px;
+    padding: 9px 14px;
+    margin-bottom: 7px;
+    font-size: 14.5px;
+  }
+  .jlptn3mod .gp-examples-list li .jp { display: block; }
+  .jlptn3mod .gp-examples-list li .id { display: block; color: #6b6470; font-size: 13.5px; margin-top: 2px; }
+  .jlptn3mod .warn-box {
+    background: #fdeeee;
+    border: 1px solid #f3c6c6;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin-top: 10px;
+    font-size: 14.5px;
+  }
+  .jlptn3mod .warn-box b { color: #b23b3b; }
+  .jlptn3mod .tip-box {
+    background: #eaf6ec;
+    border: 1px solid #bfe3c4;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin-top: 10px;
+    font-size: 14.5px;
+  }
+  .jlptn3mod .tip-box b { color: #2c7a39; }
+
+  /* Analogy cards */
+  .jlptn3mod .analogy-card {
+    background: #fff4f8;
+    border: 1px solid #f4cfe0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .jlptn3mod .analogy-card .title { font-weight: 700; color: #b6447b; margin-bottom: 4px; }
+
+  /* Comparison table */
+  .jlptn3mod table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 22px;
+    font-size: 14.5px;
+  }
+  .jlptn3mod table caption {
+    text-align: left;
+    font-weight: 700;
+    color: #5b3a8e;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+  .jlptn3mod th, .jlptn3mod td {
+    border: 1px solid #e3ddee;
+    padding: 9px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .jlptn3mod th {
+    background: #5b3a8e;
+    color: #fff;
+  }
+  .jlptn3mod tr:nth-child(even) td { background: #f7f5fb; }
+
+  /* Common mistakes */
+  .jlptn3mod .mistake-row {
+    display: flex;
+    gap: 14px;
+    background: #fff;
+    border: 1px solid #ece5f6;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .jlptn3mod .mistake-row .wrong { color: #b23b3b; flex: 1 1 260px; }
+  .jlptn3mod .mistake-row .right { color: #2c7a39; flex: 1 1 260px; }
+  .jlptn3mod .mistake-row b { display: block; font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0.75; }
+
+  /* Quick summary */
+  .jlptn3mod .summary-list {
+    background: #fff;
+    border: 1px solid #ece5f6;
+    border-radius: 14px;
+    padding: 20px 26px;
+  }
+  .jlptn3mod .summary-list ol { padding-left: 22px; }
+  .jlptn3mod .summary-list li { margin-bottom: 10px; font-size: 15px; }
+  .jlptn3mod .summary-list li b { color: #5b3a8e; }
+
+  /* Exercises */
+  .jlptn3mod .exercise-card {
+    background: #fff;
+    border: 1px solid #ece5f6;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 16px;
+  }
+  .jlptn3mod .exercise-card .ex-num {
+    display: inline-block;
+    background: #c2589e;
+    color: #fff;
+    border-radius: 8px;
+    padding: 2px 10px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .jlptn3mod .options { padding-left: 20px; margin: 10px 0; }
+  .jlptn3mod .options li { margin-bottom: 4px; }
+  .jlptn3mod .hint-toggle {
+    margin-top: 10px;
+  }
+  .jlptn3mod details {
+    background: #f4eefb;
+    border-radius: 8px;
+    padding: 8px 14px;
+    margin-top: 8px;
+  }
+  .jlptn3mod details summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #5b3a8e;
+  }
+  .jlptn3mod details[open] summary { margin-bottom: 6px; }
+
+  /* Quiz */
+  .jlptn3mod .quiz-card {
+    background: #fff;
+    border: 2px solid #8a4fbd;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 16px;
+  }
+  .jlptn3mod .quiz-card .q-num {
+    display: inline-block;
+    background: #5b3a8e;
+    color: #fff;
+    border-radius: 8px;
+    padding: 2px 10px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  /* Answer key */
+  .jlptn3mod .answer-table td:first-child { font-weight: 700; color: #5b3a8e; width: 60px; }
+
+  .jlptn3mod .section-intro {
+    font-size: 15px;
+    color: #4a4550;
+    margin-bottom: 18px;
+  }
+  .jlptn3mod .divider-note {
+    text-align: center;
+    color: #a89bbf;
+    font-size: 13px;
+    margin: 8px 0 28px;
+    letter-spacing: 1px;
+  }
+  @media (max-width: 600px) {
+    .jlptn3mod nav.toc ol { columns: 1; }
+    .jlptn3mod .mistake-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="jlptn3mod">
+
+<div class="cover">
+  <span class="badge">PEJUANGYEN ・ JLPT N3 ・ MODUL PEMBELAJARAN LENGKAP</span>
+  <h1>Adverbia, Pengandaian & Sufiks Tata Bahasa</h1>
+  <p>Disusun oleh: Senior Education Consultant JLPT N3</p>
+  <p>28 Pola Grammar — Penjelasan, Analogi, Latihan, dan Quiz</p>
+</div>
+
+<nav class="toc">
+<h2>📋 Daftar Isi</h2>
+<ol>
+<li><a href="#tujuan">Tujuan Pembelajaran</a></li>
+<li><a href="#pemanasan">Pemanasan (Ice Breaking)</a></li>
+<li><a href="#penjelasan">Penjelasan Materi (28 Grammar Point)</a></li>
+<li><a href="#analogi">Analogi Kehidupan Nyata</a></li>
+<li><a href="#perbandingan">Perbandingan Grammar</a></li>
+<li><a href="#kesalahan">Kesalahan Umum</a></li>
+<li><a href="#ringkasan">Ringkasan Cepat</a></li>
+<li><a href="#latihan-terbimbing">Latihan Terbimbing</a></li>
+<li><a href="#latihan-mandiri">Latihan Mandiri</a></li>
+<li><a href="#quiz">Quiz</a></li>
+<li><a href="#kunci">Kunci Jawaban</a></li>
+</ol>
+</nav>
+
+
+<section class="block" id="tujuan">
+<h2>🎯 Tujuan Pembelajaran</h2>
+<p class="section-intro">Setelah menyelesaikan modul ini, siswa diharapkan mampu:</p>
+<div class="summary-list">
+<ol>
+<li>Mengenali dan membedakan <b>28 pola grammar JLPT N3</b> yang terbagi dalam tiga kelompok besar: adverbia berpasangan tetap, pola pengandaian, dan sufiks verba/adjektif.</li>
+<li>Menggunakan adverbia negatif (まったく、少しも、決して、めったに, dll) dengan pasangan bentuk negatif yang TEPAT, tanpa tertukar nuansanya.</li>
+<li>Membedakan tiga pola "perubahan bertahap" (少しずつ、次第に、ますます) berdasarkan fokus maknanya masing-masing.</li>
+<li>Memilih adverbia probabilitas (もしかしたら、おそらく、きっと) sesuai tingkat keyakinan dan pasangan modalitas yang sesuai.</li>
+<li>Memahami dua nuansa せっかく (menyesal vs memanfaatkan) serta penggunaan ただ～だけ secara eksklusif.</li>
+<li>Menguasai sufiks tahap tindakan (～かける、～きる、～通す、～出す) dan menjelaskan perbedaan nuansa di antara keduanya.</li>
+<li>Membedakan ～やすい、～にくい、～づらい berdasarkan sifat objektif/subjektif kesulitannya, serta menggunakan ～すぎる dan ～がちだ dengan konjugasi yang benar.</li>
+<li>Membedakan tiga sufiks kemiripan (～らしい、～っぽい、～のようだ/みたいだ) sesuai nuansa formal-informal dan makna tersiratnya.</li>
+<li>Mengerjakan soal-soal bertipe JLPT (文法・読解) dengan strategi eliminasi berdasarkan pasangan grammar yang wajib.</li>
+</ol>
+</div>
+</section>
+
+<section class="block" id="pemanasan">
+<h2>🔥 Pemanasan (Ice Breaking)</h2>
+<p class="section-intro">Sebelum masuk ke materi, mari "memanaskan otak" dengan beberapa pertanyaan ringan. Tidak perlu jawaban sempurna — ini hanya untuk membangun rasa ingin tahu!</p>
+
+<div class="ice-card">
+<p class="q">🤔 Pertanyaan 1:</p>
+<p>Dalam Bahasa Indonesia, apa perbedaan antara <i>"saya sama sekali tidak mengerti"</i> dan <i>"saya sedikit pun tidak mengerti"</i>? Rasanya hampir sama, kan? Tapi dalam Bahasa Jepang, ada DUA kata adverbia berbeda untuk masing-masing nuansa ini — まったく dan 少しも. Bisakah kalian menebak, mana yang lebih menekankan soal "kualitas" dan mana yang menekankan "kuantitas"?</p>
+</div>
+
+<div class="ice-card">
+<p class="q">🤔 Pertanyaan 2:</p>
+<p>Pernah dengar pepatah "sudah jauh-jauh datang, sayang kalau tidak dimanfaatkan"? Dalam Bahasa Jepang ada satu kata ajaib yang bisa mengekspresikan dua perasaan BERLAWANAN sekaligus: rasa <i>menyesal</i> karena usaha jadi sia-sia, ATAU semangat untuk <i>memanfaatkan</i> kesempatan baik. Kata itu adalah せっかく. Menurut kalian, bagaimana caranya satu kata bisa punya dua nuansa yang bertolak belakang?</p>
+</div>
+
+<div class="ice-card">
+<p class="q">🤔 Pertanyaan 3:</p>
+<p>Bayangkan dua situasi: (1) Daging yang keras sehingga sulit dipotong, dan (2) Pertanyaan pribadi yang canggung untuk ditanyakan ke atasan. Keduanya "sulit", tapi yang satu sulit secara FISIK, yang satu sulit secara EMOSIONAL/SOSIAL. Bahasa Jepang punya kata berbeda untuk masing-masing: ～にくい vs ～づらい. Bisakah kalian menebak, mana yang cocok untuk daging dan mana untuk pertanyaan pribadi?</p>
+</div>
+
+<div class="ice-card">
+<p class="q">🤔 Pertanyaan 4:</p>
+<p>Coba pikirkan satu kalimat: "Kue itu baru saya makan setengah, lalu saya simpan di kulkas." Dalam Bahasa Jepang, ada satu sufiks pendek yang bisa menggantikan seluruh frasa "baru setengah dilakukan, lalu terhenti" itu — yaitu ～かけ (食べかけのケーキ). Menurut kalian, kenapa bahasa Jepang suka punya sufiks pendek untuk konsep yang dalam Bahasa Indonesia butuh banyak kata?</p>
+</div>
+
+<p style="margin-top:18px;"><i>Jangan khawatir jika belum bisa menjawab — semua pertanyaan ini akan terjawab tuntas di bagian Penjelasan Materi dan Analogi Kehidupan Nyata berikutnya!</i></p>
+</section>
+<section class="block" id="penjelasan">
+<h2>📖 Penjelasan Materi</h2>
+<p class="section-intro">Materi dibagi menjadi 3 bagian besar: <b>(I) Adverbia dengan pasangan tetap</b>, <b>(II) Pola Pengandaian</b>, dan <b>(III) Sufiks Verba/Adjektif</b>. Setiap grammar disajikan dengan rumus, fungsi, contoh, dan tips JLPT.</p>
+
+<h3 class="sub-h3" id="grup1">🔷 Grup 1: Adverbia + Bentuk Negatif (～ない)</h3>
+<p class="section-intro">Semua adverbia dalam grup ini WAJIB diikuti bentuk negatif. Salah pasang dengan bentuk positif = kalimat tidak alami / salah grammar!</p>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">01</span><span class="gp-title">全く (まったく) ～ない</span></div>
+<p class="gp-meaning">Sama sekali tidak...</p>
+<div class="gp-pattern">📐 Rumus: まったく + Kalimat Negatif (～ない/～ません)</div>
+<p><b>Fungsi:</b> Menyatakan penolakan/negasi yang TOTAL dan MUTLAK — menegaskan ketiadaan 100%, lebih kuat dari あまり～ない.</p>
+<div class="gp-example">
+<div class="jp">母は<b>全く</b>英語がわからない。</div>
+<div class="id">Ibu sama sekali tidak mengerti bahasa Inggris.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">昨日は<b>まったく</b>眠れなかった。</span><span class="id">Kemarin sama sekali tidak bisa tidur.</span></li>
+<li><span class="jp">このドラマは<b>まったく</b>面白くない。</span><span class="id">Drama ini sama sekali tidak menarik.</span></li>
+<li><span class="jp">最近、運動を<b>まったく</b>していない。</span><span class="id">Belakangan ini sama sekali tidak berolahraga.</span></li>
+</ul>
+<div class="tip-box"><b>💡 Tips JLPT:</b> Jika soal pilihan ganda mengandung まったく, cari jawaban dengan bentuk negatif. まったく + kalimat positif = SALAH!</div>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">02</span><span class="gp-title">少しも (すこしも) ～ない</span></div>
+<p class="gp-meaning">Sedikit pun tidak...</p>
+<div class="gp-pattern">📐 Rumus: 少しも + Kalimat Negatif</div>
+<p><b>Fungsi:</b> Menekankan bahwa bahkan sedikit pun tidak ada perubahan/kejadian. Fokus pada KUANTITAS yang bahkan tidak ada, sering untuk kekecewaan/keterkejutan.</p>
+<div class="gp-example">
+<div class="jp">この町は10年前と<b>少しも</b>変わっていない。</div>
+<div class="id">Kota ini sedikit pun tidak berubah dari 10 tahun lalu.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">彼は謝っても、<b>少しも</b>反省していない。</span><span class="id">Meski sudah minta maaf, dia sedikit pun tidak menyesal.</span></li>
+<li><span class="jp">風邪を引いたのに、<b>少しも</b>熱が下がらない。</span><span class="id">Meski kena flu, demam sedikit pun tidak turun.</span></li>
+<li><span class="jp">彼女は<b>少しも</b>疲れた様子を見せなかった。</span><span class="id">Dia sedikit pun tidak menunjukkan tanda lelah.</span></li>
+</ul>
+<div class="warn-box"><b>⚠️ Hati-hati:</b> Jangan tertukar dengan 少し (sedikit, positif) — perhatikan ada/tidaknya も!</div>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">03</span><span class="gp-title">そんなに ～ない</span></div>
+<p class="gp-meaning">Tidak se-... itu / tidak separah itu</p>
+<div class="gp-pattern">📐 Rumus: そんなに + Adjektif/Verba + ない</div>
+<p><b>Fungsi:</b> Membantah atau meluruskan asumsi lawan bicara yang berlebihan — nuansa "kamu terlalu membesar-besarkan", sering untuk koreksi halus dalam percakapan.</p>
+<div class="gp-example">
+<div class="jp">この問題は<b>そんなに</b>難しくないです。</div>
+<div class="id">Soal ini tidak sesulit itu.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">A:「高そうだね。」B:「<b>そんなに</b>高くないよ。」</span><span class="id">A: "Kelihatannya mahal ya." B: "Tidak semahal itu kok."</span></li>
+<li><span class="jp">距離は<b>そんなに</b>遠くないから、歩いて行こう。</span><span class="id">Jaraknya tidak sejauh itu, ayo jalan kaki.</span></li>
+<li><span class="jp">彼は<b>そんなに</b>怒っていないよ。</span><span class="id">Dia tidak semarah itu kok.</span></li>
+</ul>
+<div class="tip-box"><b>💡 Tips JLPT:</b> Sering muncul di soal 会話 (percakapan) — bayangkan konteks seseorang membantah pernyataan orang lain.</div>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">04</span><span class="gp-title">たいして ～ない</span></div>
+<p class="gp-meaning">Tidak begitu... / tidak terlalu penting/berarti</p>
+<div class="gp-pattern">📐 Rumus: たいして + Predikat Negatif</div>
+<p><b>Fungsi:</b> Meremehkan atau meminimalisasi sesuatu — "tidak sampai taraf itu". Bedanya dengan そんなに: たいして adalah penilaian pembicara SENDIRI, bukan respons ke ucapan orang lain. Sedikit lebih formal.</p>
+<div class="gp-example">
+<div class="jp">そのニュースは<b>たいして</b>重要ではなかった。</div>
+<div class="id">Berita itu tidak begitu penting.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">彼の意見は<b>たいして</b>役に立たなかった。</span><span class="id">Pendapatnya tidak begitu berguna.</span></li>
+<li><span class="jp"><b>たいして</b>疲れていないから、もう少し歩けるよ。</span><span class="id">Tidak begitu lelah, bisa jalan sedikit lagi.</span></li>
+<li><span class="jp">値段は<b>たいして</b>変わらないから、どちらでもいい。</span><span class="id">Harganya tidak begitu berbeda, jadi mana pun tidak masalah.</span></li>
+</ul>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">05</span><span class="gp-title">決して (けっして) ～ない</span></div>
+<p class="gp-meaning">Tidak pernah / sama sekali tidak / tidak akan pernah</p>
+<div class="gp-pattern">📐 Rumus: 決して + Kalimat Negatif (termasuk ～ないでください)</div>
+<p><b>Fungsi:</b> Menyatakan penolakan/larangan yang sangat kuat dan tidak bisa ditawar. Mengandung nuansa tekad/komitmen dari pembicara — lebih kuat dari まったく karena ada nuansa "janji".</p>
+<div class="gp-example">
+<div class="jp">このことは<b>決して</b>人には言わないでください。</div>
+<div class="id">Tolong jangan pernah beritahu siapa pun tentang hal ini.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">彼の秘密は<b>決して</b>誰にも話さない。</span><span class="id">Rahasia dia tidak akan pernah kuceritakan ke siapa pun.</span></li>
+<li><span class="jp"><b>決して</b>諦めないでください。</span><span class="id">Jangan pernah menyerah.</span></li>
+<li><span class="jp">彼は<b>決して</b>嘘をつかない人だ。</span><span class="id">Dia adalah orang yang tidak pernah berbohong.</span></li>
+</ul>
+<div class="tip-box"><b>💡 Tips JLPT:</b> Sering muncul dalam larangan (～ないでください) atau janji. Bedakan dengan まったく yang lebih netral-faktual.</div>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">06</span><span class="gp-title">めったに ～ない</span></div>
+<p class="gp-meaning">Jarang sekali... / hampir tidak pernah</p>
+<div class="gp-pattern">📐 Rumus: めったに + Verba Negatif</div>
+<p><b>Fungsi:</b> Menyatakan frekuensi yang sangat rendah — hampir tidak pernah terjadi, namun BERBEDA dari "tidak pernah" (masih ada kemungkinan kecil terjadi).</p>
+<div class="gp-example">
+<div class="jp">わたしは<b>めったに</b>外で食事しない。</div>
+<div class="id">Saya jarang sekali makan di luar.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">彼は<b>めったに</b>遅刻しない。</span><span class="id">Dia jarang sekali terlambat.</span></li>
+<li><span class="jp">彼女は<b>めったに</b>笑わないけど、今日は笑っていた。</span><span class="id">Dia jarang sekali tertawa, tapi hari ini dia tertawa.</span></li>
+<li><span class="jp"><b>めったに</b>雪が降らない地域だが、今年は積もった。</span><span class="id">Daerah yang jarang turun salju, tapi tahun ini menumpuk.</span></li>
+</ul>
+<div class="tip-box"><b>💡 Tips JLPT:</b> めったに vs 決して — jika soal mengandung makna "kadang masih bisa terjadi", pilih めったに. Jika "mutlak tidak pernah", pilih 決して.</div>
+</div>
+
+<h3 class="sub-h3" id="grup2">🔷 Grup 2: すでに — Adverbia Aspek Waktu</h3>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">07</span><span class="gp-title">すでに ～た／～ている／～てある</span></div>
+<p class="gp-meaning">Sudah (... sejak sebelumnya)</p>
+<div class="gp-pattern">📐 Rumus: すでに + ～た / ～ている / ～てある</div>
+<p><b>Fungsi:</b> Menyatakan bahwa suatu tindakan/keadaan sudah terjadi/ada SEBELUM waktu yang dimaksud. Lebih formal dan tegas dari もう, mengandung nuansa "ternyata sudah terjadi lebih awal dari perkiraan".</p>
+<div class="gp-example">
+<div class="jp">この問題は<b>すでに</b>解決した。／ホテルは<b>すでに</b>予約してある。</div>
+<div class="id">Masalah ini sudah terselesaikan. / Hotel sudah dipesan (dan tersedia).</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">彼はその知らせを<b>すでに</b>知っていた。</span><span class="id">Dia ternyata sudah tahu kabar itu.</span></li>
+<li><span class="jp">会議は<b>すでに</b>始まっています。急いでください。</span><span class="id">Rapat sudah dimulai. Tolong cepat.</span></li>
+<li><span class="jp"><b>すでに</b>決まったことだから、変えられない。</span><span class="id">Karena sudah diputuskan, tidak bisa diubah.</span></li>
+</ul>
+<div class="warn-box"><b>⚠️ Hati-hati:</b> すでに HARUS dengan bentuk lampau/progresif. ❌ すでに食べる (future, salah) ✅ すでに食べた / すでに食べている.</div>
+</div>
+<h3 class="sub-h3" id="grup3">🔷 Grup 3: Adverbia Perubahan Bertahap</h3>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">08</span><span class="gp-title">少しずつ (すこしずつ) + Verba perubahan</span></div>
+<p class="gp-meaning">Sedikit demi sedikit...</p>
+<div class="gp-pattern">📐 Rumus: 少しずつ + Verba perubahan (なる／増える／やせる, dll)</div>
+<p><b>Fungsi:</b> Menyatakan perubahan yang terjadi secara incremental, perlahan. Fokus pada KUANTITAS perubahan yang kecil-kecil tapi terus-menerus.</p>
+<div class="gp-example">
+<div class="jp">庭に植えた木が<b>少しずつ</b>大きくなってきた。</div>
+<div class="id">Pohon yang ditanam di taman sedikit demi sedikit mulai membesar.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">日本語が<b>少しずつ</b>上手になってきた。</span><span class="id">Bahasa Jepang sedikit demi sedikit mulai membaik.</span></li>
+<li><span class="jp">傷が<b>少しずつ</b>治ってきている。</span><span class="id">Lukanya sedikit demi sedikit mulai sembuh.</span></li>
+<li><span class="jp">貯金が<b>少しずつ</b>増えてきた。</span><span class="id">Tabungan sedikit demi sedikit mulai bertambah.</span></li>
+</ul>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">09</span><span class="gp-title">次第に (しだいに) + Verba perubahan</span></div>
+<p class="gp-meaning">Berangsur-angsur... / lambat laun...</p>
+<div class="gp-pattern">📐 Rumus: 次第に + Verba perubahan (色づく／暗くなる, dll)</div>
+<p><b>Fungsi:</b> Menyatakan perubahan bertahap mengikuti urutan alami. Fokus pada PROSES yang natural/berurutan — lebih puitis, sering untuk fenomena alam.</p>
+<div class="gp-example">
+<div class="jp">秋になると、木の葉が<b>次第に</b>色づく。</div>
+<div class="id">Ketika musim gugur tiba, daun pohon berangsur-angsur berubah warna.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">日が沈み、空が<b>次第に</b>暗くなってきた。</span><span class="id">Matahari terbenam, langit berangsur-angsur gelap.</span></li>
+<li><span class="jp">話を聞いているうちに、<b>次第に</b>わかってきた。</span><span class="id">Sambil mendengarkan cerita, lambat laun mulai mengerti.</span></li>
+<li><span class="jp">春になって、<b>次第に</b>暖かくなってきた。</span><span class="id">Musim semi tiba, lambat laun mulai hangat.</span></li>
+</ul>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">10</span><span class="gp-title">ますます + Verba perubahan</span></div>
+<p class="gp-meaning">Semakin... / makin lama makin...</p>
+<p><b>Fungsi:</b> Menyatakan perubahan yang MAKIN INTENSIF — tidak hanya bertahap, tapi makin meningkat. Mengandung akselerasi.</p>
+<div class="gp-example">
+<div class="jp">世界の人口は<b>ますます</b>増えている。</div>
+<div class="id">Populasi dunia semakin bertambah.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">地球温暖化が<b>ますます</b>深刻になっている。</span><span class="id">Pemanasan global semakin serius.</span></li>
+<li><span class="jp">彼女の料理が<b>ますます</b>上手くなっている。</span><span class="id">Masakannya makin lama makin enak.</span></li>
+<li><span class="jp">日本語の勉強が<b>ますます</b>楽しくなってきた。</span><span class="id">Belajar bahasa Jepang semakin menyenangkan.</span></li>
+</ul>
+<div class="tip-box"><b>💡 Tips JLPT — Grup Perubahan Bertahap:</b><br>少しずつ = "sedikit-sedikit" (gelas yang diisi setetes demi setetes)<br>次第に = "berangsur-angsur" (matahari terbenam)<br>ますます = "semakin" (bola salju yang menggelinding makin besar)</div>
+</div>
+
+<h3 class="sub-h3" id="grup4">🔷 Grup 4: Adverbia Probabilitas/Kemungkinan</h3>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">11</span><span class="gp-title">もしかしたら／もしかすると</span></div>
+<p class="gp-meaning">Mungkin saja... / bisa jadi...</p>
+<div class="gp-pattern">📐 Rumus: もしかしたら／もしかすると + ～かもしれない／～のではないか／～のではないだろうか</div>
+<p><b>Fungsi:</b> Menyatakan kemungkinan spekulatif — pembicara tidak yakin. Probabilitas rendah-sedang (~30-50%), mengandung nuansa "tiba-tiba terlintas kemungkinan ini".</p>
+<div class="gp-example">
+<div class="jp"><b>もしかしたら</b>今晩は雪になるかもしれない。</div>
+<div class="id">Mungkin saja malam ini akan turun salju.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp"><b>もしかしたら</b>、彼は来ないかもしれない。</span><span class="id">Mungkin saja dia tidak akan datang.</span></li>
+<li><span class="jp"><b>もしかすると</b>、彼女はもう知っているのではないだろうか。</span><span class="id">Bisa jadi dia sebenarnya sudah tahu.</span></li>
+<li><span class="jp"><b>もしかしたら</b>、道を間違えたのかもしれない。</span><span class="id">Mungkin saja salah jalan.</span></li>
+</ul>
+<div class="warn-box"><b>⚠️ Hati-hati:</b> Jangan pasangkan もしかしたら dengan ～だろう (itu pasangan おそらく).</div>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">12</span><span class="gp-title">おそらく</span></div>
+<p class="gp-meaning">Kemungkinan besar... / barangkali...</p>
+<div class="gp-pattern">📐 Rumus: おそらく + ～だろう／～と思う／～のではないか／～のではないだろうか</div>
+<p><b>Fungsi:</b> Menyatakan kemungkinan cukup tinggi berdasarkan pertimbangan logis. Probabilitas tinggi (~70-80%), pembicara punya dasar/alasan untuk menduga.</p>
+<div class="gp-example">
+<div class="jp">この仕事は<b>おそらく</b>今日中にできないだろう。</div>
+<div class="id">Pekerjaan ini kemungkinan besar tidak akan selesai hari ini.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp"><b>おそらく</b>明日は晴れるだろう。</span><span class="id">Kemungkinan besar besok cerah.</span></li>
+<li><span class="jp"><b>おそらく</b>彼女が一番上手いと思う。</span><span class="id">Kemungkinan besar dia yang paling jago.</span></li>
+<li><span class="jp"><b>おそらく</b>彼は怒っているのではないだろうか。</span><span class="id">Kemungkinan besar dia sedang marah.</span></li>
+</ul>
+<div class="warn-box"><b>⚠️ Hati-hati:</b> ❌ おそらく～かもしれない (terlalu ragu, tidak natural) ✅ おそらく～だろう.</div>
+</div>
+
+<h3 class="sub-h3" id="grup5">🔷 Grup 5: Adverbia Khusus (せっかく & ただ)</h3>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">13</span><span class="gp-title">せっかく ～のに／～ても／～のだから</span></div>
+<p class="gp-meaning">Susah payah... / dengan susah payah... / jauh-jauh...</p>
+<div class="gp-pattern">📐 Rumus: せっかく + [Verba ～た] + のに/ても (nuansa menyesal) ／ せっかく + [Verba ～た/kalimat] + のだから (nuansa memanfaatkan)</div>
+<p><b>Fungsi:</b> Dua fungsi sekaligus: (1) menyatakan penyesalan bahwa usaha sia-sia, dan (2) mendorong untuk memanfaatkan kesempatan yang sudah ada. PENTING: harus dibedakan dari konteks kata yang mengikutinya.</p>
+<div class="gp-example">
+<div class="jp"><b>せっかく</b>宿題をやったのに、家に忘れてきた。<br><b>せっかく</b>温泉に来たのだから、のんびりしたい。</div>
+<div class="id">Sudah susah payah mengerjakan PR, tapi malah ketinggalan di rumah. / Sudah jauh-jauh ke onsen, jadi ingin bersantai.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp"><b>せっかく</b>早起きしたのに、電車に乗り遅れた。</span><span class="id">Sudah susah payah bangun pagi tapi ketinggalan kereta.</span></li>
+<li><span class="jp"><b>せっかく</b>日本に来たのだから、富士山を見に行こう。</span><span class="id">Sudah jauh-jauh ke Jepang, ayo pergi melihat Gunung Fuji.</span></li>
+<li><span class="jp"><b>せっかく</b>教えてもらったのに、もう忘れてしまった。</span><span class="id">Sudah susah payah diajarkan tapi sudah lupa.</span></li>
+</ul>
+<div class="tip-box"><b>💡 Tips JLPT — Grammar favorit JLPT!</b> Perhatikan kata setelahnya:<br>～のに／～ても／～でも → nuansa MENYESAL/KECEWA<br>～のだから／～だから → nuansa MARI MANFAATKAN</div>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">14</span><span class="gp-title">ただ ～だけ</span></div>
+<p class="gp-meaning">Hanya... / cuma... saja</p>
+<div class="gp-pattern">📐 Rumus: ただ + [Kalimat] + だけ</div>
+<p><b>Fungsi:</b> Membatasi sesuatu secara eksklusif pada satu hal saja. Penekanan pada EKSKLUSIVITAS — tidak ada yang lain selain ini (lebih kuat daripada だけ sendiri).</p>
+<div class="gp-example">
+<div class="jp">わたしの願いは<b>ただ</b>一つだけだ。</div>
+<div class="id">Keinginanku hanya satu saja.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">今は<b>ただ</b>休みたいだけだ。</span><span class="id">Sekarang cuma mau istirahat saja.</span></li>
+<li><span class="jp"><b>ただ</b>それだけが真実だ。</span><span class="id">Hanya itu satu-satunya kebenaran.</span></li>
+<li><span class="jp"><b>ただ</b>君のことが心配なだけだ。</span><span class="id">Cuma khawatir sama kamu saja.</span></li>
+</ul>
+</div>
+<h3 class="sub-h3" id="bagian2">🔷 Bagian II: Pola Pengandaian/Kondisi</h3>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">15</span><span class="gp-title">もしも／万一 (まんいち)／万が一 (まんがいち)</span></div>
+<p class="gp-meaning">もしも = Jika seandainya... ／ 万一・万が一 = Jika seandainya (kemungkinan sangat kecil tapi serius)</p>
+<div class="gp-pattern">📐 Rumus: もしも／万一／万が一 + [kondisi] + ～ば／～たら／～なら／～場合は／～ても／～でも</div>
+<p><b>Fungsi:</b> Menyatakan kondisi hipotetis — terutama 万一 untuk hal yang tidak diharapkan terjadi (persiapan darurat). もしも bersifat lebih umum, sedangkan 万一/万が一 mengandung nuansa "kemungkinan sangat kecil tapi serius".</p>
+<div class="gp-example">
+<div class="jp"><b>万一</b>問題がある場合は、相談してください。<br><b>万が一</b>大雨でも、試合は行います。</div>
+<div class="id">Jika seandainya ada masalah, mohon konsultasikan. / Seandainya hujan deras pun, pertandingan akan tetap dilaksanakan.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp"><b>もしも</b>宝くじが当たったら、何をしますか？</span><span class="id">Seandainya menang lotre, mau melakukan apa?</span></li>
+<li><span class="jp"><b>万一</b>火事が起きた場合は、すぐに避難してください。</span><span class="id">Jika seandainya terjadi kebakaran, segera evakuasi.</span></li>
+<li><span class="jp"><b>万が一</b>のために、保険に入っておいた方がいい。</span><span class="id">Untuk berjaga-jaga, lebih baik ikut asuransi.</span></li>
+</ul>
+<div class="warn-box"><b>⚠️ Hati-hati:</b> Jangan mengira ketiganya sama persis — 万一/万が一 khusus untuk situasi darurat/tidak diharapkan, bukan pengandaian biasa seperti menang lotre (gunakan もしも untuk itu).</div>
+</div>
+<h3 class="sub-h3" id="bagian3a">🔷 Bagian III.A: Sufiks — Tahap Tindakan</h3>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">16</span><span class="gp-title">～かける／～かけだ</span></div>
+<p class="gp-meaning">Sedang dalam proses... tapi belum selesai / hampir...</p>
+<div class="gp-pattern">📐 Rumus: 動詞ます形 + かける／かけだ</div>
+<p><b>Fungsi:</b> Menyatakan tindakan yang SUDAH DIMULAI tapi BELUM SELESAI — bisa berarti baru saja mulai melakukan, atau hampir selesai tapi tertunda di tengah jalan.</p>
+<div class="gp-example">
+<div class="jp">彼女は何か言い<b>かけて</b>、黙ってしまった。</div>
+<div class="id">Dia mulai mengatakan sesuatu, lalu terdiam.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">食べ<b>かけ</b>のケーキを冷蔵庫に入れた。</span><span class="id">Kue yang baru setengah dimakan dimasukkan ke kulkas.</span></li>
+<li><span class="jp">書き<b>かけ</b>のレポートを保存し忘れた。</span><span class="id">Lupa menyimpan laporan yang baru setengah ditulis.</span></li>
+<li><span class="jp">読み<b>かけ</b>の小説がどこにあるかわからない。</span><span class="id">Tidak tahu novel yang baru setengah dibaca ada di mana.</span></li>
+</ul>
+<div class="tip-box"><b>💡 Tips JLPT:</b> ～かけ + の + Nomina sering muncul! "食べかけのケーキ" = kue yang setengah dimakan.</div>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">17</span><span class="gp-title">～きる／～きれない</span></div>
+<p class="gp-meaning">Melakukan sampai selesai/tuntas ／ tidak sanggup melakukan sampai tuntas</p>
+<div class="gp-pattern">📐 Rumus: 動詞ます形 + きる／きれない</div>
+<p><b>Fungsi:</b> きる = menyelesaikan dengan sempurna; きれない = tidak mampu menyelesaikan sepenuhnya (melebihi batas kemampuan).</p>
+<div class="gp-example">
+<div class="jp">40キロの長い距離を走り<b>きった</b>。<br>こんなにたくさん、二人では食べ<b>きれない</b>。</div>
+<div class="id">Berhasil berlari menempuh jarak jauh 40 km. / Sebanyak ini, kami berdua tidak sanggup menghabiskannya.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">長い小説をやっと読み<b>きった</b>。</span><span class="id">Akhirnya berhasil membaca novel panjang itu sampai tamat.</span></li>
+<li><span class="jp">感謝の気持ちは言葉では言い<b>きれない</b>。</span><span class="id">Rasa terima kasih tidak bisa diungkapkan sepenuhnya dengan kata-kata.</span></li>
+<li><span class="jp">疲れ<b>きって</b>、ソファーで眠ってしまった。</span><span class="id">Karena sangat kelelahan, tertidur di sofa.</span></li>
+</ul>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">18</span><span class="gp-title">～通す (とおす)</span></div>
+<p class="gp-meaning">Terus melakukan... hingga akhir / bertahan melakukan... sampai selesai</p>
+<div class="gp-pattern">📐 Rumus: 動詞ます形 + 通す</div>
+<p><b>Fungsi:</b> Menyatakan tindakan dilakukan TERUS MENERUS tanpa berhenti sampai selesai — mengandung nuansa ketekunan dan keteguhan, berbeda dari ～きる yang lebih menekankan keberhasilan menyelesaikan.</p>
+<div class="gp-example">
+<div class="jp">自分で決めたことは最後までやり<b>通そう</b>。</div>
+<div class="id">Apa yang sudah saya putuskan sendiri, akan saya lakukan terus sampai akhir.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">どんなに辛くても、最後まで走り<b>通した</b>。</span><span class="id">Seberapapun beratnya, berlari terus sampai akhir.</span></li>
+<li><span class="jp">反対されても、自分の意見を言い<b>通した</b>。</span><span class="id">Meski ditentang, tetap menyatakan pendapatnya sampai akhir.</span></li>
+<li><span class="jp">彼女は約束を守り<b>通した</b>。</span><span class="id">Dia terus menepati janjinya sampai akhir.</span></li>
+</ul>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">19</span><span class="gp-title">～出す (だす)</span></div>
+<p class="gp-meaning">Tiba-tiba mulai... / mendadak mulai...</p>
+<div class="gp-pattern">📐 Rumus: 動詞ます形 + 出す</div>
+<p><b>Fungsi:</b> Menyatakan dimulainya tindakan secara TIBA-TIBA/MENDADAK — mengandung unsur kejutan/spontanitas, berbeda dari ～始める yang netral dan terencana.</p>
+<div class="gp-example">
+<div class="jp">彼はわたしの顔を見ると、突然笑い<b>出した</b>。</div>
+<div class="id">Begitu melihat wajahku, dia tiba-tiba tertawa.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">子どもは突然泣き<b>出した</b>。</span><span class="id">Anak itu tiba-tiba menangis.</span></li>
+<li><span class="jp">話していたら、急に雨が降り<b>出した</b>。</span><span class="id">Sedang berbicara, tiba-tiba hujan turun.</span></li>
+<li><span class="jp">鳥が急に飛び<b>出した</b>ので、びっくりした。</span><span class="id">Burung tiba-tiba terbang keluar, jadi kaget.</span></li>
+</ul>
+</div>
+<h3 class="sub-h3" id="bagian3b">🔷 Bagian III.B: Sufiks — Karakteristik/Kondisi</h3>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">20</span><span class="gp-title">～やすい</span></div>
+<p class="gp-meaning">Mudah untuk... / gampang...</p>
+<div class="gp-pattern">📐 Rumus: 動詞ます形 + やすい</div>
+<p><b>Fungsi:</b> Menyatakan bahwa sesuatu mudah untuk dilakukan atau cenderung terjadi dengan mudah. Bisa bermakna positif (mudah dilakukan) atau deskriptif negatif (cenderung mudah rusak/sakit).</p>
+<div class="gp-example">
+<div class="jp">田中先生の話はわかり<b>やすい</b>。</div>
+<div class="id">Penjelasan Pak Tanaka mudah dimengerti.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">このアプリはとても使い<b>やすい</b>。</span><span class="id">Aplikasi ini sangat mudah digunakan.</span></li>
+<li><span class="jp">春は風邪を引き<b>やすい</b>季節だ。</span><span class="id">Musim semi adalah musim yang mudah kena flu.</span></li>
+<li><span class="jp">この道は滑り<b>やすいので</b>気をつけてください。</span><span class="id">Jalan ini mudah terpeleset, tolong hati-hati.</span></li>
+</ul>
+<div class="warn-box"><b>⚠️ Hati-hati:</b> ～やすい adalah adjektif-i, harus dikonjugasi: やすい → やすくない → やすかった.</div>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">21</span><span class="gp-title">～にくい</span></div>
+<p class="gp-meaning">Sulit untuk... / susah...</p>
+<div class="gp-pattern">📐 Rumus: 動詞ます形 + にくい</div>
+<p><b>Fungsi:</b> Menyatakan kesulitan karena faktor OBJEKTIF (sifat benda/situasi) — bukan karena kemampuan si pelaku.</p>
+<div class="gp-example">
+<div class="jp">この肉は硬くて食べ<b>にくい</b>。</div>
+<div class="id">Daging ini keras dan sulit dimakan.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">この字は小さくて読み<b>にくい</b>。</span><span class="id">Tulisan ini kecil dan sulit dibaca.</span></li>
+<li><span class="jp">この道は狭くて車が通り<b>にくい</b>。</span><span class="id">Jalan ini sempit dan sulit dilalui mobil.</span></li>
+<li><span class="jp">人が多くて歩き<b>にくい</b>。</span><span class="id">Terlalu banyak orang, sulit berjalan.</span></li>
+</ul>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">22</span><span class="gp-title">～づらい</span></div>
+<p class="gp-meaning">Susah untuk... (dan tidak enak/canggung melakukannya)</p>
+<div class="gp-pattern">📐 Rumus: 動詞ます形 + づらい</div>
+<p><b>Fungsi:</b> Menyatakan kesulitan yang disertai rasa tidak nyaman, canggung, atau tidak enak secara emosional — SUBJEKTIF, berbeda dari ～にくい yang objektif/fisik.</p>
+<div class="gp-example">
+<div class="jp">個人的なことなので職場の人には頼み<b>づらい</b>。</div>
+<div class="id">Karena ini hal pribadi, canggung untuk meminta tolong ke rekan kerja.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">彼には本当のことが言い<b>づらい</b>。</span><span class="id">Canggung untuk mengatakan hal yang sebenarnya kepadanya.</span></li>
+<li><span class="jp">上司には反論し<b>づらい</b>雰囲気がある。</span><span class="id">Ada atmosfer yang membuat sulit untuk membantah atasan.</span></li>
+<li><span class="jp">借りたお金のことは聞き<b>づらい</b>。</span><span class="id">Canggung untuk menanyakan soal uang yang dipinjam.</span></li>
+</ul>
+<div class="warn-box"><b>⚠️ Hati-hati:</b> Jangan pakai づらい untuk kesulitan fisik seperti "daging keras" — lebih natural pakai にくい di sana.</div>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">23</span><span class="gp-title">～すぎる／～すぎだ</span></div>
+<p class="gp-meaning">Terlalu... / kebanyakan...</p>
+<div class="gp-pattern">📐 Rumus: 動詞ます形 + すぎる ／ イ形容詞(語幹) + すぎる ／ ナ形容詞(語幹) + すぎる</div>
+<p><b>Fungsi:</b> Menyatakan bahwa sesuatu melebihi batas yang wajar/tepat — hampir selalu negatif, berlebihan dan bisa terkesan kritis/menghakimi.</p>
+<div class="gp-example">
+<div class="jp">この靴はわたしには小さ<b>すぎる</b>。<br>おいしかったので、食べ<b>すぎて</b>しまった。</div>
+<div class="id">Sepatu ini terlalu kecil untukku. / Karena enak, jadi kebanyakan makan.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">このバッグは値段が高<b>すぎて</b>買えない。</span><span class="id">Tas ini harganya terlalu mahal, tidak bisa beli.</span></li>
+<li><span class="jp">彼は優し<b>すぎる</b>から、断れないんだ。</span><span class="id">Dia terlalu baik hati, jadi tidak bisa menolak.</span></li>
+<li><span class="jp">心配し<b>すぎないで</b>。きっと大丈夫だよ。</span><span class="id">Jangan terlalu khawatir. Pasti baik-baik saja.</span></li>
+</ul>
+<div class="warn-box"><b>⚠️ Hati-hati — Konjugasi:</b> ❌ おいしいすぎる ✅ おいし<b>すぎる</b> (hapus い). ❌ 静かなすぎる ✅ 静か<b>すぎる</b> (hapus な).</div>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">24</span><span class="gp-title">～がちだ</span></div>
+<p class="gp-meaning">Cenderung... / sering... (biasanya hal negatif)</p>
+<div class="gp-pattern">📐 Rumus: 動詞ます形 + がちだ ／ 名詞 + がちだ</div>
+<p><b>Fungsi:</b> Menyatakan kecenderungan/tendensi yang terjadi berulang — terutama untuk hal NEGATIF atau tidak diinginkan.</p>
+<div class="gp-example">
+<div class="jp">雨のため工事は遅れ<b>がちだ</b>。</div>
+<div class="id">Karena hujan, pengerjaan proyek cenderung sering terlambat.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">冬は運動不足になり<b>がちだ</b>。</span><span class="id">Di musim dingin cenderung kurang olahraga.</span></li>
+<li><span class="jp">一人暮らしは食事が偏り<b>がちになる</b>。</span><span class="id">Tinggal sendiri cenderung membuat pola makan tidak seimbang.</span></li>
+<li><span class="jp">彼は約束を忘れ<b>がちだ</b>。</span><span class="id">Dia cenderung sering melupakan janji.</span></li>
+</ul>
+</div>
+
+<h3 class="sub-h3" id="bagian3c">🔷 Bagian III.C: Sufiks — Kemiripan/Khas</h3>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">25</span><span class="gp-title">～らしい (Sufiks Adjektif)</span></div>
+<p class="gp-meaning">Seperti... seharusnya / khas... / sejati</p>
+<div class="gp-pattern">📐 Rumus: 名詞 + らしい</div>
+<p><b>Fungsi:</b> Menyatakan bahwa sesuatu sesuai dengan citra/stereotip yang diharapkan dari kategori tersebut — bisa pujian atau kritikan.</p>
+<div class="gp-example">
+<div class="jp">今日は暖かくて春<b>らしい</b>一日だった。</div>
+<div class="id">Hari ini hangat, hari yang benar-benar khas musim semi.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">彼女は女の子<b>らしい</b>服を好む。</span><span class="id">Dia menyukai pakaian yang feminin/khas perempuan.</span></li>
+<li><span class="jp">先生<b>らしい</b>丁寧な説明だった。</span><span class="id">Itu penjelasan yang sopan dan khas seorang guru.</span></li>
+<li><span class="jp">日本<b>らしい</b>景色を楽しんだ。</span><span class="id">Menikmati pemandangan yang benar-benar khas Jepang.</span></li>
+</ul>
+<div class="warn-box"><b>⚠️ Hati-hati:</b> WAJIB bedakan: 春らしい天気 (= cuaca khas musim semi, sufiks) vs 春らしい (= kelihatannya musim semi, modalitas dugaan) — BERBEDA!</div>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">26</span><span class="gp-title">～っぽい</span></div>
+<p class="gp-meaning">Kesannya seperti... / agak... / bernuansa...</p>
+<div class="gp-pattern">📐 Rumus: 名詞 + っぽい ／ 動詞ます形 + っぽい</div>
+<p><b>Fungsi:</b> Menyatakan bahwa sesuatu memiliki kualitas/sifat dari X, tapi tidak sepenuhnya — lebih ke kesan, biasanya agak negatif/meremehkan.</p>
+<div class="gp-example">
+<div class="jp">彼女はわがままばかり言って、子ども<b>っぽい</b>人だ。</div>
+<div class="id">Dia selalu mengeluh, orang yang kekanak-kanakan.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">この服は子ども<b>っぽい</b>から、大人向けのものを選ぼう。</span><span class="id">Baju ini kesannya anak-anak, ayo pilih yang untuk dewasa.</span></li>
+<li><span class="jp">彼の話し方は嘘<b>っぽい</b>。</span><span class="id">Cara bicaranya terkesan tidak jujur.</span></li>
+<li><span class="jp">彼はすぐ怒る短気<b>っぽい</b>ところがある。</span><span class="id">Dia punya sifat yang terkesan mudah marah.</span></li>
+</ul>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">27</span><span class="gp-title">～のようだ／～みたいだ</span></div>
+<p class="gp-meaning">Seperti... / mirip...</p>
+<div class="gp-pattern">📐 Rumus: 名詞 + のようだ／みたいだ ／ (modifikasi nomina: のような／みたいな + 名詞)</div>
+<p><b>Fungsi:</b> Menyatakan kesamaan/kemiripan yang sangat kuat antara A dan B. のようだ = formal/tulisan, みたいだ = informal/percakapan sehari-hari.</p>
+<div class="gp-example">
+<div class="jp">ここから見える景色は絵<b>のようだ</b>。</div>
+<div class="id">Pemandangan yang terlihat dari sini seperti lukisan.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">彼女は人形<b>のように</b>きれいだ。</span><span class="id">Dia cantik seperti boneka.</span></li>
+<li><span class="jp">外は地獄<b>みたいに</b>暑い。</span><span class="id">Di luar panas seperti neraka.</span></li>
+<li><span class="jp">夢<b>のような</b>話だけど、実現できるかもしれない。</span><span class="id">Terdengar seperti mimpi, tapi mungkin bisa terwujud.</span></li>
+</ul>
+<div class="warn-box"><b>⚠️ Hati-hati:</b> ❌ 名詞+のような+動詞 ✅ 名詞+のように+動詞 (untuk memodifikasi verba gunakan ように/みたいに, bukan ような/みたいな).</div>
+</div>
+
+<div class="gp-card">
+<div class="gp-header"><span class="gp-num">28</span><span class="gp-title">～だらけだ</span></div>
+<p class="gp-meaning">Penuh dengan... / banyak sekali... (biasanya hal negatif)</p>
+<div class="gp-pattern">📐 Rumus: 名詞 + だらけだ</div>
+<p><b>Fungsi:</b> Menyatakan bahwa sesuatu DIPENUHI oleh hal-hal yang tidak diinginkan — hampir selalu negatif/pejoratif.</p>
+<div class="gp-example">
+<div class="jp">返ってきたテストは間違い<b>だらけだった</b>。</div>
+<div class="id">Hasil tes yang dikembalikan penuh dengan kesalahan.</div>
+</div>
+<ul class="gp-examples-list">
+<li><span class="jp">久しぶりに掃除したら、部屋がほこり<b>だらけだった</b>。</span><span class="id">Setelah lama tidak beres-beres, kamar penuh debu.</span></li>
+<li><span class="jp">彼の書いた文章は誤字<b>だらけだ</b>。</span><span class="id">Tulisannya penuh dengan salah ketik.</span></li>
+<li><span class="jp">問題<b>だらけ</b>のプロジェクトをどうにかしなければならない。</span><span class="id">Harus menangani proyek yang penuh masalah.</span></li>
+</ul>
+<div class="warn-box"><b>⚠️ Hati-hati:</b> Jangan gunakan untuk hal positif. ❌ 花だらけ (kurang natural) ✅ 間違いだらけ.</div>
+</div>
+</section>
+<section class="block" id="analogi">
+<h2>🌟 Analogi Kehidupan Nyata</h2>
+<p class="section-intro">Untuk membantu mengingat nuansa setiap grammar, mari gunakan analogi dari kehidupan sehari-hari.</p>
+
+<div class="analogy-card">
+<div class="title">🔋 まったく vs 少しも vs 決して — "Level Kekuatan Penolakan"</div>
+<p>Bayangkan baterai HP: <b>まったく</b> seperti baterai yang "0% — benar-benar mati total, fakta apa adanya". <b>少しも</b> seperti mengecek baterai dan kecewa karena "bahkan 1% pun tidak ada sisa, padahal tadi diharapkan ada". <b>決して</b> seperti sebuah JANJI: "saya bertekad HP ini tidak akan saya nyalakan lagi, apa pun yang terjadi" — ada unsur niat/komitmen, bukan sekadar fakta.</p>
+</div>
+
+<div class="analogy-card">
+<div class="title">🎯 そんなに vs たいして — "Siapa yang Bicara Duluan?"</div>
+<p>Bayangkan percakapan di kafe. Teman bilang, "Wah, ujiannya pasti susah banget ya!" Kamu menjawab, "<b>そんなに</b> susah kok tidak — kamu terlalu membesar-besarkan." Ini adalah BANTAHAN terhadap omongan orang lain. Sebaliknya, kalau kamu sendiri yang menilai ujian itu (tanpa ada yang berkomentar duluan) dan berkata pada dirimu sendiri, "Ah, <b>たいして</b> sulit juga kok" — itu murni opini pribadimu, tidak merespons siapa pun.</p>
+</div>
+
+<div class="analogy-card">
+<div class="title">🌅 少しずつ vs 次第に vs ますます — "Tiga Cara Matahari Terbit"</div>
+<p>Bayangkan proses matahari terbit di pagi hari. <b>少しずつ</b> = seperti mengisi gelas air setetes demi setetes — fokus pada ukuran kecil yang bertambah. <b>次第に</b> = seperti langit yang berubah dari gelap ke terang secara alami dan berurutan — fokus pada PROSES alami, bukan ukurannya. <b>ますます</b> = seperti cahaya matahari yang makin lama makin menyilaukan, ada akselerasi/intensitas yang terus meningkat.</p>
+</div>
+
+<div class="analogy-card">
+<div class="title">🎲 もしかしたら vs おそらく vs きっと — "Tiga Tingkat Keyakinan Cuaca"</div>
+<p>Bayangkan kamu melihat awan di langit. <b>もしかしたら</b> = "Mungkin saja nanti hujan" (kamu baru sekilas lihat awan, belum yakin, ~30-50%). <b>おそらく</b> = "Kemungkinan besar akan hujan" (kamu sudah cek ramalan cuaca dan awan gelap, ada DASAR logis, ~70-80%). <b>きっと</b> = "Pasti hujan!" (kamu hampir 90% yakin berdasarkan pengalaman/insting kuat).</p>
+</div>
+
+<div class="analogy-card">
+<div class="title">🎁 せっかく — "Hadiah yang Disia-siakan vs Hadiah yang Dimanfaatkan"</div>
+<p>Bayangkan seseorang memberimu hadiah mahal dengan susah payah. Skenario 1 (menyesal): kamu lupa membawanya pulang — "<b>せっかく</b>もらったのに、忘れてきてしまった" (sudah susah payah diberi tapi malah lupa — SAYANG!). Skenario 2 (memanfaatkan): kamu berpikir, "Sudah dapat hadiah bagus ini, ayo segera dipakai!" — "<b>せっかく</b>もらったのだから、すぐ使おう" (mari manfaatkan kesempatan baik ini).</p>
+</div>
+
+<div class="analogy-card">
+<div class="title">🥩 ～にくい vs ～づらい — "Daging Keras vs Pertanyaan Canggung"</div>
+<p>～にくい seperti memotong daging yang keras dengan pisau tumpul — kesulitannya ada pada OBJEK/SITUASI itu sendiri, siapa pun yang mencoba akan kesulitan. ～づらい seperti menanyakan gaji ke atasan — secara fisik kamu BISA bertanya, tapi hatimu merasa canggung/tidak nyaman. Kesulitannya ada pada PERASAAN, bukan pada kemampuan fisik.</p>
+</div>
+
+<div class="analogy-card">
+<div class="title">🍰 ～かける vs ～きる vs ～通す — "Tiga Nasib Sepotong Kue"</div>
+<p><b>～かける</b> = kue yang baru dimakan setengah, lalu ditaruh di kulkas (terhenti di tengah). <b>～きる</b> = kue yang berhasil dihabiskan sampai tuntas, sampai remah terakhir. <b>～通す</b> = kamu bertekad menghabiskan kue itu meski sudah kekenyangan, karena sudah berjanji tidak akan menyisakan apa pun — fokus pada KETEGUHAN, bukan sekadar hasil akhir.</p>
+</div>
+
+<div class="analogy-card">
+<div class="title">🎭 ～らしい vs ～っぽい vs ～のようだ — "Tiga Cara Menilai Kostum"</div>
+<p>Bayangkan seseorang memakai kostum dokter. <b>～らしい</b> = "Dia benar-benar terlihat seperti dokter sejati" (memenuhi citra ideal seorang dokter — bisa pujian tulus). <b>～っぽい</b> = "Kostumnya kesannya kayak dokter-dokteran" (terkesan mirip tapi terasa "palsu"/tidak meyakinkan — agak meremehkan). <b>～のようだ</b> = "Penampilannya seperti dokter" (perbandingan netral, sekadar menyatakan kemiripan tanpa menilai baik/buruk).</p>
+</div>
+</section>
+<section class="block" id="perbandingan">
+<h2>📊 Perbandingan Grammar</h2>
+
+<table>
+<caption>Perbandingan Adverbia Negatif</caption>
+<tr><th>Grammar</th><th>Arti</th><th>Kekuatan</th><th>Ciri Khas</th></tr>
+<tr><td>まったく～ない</td><td>Sama sekali tidak</td><td>⭐⭐⭐⭐</td><td>Negasi total, fakta</td></tr>
+<tr><td>少しも～ない</td><td>Sedikit pun tidak</td><td>⭐⭐⭐⭐</td><td>Fokus pada kuantitas</td></tr>
+<tr><td>そんなに～ない</td><td>Tidak se-... itu</td><td>⭐⭐</td><td>Membantah asumsi lawan bicara</td></tr>
+<tr><td>たいして～ない</td><td>Tidak begitu</td><td>⭐⭐</td><td>Meremehkan, penilaian sendiri, agak formal</td></tr>
+<tr><td>決して～ない</td><td>Tidak pernah/tidak akan</td><td>⭐⭐⭐⭐⭐</td><td>Tekad/larangan mutlak</td></tr>
+<tr><td>めったに～ない</td><td>Jarang sekali</td><td>⭐</td><td>Frekuensi sangat rendah, masih mungkin terjadi</td></tr>
+</table>
+
+<table>
+<caption>Perbandingan Adverbia Perubahan Bertahap</caption>
+<tr><th>Grammar</th><th>Arti</th><th>Fokus</th></tr>
+<tr><td>少しずつ</td><td>Sedikit demi sedikit</td><td>Kuantitas kecil yang bertambah</td></tr>
+<tr><td>次第に</td><td>Berangsur-angsur</td><td>Proses alami/berurutan</td></tr>
+<tr><td>ますます</td><td>Semakin</td><td>Akselerasi/intensitas meningkat</td></tr>
+</table>
+
+<table>
+<caption>Perbandingan Adverbia Kemungkinan</caption>
+<tr><th>Grammar</th><th>Probabilitas</th><th>Pasangan Wajib</th></tr>
+<tr><td>もしかしたら／もしかすると</td><td>~30–50%</td><td>～かもしれない、～のではないか</td></tr>
+<tr><td>おそらく</td><td>~70–80%</td><td>～だろう、～と思う、～のではないか</td></tr>
+<tr><td>きっと</td><td>~90%</td><td>～だろう、～と思う</td></tr>
+</table>
+
+<table>
+<caption>Perbandingan Sufiks Kesulitan/Kemudahan</caption>
+<tr><th>Grammar</th><th>Arti</th><th>Nuansa</th></tr>
+<tr><td>～やすい</td><td>Mudah</td><td>Netral/objektif</td></tr>
+<tr><td>～にくい</td><td>Sulit</td><td>Objektif (fisik/kondisi)</td></tr>
+<tr><td>～づらい</td><td>Sulit</td><td>Subjektif (emosional/sosial)</td></tr>
+</table>
+
+<table>
+<caption>Perbandingan Sufiks Tahap Tindakan</caption>
+<tr><th>Grammar</th><th>Arti</th><th>Nuansa</th></tr>
+<tr><td>～かける</td><td>Belum selesai, terhenti di tengah</td><td>Dimulai tapi terganggu/tertunda</td></tr>
+<tr><td>～きる</td><td>Selesai dengan tuntas</td><td>Fokus pada hasil — berhasil/tidak mampu menghabiskan (きれない)</td></tr>
+<tr><td>～通す</td><td>Terus melakukan sampai akhir</td><td>Fokus pada keteguhan/proses, tanpa menyerah</td></tr>
+<tr><td>～出す</td><td>Tiba-tiba mulai</td><td>Spontan, mengandung unsur kejutan</td></tr>
+</table>
+
+<table>
+<caption>Perbandingan Sufiks Kemiripan/Khas</caption>
+<tr><th>Grammar</th><th>Arti</th><th>Nuansa</th></tr>
+<tr><td>～のようだ／みたいだ</td><td>Seperti... (perbandingan)</td><td>Netral, kesamaan</td></tr>
+<tr><td>～らしい</td><td>Khas..., sejati</td><td>Memenuhi citra/stereotip (bisa positif)</td></tr>
+<tr><td>～っぽい</td><td>Kesannya seperti...</td><td>Sedikit negatif/meremehkan</td></tr>
+</table>
+
+<table>
+<caption>Perbandingan Pola Pengandaian</caption>
+<tr><th>Grammar</th><th>Nuansa</th><th>Konteks Umum</th></tr>
+<tr><td>もしも</td><td>Pengandaian umum, netral</td><td>Hal apa saja, termasuk khayalan menyenangkan</td></tr>
+<tr><td>万一／万が一</td><td>Kemungkinan sangat kecil tapi serius</td><td>Situasi darurat, persiapan terhadap hal buruk</td></tr>
+</table>
+</section>
+<section class="block" id="kesalahan">
+<h2>❌ Kesalahan Umum</h2>
+<p class="section-intro">Berikut kesalahan yang paling sering dilakukan siswa Indonesia, beserta versi yang benar.</p>
+
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>母は英語がまったくわかる。</div>
+<div class="right"><b>✅ Benar</b>母は英語が<b>まったく</b>わから<b>ない</b>。</div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>決して言います。</div>
+<div class="right"><b>✅ Benar</b><b>決して</b>言い<b>ません</b>。</div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>そんなに難しい。 (digunakan dalam kalimat positif)</div>
+<div class="right"><b>✅ Benar</b><b>そんなに</b>難しく<b>ない</b>。</div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>すでに食べる。 (bentuk future/volitional)</div>
+<div class="right"><b>✅ Benar</b><b>すでに</b>食べ<b>た</b> / <b>すでに</b>食べ<b>ている</b>。</div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>おそらく～かもしれない (terlalu ragu, tidak natural)</div>
+<div class="right"><b>✅ Benar</b><b>おそらく</b>～<b>だろう</b>。</div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>もしかしたら～だろう (pasangan tertukar)</div>
+<div class="right"><b>✅ Benar</b><b>もしかしたら</b>～<b>かもしれない</b>。</div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>Tidak memahami dua nuansa せっかく — disamakan semua jadi "menyesal"</div>
+<div class="right"><b>✅ Benar</b>～のに/～ても = menyesal ／ ～のだから = mari manfaatkan</div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>食べきれた (dipakai untuk hal positif/berhasil menghabiskan, kurang natural)</div>
+<div class="right"><b>✅ Benar</b>Lebih umum dipakai dalam bentuk negatif: 食べ<b>きれない</b></div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>おいしいすぎる</div>
+<div class="right"><b>✅ Benar</b>おいし<b>すぎる</b> (hilangkan い sebelum すぎる)</div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>静かなすぎる</div>
+<div class="right"><b>✅ Benar</b>静か<b>すぎる</b> (hilangkan な sebelum すぎる)</div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>成功しがちだ (menggunakan ～がちだ untuk hal positif)</div>
+<div class="right"><b>✅ Benar</b>～がちだ lebih natural untuk kecenderungan NEGATIF, misal: 遅れがちだ</div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>食べづらい (untuk kesulitan fisik mengunyah daging keras)</div>
+<div class="right"><b>✅ Benar</b>食べ<b>にくい</b> (kesulitan objektif/fisik pakai にくい, bukan づらい)</div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>春らしい dianggap selalu berarti "kelihatannya musim semi"</div>
+<div class="right"><b>✅ Benar</b>春らしい天気 = cuaca KHAS musim semi (sufiks) — berbeda dari らしい modalitas dugaan</div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>夢のような話した (memodifikasi verba dengan ような)</div>
+<div class="right"><b>✅ Benar</b>夢の<b>ように</b>話した (modifikasi verba pakai ように, bukan ような)</div>
+</div>
+<div class="mistake-row">
+<div class="wrong"><b>❌ Salah</b>花だらけ (dipakai untuk hal positif)</div>
+<div class="right"><b>✅ Benar</b>～だらけ untuk hal yang TIDAK diinginkan, misal: 間違いだらけ</div>
+</div>
+</section>
+
+<section class="block" id="ringkasan">
+<h2>⚡ Ringkasan Cepat</h2>
+<div class="summary-list">
+<ol>
+<li><b>Adverbia negatif</b> (まったく、決して、めったに, dll) WAJIB diikuti bentuk negatif.</li>
+<li><b>すでに</b> = formal, harus dengan ～た／～ている／～てある.</li>
+<li><b>せっかく</b> punya dua nuansa: menyesal (～のに) vs memanfaatkan (～のだから).</li>
+<li><b>～すぎる</b> = konjugasi: イ形容詞 hapus い, ナ形容詞 hapus な.</li>
+<li><b>～らしい</b> (sufiks: khas/sejati) ≠ ～らしい (modalitas: sepertinya/dugaan) — BEDAKAN!</li>
+<li><b>～にくい</b> (objektif/fisik) vs <b>～づらい</b> (subjektif/emosional).</li>
+<li><b>おそらく</b> berpasangan dengan ～だろう, BUKAN ～かもしれない.</li>
+<li><b>もしかしたら</b> berpasangan dengan ～かもしれない／～のではないか.</li>
+<li><b>～だらけ</b> hampir selalu untuk hal NEGATIF.</li>
+<li><b>～がちだ</b> hampir selalu untuk kecenderungan NEGATIF.</li>
+<li><b>万一／万が一</b> = situasi darurat/tidak diharapkan; <b>もしも</b> = pengandaian umum.</li>
+<li><b>～かける</b> (terhenti) vs <b>～きる</b> (tuntas/berhasil) vs <b>～通す</b> (teguh sampai akhir) vs <b>～出す</b> (tiba-tiba mulai).</li>
+</ol>
+</div>
+</section>
+<section class="block" id="latihan-terbimbing">
+<h2>🧭 Latihan Terbimbing</h2>
+<p class="section-intro">Latihan ini disertai penjelasan langkah demi langkah agar siswa memahami CARA BERPIKIR dalam memilih jawaban. Klik kotak "💡 Lihat Penjelasan" untuk membuka pembahasan.</p>
+
+<div class="exercise-card">
+<span class="ex-num">Latihan 1</span>
+<p>彼は秘密を（　　）誰にも話さないと約束した。</p>
+<ol class="options" type="a">
+<li>まったく</li>
+<li>めったに</li>
+<li>決して</li>
+<li>少しも</li>
+</ol>
+<details>
+<summary>💡 Lihat Penjelasan</summary>
+<p>Jawaban: <b>c) 決して</b><br>Kata kunci dalam kalimat adalah "約束した" (berjanji). Ini menandakan ada unsur TEKAD/KOMITMEN, bukan sekadar fakta netral. 決して～ない paling tepat karena mengandung nuansa janji yang kuat. まったく hanya menyatakan fakta, めったに berarti "jarang" (bukan "tidak akan pernah"), dan 少しも lebih ke penekanan kuantitas.</p>
+</details>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Latihan 2</span>
+<p>このアプリは説明がわかり（　　）から、初めての人でも安心です。</p>
+<ol class="options" type="a">
+<li>やすい</li>
+<li>にくい</li>
+<li>づらい</li>
+<li>がちだ</li>
+</ol>
+<details>
+<summary>💡 Lihat Penjelasan</summary>
+<p>Jawaban: <b>a) やすい</b><br>Konteks "初めての人でも安心" (orang baru pun tenang) menunjukkan makna POSITIF — mudah dimengerti. ～やすい cocok untuk makna "mudah". にくい dan づらい berarti "sulit" (berlawanan makna), sedangkan がちだ untuk kecenderungan negatif, tidak sesuai konteks ini.</p>
+</details>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Latihan 3</span>
+<p>天気予報によると、（　　）明日は雨が降る（　　）。</p>
+<ol class="options" type="a">
+<li>もしかしたら／かもしれない</li>
+<li>おそらく／だろう</li>
+<li>決して／ない</li>
+<li>たいして／ない</li>
+</ol>
+<details>
+<summary>💡 Lihat Penjelasan</summary>
+<p>Jawaban: <b>b) おそらく／だろう</b><br>Kata kunci "天気予報によると" (menurut ramalan cuaca) menunjukkan ada DASAR/SUMBER informasi yang membuat probabilitas tinggi (~70-80%) — ini ciri khas おそらく yang berpasangan dengan ～だろう. もしかしたら lebih cocok untuk dugaan tanpa dasar kuat dan berpasangan dengan かもしれない, bukan だろう.</p>
+</details>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Latihan 4</span>
+<p>（　　）日本に来たのだから、いろいろな場所を旅行したい。</p>
+<ol class="options" type="a">
+<li>ただ</li>
+<li>せっかく</li>
+<li>たいして</li>
+<li>めったに</li>
+</ol>
+<details>
+<summary>💡 Lihat Penjelasan</summary>
+<p>Jawaban: <b>b) せっかく</b><br>Perhatikan akhiran "～のだから" yang menandakan nuansa MEMANFAATKAN kesempatan (bukan menyesal). せっかく adalah satu-satunya pilihan yang memiliki pasangan tetap dengan ～のだから untuk makna "sudah jauh-jauh datang, ayo manfaatkan".</p>
+</details>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Latihan 5</span>
+<p>食べ（　　）のケーキを冷蔵庫にしまった。</p>
+<ol class="options" type="a">
+<li>きった</li>
+<li>かけ</li>
+<li>出した</li>
+<li>通した</li>
+</ol>
+<details>
+<summary>💡 Lihat Penjelasan</summary>
+<p>Jawaban: <b>b) かけ</b><br>"食べかけのケーキ" adalah pola tetap yang berarti "kue yang baru setengah dimakan" — tindakan terhenti di tengah jalan. きった berarti "berhasil menghabiskan sepenuhnya" (berlawanan makna), 出した berarti "tiba-tiba mulai makan", dan 通した berarti "terus makan sampai akhir" — keduanya tidak cocok dengan konteks "disimpan di kulkas" yang menyiratkan belum selesai.</p>
+</details>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Latihan 6</span>
+<p>彼の部屋は本（　　）で、座る場所もない。</p>
+<ol class="options" type="a">
+<li>らしい</li>
+<li>っぽい</li>
+<li>だらけ</li>
+<li>のようだ</li>
+</ol>
+<details>
+<summary>💡 Lihat Penjelasan</summary>
+<p>Jawaban: <b>c) だらけ</b><br>Konteks "座る場所もない" (tidak ada tempat duduk) menunjukkan kondisi DIPENUHI oleh buku sampai berlebihan — ini ciri khas ～だらけ. らしい dan のようだ tidak cocok karena tidak menyatakan "penuh", dan っぽい berarti "kesannya seperti" yang juga tidak sesuai konteks kepenuhan fisik.</p>
+</details>
+</div>
+</section>
+<section class="block" id="latihan-mandiri">
+<h2>✍️ Latihan Mandiri</h2>
+<p class="section-intro">Sekarang coba kerjakan sendiri tanpa melihat penjelasan terlebih dahulu. Kunci jawaban tersedia di bagian akhir modul.</p>
+
+<div class="exercise-card">
+<span class="ex-num">Soal 1</span>
+<p>この問題は（　　）難しくないので、安心してください。</p>
+<ol class="options" type="a">
+<li>決して</li>
+<li>そんなに</li>
+<li>少しも</li>
+<li>めったに</li>
+</ol>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Soal 2</span>
+<p>書類は（　　）提出してありますので、ご確認ください。</p>
+<ol class="options" type="a">
+<li>もう少し</li>
+<li>すでに</li>
+<li>たいして</li>
+<li>っぽい</li>
+</ol>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Soal 3</span>
+<p>練習を続けたら、テニスが（　　）上手になってきた。</p>
+<ol class="options" type="a">
+<li>少しずつ</li>
+<li>まったく</li>
+<li>決して</li>
+<li>たいして</li>
+</ol>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Soal 4</span>
+<p>（　　）地震が起きた場合は、エレベーターを使わないでください。</p>
+<ol class="options" type="a">
+<li>もしも</li>
+<li>万一</li>
+<li>ますます</li>
+<li>そんなに</li>
+</ol>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Soal 5</span>
+<p>個人的なことなので、上司には（　　）質問だ。</p>
+<ol class="options" type="a">
+<li>聞きやすい</li>
+<li>聞きにくい</li>
+<li>聞きづらい</li>
+<li>聞きがちな</li>
+</ol>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Soal 6</span>
+<p>このケーキは甘（　　）て、半分しか食べられなかった。</p>
+<ol class="options" type="a">
+<li>すぎ</li>
+<li>がち</li>
+<li>っぽく</li>
+<li>づらく</li>
+</ol>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Soal 7</span>
+<p>彼女は最近、忙しくて連絡が遅れ（　　）になっている。</p>
+<ol class="options" type="a">
+<li>やすい</li>
+<li>がち</li>
+<li>だらけ</li>
+<li>きれない</li>
+</ol>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Soal 8</span>
+<p>3日間休まずに働き（　　）、ついに仕事を終わらせた。</p>
+<ol class="options" type="a">
+<li>かけて</li>
+<li>出して</li>
+<li>通して</li>
+<li>がちで</li>
+</ol>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Soal 9</span>
+<p>今日は寒くて、まるで冬（　　）天気だ。</p>
+<ol class="options" type="a">
+<li>らしい</li>
+<li>っぽい</li>
+<li>のような</li>
+<li>がちな</li>
+</ol>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Soal 10</span>
+<p>（　　）日本語が上手になったね！前よりずっと話せるようになった。</p>
+<ol class="options" type="a">
+<li>たいして</li>
+<li>少しも</li>
+<li>ずいぶん</li>
+<li>めったに</li>
+</ol>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Soal 11</span>
+<p>彼女は何か言い（　　）て、急に黙ってしまった。</p>
+<ol class="options" type="a">
+<li>きっ</li>
+<li>かけ</li>
+<li>通し</li>
+<li>がち</li>
+</ol>
+</div>
+
+<div class="exercise-card">
+<span class="ex-num">Soal 12</span>
+<p>このレポートは間違い（　　）で、もう一度書き直す必要がある。</p>
+<ol class="options" type="a">
+<li>らしい</li>
+<li>っぽい</li>
+<li>だらけ</li>
+<li>がち</li>
+</ol>
+</div>
+</section>
+<section class="block" id="quiz">
+<h2>📝 Quiz</h2>
+<p class="section-intro">Quiz akhir bertipe JLPT untuk mengukur pemahaman menyeluruh terhadap 28 grammar point. Kerjakan tanpa melihat materi terlebih dahulu, lalu cocokkan dengan Kunci Jawaban.</p>
+
+<div class="quiz-card">
+<span class="q-num">Q1</span>
+<p>次のうち、間違っている文はどれですか？</p>
+<ol class="options" type="a">
+<li>まったく問題がない</li>
+<li>おそらく明日は晴れるかもしれない</li>
+<li>せっかく来たのだから、ゆっくりしてください</li>
+<li>ますます元気になってきた</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q2</span>
+<p>母は英語が（　　）わからない。</p>
+<ol class="options" type="a">
+<li>まったく</li>
+<li>たくさん</li>
+<li>とても</li>
+<li>少し</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q3</span>
+<p>「フォーマルな文書」で「すでに」と「もう」のうち、より適切な表現はどちらですか？</p>
+<ol class="options" type="a">
+<li>もう</li>
+<li>すでに</li>
+<li>どちらも同じ</li>
+<li>どちらも不適切</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q4</span>
+<p>A：「この本、難しそうだね。」B：「（　　）難しくないよ、読んでみて。」</p>
+<ol class="options" type="a">
+<li>決して</li>
+<li>そんなに</li>
+<li>めったに</li>
+<li>少しも</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q5</span>
+<p>この道は狭くて、車が通り（　　）。</p>
+<ol class="options" type="a">
+<li>やすい</li>
+<li>にくい</li>
+<li>がちだ</li>
+<li>だらけだ</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q6</span>
+<p>友達に借りたお金のことは、ちょっと（　　）。</p>
+<ol class="options" type="a">
+<li>聞きやすい</li>
+<li>聞きにくい</li>
+<li>聞きづらい</li>
+<li>聞き出す</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q7</span>
+<p>長い小説をやっと読み（　　）。</p>
+<ol class="options" type="a">
+<li>かけた</li>
+<li>きった</li>
+<li>出した</li>
+<li>がちだった</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q8</span>
+<p>子どもは突然泣き（　　）た。</p>
+<ol class="options" type="a">
+<li>かけ</li>
+<li>きっ</li>
+<li>出し</li>
+<li>通し</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q9</span>
+<p>今日は暖かくて、春（　　）一日だった。（季節の特徴を表す）</p>
+<ol class="options" type="a">
+<li>のような</li>
+<li>っぽい</li>
+<li>らしい</li>
+<li>だらけの</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q10</span>
+<p>彼女は人形（　　）きれいだ。</p>
+<ol class="options" type="a">
+<li>らしく</li>
+<li>のように</li>
+<li>っぽく</li>
+<li>がちで</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q11</span>
+<p>このバッグは値段が高（　　）て、買うのをやめた。</p>
+<ol class="options" type="a">
+<li>すぎ</li>
+<li>がち</li>
+<li>やすく</li>
+<li>づらく</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q12</span>
+<p>冬は運動不足になり（　　）から、気をつけよう。</p>
+<ol class="options" type="a">
+<li>やすい</li>
+<li>がちだ</li>
+<li>きれない</li>
+<li>だらけだ</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q13</span>
+<p>（　　）火事が起きた場合は、すぐに避難してください。</p>
+<ol class="options" type="a">
+<li>もしも</li>
+<li>万一</li>
+<li>たぶん</li>
+<li>そんなに</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q14</span>
+<p>このニュースは（　　）重要ではなかったので、誰も話題にしなかった。</p>
+<ol class="options" type="a">
+<li>そんなに</li>
+<li>たいして</li>
+<li>決して</li>
+<li>めったに</li>
+</ol>
+</div>
+
+<div class="quiz-card">
+<span class="q-num">Q15</span>
+<p>天気予報を見ると、（　　）明日は雨が降る（　　）。</p>
+<ol class="options" type="a">
+<li>もしかしたら／だろう</li>
+<li>おそらく／だろう</li>
+<li>決して／だろう</li>
+<li>たいして／だろう</li>
+</ol>
+</div>
+</section>
+<section class="block" id="kunci">
+<h2>🔑 Kunci Jawaban</h2>
+
+<h3 class="sub-h3">Kunci — Latihan Mandiri</h3>
+<table class="answer-table">
+<tr><td>1. b</td><td>そんなに — membantah anggapan bahwa soal ini sulit ("tidak sesulit itu").</td></tr>
+<tr><td>2. b</td><td>すでに — konteks formal (dokumen resmi), berpasangan dengan ～てある.</td></tr>
+<tr><td>3. a</td><td>少しずつ — perubahan kemampuan tenis terjadi secara bertahap, sedikit demi sedikit.</td></tr>
+<tr><td>4. b</td><td>万一 — konteks darurat (gempa bumi) yang tidak diharapkan terjadi.</td></tr>
+<tr><td>5. c</td><td>聞きづらい — kesulitan emosional/canggung bertanya ke atasan, bukan kesulitan fisik.</td></tr>
+<tr><td>6. a</td><td>すぎ — おいし(い)すぎる → konteks "terlalu manis" sehingga hanya bisa makan setengah.</td></tr>
+<tr><td>7. b</td><td>がち — kecenderungan negatif (sering terlambat membalas), pola 動詞ます形+がちだ.</td></tr>
+<tr><td>8. c</td><td>通して — bekerja terus-menerus tanpa henti selama 3 hari, menekankan keteguhan.</td></tr>
+<tr><td>9. c</td><td>のような — perbandingan "seperti musim dingin" yang memodifikasi 天気 (nomina), bentuk のような+名詞.</td></tr>
+<tr><td>10. c</td><td>ずいぶん — konteks pujian atas kemajuan besar ("jauh lebih baik dari sebelumnya"), bukan negasi.</td></tr>
+<tr><td>11. b</td><td>かけ — tindakan berbicara terhenti di tengah jalan (belum selesai bicara).</td></tr>
+<tr><td>12. c</td><td>だらけ — laporan dipenuhi kesalahan, hal negatif yang berlebihan.</td></tr>
+</table>
+
+<h3 class="sub-h3">Kunci — Quiz</h3>
+<table class="answer-table">
+<tr><td>Q1. b</td><td>おそらく～かもしれない adalah kombinasi yang SALAH. おそらく harus berpasangan dengan ～だろう, bukan ～かもしれない.</td></tr>
+<tr><td>Q2. a</td><td>まったく～ない adalah pasangan wajib untuk negasi total ("sama sekali tidak mengerti").</td></tr>
+<tr><td>Q3. b</td><td>すでに lebih formal dan cocok untuk dokumen resmi dibandingkan もう yang lebih umum/informal.</td></tr>
+<tr><td>Q4. b</td><td>そんなに～ない — membantah anggapan lawan bicara bahwa buku itu sulit.</td></tr>
+<tr><td>Q5. b</td><td>にくい — kesulitan objektif karena jalan yang sempit (faktor fisik/kondisi).</td></tr>
+<tr><td>Q6. c</td><td>聞きづらい — kecanggungan emosional bertanya soal uang ke teman, bersifat subjektif/sosial.</td></tr>
+<tr><td>Q7. b</td><td>きった — berhasil menyelesaikan/menamatkan novel panjang sampai tuntas.</td></tr>
+<tr><td>Q8. c</td><td>出し — menangis secara tiba-tiba/mendadak, ciri khas ～出す.</td></tr>
+<tr><td>Q9. c</td><td>らしい — menyatakan cuaca yang benar-benar khas/sesuai citra musim semi (sufiks らしい, bukan modalitas dugaan).</td></tr>
+<tr><td>Q10. b</td><td>のように — memodifikasi adjektif きれいだ (bukan nomina), sehingga gunakan のように bukan のような.</td></tr>
+<tr><td>Q11. a</td><td>すぎ — 高すぎる, harga yang melebihi batas wajar sehingga memutuskan tidak membeli.</td></tr>
+<tr><td>Q12. b</td><td>がちだ — kecenderungan negatif yang umum terjadi di musim dingin (kurang olahraga).</td></tr>
+<tr><td>Q13. b</td><td>万一 — situasi darurat (kebakaran) yang kemungkinannya kecil tapi serius jika terjadi.</td></tr>
+<tr><td>Q14. b</td><td>たいして～ない — penilaian pembicara sendiri bahwa berita itu tidak signifikan, bukan respons terhadap ucapan orang lain.</td></tr>
+<tr><td>Q15. b</td><td>おそらく／だろう — ada dasar logis (ramalan cuaca) sehingga probabilitas tinggi, pasangan wajib dengan ～だろう.</td></tr>
+</table>
+
+<div class="tip-box" style="margin-top:18px;">
+<b>🎉 Selamat!</b> Jika Anda berhasil menjawab sebagian besar soal dengan benar, Anda sudah menguasai dasar-dasar 28 grammar point penting JLPT N3 ini. Jangan lupa untuk terus berlatih membuat kalimat sendiri menggunakan setiap pola — semakin sering dipraktikkan, semakin alami penggunaannya akan terasa. 頑張ってください！
+</div>
+</section>
+
+
+</div>
+</body>
+</html>
