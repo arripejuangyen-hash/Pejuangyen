@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文法練習 — 文の組み立て：引用と名詞の修飾 | JLPT N3〜N2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap');
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-light: #3d3d3d;
+    --ink-muted: #707070;
+    --paper: #faf9f7;
+    --paper-warm: #f5f3ef;
+    --rule: #d8d4cc;
+    --rule-light: #e8e5e0;
+    --accent-red: #c0392b;
+    --accent-indigo: #2c3e6b;
+    --accent-gold: #a08030;
+    --accent-teal: #1f6b5a;
+    --ch1: #2c3e6b;
+    --ch1-bg: #eef1f9;
+    --ch2: #4a1f6b;
+    --ch2-bg: #f3eef9;
+    --badge-n3: #6b4a2a;
+    --badge-n2: #7a2a6b;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.05);
+    --font-jp: 'Noto Serif JP', 'Noto Sans JP', serif;
+    --font-body: 'Source Serif 4', 'Noto Serif JP', serif;
+    --font-ui: 'Noto Sans JP', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    background: #edeae4;
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 15px;
+    padding: 32px 16px 64px;
+  }
+
+  .book {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: var(--shadow), 0 0 0 1px rgba(0,0,0,0.04);
+    border-radius: 2px;
+  }
+
+  /* ── Header ── */
+  .book-header {
+    background: var(--ink); color: #fff;
+    padding: 40px 52px 32px;
+    position: relative; overflow: hidden;
+  }
+  .book-header::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(90deg, transparent, transparent 59px,
+      rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px);
+  }
+  .book-header::after {
+    content: '組み立て';
+    position: absolute; right: 28px; top: 50%; transform: translateY(-50%);
+    font-family: var(--font-jp); font-size: 64px; font-weight: 700;
+    color: rgba(255,255,255,0.04); line-height: 1; pointer-events: none;
+  }
+  .book-header-inner { position: relative; }
+  .book-series {
+    font-family: var(--font-ui); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(255,255,255,0.42); margin-bottom: 12px;
+  }
+  .book-title {
+    font-family: var(--font-jp); font-size: 28px; font-weight: 700;
+    line-height: 1.35; color: #fff;
+  }
+  .book-title .main-kana { font-size: 36px; letter-spacing: 0.04em; color: #f0e6c8; }
+  .book-title span {
+    display: block; font-family: var(--font-body); font-size: 14px;
+    font-weight: 300; color: rgba(255,255,255,0.52); margin-top: 8px; letter-spacing: 0.05em;
+  }
+  .book-meta { margin-top: 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .ch-tabs { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+  .ch-tab {
+    display: flex; align-items: center; gap: 6px;
+    padding: 4px 12px; border-radius: 2px;
+    font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .ch-tab.t1 { background: rgba(44,62,107,0.6); }
+  .ch-tab.t2 { background: rgba(74,31,107,0.6); }
+  .ch-tab .jp { font-family: var(--font-jp); font-size: 13px; font-weight: 400; text-transform: none; color: rgba(255,255,255,0.85); }
+
+  /* ── Body ── */
+  .book-body { padding: 44px 52px 52px; }
+
+  .chapter-intro {
+    border-left: 4px solid var(--accent-red);
+    padding: 14px 20px; background: var(--paper-warm);
+    margin-bottom: 36px; font-size: 14px; color: var(--ink-light); line-height: 1.9;
+  }
+  .chapter-intro strong { font-weight: 600; color: var(--ink); }
+
+  .jlpt-badge {
+    display: inline-flex; align-items: center;
+    padding: 3px 9px; border-radius: 2px;
+    font-family: var(--font-ui); font-size: 10px;
+    font-weight: 700; letter-spacing: 0.12em; color: #fff;
+  }
+  .jlpt-badge.n3 { background: var(--badge-n3); }
+  .jlpt-badge.n2 { background: var(--badge-n2); }
+
+  /* ── Instructions box ── */
+  .instructions {
+    background: #2a2a2a; color: #fff;
+    border-radius: 3px; padding: 18px 24px; margin-bottom: 40px;
+  }
+  .instructions .instr-label {
+    font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45);
+    margin-bottom: 8px;
+  }
+  .instructions .instr-jp {
+    font-family: var(--font-jp); font-size: 15px; color: #f0e6c8; line-height: 1.9;
+  }
+  .instructions .instr-id {
+    font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 8px; line-height: 1.8;
+  }
+
+  /* ── Section divider ── */
+  .section-divider { border: none; border-top: 2px solid var(--ink); margin: 52px 0 36px; }
+
+  /* ── Group banner (per grammar point) ── */
+  .group-banner {
+    padding: 16px 24px; margin-bottom: 0;
+    display: flex; align-items: flex-start; gap: 16px;
+    border-radius: 3px 3px 0 0;
+  }
+  .group-banner.ch1 { background: var(--ch1); }
+  .group-banner.ch2 { background: var(--ch2); }
+  .gb-num {
+    font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); white-space: nowrap; padding-top: 3px;
+  }
+  .gb-content { flex: 1; }
+  .gb-pattern { font-family: var(--font-jp); font-size: 17px; font-weight: 700; color: #f0e6c8; letter-spacing: 0.03em; line-height: 1.5; }
+  .gb-desc { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 4px; }
+
+  .group-block {
+    border: 1px solid var(--rule); border-top: none;
+    border-radius: 0 0 3px 3px; margin-bottom: 40px;
+    background: var(--paper);
+  }
+
+  /* ── Question card ── */
+  .q-card { padding: 26px 28px; border-bottom: 1px solid var(--rule); }
+  .q-card:last-child { border-bottom: none; }
+
+  .q-meta {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+  }
+  .q-number {
+    font-family: var(--font-ui); font-weight: 700; font-size: 13px;
+    color: #fff; background: var(--ink);
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .q-context {
+    font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-muted); background: var(--paper-warm);
+    border: 1px solid var(--rule); padding: 3px 10px; border-radius: 2px;
+  }
+  .q-difficulty {
+    font-family: var(--font-ui); font-size: 9.5px; font-weight: 700;
+    letter-spacing: 0.08em; padding: 3px 9px; border-radius: 2px; color: #fff;
+  }
+  .q-difficulty.easy { background: var(--accent-teal); }
+  .q-difficulty.medium { background: var(--accent-gold); }
+  .q-difficulty.hard { background: var(--accent-red); }
+
+  .q-sentence {
+    font-family: var(--font-jp); font-size: 17px; line-height: 2.4;
+    color: var(--ink); background: var(--paper-warm);
+    border: 1px solid var(--rule); border-radius: 3px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .q-blank {
+    display: inline-block; min-width: 56px;
+    border-bottom: 2px solid var(--ink-muted);
+    text-align: center; margin: 0 2px;
+    color: transparent;
+  }
+  .q-blank.star {
+    border-bottom: 2px solid var(--accent-red);
+    color: var(--accent-red); font-weight: 700;
+  }
+  .q-blank.star::after { content: '★'; }
+
+  .q-options {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    margin-bottom: 4px;
+  }
+  .q-option {
+    font-family: var(--font-jp); font-size: 14.5px;
+    border: 1px solid var(--rule); border-radius: 2px;
+    padding: 8px 12px; background: #fff;
+    display: flex; align-items: baseline; gap: 8px;
+  }
+  .q-opt-num {
+    font-family: var(--font-ui); font-weight: 700; font-size: 12px;
+    color: var(--ink-muted); flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) {
+    .q-options { grid-template-columns: 1fr; }
+  }
+
+  /* ── Answer key strip ── */
+  .answer-strip {
+    margin-top: 16px; padding: 10px 16px;
+    background: #1e2a3a; border-radius: 2px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .answer-strip .as-label {
+    font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4);
+  }
+  .answer-strip .as-order {
+    font-family: var(--font-ui); font-weight: 700; font-size: 14px; color: #f0e6c8;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Completed sentence box ── */
+  .complete-box {
+    border: 1px solid var(--accent-teal); border-left: 4px solid var(--accent-teal);
+    background: rgba(31,107,90,0.05); border-radius: 2px;
+    padding: 12px 16px; margin-top: 12px;
+  }
+  .complete-box .cb-label {
+    font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-teal);
+    margin-bottom: 6px;
+  }
+  .complete-box .cb-text {
+    font-family: var(--font-jp); font-size: 15.5px; line-height: 1.9; color: var(--ink);
+  }
+  .complete-box .cb-trans {
+    font-size: 12.5px; color: var(--ink-muted); font-style: italic; margin-top: 6px;
+  }
+
+  /* ── Explanation accordion-style blocks ── */
+  .explain-wrap { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+  .explain-box {
+    border-radius: 2px; padding: 13px 16px; font-size: 13px; line-height: 1.85;
+  }
+  .explain-box.jp { background: #f0f4ff; border: 1px solid #aab8e8; border-left: 4px solid var(--accent-indigo); color: #1a2240; }
+  .explain-box.id { background: #fff9ec; border: 1px solid #e8d89a; border-left: 4px solid var(--accent-gold); color: #4a3800; }
+  .explain-box .ex-title {
+    font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 7px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .explain-box.jp .ex-title { color: var(--accent-indigo); }
+  .explain-box.id .ex-title { color: var(--accent-gold); }
+  .explain-box.jp .ex-title::before { content: '解'; font-family: var(--font-jp); }
+  .explain-box.id .ex-title::before { content: '★'; }
+  .explain-box p { margin-bottom: 6px; }
+  .explain-box ul { padding-left: 18px; }
+  .explain-box li { margin-bottom: 4px; }
+  .explain-box strong { color: inherit; font-weight: 700; }
+  .explain-box .wrong { color: var(--accent-red); }
+  .explain-box .right { color: var(--accent-teal); }
+
+  /* ── Full answer key table at the end ── */
+  .key-table-section { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--rule); }
+  .key-table-section h3 {
+    font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted);
+    margin-bottom: 16px; border-left: 3px solid var(--accent-indigo); padding-left: 10px;
+  }
+  .key-table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid var(--rule); margin-bottom: 18px; }
+  .key-table thead tr { background: #2a2a2a; color: #fff; }
+  .key-table thead th { padding: 9px 12px; text-align: left; font-family: var(--font-ui); font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .key-table tbody tr:nth-child(even) { background: var(--paper-warm); }
+  .key-table td { padding: 9px 12px; border-bottom: 1px solid var(--rule-light); vertical-align: top; line-height: 1.7; color: var(--ink-light); font-size: 13px; }
+  .key-table td.knum { font-weight: 700; color: var(--ink); width: 36px; }
+  .key-table td.korder { font-family: var(--font-ui); font-weight: 700; color: var(--accent-indigo); white-space: nowrap; }
+  .key-table td.kpattern { font-family: var(--font-jp); color: var(--ink-light); }
+
+  ruby { ruby-align: center; }
+  rt { font-size: 0.55em; font-family: var(--font-ui); color: var(--ink-muted); letter-spacing: 0.01em; }
+
+  .book-footer { border-top: 2px solid var(--ink); padding: 22px 52px; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-ui); font-size: 10px; color: var(--ink-muted); letter-spacing: 0.08em; }
+
+  @media (max-width: 700px) {
+    body { padding: 0 0 48px; }
+    .book { border-radius: 0; }
+    .book-header { padding: 28px 20px 24px; }
+    .book-header::after { display: none; }
+    .book-body { padding: 22px 18px 36px; }
+    .book-footer { padding: 18px 20px; flex-direction: column; gap: 8px; text-align: center; }
+    .book-title .main-kana { font-size: 24px; }
+    .q-card { padding: 18px 16px; }
+    .q-sentence { font-size: 15.5px; padding: 14px 16px; }
+    .key-table { font-size: 11px; }
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .book { box-shadow: none; }
+    .q-card { break-inside: avoid; }
+  }
+  /* Styling untuk pembungkus kunci jawaban yang disembunyikan */
+.jawaban-accordion {
+  margin-top: 16px;
+  border: 1px dashed var(--accent-gold);
+  border-radius: 4px;
+  background: var(--paper-warm);
+  overflow: hidden;
+}
+
+/* Styling untuk tombol klik (Summary) */
+.tombol-buka-jawaban {
+  padding: 12px 16px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent-gold);
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+/* Efek saat tombol disorot kursor */
+.tombol-buka-jawaban:hover {
+  background: #8a6c25; /* Warna emas yang lebih gelap */
+}
+
+/* Memberikan jarak konten di dalam setelah akordion terbuka */
+.jawaban-accordion[open] {
+  padding-bottom: 16px;
+}
+
+.jawaban-accordion[open] .answer-strip,
+.jawaban-accordion[open] .complete-box,
+.jawaban-accordion[open] .explain-wrap {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+</style>
+</head>
+<body>
+
+<article class="book">
+
+  <!-- ══ HEADER ══ -->
+  <header class="book-header">
+    <div class="book-header-inner">
+      <p class="book-series">PejuangYen · Latihan Soal · Seri Pendamping</p>
+      <h1 class="book-title">
+        <span class="main-kana">文の組み立て</span>
+        Latihan Penyusunan Kalimat — Kutipan &amp; Modifikasi Nomina
+        <span>15 Soal Bergaya JLPT N3 文の組み立て（ぶんのくみたて）</span>
+      </h1>
+      <div class="book-meta">
+        <span class="jlpt-badge n3">N3</span>
+        <span class="jlpt-badge n2">N2</span>
+      </div>
+      <div class="ch-tabs">
+        <div class="ch-tab t1"><span class="jp">1課</span> 引用 — 6 soal</div>
+        <div class="ch-tab t2"><span class="jp">2課</span> 名詞の修飾 — 9 soal</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ BODY ══ -->
+  <main class="book-body">
+
+    <div class="chapter-intro">
+      <strong>Tentang Latihan Ini —</strong>
+      Latihan ini menguji pemahaman kamu terhadap seluruh pola grammar di modul <em>文の読み立て — 引用と名詞の修飾</em> melalui format resmi JLPT <strong>文の組み立て（ぶんのくみたて）</strong>: menyusun 4 potongan kalimat ke dalam urutan yang benar. Fokus soal bukan pada hafalan arti, tapi pada urutan kata, partikel, dan kolokasi alami bahasa Jepang.
+    </div>
+
+    <!-- ══ INSTRUKSI ══ -->
+    <div class="instructions">
+      <div class="instr-label">問題形式 — Format Soal</div>
+      <div class="instr-jp">つぎの文の　★　に入る最もよいものを、1・2・3・4の中から一つえらびなさい。</div>
+      <div class="instr-id">Pilih salah satu dari pilihan 1–4 yang paling tepat untuk mengisi posisi <strong>★</strong> pada kalimat berikut. Susun keempat potongan kalimat ke dalam empat kolom kosong sehingga membentuk kalimat yang alami dan benar secara tata bahasa.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--  GROUP 1 — 1課① 普通形＋と＋言う/思う/感じる        -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="group-banner ch1">
+      <div class="gb-num">1課①</div>
+      <div class="gb-content">
+        <div class="gb-pattern">普通形 ＋ と ＋「言う・思う・感じる」</div>
+        <div class="gb-desc">Kutipan tidak langsung untuk pikiran &amp; pernyataan</div>
+      </div>
+    </div>
+    <div class="group-block">
+
+      <!-- Q1 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">1</div>
+          <div class="q-context">仕事 — Pekerjaan</div>
+          <div class="q-difficulty medium">標準</div>
+        </div>
+        <div class="q-sentence">
+          木村さんは今度のプロジェクトは<span class="q-blank">①</span><span class="q-blank star"></span><span class="q-blank">②</span><span class="q-blank">③</span>話した。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> だろう</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> 部長に</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> と</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> 必ず成功する</div>
+        </div>
+     <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">④ → ① → ③ → ②</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text">木村さんは今度のプロジェクトは<ruby>必<rt>かなら</rt></ruby>ず<ruby>成功<rt>せいこう</rt></ruby>するだろうと<ruby>部長<rt>ぶちょう</rt></ruby>に<ruby>話<rt>はな</rt></ruby>した。</div>
+          <div class="cb-trans">Kimura-san mengatakan kepada manajernya bahwa proyek kali ini pasti akan berhasil.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>「必ず成功する」は引用内容（普通形）。「だろう」は推量を加える要素で、内容の直後に続く。「と」はその全体を引用としてまとめる助詞。「部長に」は話す相手を示し、動詞「話した」の直前に置かれる。</p>
+            <p>語順：内容（必ず成功する）→ 推量（だろう）→ 引用の「と」→ 聞き手（部長に）→ 話した</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> Isi pikiran/ucapan harus dalam bentuk 普通形 lebih dulu, baru diikuti と. "部長に" (kepada siapa) selalu menempel langsung di depan kata kerja utama (話した), bukan di tengah kutipan.</li>
+              <li><strong>Cara cepat:</strong> Cari dulu kata kerja akhir (話した) — lalu cari kata yang paling alami menempel langsung di depannya: "に" + 話した. Setelah itu, susun isi kutipan dari yang paling spesifik (成功する) ke yang paling umum (だろう→と).</li>
+              <li><strong>Jebakan:</strong> Banyak yang menaruh "部長に" di awal kalimat (sebelum isi kutipan), padahal "部長に" justru menempel di akhir, tepat sebelum predikat 話した.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+     </details>
+      <!-- Q2 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">2</div>
+          <div class="q-context">家族 — Keluarga</div>
+          <div class="q-difficulty easy">基本</div>
+        </div>
+        <div class="q-sentence">
+          弟は来年大学を<span class="q-blank">①</span><span class="q-blank">②</span><span class="q-blank star"></span><span class="q-blank">③</span>言っている。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> と</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> つもりだ</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> 受験する</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> 真剣に</div>
+        </div>
+        <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">④ → ③ → ② → ①</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text"><ruby>弟<rt>おとうと</rt></ruby>は<ruby>来年<rt>らいねん</rt></ruby><ruby>大学<rt>だいがく</rt></ruby>を<ruby>真剣<rt>しんけん</rt></ruby>に<ruby>受験<rt>じゅけん</rt></ruby>するつもりだと<ruby>言<rt>い</rt></ruby>っている。</div>
+          <div class="cb-trans">Adik saya mengatakan bahwa ia bertekad serius untuk mengikuti ujian masuk universitas tahun depan.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>「つもりだ」は名詞的な普通形扱いなので、そのまま「と」が続く（×つもりなと は誤り）。副詞「真剣に」は動詞「受験する」を修飾するので、その直前に置く。</p>
+            <p>語順：副詞（真剣に）→ 動詞（受験する）→ つもりだ → と → 言っている</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> "つもりだ" (berniat/bertekad) sudah berbentuk 普通形 sendiri, jadi langsung diikuti と tanpa perubahan tambahan.</li>
+              <li><strong>Cara cepat:</strong> Kata keterangan (真剣に) selalu langsung menempel di depan kata kerja yang diterangkannya (受験する), bukan di tempat lain.</li>
+              <li><strong>Jebakan:</strong> Jangan letakkan "と" sebelum "つもりだ" — urutannya harus [kata kerja]+つもりだ+と, bukan dibalik.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--  GROUP 2 — 1課② ように／ほしいと／命令形＋と        -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="group-banner ch1">
+      <div class="gb-num">1課②</div>
+      <div class="gb-content">
+        <div class="gb-pattern">辞書形/ない形＋ように（と）／てほしいと／命令形＋と</div>
+        <div class="gb-desc">Kutipan permintaan &amp; instruksi tidak langsung</div>
+      </div>
+    </div>
+    <div class="group-block">
+
+      <!-- Q3 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">3</div>
+          <div class="q-context">学校 — Sekolah</div>
+          <div class="q-difficulty easy">基本</div>
+        </div>
+        <div class="q-sentence">
+          先生は学生たちに<span class="q-blank">①</span><span class="q-blank">②</span><span class="q-blank star"></span><span class="q-blank">③</span>注意した。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> ように</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> 静かに</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> 授業中は</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> する</div>
+        </div>
+    <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">③ → ② → ④ → ①</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text"><ruby>先生<rt>せんせい</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>たちに<ruby>授業中<rt>じゅぎょうちゅう</rt></ruby>は<ruby>静<rt>しず</rt></ruby>かにするように<ruby>注意<rt>ちゅうい</rt></ruby>した。</div>
+          <div class="cb-trans">Guru menegur murid-murid agar tenang selama pelajaran berlangsung.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>サブパターンA（ように）は辞書形の直前に来る。「静かにする」は一つの動詞表現としてセットで覚える。「授業中は」は状況を示す時間表現で文頭に近い位置に置く。</p>
+            <p>語順：時間状況（授業中は）→ 状態（静かに）→ 動詞（する）→ ように → 注意した</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> "ように" selalu menempel langsung setelah kata kerja bentuk kamus (する), karena ia mengubah instruksi menjadi kutipan tidak langsung yang lebih halus.</li>
+              <li><strong>Cara cepat:</strong> Cari pasangan tetap "静かにする" (menjadi tenang) sebagai satu unit, baru tentukan posisi "授業中は" di depannya sebagai latar waktu.</li>
+              <li><strong>Jebakan:</strong> Jangan memisahkan "静かに" dan "する" dengan kata lain di antaranya — keduanya harus berurutan langsung.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+      <!-- Q4 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">4</div>
+          <div class="q-context">病院 — Rumah Sakit</div>
+          <div class="q-difficulty medium">標準</div>
+        </div>
+        <div class="q-sentence">
+          患者は医者に<span class="q-blank">①</span><span class="q-blank">②</span><span class="q-blank">③</span><span class="q-blank star"></span>頼んだ。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> もう少し詳しく</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> ほしいと</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> 説明して</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> 病状を</div>
+        </div>
+        <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">④ → ① → ③ → ②</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text"><ruby>患者<rt>かんじゃ</rt></ruby>は<ruby>医者<rt>いしゃ</rt></ruby>に<ruby>病状<rt>びょうじょう</rt></ruby>をもう<ruby>少<rt>すこ</rt></ruby>し<ruby>詳<rt>くわ</rt></ruby>しく<ruby>説明<rt>せつめい</rt></ruby>してほしいと<ruby>頼<rt>たの</rt></ruby>んだ。</div>
+          <div class="cb-trans">Pasien meminta kepada dokter untuk menjelaskan kondisinya sedikit lebih rinci.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>サブパターンB（てほしいと）は必ず動詞て形の直後に来る。「ほしいと」は文末の「頼んだ」の直前に置かれ、これより後ろには何も挟まらない。</p>
+            <p>語順：対象（病状を）→ 副詞（もう少し詳しく）→ て形（説明して）→ ほしいと → 頼んだ</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> "てほしいと" adalah satu rangkaian tetap yang harus berada tepat sebelum kata kerja utama (頼んだ) — tidak ada yang boleh disisipkan di antaranya.</li>
+              <li><strong>Cara cepat:</strong> Langsung tempatkan "ほしいと" di ★ jika posisinya tepat sebelum kata kerja akhir; sisanya susun objek → keterangan → kata kerja te-form secara alami.</li>
+              <li><strong>Jebakan:</strong> "ように" dan "ほしいと" sering tertukar — "ほしいと" khusus untuk harapan pembicara sendiri terhadap tindakan lawan bicara, dan selalu memakai bentuk て形, bukan 辞書形.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--  GROUP 3 — 1課③ かどうか／疑問詞〜か                -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="group-banner ch1">
+      <div class="gb-num">1課③</div>
+      <div class="gb-content">
+        <div class="gb-pattern">普通形 ＋ かどうか／疑問詞〜か</div>
+        <div class="gb-desc">Pertanyaan tidak langsung (embedded question)</div>
+      </div>
+    </div>
+    <div class="group-block">
+
+      <!-- Q5 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">5</div>
+          <div class="q-context">旅行 — Perjalanan</div>
+          <div class="q-difficulty medium">標準</div>
+        </div>
+        <div class="q-sentence">
+          ガイドは<ruby>全員<rt>ぜんいん</rt></ruby>が<span class="q-blank">①</span><span class="q-blank">②</span><span class="q-blank">③</span><span class="q-blank star"></span>確認した。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> かどうか</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> バスに</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> 集まった</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> を</div>
+        </div>
+        <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">② → ③ → ① → ④</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text">ガイドは<ruby>全員<rt>ぜんいん</rt></ruby>がバスに<ruby>集<rt>あつ</rt></ruby>まったかどうかを<ruby>確認<rt>かくにん</rt></ruby>した。</div>
+          <div class="cb-trans">Pemandu memastikan apakah semua orang sudah berkumpul di bus atau belum.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>「かどうか」はYes/No疑問文の埋め込みに使う。直前は必ず普通形（集まった）。「確認する」は他動詞なので、かどうかの後ろに「を」が必要。</p>
+            <p>語順：場所（バスに）→ 動詞（集まった）→ かどうか → を → 確認した</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> "かどうか" hanya dipakai untuk pertanyaan ya/tidak, dan harus langsung mengikuti bentuk 普通形 kata kerja (集まった), tidak boleh ada kata lain di antaranya.</li>
+              <li><strong>Cara cepat:</strong> Setelah かどうか, cek kata kerja akhirnya — kalau transitif seperti 確認する/聞く, biasanya butuh partikel を sebelum kata kerja itu.</li>
+              <li><strong>Jebakan:</strong> Banyak yang menaruh "を" sebelum かどうか, padahal urutan yang benar adalah [普通形]+かどうか+を+[動詞].</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--  GROUP 4 — 1課④ かというと～からだ                  -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="group-banner ch1">
+      <div class="gb-num">1課④</div>
+      <div class="gb-content">
+        <div class="gb-pattern">どうして／なぜ〜かというと、〜からだ</div>
+        <div class="gb-desc">Memberikan penjelasan sebab / alasan</div>
+      </div>
+    </div>
+    <div class="group-block">
+
+      <!-- Q6 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">6</div>
+          <div class="q-context">お店 — Toko</div>
+          <div class="q-difficulty hard">応用</div>
+        </div>
+        <div class="q-sentence">
+          なぜこの<ruby>店<rt>みせ</rt></ruby>が<span class="q-blank">①</span><span class="q-blank">②</span><span class="q-blank star"></span><span class="q-blank">③</span>サービスがよくて<ruby>安<rt>やす</rt></ruby>いからだ。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> かというと</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> 人気が</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> ある</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> 観光客の中で</div>
+        </div>
+        <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">④ → ② → ③ → ①</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text">なぜこの<ruby>店<rt>みせ</rt></ruby>が<ruby>観光客<rt>かんこうきゃく</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で<ruby>人気<rt>にんき</rt></ruby>があるかというと、サービスがよくて<ruby>安<rt>やす</rt></ruby>いからだ。</div>
+          <div class="cb-trans">Mengapa toko ini populer di antara para wisatawan? Karena pelayanannya bagus dan harganya murah.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>「かというと」の直前は必ず普通形（ある）。「観光客の中で」は人気の範囲を示す状況語で、「人気がある」という述語の前に置く。文末は必ず「〜からだ」とセットになる。</p>
+            <p>語順：範囲（観光客の中で）→ 主語（人気が）→ 述語（ある）→ かというと → 〜からだ</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> "かというと" hanya bisa menempel pada bentuk 普通形 (ある), bukan langsung setelah subjek. Susun dulu klausa lengkapnya, baru tambahkan かというと di belakang.</li>
+              <li><strong>Cara cepat:</strong> Lihat akhir kalimat (からだ) untuk konfirmasi pola — ini menandakan awal kalimat pasti memakai なぜ/どうして...かというと.</li>
+              <li><strong>Jebakan:</strong> "観光客の中で" sering disangka harus di akhir karena terasa seperti keterangan tambahan, padahal posisinya tepat di awal klausa sebab ia menerangkan ruang lingkup populeritas, bukan alasan itu sendiri.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--  GROUP 5 — 2課① 普通形＋名詞                        -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="group-banner ch2">
+      <div class="gb-num">2課①</div>
+      <div class="gb-content">
+        <div class="gb-pattern">普通形（ナ形→な・名詞→の）＋ 名詞</div>
+        <div class="gb-desc">Klausa relatif langsung sebelum nomina</div>
+      </div>
+    </div>
+    <div class="group-block">
+
+      <!-- Q7 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">7</div>
+          <div class="q-context">学校 — Sekolah</div>
+          <div class="q-difficulty easy">基本</div>
+        </div>
+        <div class="q-sentence">
+          これは<span class="q-blank">①</span><span class="q-blank">②</span><span class="q-blank star"></span><span class="q-blank">③</span><ruby>本<rt>ほん</rt></ruby>です。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> 先生が</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> くれた</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> 私に</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> 誕生日に</div>
+        </div>
+        <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">④ → ① → ③ → ②</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text">これは<ruby>誕生日<rt>たんじょうび</rt></ruby>に<ruby>先生<rt>せんせい</rt></ruby>が<ruby>私<rt>わたし</rt></ruby>にくれた<ruby>本<rt>ほん</rt></ruby>です。</div>
+          <div class="cb-trans">Ini adalah buku yang diberikan guru kepada saya saat ulang tahun saya.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>修飾節「先生が私にくれた」全体がそのまま名詞「本」の前に来る。節内の主語は「が」（先生が）であり、「は」は使えない。時間状況「誕生日に」は節の先頭に置かれる。</p>
+            <p>語順：時間（誕生日に）→ 節の主語（先生が）→ 対象（私に）→ 動詞（くれた）→ 本</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> Seluruh klausa "先生が私にくれた" (yang diberikan guru kepada saya) harus utuh berada sebelum nomina "本" — tidak ada bagian klausa yang boleh dipisah ke setelah nomina, berbeda dengan struktur "yang" dalam bahasa Indonesia.</li>
+              <li><strong>Cara cepat:</strong> Cari nomina target di akhir kalimat (本), lalu susun klausa modifier secara utuh tepat sebelumnya, dengan subjek klausa selalu memakai が.</li>
+              <li><strong>Jebakan:</strong> Subjek dalam klausa modifier (先生が) sering salah ditulis dengan は — ingat, は hanya untuk subjek kalimat utama, が untuk subjek di dalam klausa modifier.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--  GROUP 6 — 2課② 助詞＋の＋名詞                       -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="group-banner ch2">
+      <div class="gb-num">2課②</div>
+      <div class="gb-content">
+        <div class="gb-pattern">助詞 ＋ の ＋ 名詞</div>
+        <div class="gb-desc">Partikel + の untuk memodifikasi nomina</div>
+      </div>
+    </div>
+    <div class="group-block">
+
+      <!-- Q8 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">8</div>
+          <div class="q-context">家族 — Keluarga</div>
+          <div class="q-difficulty easy">基本</div>
+        </div>
+        <div class="q-sentence">
+          これは<span class="q-blank">①</span><span class="q-blank">②</span><span class="q-blank star"></span><span class="q-blank">③</span><ruby>手紙<rt>てがみ</rt></ruby>です。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> 母</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> から</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> の</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> 久しぶりの</div>
+        </div>
+        <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">① → ② → ③ → ④</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text">これは<ruby>母<rt>はは</rt></ruby>からの<ruby>久<rt>ひさ</rt></ruby>しぶりの<ruby>手紙<rt>てがみ</rt></ruby>です。</div>
+          <div class="cb-trans">Ini adalah surat dari ibu setelah sekian lama tidak ada kabar.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>助詞「から」（起点）は直接名詞を修飾できないので「の」を加える必要がある（母から＋の）。「久しぶりの」はすでに修飾形として名詞の直前に続けて重ねられる。</p>
+            <p>語順：起点（母）→ から → の → 状態（久しぶりの）→ 手紙</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> Partikel "から" tidak bisa langsung menempel ke nomina; harus ditambahkan の di antaranya (母から＋の＋手紙).</li>
+              <li><strong>Cara cepat:</strong> Kenali pola tetap [partikel]+の dulu (からの), baru tambahkan modifier kedua (久しぶりの) tepat sebelum nomina utama — dua modifier boleh bertumpuk dalam bahasa Jepang.</li>
+              <li><strong>Jebakan:</strong> Jangan menaruh "久しぶりの" sebelum "母から" — urutan logisnya adalah [sumber]+から+の dulu, baru [kondisi tambahan]+の menyusul tepat sebelum nomina.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--  GROUP 7 — 2課③ として／について＋の                -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="group-banner ch2">
+      <div class="gb-num">2課③</div>
+      <div class="gb-content">
+        <div class="gb-pattern">として／について ＋ の ＋ 名詞</div>
+        <div class="gb-desc">Kata fungsional (複合助詞) + の untuk memodifikasi</div>
+      </div>
+    </div>
+    <div class="group-block">
+
+      <!-- Q9 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">9</div>
+          <div class="q-context">仕事 — Pekerjaan</div>
+          <div class="q-difficulty medium">標準</div>
+        </div>
+        <div class="q-sentence">
+          彼は<span class="q-blank">①</span><span class="q-blank">②</span><span class="q-blank">③</span><span class="q-blank star"></span><ruby>意見<rt>いけん</rt></ruby>はいつも<ruby>的確<rt>てきかく</rt></ruby>だ。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> として</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> の</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> 専門家</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> 環境問題の</div>
+        </div>
+        <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">④ → ③ → ① → ②</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text">彼は<ruby>環境問題<rt>かんきょうもんだい</rt></ruby>の<ruby>専門家<rt>せんもんか</rt></ruby>としての<ruby>意見<rt>いけん</rt></ruby>はいつも<ruby>的確<rt>てきかく</rt></ruby>だ。</div>
+          <div class="cb-trans">Pendapatnya sebagai ahli masalah lingkungan selalu tepat.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>「として」（〜という立場・資格で）の後ろに名詞が続く場合は必ず「の」が必要（としての意見）。「環境問題の専門家」は「として」の対象となる肩書きで、その前に置かれる。</p>
+            <p>語順：分野（環境問題の）→ 肩書き（専門家）→ として → の → 意見</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> "として" (sebagai/dalam kapasitas) selalu butuh の tambahan sebelum nomina yang dimodifikasi karena として sendiri berakhir dengan て-like構造, beda dengan による yang sudah berbentuk modifikasi langsung.</li>
+              <li><strong>Cara cepat:</strong> Cari nomina target di akhir (意見), lalu pasangkan として+の tepat sebelum nomina itu; sisanya adalah keterangan jabatan/peran yang mendahului として.</li>
+              <li><strong>Jebakan:</strong> Pola ini sering tertukar dengan ④ (による/に対する) yang TIDAK pakai の — perhatikan baik-baik apakah kata fungsionalnya として/について (perlu の) atau による/に対する (tidak perlu の).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+      <!-- Q10 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">10</div>
+          <div class="q-context">学校 — Lingkungan/Akademik</div>
+          <div class="q-difficulty medium">標準</div>
+        </div>
+        <div class="q-sentence">
+          これは<span class="q-blank">①</span><span class="q-blank star"></span><span class="q-blank">②</span><span class="q-blank">③</span><ruby>大切<rt>たいせつ</rt></ruby>な<ruby>資料<rt>しりょう</rt></ruby>だ。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> について</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> の</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> 地球温暖化</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> 研究にとって</div>
+        </div>
+        <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">③ → ① → ② → ④</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text">これは<ruby>地球温暖化<rt>ちきゅうおんだんか</rt></ruby>についての<ruby>研究<rt>けんきゅう</rt></ruby>にとって<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>資料<rt>しりょう</rt></ruby>だ。</div>
+          <div class="cb-trans">Ini adalah bahan yang penting bagi penelitian tentang pemanasan global.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>「について」（〜に関して）の後ろに名詞「研究」が来る場合は「の」が必要（についての研究）。「研究にとって」はその研究の立場から見た重要性を示す表現で、形容詞「大切な」の前に置かれる。</p>
+            <p>語順：話題（地球温暖化）→ について → の → 研究にとって → 大切な資料</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> "について" perlu の sebelum nomina (研究), sama seperti として. Setelah nomina tersebut terbentuk, baru ditambahkan frasa "にとって" (bagi/dari sudut pandang) yang menerangkan pentingnya.</li>
+              <li><strong>Cara cepat:</strong> Pisahkan dua blok: [topik]+について+の+[nomina] sebagai satu unit utuh, lalu [nomina tersebut]+にとって sebagai unit kedua yang menyambung ke predikat 大切な.</li>
+              <li><strong>Jebakan:</strong> Jangan menukar urutan "研究にとって" ke depan kalimat — frasa ini harus menyusul setelah "についての研究" terbentuk dulu, karena にとって menunjuk balik ke nomina 研究 itu sendiri.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ddetails>
+      <!-- Q11 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">11</div>
+          <div class="q-context">ニュース — Berita</div>
+          <div class="q-difficulty medium">標準</div>
+        </div>
+        <div class="q-sentence">
+          記者は<span class="q-blank">①</span><span class="q-blank star"></span><span class="q-blank">②</span><span class="q-blank">③</span><ruby>説明<rt>せつめい</rt></ruby>した。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> について</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> の</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> 事件</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> 背景を</div>
+        </div>
+        <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">③ → ① → ② → ④</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text">記者は<ruby>事件<rt>じけん</rt></ruby>についての<ruby>背景<rt>はいけい</rt></ruby>を<ruby>説明<rt>せつめい</rt></ruby>した。</div>
+          <div class="cb-trans">Wartawan menjelaskan latar belakang mengenai kasus tersebut.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>「について」の後ろに名詞「背景」が続くため「の」が必要（についての背景）。「背景を」は他動詞「説明した」の対象を示す助詞で、名詞修飾節の直後、動詞の直前に置く。</p>
+            <p>語順：話題（事件）→ について → の → 対象（背景を）→ 説明した</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> Pola "についての" + nomina (背景) berfungsi sebagai satu frasa nomina besar, lalu partikel を menempel di akhir frasa itu untuk menjadi objek kata kerja 説明した.</li>
+              <li><strong>Cara cepat:</strong> Cari dulu nomina inti yang langsung diikuti partikel objek (背景を), lalu tempatkan "事件についての" tepat sebelum nomina itu.</li>
+              <li><strong>Jebakan:</strong> Jangan taruh partikel を sebelum についての — partikel を harus menempel di nomina paling akhir (背景), bukan di tengah frasa modifikasi.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--  GROUP 8 — 2課④ による／に対する／をめぐる           -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="group-banner ch2">
+      <div class="gb-num">2課④</div>
+      <div class="gb-content">
+        <div class="gb-pattern">による／に対する／をめぐる ＋ 名詞（の不要）</div>
+        <div class="gb-desc">Bentuk nomina kata fungsional, langsung ke nomina tanpa の</div>
+      </div>
+    </div>
+    <div class="group-block">
+
+      <!-- Q12 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">12</div>
+          <div class="q-context">ニュース — Bencana</div>
+          <div class="q-difficulty medium">標準</div>
+        </div>
+        <div class="q-sentence">
+          これは<span class="q-blank">①</span><span class="q-blank star"></span><span class="q-blank">②</span><span class="q-blank">③</span><ruby>重大<rt>じゅうだい</rt></ruby>な<ruby>被害<rt>ひがい</rt></ruby>だ。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> による</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> 大雨</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> 記録的な</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> 今回の</div>
+        </div>
+        <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">④ → ③ → ② → ①</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text">これは<ruby>今回<rt>こんかい</rt></ruby>の<ruby>記録<rt>きろく</rt></ruby>的な<ruby>大雨<rt>おおあめ</rt></ruby>による<ruby>重大<rt>じゅうだい</rt></ruby>な<ruby>被害<rt>ひがい</rt></ruby>だ。</div>
+          <div class="cb-trans">Ini adalah kerusakan serius yang diakibatkan oleh hujan deras yang memecahkan rekor kali ini.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>「による」（〜によって の名詞修飾形）はすでに修飾形なので、後ろに「の」を加えず直接名詞「被害」につながる。「記録的な大雨」は原因となる出来事で、による の直前に置く。</p>
+            <p>語順：限定（今回の）→ 状態（記録的な）→ 原因（大雨）→ による → 重大な被害</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> "による" sudah berbentuk modifikasi nomina sendiri (turunan dari によって), sehingga TIDAK perlu の lagi sebelum nomina yang diterangkan (被害).</li>
+              <li><strong>Cara cepat:</strong> による selalu menempel langsung pada penyebab (大雨), lalu langsung ke nomina akibat tanpa penghubung tambahan apa pun.</li>
+              <li><strong>Jebakan:</strong> Soal ini sering dijebak dengan menambahkan pilihan "の" palsu di antara による dan 被害 — pastikan tidak ada の di sana karena による sudah cukup sebagai penghubung.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+      <!-- Q13 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">13</div>
+          <div class="q-context">社会 — Masyarakat</div>
+          <div class="q-difficulty hard">応用</div>
+        </div>
+        <div class="q-sentence">
+          これは<span class="q-blank">①</span><span class="q-blank star"></span><span class="q-blank">②</span><span class="q-blank">③</span><ruby>強<rt>つよ</rt></ruby>い<ruby>抗議<rt>こうぎ</rt></ruby>だ。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> 政府の方針</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> に対する</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> 市民</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> からの</div>
+        </div>
+        <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">① → ② → ③ → ④</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text">これは<ruby>政府<rt>せいふ</rt></ruby>の<ruby>方針<rt>ほうしん</rt></ruby>に対する<ruby>市民<rt>しみん</rt></ruby>からの<ruby>強<rt>つよ</rt></ruby>い<ruby>抗議<rt>こうぎ</rt></ruby>だ。</div>
+          <div class="cb-trans">Ini adalah protes keras dari warga terhadap kebijakan pemerintah.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>「に対する」（〜に対して の名詞修飾形）も「の」不要で直接名詞「市民」を修飾できる。「市民からの」は抗議の出どころを示し、「に対する」の後ろに続く2つ目の修飾語。</p>
+            <p>語順：対象（政府の方針）→ に対する → 出どころ（市民）→ からの → 強い抗議</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> "に対する" langsung menempel pada nomina berikutnya (市民) tanpa の, sama seperti による. Tapi di sini ada modifier KEDUA (市民からの) yang juga memodifikasi nomina akhir (抗議).</li>
+              <li><strong>Cara cepat:</strong> Pecah kalimat menjadi dua lapis modifikasi: [sasaran]+に対する dulu, baru [sumber]+からの menyusul sebelum nomina utama.</li>
+              <li><strong>Jebakan:</strong> Banyak yang bingung kapan に対する butuh の dan kapan tidak — ingat, に対する SENDIRI tidak butuh の, tapi modifier lain (からの) yang menyertainya tetap memakai の sesuai pola ②.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+      <!-- Q14 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">14</div>
+          <div class="q-context">政治 — Politik</div>
+          <div class="q-difficulty hard">応用</div>
+        </div>
+        <div class="q-sentence">
+          この<span class="q-blank">①</span><span class="q-blank star"></span><span class="q-blank">②</span><span class="q-blank">③</span>は、まだ<ruby>続<rt>つづ</rt></ruby>いている。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> をめぐる</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> 議論</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> 新しい法律</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> 国会での</div>
+        </div>
+        <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">③ → ① → ④ → ②</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text">この<ruby>新<rt>あたら</rt></ruby>しい<ruby>法律<rt>ほうりつ</rt></ruby>をめぐる<ruby>国会<rt>こっかい</rt></ruby>での<ruby>議論<rt>ぎろん</rt></ruby>は、まだ<ruby>続<rt>つづ</rt></ruby>いている。</div>
+          <div class="cb-trans">Perdebatan di parlemen mengenai undang-undang baru ini masih berlanjut.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>「をめぐる」（〜をめぐって の名詞修飾形）も「の」不要で直接修飾語を続けられる。「国会での」は議論が行われる場所を示す修飾語で、をめぐる の後ろ、名詞「議論」の直前に来る。</p>
+            <p>語順：話題（新しい法律）→ をめぐる → 場所（国会での）→ 議論 → は、まだ続いている</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> "をめぐる" langsung mengikat ke modifier berikutnya tanpa の. Karena ada dua modifier (をめぐる dan 国会での) sebelum nomina 議論, urutan harus dari topik umum ke topik spesifik.</li>
+              <li><strong>Cara cepat:</strong> Tempatkan nomina paling akhir (議論) dulu di kepala, lalu mundur: cari modifier yang paling dekat artinya dengan 議論 (国会での), baru cari topik besar di depannya (新しい法律をめぐる).</li>
+              <li><strong>Jebakan:</strong> "国会での" sering ditaruh di awal kalimat karena terasa seperti lokasi utama, padahal dalam struktur ini ia adalah modifier KEDUA yang harus tetap dekat dengan nomina 議論, bukan di posisi paling depan.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--  GROUP 9 — 2課⑤ ばかり／とおり／まま＋の             -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="group-banner ch2">
+      <div class="gb-num">2課⑤</div>
+      <div class="gb-content">
+        <div class="gb-pattern">ばかり／とおり／まま／はず ＋ の ＋ 名詞</div>
+        <div class="gb-desc">Kata keadaan (状態語) + の untuk memodifikasi nomina</div>
+      </div>
+    </div>
+    <div class="group-block">
+
+      <!-- Q15 -->
+      <div class="q-card">
+        <div class="q-meta">
+          <div class="q-number">15</div>
+          <div class="q-context">旅行 — Perjalanan</div>
+          <div class="q-difficulty medium">標準</div>
+        </div>
+        <div class="q-sentence">
+          <ruby>私<rt>わたし</rt></ruby>たちは<span class="q-blank">①</span><span class="q-blank">②</span><span class="q-blank star"></span><span class="q-blank">③</span><ruby>景色<rt>けしき</rt></ruby>を<ruby>楽<rt>たの</rt></ruby>しんだ。
+        </div>
+        <div class="q-options">
+          <div class="q-option"><span class="q-opt-num">1.</span> とおり</div>
+          <div class="q-option"><span class="q-opt-num">2.</span> ガイドブックで</div>
+          <div class="q-option"><span class="q-opt-num">3.</span> の</div>
+          <div class="q-option"><span class="q-opt-num">4.</span> 見た</div>
+        </div>
+        <details class="jawaban-accordion">
+      <summary class="tombol-buka-jawaban">Lihat Kunci Jawaban & Pembahasan</summary>
+        <div class="answer-strip">
+          <span class="as-label">正解</span>
+          <span class="as-order">② → ④ → ① → ③</span>
+        </div>
+        <div class="complete-box">
+          <div class="cb-label">完成文</div>
+          <div class="cb-text"><ruby>私<rt>わたし</rt></ruby>たちはガイドブックで<ruby>見<rt>み</rt></ruby>たとおりの<ruby>景色<rt>けしき</rt></ruby>を<ruby>楽<rt>たの</rt></ruby>しんだ。</div>
+          <div class="cb-trans">Kami menikmati pemandangan yang persis seperti yang kami lihat di buku panduan.</div>
+        </div>
+        <div class="explain-wrap">
+          <div class="explain-box jp">
+            <div class="ex-title">日本語解説</div>
+            <p>「とおり」（〜のまま・〜と同じように）は普通形（見た）の直後に来る形式名詞。名詞「景色」を修飾するため、とおり の後ろに「の」が必要。「ガイドブックで」は見る手段を示す。</p>
+            <p>語順：手段（ガイドブックで）→ 動詞（見た）→ とおり → の → 景色</p>
+          </div>
+          <div class="explain-box id">
+            <div class="ex-title">Penjelasan Indonesia</div>
+            <ul>
+              <li><strong>Logika:</strong> "とおり" sebagai kata keadaan formal (形式名詞) butuh の sebelum nomina yang dimodifikasi, mirip ばかり/まま/はず — berbeda dari による yang tidak butuh の.</li>
+              <li><strong>Cara cepat:</strong> Cari dulu klausa penuh sebelum とおり (ガイドブックで見た), lalu tinggal tempel の + nomina di belakangnya.</li>
+              <li><strong>Jebakan:</strong> Jangan disamakan dengan pola ④ による/に対する yang tanpa の — kelima kata keadaan ini (ばかり・とおり・まま・はず・つもり) SELALU butuh の sebelum nomina.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!--  RINGKASAN KUNCI JAWABAN                   -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="key-table-section">
+      <h3>Ringkasan Kunci Jawaban — Seluruh 15 Soal</h3>
+      <table class="key-table">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Grammar</th>
+            <th>Urutan Jawaban</th>
+            <th>Konteks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="knum">1</td><td class="kpattern">1課① 普通形＋と＋思う</td><td class="korder">④→①→③→②</td><td>仕事</td></tr>
+          <tr><td class="knum">2</td><td class="kpattern">1課① 普通形＋と＋言う</td><td class="korder">④→③→②→①</td><td>家族</td></tr>
+          <tr><td class="knum">3</td><td class="kpattern">1課② ように（と）</td><td class="korder">③→②→④→①</td><td>学校</td></tr>
+          <tr><td class="knum">4</td><td class="kpattern">1課② てほしいと</td><td class="korder">④→①→③→②</td><td>病院</td></tr>
+          <tr><td class="knum">5</td><td class="kpattern">1課③ かどうか</td><td class="korder">②→③→①→④</td><td>旅行</td></tr>
+          <tr><td class="knum">6</td><td class="kpattern">1課④ かというと～からだ</td><td class="korder">④→②→③→①</td><td>お店</td></tr>
+          <tr><td class="knum">7</td><td class="kpattern">2課① 普通形＋名詞</td><td class="korder">④→①→③→②</td><td>学校</td></tr>
+          <tr><td class="knum">8</td><td class="kpattern">2課② 助詞＋の＋名詞</td><td class="korder">①→②→③→④</td><td>家族</td></tr>
+          <tr><td class="knum">9</td><td class="kpattern">2課③ として＋の</td><td class="korder">④→③→①→②</td><td>仕事</td></tr>
+          <tr><td class="knum">10</td><td class="kpattern">2課③ について＋の</td><td class="korder">③→①→②→④</td><td>学校</td></tr>
+          <tr><td class="knum">11</td><td class="kpattern">2課③ について＋の</td><td class="korder">③→①→②→④</td><td>ニュース</td></tr>
+          <tr><td class="knum">12</td><td class="kpattern">2課④ による（の不要）</td><td class="korder">④→③→②→①</td><td>ニュース</td></tr>
+          <tr><td class="knum">13</td><td class="kpattern">2課④ に対する（の不要）</td><td class="korder">①→②→③→④</td><td>社会</td></tr>
+          <tr><td class="knum">14</td><td class="kpattern">2課④ をめぐる（の不要）</td><td class="korder">③→①→④→②</td><td>政治</td></tr>
+          <tr><td class="knum">15</td><td class="kpattern">2課⑤ とおり＋の</td><td class="korder">②→④→①→③</td><td>旅行</td></tr>
+        </tbody>
+      </table>
+
+      <div class="instructions" style="background:#fff9ec; color:#4a3800;">
+        <div class="instr-label" style="color:var(--accent-gold);">Tips Belajar — Strategi Mengerjakan</div>
+        <div class="instr-id" style="color:#4a3800;">
+          1. Cari dulu kata kerja/predikat di akhir kalimat — banyak pilihan hanya cocok menempel langsung di depannya.<br>
+          2. Untuk modifikasi nomina (2課), bedakan dulu apakah kata fungsionalnya butuh <strong>の</strong> (として・について・助詞biasa・状態語) atau TIDAK butuh の (による・に対する・をめぐる・に関する).<br>
+          3. Untuk kutipan (1課), pastikan isi kutipan selalu dalam bentuk 普通形 sebelum と/ように/かどうか ditambahkan.<br>
+          4. Setelah menyusun seluruh kalimat, baca ulang dari awal untuk memastikan terdengar alami — jika terasa janggal, kemungkinan ada urutan yang tertukar.
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="book-footer">
+    <span>文の組み立て 練習問題 — 引用・名詞の修飾 · JLPT N3〜N2 · 15問</span>
+    <span>PejuangYen Series · © 2026</span>
+  </footer>
+
+</article>
+</body>
+</html>
