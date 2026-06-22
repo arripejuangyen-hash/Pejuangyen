@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文法 — 文の読み立て：引用と名詞の修飾 | JLPT N3〜N2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap');
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-light: #3d3d3d;
+    --ink-muted: #707070;
+    --paper: #faf9f7;
+    --paper-warm: #f5f3ef;
+    --rule: #d8d4cc;
+    --rule-light: #e8e5e0;
+    --accent-red: #c0392b;
+    --accent-indigo: #2c3e6b;
+    --accent-gold: #a08030;
+    --accent-teal: #1f6b5a;
+    /* Chapter color coding */
+    --ch1: #2c3e6b;     /* 引用 — indigo */
+    --ch1-bg: #eef1f9;
+    --ch2: #4a1f6b;     /* 名詞修飾 — purple */
+    --ch2-bg: #f3eef9;
+    /* Pattern colors within chapter 1 */
+    --p1: #1f5a6b;  /* pattern 1 teal */
+    --p2: #5a3a1f;  /* pattern 2 brown */
+    --p3: #3a5a1f;  /* pattern 3 green */
+    --p4: #6b1f3a;  /* pattern 4 crimson */
+    /* Pattern colors within chapter 2 */
+    --q1: #2c3e6b;
+    --q2: #1f6b5a;
+    --q3: #5a3a1f;
+    --q4: #6b1f3a;
+    --q5: #3a1f6b;
+    --badge-n3: #6b4a2a;
+    --badge-n2: #7a2a6b;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.05);
+    --font-jp: 'Noto Serif JP', 'Noto Sans JP', serif;
+    --font-body: 'Source Serif 4', 'Noto Serif JP', serif;
+    --font-ui: 'Noto Sans JP', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    background: #edeae4;
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 15px;
+    padding: 32px 16px 64px;
+  }
+
+  .book {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: var(--shadow), 0 0 0 1px rgba(0,0,0,0.04);
+    border-radius: 2px;
+  }
+
+  /* ── Header ── */
+  .book-header {
+    background: var(--ink); color: #fff;
+    padding: 40px 52px 32px;
+    position: relative; overflow: hidden;
+  }
+  .book-header::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(90deg, transparent, transparent 59px,
+      rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px);
+  }
+  .book-header::after {
+    content: '引用・修飾';
+    position: absolute; right: 28px; top: 50%; transform: translateY(-50%);
+    font-family: var(--font-jp); font-size: 64px; font-weight: 700;
+    color: rgba(255,255,255,0.04); line-height: 1; pointer-events: none;
+  }
+  .book-header-inner { position: relative; }
+  .book-series {
+    font-family: var(--font-ui); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(255,255,255,0.42); margin-bottom: 12px;
+  }
+  .book-title {
+    font-family: var(--font-jp); font-size: 28px; font-weight: 700;
+    line-height: 1.35; color: #fff;
+  }
+  .book-title .main-kana { font-size: 36px; letter-spacing: 0.04em; color: #f0e6c8; }
+  .book-title span {
+    display: block; font-family: var(--font-body); font-size: 14px;
+    font-weight: 300; color: rgba(255,255,255,0.52); margin-top: 8px; letter-spacing: 0.05em;
+  }
+  .book-meta { margin-top: 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* Chapter tabs in header */
+  .ch-tabs { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+  .ch-tab {
+    display: flex; align-items: center; gap: 6px;
+    padding: 4px 12px; border-radius: 2px;
+    font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .ch-tab.t1 { background: rgba(44,62,107,0.6); }
+  .ch-tab.t2 { background: rgba(74,31,107,0.6); }
+  .ch-tab .jp { font-family: var(--font-jp); font-size: 13px; font-weight: 400; text-transform: none; color: rgba(255,255,255,0.85); }
+
+  /* ── Body ── */
+  .book-body { padding: 44px 52px 52px; }
+
+  /* ── Chapter Intro ── */
+  .chapter-intro {
+    border-left: 4px solid var(--accent-red);
+    padding: 14px 20px; background: var(--paper-warm);
+    margin-bottom: 36px; font-size: 14px; color: var(--ink-light); line-height: 1.9;
+  }
+  .chapter-intro strong { font-weight: 600; color: var(--ink); }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--paper-warm); border: 1px solid var(--rule);
+    border-radius: 3px; padding: 20px 24px; margin-bottom: 48px;
+  }
+  .toc-title {
+    font-family: var(--font-ui); font-size: 9.5px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted);
+    margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--rule);
+  }
+  .toc-ch {
+    font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin: 12px 0 6px; padding-left: 0;
+  }
+  .toc-ch.t1 { color: var(--ch1); }
+  .toc-ch.t2 { color: var(--ch2); }
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-bottom: 4px; }
+  .toc-list li { display: flex; align-items: baseline; gap: 10px; font-size: 13px; color: var(--ink-light); padding-left: 12px; }
+  .toc-num { font-family: var(--font-ui); font-size: 10px; font-weight: 700; white-space: nowrap; min-width: 20px; }
+  .toc-ch.t1 + .toc-list .toc-num { color: var(--ch1); }
+  .toc-ch.t2 + .toc-list .toc-num { color: var(--ch2); }
+  .toc-jp { font-family: var(--font-jp); font-size: 14px; color: var(--ink); }
+  .toc-desc { color: var(--ink-muted); font-size: 12px; }
+
+  /* ── JLPT Badge ── */
+  .jlpt-badge {
+    display: inline-flex; align-items: center;
+    padding: 3px 9px; border-radius: 2px;
+    font-family: var(--font-ui); font-size: 10px;
+    font-weight: 700; letter-spacing: 0.12em; color: #fff;
+  }
+  .jlpt-badge.n3 { background: var(--badge-n3); }
+  .jlpt-badge.n2 { background: var(--badge-n2); }
+
+  /* ── Chapter Banner ── */
+  .chapter-banner {
+    padding: 18px 26px;
+    margin-bottom: 0;
+    display: flex; align-items: flex-start; gap: 18px;
+  }
+  .chapter-banner.ch1 { background: var(--ch1); }
+  .chapter-banner.ch2 { background: var(--ch2); }
+  .cb-num {
+    font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); white-space: nowrap; padding-top: 4px;
+  }
+  .cb-content { flex: 1; }
+  .cb-title { font-family: var(--font-jp); font-size: 22px; font-weight: 700; color: #f0e6c8; letter-spacing: 0.05em; line-height: 1.4; }
+  .cb-sub { font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,0.58); margin-top: 5px; }
+  .cb-desc {
+    font-size: 12.5px; color: rgba(255,255,255,0.72);
+    margin-top: 10px; line-height: 1.8;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 2px;
+    border-left: 3px solid rgba(255,255,255,0.25);
+  }
+
+  /* ── Section (pattern) ── */
+  .section { margin-bottom: 0; }
+  .chapter-block { border: 1px solid var(--rule); border-top: none; margin-bottom: 48px; }
+
+  /* Pattern header */
+  .pat-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 22px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .pat-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    font-family: var(--font-ui); font-size: 12px; font-weight: 700;
+    color: #fff; flex-shrink: 0;
+  }
+  /* ch1 pattern colors */
+  .ch1-p1 .pat-num, .ch1-p1 .pat-header { background-color: rgba(31,90,107,0.08); }
+  .ch1-p1 .pat-num { background: var(--p1); }
+  .ch1-p2 .pat-num, .ch1-p2 .pat-header { background-color: rgba(90,58,31,0.08); }
+  .ch1-p2 .pat-num { background: var(--p2); }
+  .ch1-p3 .pat-num, .ch1-p3 .pat-header { background-color: rgba(58,90,31,0.08); }
+  .ch1-p3 .pat-num { background: var(--p3); }
+  .ch1-p4 .pat-num, .ch1-p4 .pat-header { background-color: rgba(107,31,58,0.08); }
+  .ch1-p4 .pat-num { background: var(--p4); }
+  /* ch2 pattern colors */
+  .ch2-q1 .pat-num, .ch2-q1 .pat-header { background-color: rgba(44,62,107,0.08); }
+  .ch2-q1 .pat-num { background: var(--q1); }
+  .ch2-q2 .pat-num, .ch2-q2 .pat-header { background-color: rgba(31,107,90,0.08); }
+  .ch2-q2 .pat-num { background: var(--q2); }
+  .ch2-q3 .pat-num, .ch2-q3 .pat-header { background-color: rgba(90,58,31,0.08); }
+  .ch2-q3 .pat-num { background: var(--q3); }
+  .ch2-q4 .pat-num, .ch2-q4 .pat-header { background-color: rgba(107,31,58,0.08); }
+  .ch2-q4 .pat-num { background: var(--q4); }
+  .ch2-q5 .pat-num, .ch2-q5 .pat-header { background-color: rgba(58,31,107,0.08); }
+  .ch2-q5 .pat-num { background: var(--q5); }
+
+  .pat-title { font-family: var(--font-jp); font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: 0.04em; }
+  .pat-sub { font-family: var(--font-ui); font-size: 12px; color: var(--ink-muted); }
+
+  .pat-body { padding: 22px 24px; }
+
+  /* ── Grammar Box ── */
+  .grammar-box {
+    background: #1e2a3a; border-radius: 3px;
+    padding: 14px 20px; margin-bottom: 20px;
+    display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap;
+  }
+  .gb-label { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.38); padding-top: 3px; white-space: nowrap; }
+  .gb-pola { font-family: var(--font-jp); font-size: 15px; color: #f0e6c8; line-height: 1.9; letter-spacing: 0.04em; }
+  .gb-pola .alt { color: rgba(240,230,200,0.5); font-size: 13px; }
+
+  /* ── Desc ── */
+  .desc { font-size: 13.5px; color: var(--ink-light); line-height: 1.9; margin-bottom: 16px; }
+  .desc strong { font-weight: 600; color: var(--ink); }
+
+  /* ── Transformation Box — the star visual ── */
+  .transform-box {
+    border: 1px solid var(--rule);
+    border-radius: 3px; overflow: hidden; margin-bottom: 12px;
+  }
+  .transform-head {
+    padding: 5px 14px;
+    font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    display: flex; align-items: center; gap: 8px;
+  }
+  /* head color by chapter pattern */
+  .ch1-p1 .transform-head { background: var(--p1); }
+  .ch1-p2 .transform-head { background: var(--p2); }
+  .ch1-p3 .transform-head { background: var(--p3); }
+  .ch1-p4 .transform-head { background: var(--p4); }
+  .ch2-q1 .transform-head { background: var(--q1); }
+  .ch2-q2 .transform-head { background: var(--q2); }
+  .ch2-q3 .transform-head { background: var(--q3); }
+  .ch2-q4 .transform-head { background: var(--q4); }
+  .ch2-q5 .transform-head { background: var(--q5); }
+
+  .transform-body { background: var(--paper); padding: 0; }
+
+  /* Source sentence row */
+  .tr-source {
+    padding: 12px 16px 10px;
+    border-bottom: 1px dashed var(--rule);
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .tr-source-badge {
+    font-family: var(--font-ui); font-size: 8px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 2px 7px; border-radius: 2px; white-space: nowrap;
+    margin-top: 4px; flex-shrink: 0;
+    background: #e8e8e8; color: var(--ink-muted);
+  }
+  .tr-source-text { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--ink-light); }
+
+  /* Arrow row */
+  .tr-arrow {
+    padding: 4px 16px;
+    font-size: 18px; color: var(--accent-red);
+    border-bottom: 1px dashed var(--rule);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .tr-arrow span {
+    font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  /* Result row */
+  .tr-result {
+    padding: 12px 16px 14px;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .tr-result-badge {
+    font-family: var(--font-ui); font-size: 8px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 2px 7px; border-radius: 2px; white-space: nowrap;
+    margin-top: 4px; flex-shrink: 0;
+    color: #fff;
+  }
+  .ch1-p1 .tr-result-badge { background: var(--p1); }
+  .ch1-p2 .tr-result-badge { background: var(--p2); }
+  .ch1-p3 .tr-result-badge { background: var(--p3); }
+  .ch1-p4 .tr-result-badge { background: var(--p4); }
+  .ch2-q1 .tr-result-badge { background: var(--q1); }
+  .ch2-q2 .tr-result-badge { background: var(--q2); }
+  .ch2-q3 .tr-result-badge { background: var(--q3); }
+  .ch2-q4 .tr-result-badge { background: var(--q4); }
+  .ch2-q5 .tr-result-badge { background: var(--q5); }
+  .tr-result-text { font-family: var(--font-jp); font-size: 16px; line-height: 2; color: var(--ink); }
+
+  /* Highlight in result */
+  .h-key { font-weight: 700; border-bottom: 2px solid; padding-bottom: 1px; }
+  .ch1-p1 .h-key { color: var(--p1); border-bottom-color: var(--p1); }
+  .ch1-p2 .h-key { color: var(--p2); border-bottom-color: var(--p2); }
+  .ch1-p3 .h-key { color: var(--p3); border-bottom-color: var(--p3); }
+  .ch1-p4 .h-key { color: var(--p4); border-bottom-color: var(--p4); }
+  .ch2-q1 .h-key { color: var(--q1); border-bottom-color: var(--q1); }
+  .ch2-q2 .h-key { color: var(--q2); border-bottom-color: var(--q2); }
+  .ch2-q3 .h-key { color: var(--q3); border-bottom-color: var(--q3); }
+  .ch2-q4 .h-key { color: var(--q4); border-bottom-color: var(--q4); }
+  .ch2-q5 .h-key { color: var(--q5); border-bottom-color: var(--q5); }
+
+  /* Highlighted noun bracket */
+  .h-noun {
+    display: inline-block;
+    background: rgba(192,57,43,0.08);
+    border: 1.5px solid var(--accent-red);
+    border-radius: 2px; padding: 0 3px;
+    color: var(--accent-red); font-weight: 700;
+  }
+
+  /* Translation row */
+  .tr-trans {
+    padding: 0 16px 12px;
+    font-size: 12.5px; color: var(--ink-muted);
+    font-style: italic; border-top: none;
+  }
+
+  /* Sub-pattern badge (for pattern 2 variants) */
+  .sub-pat-label {
+    display: inline-block;
+    font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 2px; margin-bottom: 10px; color: #fff;
+  }
+  .ch1-p2 .sub-pat-label { background: var(--p2); }
+
+  /* ── Grammar mini-table ── */
+  .grammar-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 18px; border: 1px solid var(--rule); }
+  .grammar-table thead tr { background: #2a2a2a; color: #fff; }
+  .grammar-table thead th { padding: 9px 12px; text-align: left; font-family: var(--font-ui); font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+  .grammar-table tbody tr:nth-child(even) { background: var(--paper-warm); }
+  .grammar-table tbody tr:hover { background: #ece8df; }
+  .grammar-table td { padding: 10px 12px; border-bottom: 1px solid var(--rule-light); vertical-align: top; line-height: 1.75; color: var(--ink-light); font-size: 13px; }
+  .grammar-table td.pola-cell { font-family: var(--font-jp); font-size: 13.5px; color: var(--accent-indigo); line-height: 1.9; }
+  .grammar-table td.makna { font-weight: 600; color: var(--ink); }
+
+  /* ── Note boxes ── */
+  .note-box { background: #fff9ec; border: 1px solid #e8d89a; border-left: 4px solid var(--accent-gold); border-radius: 2px; padding: 14px 18px; margin-top: 16px; font-size: 13px; line-height: 1.85; color: #4a3800; }
+  .note-box .note-title { font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .note-box .note-title::before { content: '★'; }
+  .note-box ul { padding-left: 18px; }
+  .note-box li { margin-bottom: 5px; }
+  .note-box p { margin-bottom: 6px; }
+
+  .warning-box { background: #fff4f4; border: 1px solid #e8a0a0; border-left: 4px solid var(--accent-red); border-radius: 2px; padding: 14px 18px; margin-top: 12px; font-size: 13px; line-height: 1.85; color: #4a0000; }
+  .warning-box .note-title { font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-red); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .warning-box .note-title::before { content: '✕'; }
+  .warning-box ul { padding-left: 18px; }
+  .warning-box li { margin-bottom: 5px; }
+
+  .info-box { background: #f0f4ff; border: 1px solid #aab8e8; border-left: 4px solid var(--accent-indigo); border-radius: 2px; padding: 14px 18px; margin-top: 14px; font-size: 13px; line-height: 1.85; color: #1a2240; }
+  .info-box .note-title { font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-indigo); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .info-box .note-title::before { content: '◆'; font-size: 10px; }
+  .info-box ul { padding-left: 18px; }
+  .info-box li { margin-bottom: 5px; }
+  .info-box p { margin-bottom: 6px; }
+
+  /* ── Noun modification visual (ch2) ── */
+  /* Shows modifier → の → 名詞 structure */
+  .mod-visual {
+    display: flex; align-items: stretch;
+    border: 1px solid var(--rule); border-radius: 3px;
+    overflow: hidden; margin-bottom: 16px;
+  }
+  .mod-modifier {
+    flex: 2; padding: 14px 16px;
+    background: var(--paper-warm);
+    border-right: 1px solid var(--rule);
+  }
+  .mod-particle {
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 14px;
+    background: #2a2a2a;
+    font-family: var(--font-jp); font-size: 20px; font-weight: 700;
+    color: #f0e6c8;
+    border-right: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  .mod-noun {
+    flex: 1; padding: 14px 16px;
+    background: rgba(192,57,43,0.05);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .mod-label {
+    font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-muted); margin-bottom: 6px;
+  }
+  .mod-jp { font-family: var(--font-jp); font-size: 15px; color: var(--ink); line-height: 1.8; }
+  .mod-noun .mod-jp { color: var(--accent-red); font-weight: 700; font-size: 17px; }
+
+  /* ── Section divider ── */
+  .section-divider { border: none; border-top: 2px solid var(--ink); margin: 52px 0 36px; }
+  .pat-divider { border: none; border-top: 1px solid var(--rule-light); margin: 24px 0; }
+
+  /* ── Comparison ── */
+  .comparison-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule); }
+  .comparison-section h3 { font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 16px; border-left: 3px solid var(--accent-indigo); padding-left: 10px; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid var(--rule); margin-bottom: 18px; }
+  .compare-table thead tr { background: #3d3d3d; color: #fff; }
+  .compare-table thead th { padding: 9px 12px; text-align: left; font-family: var(--font-ui); font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .compare-table tbody tr:nth-child(even) { background: var(--paper-warm); }
+  .compare-table tbody tr:hover { background: #ece8df; }
+  .compare-table td { padding: 11px 13px; border-bottom: 1px solid var(--rule-light); vertical-align: top; line-height: 1.75; color: var(--ink-light); font-size: 13px; }
+  .compare-table td:first-child { font-family: var(--font-jp); font-size: 13px; font-weight: 700; color: var(--accent-indigo); white-space: nowrap; }
+  .compare-table td.makna { font-weight: 600; color: var(--ink); }
+
+  /* ── Tags ── */
+  .tag-formal { display: inline-block; background: #e8eaf4; color: var(--accent-indigo); font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; margin-left: 4px; vertical-align: middle; text-transform: uppercase; }
+  .tag-informal { display: inline-block; background: #f4e8ea; color: #8a2a3a; font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; margin-left: 4px; vertical-align: middle; text-transform: uppercase; }
+
+  /* ── Ruby ── */
+  ruby { ruby-align: center; }
+  rt { font-size: 0.55em; font-family: var(--font-ui); color: var(--ink-muted); letter-spacing: 0.01em; }
+
+  /* ── Footer ── */
+  .book-footer { border-top: 2px solid var(--ink); padding: 22px 52px; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-ui); font-size: 10px; color: var(--ink-muted); letter-spacing: 0.08em; }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    body { padding: 0 0 48px; }
+    .book { border-radius: 0; }
+    .book-header { padding: 28px 20px 24px; }
+    .book-header::after { display: none; }
+    .book-body { padding: 22px 18px 36px; }
+    .book-footer { padding: 18px 20px; flex-direction: column; gap: 8px; text-align: center; }
+    .book-title .main-kana { font-size: 24px; }
+    .mod-visual { flex-direction: column; }
+    .mod-particle { padding: 6px; border-right: none; border-bottom: 1px solid var(--rule); writing-mode: horizontal-tb; }
+    .mod-modifier { border-right: none; border-bottom: 1px solid var(--rule); }
+    .grammar-table, .compare-table { font-size: 12px; }
+    .pat-body { padding: 16px 16px; }
+    .toc-desc { display: none; }
+    .chapter-banner { padding: 14px 18px; }
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .book { box-shadow: none; }
+    .transform-box, .note-box { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<article class="book">
+
+  <!-- ══ HEADER ══ -->
+  <header class="book-header">
+    <div class="book-header-inner">
+      <p class="book-series">PEJUANGYEN · Seri Buku Grammar JLPT N3</p>
+      <h1 class="book-title">
+        <span class="main-kana">文の読み立て</span>
+        Struktur Kalimat — Kutipan &amp; Modifikasi Nomina
+        <span>Cara Menyematkan Gagasan dalam Kalimat Bahasa Jepang</span>
+      </h1>
+      <div class="book-meta">
+        <span class="jlpt-badge n3">N3</span>
+        <span class="jlpt-badge n2">N2</span>
+      </div>
+      <div class="ch-tabs">
+        <div class="ch-tab t1"><span class="jp">1課</span> 引用 — Kutipan</div>
+        <div class="ch-tab t2"><span class="jp">2課</span> 名詞の修飾 — Modifikasi Nomina</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ BODY ══ -->
+  <main class="book-body">
+
+    <div class="chapter-intro">
+      <strong>Pengantar Bab —</strong>
+      Bab ini membahas dua keterampilan struktural yang sangat penting dalam bahasa Jepang tingkat menengah–lanjut: <strong>（1課）引用</strong> — bagaimana menyematkan ucapan, pikiran, atau pertanyaan orang lain ke dalam satu kalimat; dan <strong>（2課）名詞の修飾</strong> — bagaimana merangkai klausa atau frasa sebelum nomina untuk menjelaskan atau mendefinisikannya. Keduanya adalah pondasi kalimat kompleks Jepang yang wajib dikuasai untuk JLPT N3 ke atas.
+    </div>
+
+    <!-- TOC -->
+    <nav class="toc">
+      <div class="toc-title">Daftar Isi Bab</div>
+      <div class="toc-ch t1">1課 — 引用 (いんよう) · Kutipan</div>
+      <ul class="toc-list">
+        <li><span class="toc-num">①</span><span class="toc-jp">普通形 ＋ と</span><span class="toc-desc">— Kutipan pikiran / pernyataan (言う・思う・感じる)</span></li>
+        <li><span class="toc-num">②</span><span class="toc-jp">辞書形/ない形 ＋ ように（と）</span><span class="toc-desc">— Kutipan permintaan / instruksi tidak langsung</span></li>
+        <li><span class="toc-num">③</span><span class="toc-jp">普通形 ＋ かどうか / 疑問詞〜か</span><span class="toc-desc">— Kutipan pertanyaan tidak langsung</span></li>
+        <li><span class="toc-num">④</span><span class="toc-jp">どうして〜かというと、〜からだ</span><span class="toc-desc">— Memberikan alasan / penjelasan sebab</span></li>
+      </ul>
+      <div class="toc-ch t2">2課 — 名詞の修飾 (めいしのしゅうしょく) · Modifikasi Nomina</div>
+      <ul class="toc-list">
+        <li><span class="toc-num">①</span><span class="toc-jp">普通形（ナ形→な・名→の）＋ 名詞</span><span class="toc-desc">— Klausa relatif langsung sebelum nomina</span></li>
+        <li><span class="toc-num">②</span><span class="toc-jp">助詞 ＋ の ＋ 名詞</span><span class="toc-desc">— Partikel + の untuk memodifikasi</span></li>
+        <li><span class="toc-num">③</span><span class="toc-jp">助詞的言葉 ＋ の ＋ 名詞</span><span class="toc-desc">— Kata fungsional + の (として・について)</span></li>
+        <li><span class="toc-num">④</span><span class="toc-jp">助詞的言葉の名詞形 ＋ 名詞</span><span class="toc-desc">— Bentuk nomina kata fungsional (による・に対する)</span></li>
+        <li><span class="toc-num">⑤</span><span class="toc-jp">状態語 ＋ の ＋ 名詞</span><span class="toc-desc">— ばかり・とおり・まま・はず + の</span></li>
+      </ul>
+    </nav>
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!--  課 1: 引用                               -->
+    <!-- ══════════════════════════════════════════ -->
+    <section class="section">
+
+      <div class="chapter-banner ch1">
+        <div class="cb-num">1課</div>
+        <div class="cb-content">
+          <div class="cb-title">文の読み立て ー 1　引用（いんよう）</div>
+          <div class="cb-sub">Cara Menyematkan Ucapan, Pikiran, dan Pertanyaan ke dalam Kalimat</div>
+          <div class="cb-desc">
+            Untuk menyertakan apa yang seseorang katakan, pikirkan, atau rasakan ke dalam satu kalimat, bahasa Jepang menggunakan beberapa pola struktural. Isi kutipan diubah ke bentuk biasa (普通形) lalu dihubungkan ke predikat utama dengan partikel <strong>と</strong>, ekspresi <strong>ように</strong>, atau pola tanya <strong>かどうか / 〜か</strong>.
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter-block">
+
+        <!-- Pattern 1 -->
+        <div class="section ch1-p1">
+          <div class="pat-header">
+            <div class="pat-num">①</div>
+            <div>
+              <div class="pat-title">普通形 ＋ と ＋「言う・思う・感じる」など</div>
+              <div class="pat-sub">Kutipan Tidak Langsung — Pernyataan, Pikiran, Perasaan</div>
+            </div>
+          </div>
+          <div class="pat-body">
+
+            <div class="grammar-box">
+              <span class="gb-label">Pola</span>
+              <div class="gb-pola">
+                ［普通形］ ＋ と ＋ 言う / 思う / 感じる / 信じる…<br>
+                <span class="alt">ナ形容詞だ → ～だと　／　名詞だ → ～だと</span>
+              </div>
+            </div>
+
+            <p class="desc">
+              Pola paling dasar untuk kutipan tidak langsung. Isi pikiran atau perkataan diubah ke <strong>普通形 (bentuk biasa)</strong>, lalu diikuti と sebelum kata kerja ucapan/pikiran. Kalimat tanya dalam isi kutipan diubah menjadi pernyataan biasa (丁寧形 → 普通形, ～でしょう → ～だろう).
+            </p>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 1 — 思う：Pikiran Pembicara</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元</span>
+                  <span class="tr-source-text">わたしは思います。＋「リンさんはきっと<ruby>合格<rt>ごうかく</rt></ruby>するでしょう」</span>
+                </div>
+                <div class="tr-arrow">→ <span>引用化 · Kutipan Tidak Langsung</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">結果</span>
+                  <span class="tr-result-text">わたしはリンさんはきっと<ruby>合格<rt>ごうかく</rt></ruby>するだろう<span class="h-key">と</span>思います。</span>
+                </div>
+                <div class="tr-trans">Saya pikir Rin-san pasti akan lulus.</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 2 — 言う：Melaporkan Ucapan Orang Lain</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元</span>
+                  <span class="tr-source-text"><ruby>田中<rt>たなか</rt></ruby>さんは言いました。＋「<ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みます」</span>
+                </div>
+                <div class="tr-arrow">→ <span>引用化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">結果</span>
+                  <span class="tr-result-text"><ruby>田中<rt>たなか</rt></ruby>さんは<ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>む<span class="h-key">と</span><ruby>言<rt>い</rt></ruby>いました。</span>
+                </div>
+                <div class="tr-trans">Tanaka-san mengatakan bahwa besok ia akan libur.</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 3 — 感じる：Perasaan Subjektif</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元</span>
+                  <span class="tr-source-text">わたしはこの<ruby>映画<rt>えいが</rt></ruby>は<ruby>傑作<rt>けっさく</rt></ruby>だ<span class="h-key">と</span><ruby>感<rt>かん</rt></ruby>じた。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞 + だ + と</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">結果</span>
+                  <span class="tr-result-text">わたしはこの<ruby>映画<rt>えいが</rt></ruby>は<ruby>傑作<rt>けっさく</rt></ruby>だ<span class="h-key">と</span><ruby>感<rt>かん</rt></ruby>じた。</span>
+                </div>
+                <div class="tr-trans">Saya merasakan bahwa film ini adalah sebuah mahakarya.</div>
+              </div>
+            </div>
+
+            <div class="note-box">
+              <div class="note-title">Catatan Penting</div>
+              <ul>
+                <li>Isi kutipan SELALU dalam <strong>普通形</strong> (bentuk biasa) — ubah ～ます/ません → ～る/ない; ～でしょう → ～だろう.</li>
+                <li>ナ形容詞: <strong>〜だ</strong>と (bukan 〜なと). 名詞: <strong>〜だ</strong>と.</li>
+                <li>Predikat utama bisa apa saja: 言う・思う・感じる・信じる・わかる・知る・気づく, dll.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div><!-- /pattern 1 -->
+
+        <!-- Pattern 2 -->
+        <div class="section ch1-p2" style="border-top: 1px solid var(--rule);">
+          <div class="pat-header">
+            <div class="pat-num">②</div>
+            <div>
+              <div class="pat-title">辞書形/ない形 ＋ ように（と） ＋「頼む・注意する・言う」など</div>
+              <div class="pat-sub">Kutipan Permintaan / Instruksi Tidak Langsung</div>
+            </div>
+          </div>
+          <div class="pat-body">
+
+            <div class="grammar-box">
+              <span class="gb-label">Pola</span>
+              <div class="gb-pola">
+                ［辞書形 / ない形］ ＋ ように（と）＋ 頼む / 言う / 注意する…<br>
+                <span class="alt">て形 / ないで ＋ ほしいと ＋ 頼む…</span><br>
+                <span class="alt">命令形 / 禁止形 ＋ と ＋ 言う…（強い直接引用）</span>
+              </div>
+            </div>
+
+            <p class="desc">
+              Untuk melaporkan permintaan, instruksi, atau saran yang diberikan kepada orang lain. Ada tiga sub-pola tergantung tingkat kekuatan instruksi dan cara penyampaiannya.
+            </p>
+
+            <!-- Sub-pattern A: ように -->
+            <span class="sub-pat-label">サブパターン A — ように（と）：Permintaan / Instruksi Tidak Langsung</span>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 1 — 勧める：Saran Dokter</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元</span>
+                  <span class="tr-source-text"><ruby>医者<rt>いしゃ</rt></ruby>はカンさんに<ruby>勧<rt>すす</rt></ruby>めた。＋「ときどき<ruby>運動<rt>うんどう</rt></ruby>をしたほうがいいです」</span>
+                </div>
+                <div class="tr-arrow">→ <span>ように化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">結果</span>
+                  <span class="tr-result-text"><ruby>医者<rt>いしゃ</rt></ruby>はカンさんにときどき<ruby>運動<rt>うんどう</rt></ruby>をする<span class="h-key">ように</span><ruby>勧<rt>すす</rt></ruby>めた。</span>
+                </div>
+                <div class="tr-trans">Dokter menyarankan Kang-san agar sesekali berolahraga.</div>
+              </div>
+            </div>
+
+            <div class="pat-divider"></div>
+
+            <!-- Sub-pattern B: ほしいと -->
+            <span class="sub-pat-label">サブパターン B — ほしいと：Permintaan dengan Harapan</span>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 2 — 頼む：Meminta kepada Guru</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元</span>
+                  <span class="tr-source-text">わたしは<ruby>先生<rt>せんせい</rt></ruby>に<ruby>頼<rt>たの</rt></ruby>んだ。＋「もう<ruby>一度<rt>いちど</rt></ruby><ruby>説明<rt>せつめい</rt></ruby>してくれませんか」</span>
+                </div>
+                <div class="tr-arrow">→ <span>ほしいと化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">結果</span>
+                  <span class="tr-result-text">わたしは<ruby>先生<rt>せんせい</rt></ruby>にもう<ruby>一度<rt>いちど</rt></ruby><ruby>説明<rt>せつめい</rt></ruby>して<span class="h-key">ほしいと</span><ruby>頼<rt>たの</rt></ruby>んだ。</span>
+                </div>
+                <div class="tr-trans">Saya meminta kepada guru agar menjelaskan sekali lagi.</div>
+              </div>
+            </div>
+
+            <div class="pat-divider"></div>
+
+            <!-- Sub-pattern C: 命令形/禁止形 + と -->
+            <span class="sub-pat-label">サブパターン C — 命令形/禁止形 ＋ と：Kutipan Langsung Perintah</span>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 3 — 言う：Perintah Ibu (Kutipan Kuat)</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元</span>
+                  <span class="tr-source-text"><ruby>母<rt>はは</rt></ruby>はわたしに<ruby>言<rt>い</rt></ruby>った。＋「お<ruby>金<rt>かね</rt></ruby>を<ruby>大切<rt>たいせつ</rt></ruby>に<ruby>使<rt>つか</rt></ruby>いなさいね」</span>
+                </div>
+                <div class="tr-arrow">→ <span>命令形 + と</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">結果</span>
+                  <span class="tr-result-text"><ruby>母<rt>はは</rt></ruby>はわたしにお<ruby>金<rt>かね</rt></ruby>を<ruby>大切<rt>たいせつ</rt></ruby>に<ruby>使<rt>つか</rt></ruby>え<span class="h-key">と</span><ruby>言<rt>い</rt></ruby>った。</span>
+                </div>
+                <div class="tr-trans">Ibu berkata kepada saya agar menggunakan uang dengan bijak.</div>
+              </div>
+            </div>
+
+            <div class="grammar-table" style="margin-top:18px;">
+              <thead>
+                <tr>
+                  <th>Sub-pola</th>
+                  <th>Bentuk yang Digunakan</th>
+                  <th>Nuansa</th>
+                  <th>Kata Kerja Utama yang Cocok</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="makna">ように（と）</td>
+                  <td class="pola-cell">辞書形 / ない形 ＋ ように</td>
+                  <td>Sopan, tidak langsung — instruksi halus</td>
+                  <td>頼む・言う・注意する・勧める・命じる</td>
+                </tr>
+                <tr>
+                  <td class="makna">ほしいと</td>
+                  <td class="pola-cell">て形 / ないで ＋ ほしいと</td>
+                  <td>Menyatakan keinginan pembicara agar lawan melakukan ~</td>
+                  <td>頼む・言う・お願いする</td>
+                </tr>
+                <tr>
+                  <td class="makna">命令/禁止 ＋ と</td>
+                  <td class="pola-cell">V命令形 / V禁止形（Vな）＋ と</td>
+                  <td>Kuat / langsung — perintah yang dikutip secara tegas</td>
+                  <td>言う・命じる・怒鳴る</td>
+                </tr>
+              </tbody>
+            </div>
+
+            <div class="note-box">
+              <div class="note-title">Catatan Penting</div>
+              <ul>
+                <li>「ように」di sini berbeda dari ように yang menyatakan tujuan — ini adalah pola kutipan instruksi.</li>
+                <li>「命令形 + と」terasa lebih keras dan kasar; hanya muncul dalam narasi tentang orang yang memberi perintah tegas.</li>
+                <li>「ほしいと」selalu menyertakan perspektif pembicara — "saya ingin agar dia ~". Subjek yang diinginkan melakukan tindakan adalah lawan bicara / orang ketiga.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div><!-- /pattern 2 -->
+
+        <!-- Pattern 3 -->
+        <div class="section ch1-p3" style="border-top: 1px solid var(--rule);">
+          <div class="pat-header">
+            <div class="pat-num">③</div>
+            <div>
+              <div class="pat-title">普通形 ＋ かどうか / 疑問詞〜か ＋「聞く・わからない・調べる」</div>
+              <div class="pat-sub">Pertanyaan Tidak Langsung — Embedded Question</div>
+            </div>
+          </div>
+          <div class="pat-body">
+
+            <div class="grammar-box">
+              <span class="gb-label">Pola</span>
+              <div class="gb-pola">
+                ［普通形］ ＋ かどうか（を）＋ 聞く / わかる / 調べる…<br>
+                <span class="alt">疑問詞（何・どこ・いつ・どう…）＋ ［普通形］ ＋ か（が）＋ V</span>
+              </div>
+            </div>
+
+            <p class="desc">
+              Untuk menyertakan pertanyaan sebagai bagian dari kalimat yang lebih besar (embedded question). <strong>かどうか</strong> digunakan untuk pertanyaan ya/tidak; <strong>疑問詞〜か</strong> digunakan untuk pertanyaan dengan kata tanya. Tanda tanya (？) dihapus dan kalimat tanya diubah ke bentuk biasa.
+            </p>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 1 — 聞く：Pertanyaan Ya/Tidak (かどうか)</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元</span>
+                  <span class="tr-source-text">わたしはカンさんに<ruby>聞<rt>き</rt></ruby>いた。＋「あした<ruby>会<rt>あ</rt></ruby>えるでしょうか？」</span>
+                </div>
+                <div class="tr-arrow">→ <span>かどうか化（丁寧 → 普通形、？削除）</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">結果</span>
+                  <span class="tr-result-text">わたしはカンさんにあした<ruby>会<rt>あ</rt></ruby>える<span class="h-key">かどうか</span>（を）<ruby>聞<rt>き</rt></ruby>いた。</span>
+                </div>
+                <div class="tr-trans">Saya bertanya kepada Kang-san apakah bisa bertemu besok.</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 2 — わからない：Kata Tanya (どうすれば〜か)</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元</span>
+                  <span class="tr-source-text">わたしはわからない。＋「どうすれば<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>になるでしょうか？」</span>
+                </div>
+                <div class="tr-arrow">→ <span>疑問詞〜か化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">結果</span>
+                  <span class="tr-result-text">わたしはどうすれば<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>になる<span class="h-key">か</span>（が）わからない。</span>
+                </div>
+                <div class="tr-trans">Saya tidak tahu bagaimana caranya agar bahasa Jepang menjadi mahir.</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 3 — 調べる：Menyelidiki (何が〜か)</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元</span>
+                  <span class="tr-source-text">わたしたちは<ruby>調<rt>しら</rt></ruby>べた。＋「<ruby>原因<rt>げんいん</rt></ruby>は<ruby>何<rt>なん</rt></ruby>ですか？」</span>
+                </div>
+                <div class="tr-arrow">→ <span>疑問詞〜か化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">結果</span>
+                  <span class="tr-result-text">わたしたちは<ruby>原因<rt>げんいん</rt></ruby>が<ruby>何<rt>なん</rt></ruby>である<span class="h-key">か</span>（を）<ruby>調<rt>しら</rt></ruby>べた。</span>
+                </div>
+                <div class="tr-trans">Kami menyelidiki apa penyebabnya.</div>
+              </div>
+            </div>
+
+            <div class="note-box">
+              <div class="note-title">かどうか vs 疑問詞〜か</div>
+              <ul>
+                <li><strong>かどうか</strong>：untuk pertanyaan yang jawabannya "ya" atau "tidak" (binary question). Setara dengan "whether or not".</li>
+                <li><strong>疑問詞〜か</strong>：untuk pertanyaan dengan kata tanya: 何・誰・どこ・いつ・どう・なぜ・どれ, dll.</li>
+                <li>Partikel setelah かどうか/〜か bisa を (jika objek kata kerja) atau が (jika subjek predikat pengetahuan seperti わかる・知る).</li>
+                <li>「〜でしょうか」→「〜だろうか」→ dalam embedded question: ubah ke <strong>普通形 + か</strong> saja (hapus だろう).</li>
+              </ul>
+            </div>
+
+          </div>
+        </div><!-- /pattern 3 -->
+
+        <!-- Pattern 4 -->
+        <div class="section ch1-p4" style="border-top: 1px solid var(--rule);">
+          <div class="pat-header">
+            <div class="pat-num">④</div>
+            <div>
+              <div class="pat-title">どうして / なぜ〜かというと、〜からだ。</div>
+              <div class="pat-sub">Memberikan Penjelasan Sebab / Alasan</div>
+            </div>
+          </div>
+          <div class="pat-body">
+
+            <div class="grammar-box">
+              <span class="gb-label">Pola</span>
+              <div class="gb-pola">
+                どうして / なぜ ＋ ［普通形］ ＋ かというと、〜からだ。<br>
+                <span class="alt">＝ 「〜という理由・原因・動機の説明」</span>
+              </div>
+            </div>
+
+            <p class="desc">
+              Pola ini digunakan untuk <strong>memperkenalkan pertanyaan mengapa</strong> lalu segera menjawabnya dalam kalimat yang sama. Strukturnya: "mengapa ~ [hal yang sudah disebutkan sebelumnya]? Karena…". Sering berfungsi sebagai pembuka paragraf penjelasan.
+            </p>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 1 — Alasan Popularitas</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元</span>
+                  <span class="tr-source-text">「どうしてこの<ruby>店<rt>みせ</rt></ruby>は<ruby>人気<rt>にんき</rt></ruby>がありますか」→ <ruby>安<rt>やす</rt></ruby>くておいしいからです。</span>
+                </div>
+                <div class="tr-arrow">→ <span>かというと化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">結果</span>
+                  <span class="tr-result-text">どうしてこの<ruby>店<rt>みせ</rt></ruby>は<ruby>人気<rt>にんき</rt></ruby>がある<span class="h-key">かというと</span>、<ruby>安<rt>やす</rt></ruby>くておいしい<span class="h-key">からだ</span>。</span>
+                </div>
+                <div class="tr-trans">Mengapa toko ini populer? Karena harganya murah dan rasanya enak.</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 2 — Alasan Keputusan</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元</span>
+                  <span class="tr-source-text">なぜ<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>し始めましたか？ → アニメが<ruby>好<rt>す</rt></ruby>きだからです。</span>
+                </div>
+                <div class="tr-arrow">→ <span>かというと化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">結果</span>
+                  <span class="tr-result-text">なぜ<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>し<ruby>始<rt>はじ</rt></ruby>めた<span class="h-key">かというと</span>、アニメが<ruby>好<rt>す</rt></ruby>きだ<span class="h-key">からだ</span>。</span>
+                </div>
+                <div class="tr-trans">Mengapa mulai belajar bahasa Jepang? Karena suka anime.</div>
+              </div>
+            </div>
+
+            <div class="note-box">
+              <div class="note-title">Catatan Penting</div>
+              <ul>
+                <li>「かというと」dapat disingkat menjadi「かといえば」(lebih formal/tulisan) atau「かというか」(lebih kasual).</li>
+                <li>Klausa setelah かというと diakhiri dengan <strong>〜からだ / からです</strong> — ini adalah pasangan wajib pola ini.</li>
+                <li>Pola ini sangat umum dalam esai, presentasi, dan diskusi akademik. <span class="tag-formal">Formal</span></li>
+              </ul>
+            </div>
+
+          </div>
+        </div><!-- /pattern 4 -->
+
+      </div><!-- /chapter-block -->
+    </section>
+
+
+    <!-- ══ Chapter Divider ══ -->
+    <div class="section-divider"></div>
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!--  課 2: 名詞の修飾                          -->
+    <!-- ══════════════════════════════════════════ -->
+    <section class="section">
+
+      <div class="chapter-banner ch2">
+        <div class="cb-num">2課</div>
+        <div class="cb-content">
+          <div class="cb-title">文の読み立て ー 2　名詞の修飾（めいしのしゅうしょく）</div>
+          <div class="cb-sub">Cara Menempatkan Klausa / Frasa di Depan Nomina sebagai Modifier</div>
+          <div class="cb-desc">
+            Dalam bahasa Jepang, <strong>semua modifier (kata sifat, klausa, frasa) selalu ditempatkan SEBELUM nomina yang dimodifikasi</strong>. Tidak ada yang datang setelah nomina. Ada lima pola modifier utama — dari klausa relatif biasa, hingga konstruksi dengan の, bentuk nomina kata fungsional, dan kata keadaan.
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter-block">
+
+        <!-- Pattern 1: 普通形 + 名詞 -->
+        <div class="section ch2-q1">
+          <div class="pat-header">
+            <div class="pat-num">①</div>
+            <div>
+              <div class="pat-title">普通形（ナ形→な・名詞→の）＋ 名詞</div>
+              <div class="pat-sub">Klausa Relatif Langsung — Seluruh Klausa Menjadi Modifier</div>
+            </div>
+          </div>
+          <div class="pat-body">
+
+            <div class="grammar-box">
+              <span class="gb-label">Pola</span>
+              <div class="gb-pola">
+                ［普通形 / な形容詞語幹＋な / 名詞＋の］ ＋ 名詞<br>
+                <span class="alt">「名詞を説明する文が、そのまま名詞の前に来る」</span>
+              </div>
+            </div>
+
+            <p class="desc">
+              Klausa penuh (dengan subjek, objek, dll.) ditempatkan langsung sebelum nomina. Subjek dalam klausa modifier menggunakan <strong>が</strong> (bukan は). ナ形容詞 berubah dari だ menjadi <strong>な</strong>; nomina berubah dari だ menjadi <strong>の</strong>.
+            </p>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 1 — 動詞：Klausa Kerja</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元の文</span>
+                  <span class="tr-source-text">そのバスは<ruby>東京駅<rt>とうきょうえき</rt></ruby>に<ruby>行<rt>い</rt></ruby>く。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞修飾化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">修飾形</span>
+                  <span class="tr-result-text"><ruby>東京駅<rt>とうきょうえき</rt></ruby>に<ruby>行<rt>い</rt></ruby>く <span class="h-noun">[バス]</span></span>
+                </div>
+                <div class="tr-trans">bus yang pergi ke Stasiun Tokyo</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 2 — 動詞＋対象：Subjek Klausa ≠ Subjek Utama</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元の文</span>
+                  <span class="tr-source-text">そのニュースを<ruby>聞<rt>き</rt></ruby>いてショックを<ruby>受<rt>う</rt></ruby>けた。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞修飾化（を → が は不可、名詞が修飾される）</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">修飾形</span>
+                  <span class="tr-result-text">ショックを<ruby>受<rt>う</rt></ruby>けた <span class="h-noun">[ニュース]</span></span>
+                </div>
+                <div class="tr-trans">berita yang mengejutkan (yang membuat terkejut)</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 3 — ナ形容詞：な形に変換</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元の文</span>
+                  <span class="tr-source-text">にぎやかな<ruby>声<rt>こえ</rt></ruby>で<ruby>子供<rt>こども</rt></ruby>たちが<ruby>話<rt>はな</rt></ruby>している。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞修飾化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">修飾形</span>
+                  <span class="tr-result-text"><ruby>子供<rt>こども</rt></ruby>たちが<ruby>話<rt>はな</rt></ruby>しているにぎやかな <span class="h-noun">[声 (こえ)]</span></span>
+                </div>
+                <div class="tr-trans">suara riuh yang ditimbulkan anak-anak yang sedang berbicara</div>
+              </div>
+            </div>
+
+            <div class="note-box">
+              <div class="note-title">Aturan Penting Klausa Relatif Bahasa Jepang</div>
+              <ul>
+                <li>Seluruh klausa modifier datang SEBELUM nomina — tidak ada "yang" setelah nomina seperti dalam bahasa Indonesia.</li>
+                <li>Subjek di dalam klausa modifier menggunakan <strong>が</strong>, bukan は: ○「<ruby>私<rt>わたし</rt></ruby>が<ruby>書<rt>か</rt></ruby>いた<ruby>本<rt>ほん</rt></ruby>」× 「私は書いた本」</li>
+                <li>ナ形容詞 + 名詞: 「<ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>人<rt>ひと</rt></ruby>」 ← 有名<strong>な</strong>（だ → な）</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Pattern 2: 助詞 + の + 名詞 -->
+        <div class="section ch2-q2" style="border-top: 1px solid var(--rule);">
+          <div class="pat-header">
+            <div class="pat-num">②</div>
+            <div>
+              <div class="pat-title">助詞 ＋ の ＋ 名詞</div>
+              <div class="pat-sub">Partikel + の untuk Memodifikasi Nomina</div>
+            </div>
+          </div>
+          <div class="pat-body">
+
+            <div class="grammar-box">
+              <span class="gb-label">Pola</span>
+              <div class="gb-pola">
+                ［助詞（まで・から・へ・に…）］ ＋ の ＋ 名詞<br>
+                <span class="alt">助詞が名詞の前に残り、の で名詞につながる</span>
+              </div>
+            </div>
+
+            <p class="desc">
+              Ketika sebuah nomina dimodifikasi oleh frasa preposisional (partikel + tempat/arah/sumber), nomina tersebut dipindahkan ke akhir dan frasa modifier ditambahkan <strong>の</strong> sebagai penghubung ke nomina yang dimodifikasi.
+            </p>
+
+            <div class="mod-visual">
+              <div class="mod-modifier">
+                <div class="mod-label">Frasa Modifier (助詞フレーズ)</div>
+                <div class="mod-jp"><ruby>駅<rt>えき</rt></ruby>まで / <ruby>母<rt>はは</rt></ruby>から / <ruby>友達<rt>ともだち</rt></ruby>へ</div>
+              </div>
+              <div class="mod-particle">の</div>
+              <div class="mod-noun">
+                <div class="mod-label">Nomina yang Dimodifikasi</div>
+                <div class="mod-jp">バス / <ruby>手紙<rt>てがみ</rt></ruby> / プレゼント</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 1 — まで：Batas Tujuan</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元の文</span>
+                  <span class="tr-source-text">そのバスは<ruby>駅<rt>えき</rt></ruby>まで<ruby>行<rt>い</rt></ruby>く。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞修飾化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">修飾形</span>
+                  <span class="tr-result-text"><ruby>駅<rt>えき</rt></ruby>まで<span class="h-key">の</span> <span class="h-noun">[バス]</span></span>
+                </div>
+                <div class="tr-trans">bus yang pergi sampai ke stasiun</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 2 — から：Asal / Sumber</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元の文</span>
+                  <span class="tr-source-text"><ruby>母<rt>はは</rt></ruby>から<ruby>手紙<rt>てがみ</rt></ruby>が<ruby>来<rt>き</rt></ruby>た。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞修飾化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">修飾形</span>
+                  <span class="tr-result-text"><ruby>母<rt>はは</rt></ruby>から<span class="h-key">の</span> <span class="h-noun">[手紙 (てがみ)]</span></span>
+                </div>
+                <div class="tr-trans">surat dari ibu</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 3 — へ：Arah / Tujuan</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元の文</span>
+                  <span class="tr-source-text"><ruby>友達<rt>ともだち</rt></ruby>にプレゼントをあげる。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞修飾化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">修飾形</span>
+                  <span class="tr-result-text"><ruby>友達<rt>ともだち</rt></ruby>へ<span class="h-key">の</span> <span class="h-noun">[プレゼント]</span></span>
+                </div>
+                <div class="tr-trans">hadiah untuk teman</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Pattern 3: 助詞的言葉 + の + 名詞 -->
+        <div class="section ch2-q3" style="border-top: 1px solid var(--rule);">
+          <div class="pat-header">
+            <div class="pat-num">③</div>
+            <div>
+              <div class="pat-title">助詞のような働きをする言葉 ＋ の ＋ 名詞</div>
+              <div class="pat-sub">Kata Fungsional (として・について・に関して…) ＋ の</div>
+            </div>
+          </div>
+          <div class="pat-body">
+
+            <div class="grammar-box">
+              <span class="gb-label">Pola</span>
+              <div class="gb-pola">
+                ［N ＋ として / について / に関して…］ ＋ の ＋ 名詞<br>
+                <span class="alt">「複合助詞 + の + 名詞」</span>
+              </div>
+            </div>
+
+            <p class="desc">
+              Kata fungsional (複合助詞) seperti <strong>として・について・に関して・をめぐって</strong> dll. juga bisa menjadi modifier nomina dengan menambahkan <strong>の</strong> sebelum nomina yang dimodifikasi.
+            </p>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 1 — として：Sebagai / Dalam Kapasitas</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元の文</span>
+                  <span class="tr-source-text">そのバスを<ruby>通学手段<rt>つうがくしゅだん</rt></ruby>として<ruby>使<rt>つか</rt></ruby>う。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞修飾化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">修飾形</span>
+                  <span class="tr-result-text"><ruby>通学手段<rt>つうがくしゅだん</rt></ruby>として<span class="h-key">の</span> <span class="h-noun">[バス]</span></span>
+                </div>
+                <div class="tr-trans">bus sebagai sarana pergi ke sekolah</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 2 — について：Mengenai / Tentang</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元の文</span>
+                  <span class="tr-source-text"><ruby>生命<rt>せいめい</rt></ruby>について<ruby>本<rt>ほん</rt></ruby>を<ruby>書<rt>か</rt></ruby>いた。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞修飾化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">修飾形</span>
+                  <span class="tr-result-text"><ruby>生命<rt>せいめい</rt></ruby>について<span class="h-key">の</span> <span class="h-noun">[本 (ほん)]</span></span>
+                </div>
+                <div class="tr-trans">buku tentang kehidupan</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Pattern 4: 助詞的言葉の名詞形 + 名詞 -->
+        <div class="section ch2-q4" style="border-top: 1px solid var(--rule);">
+          <div class="pat-header">
+            <div class="pat-num">④</div>
+            <div>
+              <div class="pat-title">助詞的言葉の名詞につく形 ＋ 名詞</div>
+              <div class="pat-sub">による・に対する・をめぐる… langsung sebelum Nomina (Tanpa の)</div>
+            </div>
+          </div>
+          <div class="pat-body">
+
+            <div class="grammar-box">
+              <span class="gb-label">Pola</span>
+              <div class="gb-pola">
+                ［N ＋ による / に対する / をめぐる / に関する…］ ＋ 名詞<br>
+                <span class="alt">「の」は不要 — 直接名詞の前に来る</span>
+              </div>
+            </div>
+
+            <p class="desc">
+              Beberapa kata fungsional memiliki bentuk modifikasi nomina khusus yang <strong>langsung berdiri sebelum nomina tanpa perlu の</strong>. Ini berbeda dari pola ③. Bentuk-bentuk ini adalah: による・に対する・をめぐる・に関する・にとって(の)・をもとにした, dll.
+            </p>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 1 — による：Oleh / Berdasarkan / Akibat</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元の文</span>
+                  <span class="tr-source-text">そのバスは<ruby>市<rt>し</rt></ruby>の<ruby>運営<rt>うんえい</rt></ruby>によって<ruby>走<rt>はし</rt></ruby>っている。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞修飾化（によって → による）</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">修飾形</span>
+                  <span class="tr-result-text"><ruby>市<rt>し</rt></ruby>の<ruby>運営<rt>うんえい</rt></ruby><span class="h-key">による</span> <span class="h-noun">[バス]</span></span>
+                </div>
+                <div class="tr-trans">bus yang dioperasikan oleh pemerintah kota</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 2 — に対する：Terhadap / Mengenai</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元の文</span>
+                  <span class="tr-source-text">A案に<ruby>対<rt>たい</rt></ruby>して<ruby>反対意見<rt>はんたいいけん</rt></ruby>を<ruby>言<rt>い</rt></ruby>う。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞修飾化（に対して → に対する）</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">修飾形</span>
+                  <span class="tr-result-text">A案<span class="h-key">に対する</span> <span class="h-noun">[反対意見 (はんたいいけん)]</span></span>
+                </div>
+                <div class="tr-trans">pendapat yang menentang Proposal A</div>
+              </div>
+            </div>
+
+            <div class="grammar-table" style="margin-top:16px;">
+              <thead>
+                <tr>
+                  <th>Bentuk Predikat</th>
+                  <th>Bentuk Modifikasi Nomina</th>
+                  <th>Makna</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pola-cell">〜によって</td>
+                  <td class="pola-cell">〜による ＋ N</td>
+                  <td>oleh / berdasarkan / akibat dari ~</td>
+                </tr>
+                <tr>
+                  <td class="pola-cell">〜に対して</td>
+                  <td class="pola-cell">〜に対する ＋ N</td>
+                  <td>terhadap / mengenai ~</td>
+                </tr>
+                <tr>
+                  <td class="pola-cell">〜をめぐって</td>
+                  <td class="pola-cell">〜をめぐる ＋ N</td>
+                  <td>seputar / terkait / berkenaan dengan ~</td>
+                </tr>
+                <tr>
+                  <td class="pola-cell">〜に関して</td>
+                  <td class="pola-cell">〜に関する ＋ N</td>
+                  <td>berkaitan dengan / mengenai ~</td>
+                </tr>
+                <tr>
+                  <td class="pola-cell">〜をもとにして</td>
+                  <td class="pola-cell">〜をもとにした ＋ N</td>
+                  <td>berdasarkan / berlandaskan ~</td>
+                </tr>
+              </tbody>
+            </div>
+
+            <div class="note-box">
+              <div class="note-title">③ vs ④ — Kapan Perlu の dan Kapan Tidak?</div>
+              <ul>
+                <li><strong>Pola ③</strong>（として・について）→ harus tambahkan <strong>の</strong> sebelum nomina: としての・についての</li>
+                <li><strong>Pola ④</strong>（による・に対する）→ sudah memiliki bentuk modifikasi sendiri, <strong>TIDAK perlu の</strong>: による＋N langsung</li>
+                <li>Kunci: cek apakah kata fungsionalnya berakhiran <em>て</em> (→ + の) atau sudah berakhiran <em>る/する bentuk biasa</em> (→ langsung ke N).</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Pattern 5: 状態語 + の + 名詞 -->
+        <div class="section ch2-q5" style="border-top: 1px solid var(--rule);">
+          <div class="pat-header">
+            <div class="pat-num">⑤</div>
+            <div>
+              <div class="pat-title">状態・様子を表す言葉（ばかり・とおり・まま・はず など）＋ の ＋ 名詞</div>
+              <div class="pat-sub">Kata Keadaan / Status + の untuk Memodifikasi Nomina</div>
+            </div>
+          </div>
+          <div class="pat-body">
+
+            <div class="grammar-box">
+              <span class="gb-label">Pola</span>
+              <div class="gb-pola">
+                ［V た形 / 普通形 ＋ ばかり / とおり / まま / はず…］ ＋ の ＋ 名詞<br>
+                <span class="alt">状態を表す名詞的表現 + の + 名詞</span>
+              </div>
+            </div>
+
+            <p class="desc">
+              Kata-kata seperti <strong>ばかり・とおり・まま・はず・つもり・わけ</strong> adalah <em>nomina formal (形式名詞)</em> yang menggambarkan keadaan. Ketika digunakan sebagai modifier nomina, mereka menggunakan <strong>の</strong> untuk menghubungkan ke nomina yang dimodifikasi.
+            </p>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 1 — ばかり：Baru Saja</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元の文</span>
+                  <span class="tr-source-text">そのバスは<ruby>修理<rt>しゅうり</rt></ruby>したばかりだ。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞修飾化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">修飾形</span>
+                  <span class="tr-result-text"><ruby>修理<rt>しゅうり</rt></ruby>したばかり<span class="h-key">の</span> <span class="h-noun">[バス]</span></span>
+                </div>
+                <div class="tr-trans">bus yang baru saja diperbaiki</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 2 — とおり：Sesuai / Seperti Apa Adanya</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元の文</span>
+                  <span class="tr-source-text">その<ruby>景色<rt>けしき</rt></ruby>はガイドブックで<ruby>見<rt>み</rt></ruby>たとおりだった。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞修飾化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">修飾形</span>
+                  <span class="tr-result-text">ガイドブックで<ruby>見<rt>み</rt></ruby>たとおり<span class="h-key">の</span> <span class="h-noun">[景色 (けしき)]</span></span>
+                </div>
+                <div class="tr-trans">pemandangan persis seperti yang dilihat di buku panduan</div>
+              </div>
+            </div>
+
+            <div class="transform-box">
+              <div class="transform-head">例文 3 — まま：Dalam Kondisi Apa Adanya / Tanpa Berubah</div>
+              <div class="transform-body">
+                <div class="tr-source">
+                  <span class="tr-source-badge">元の文</span>
+                  <span class="tr-source-text">この<ruby>服<rt>ふく</rt></ruby>は<ruby>汚<rt>よご</rt></ruby>れたままだ。</span>
+                </div>
+                <div class="tr-arrow">→ <span>名詞修飾化</span></div>
+                <div class="tr-result">
+                  <span class="tr-result-badge">修飾形</span>
+                  <span class="tr-result-text"><ruby>汚<rt>よご</rt></ruby>れたまま<span class="h-key">の</span> <span class="h-noun">[服 (ふく)]</span></span>
+                </div>
+                <div class="tr-trans">baju yang tetap dalam kondisi kotor</div>
+              </div>
+            </div>
+
+            <div class="grammar-table" style="margin-top:16px;">
+              <thead>
+                <tr>
+                  <th>Kata Keadaan</th>
+                  <th>Koneksi ke Nomina</th>
+                  <th>Makna Dasar</th>
+                  <th>Contoh</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pola-cell">〜ばかり</td>
+                  <td class="makna">〜ばかりの ＋ N</td>
+                  <td>baru saja ~ / melulu ~</td>
+                  <td><span style="font-family:var(--font-jp)"><ruby>買<rt>か</rt></ruby>ったばかりの<ruby>本<rt>ほん</rt></ruby></span></td>
+                </tr>
+                <tr>
+                  <td class="pola-cell">〜とおり</td>
+                  <td class="makna">〜とおりの ＋ N</td>
+                  <td>sesuai dengan / persis seperti ~</td>
+                  <td><span style="font-family:var(--font-jp)"><ruby>予想<rt>よそう</rt></ruby>どおりの<ruby>結果<rt>けっか</rt></ruby></span></td>
+                </tr>
+                <tr>
+                  <td class="pola-cell">〜まま</td>
+                  <td class="makna">〜ままの ＋ N</td>
+                  <td>tetap dalam kondisi ~ / apa adanya</td>
+                  <td><span style="font-family:var(--font-jp)"><ruby>昔<rt>むかし</rt></ruby>のままの<ruby>町<rt>まち</rt></ruby></span></td>
+                </tr>
+                <tr>
+                  <td class="pola-cell">〜はず</td>
+                  <td class="makna">〜はずの ＋ N</td>
+                  <td>yang seharusnya ~ / yang semestinya</td>
+                  <td><span style="font-family:var(--font-jp)"><ruby>来<rt>く</rt></ruby>るはずの<ruby>人<rt>ひと</rt></ruby></span></td>
+                </tr>
+                <tr>
+                  <td class="pola-cell">〜つもり</td>
+                  <td class="makna">〜つもりの ＋ N</td>
+                  <td>yang berniat ~ / yang direncanakan</td>
+                  <td><span style="font-family:var(--font-jp)"><ruby>買<rt>か</rt></ruby>うつもりの<ruby>服<rt>ふく</rt></ruby></span></td>
+                </tr>
+              </tbody>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /chapter-block ch2 -->
+    </section>
+
+
+    <!-- ══ COMPARISON ══ -->
+    <div class="comparison-section">
+      <h3>Ringkasan Besar — Lima Pola Modifikasi Nomina (2課)</h3>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Pola</th>
+            <th>Struktur</th>
+            <th>Koneksi ke N</th>
+            <th>Contoh</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--q1);font-weight:700;">① 普通形</td>
+            <td class="makna">Klausa lengkap (V/Adj/N 普通形)</td>
+            <td>Langsung + N (ナ形→な / 名→の)</td>
+            <td style="font-family:var(--font-jp);font-size:13px;"><ruby>東京駅<rt>とうきょうえき</rt></ruby>に行く[バス]</td>
+          </tr>
+          <tr>
+            <td style="color:var(--q2);font-weight:700;">② 助詞</td>
+            <td class="makna">Frasa partikel biasa</td>
+            <td>助詞 ＋ の ＋ N</td>
+            <td style="font-family:var(--font-jp);font-size:13px;"><ruby>母<rt>はは</rt></ruby>からの[<ruby>手紙<rt>てがみ</rt></ruby>]</td>
+          </tr>
+          <tr>
+            <td style="color:var(--q3);font-weight:700;">③ 複合助詞＋の</td>
+            <td class="makna">として / について + の</td>
+            <td>複合助詞 ＋ の ＋ N</td>
+            <td style="font-family:var(--font-jp);font-size:13px;"><ruby>生命<rt>せいめい</rt></ruby>についての[<ruby>本<rt>ほん</rt></ruby>]</td>
+          </tr>
+          <tr>
+            <td style="color:var(--q4);font-weight:700;">④ 名詞形</td>
+            <td class="makna">による / に対する (すでに修飾形)</td>
+            <td>直接 ＋ N（の不要）</td>
+            <td style="font-family:var(--font-jp);font-size:13px;"><ruby>市<rt>し</rt></ruby>のによる[バス]</td>
+          </tr>
+          <tr>
+            <td style="color:var(--q5);font-weight:700;">⑤ 状態語</td>
+            <td class="makna">ばかり・とおり・まま・はず</td>
+            <td>状態語 ＋ の ＋ N</td>
+            <td style="font-family:var(--font-jp);font-size:13px;"><ruby>汚<rt>よご</rt></ruby>れたままの[<ruby>服<rt>ふく</rt></ruby>]</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <div class="note-title">Panduan Cepat — Seluruh Bab 7</div>
+        <ul>
+          <li><strong>1課①</strong>：Pikiran / ucapan → ubah ke 普通形 → ＋と＋言う/思う</li>
+          <li><strong>1課②</strong>：Permintaan / instruksi → ように/ほしいと/命令形＋と＋頼む/言う</li>
+          <li><strong>1課③</strong>：Pertanyaan embedded → かどうか (ya/tidak) / 疑問詞〜か (kata tanya)</li>
+          <li><strong>1課④</strong>：Sebab → どうして〜かというと、〜からだ</li>
+          <li><strong>2課①〜⑤</strong>：Modifier SELALU sebelum nomina. Pilih pola berdasarkan jenis modifier (klausa/partikel/複合助詞/名詞形/状態語)</li>
+        </ul>
+      </div>
+
+      <div class="warning-box">
+        <div class="note-title">Kesalahan Umum yang Sering Muncul di JLPT</div>
+        <ul>
+          <li><strong>× 「行きますと思う」</strong> → ○ 「行くと思う」（普通形に変換が必要）</li>
+          <li><strong>× 「するようにと頼む」</strong>（ように単独で可）→ ○ 「するように頼む」（とは任意・省略可）</li>
+          <li><strong>× 「かどうかが聞いた」</strong> → ○ 「かどうかを聞いた」（かどうかの後は動詞の格に合わせる）</li>
+          <li><strong>× 「によっての報告」</strong> → ○ 「による報告」（④の形は の不要）</li>
+          <li><strong>× 「有名な人が書いた本は…」</strong>（修飾語が名詞の後に来る）→ ○ 「有名な人が書いた本は…」（正しい、だが ×「本、有名な人が書いた、は…」は不可）</li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="book-footer">
+    <span>文の読み立て — 引用・名詞の修飾 · JLPT N3〜N2 · 1課〜2課</span>
+    <span>PejuangYen Series · © 2026</span>
+  </footer>
+
+</article>
+</body>
+</html>
