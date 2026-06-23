@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文法 — 「という・といった」と決まった形 | JLPT N3〜N2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap');
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-light: #3d3d3d;
+    --ink-muted: #707070;
+    --paper: #faf9f7;
+    --paper-warm: #f5f3ef;
+    --rule: #d8d4cc;
+    --rule-light: #e8e5e0;
+    --accent-red: #c0392b;
+    --accent-indigo: #2c3e6b;
+    --accent-gold: #a08030;
+    --accent-teal: #1f6b5a;
+    /* Chapter color systems */
+    --toiu-col: #1f6b5a;      /* 3課 という・といった = teal */
+    --toiu-bg: #eaf5f1;
+    --kimatta-col: #6b3a2a;   /* 4課 決まった形 = brown/rust */
+    --kimatta-bg: #f7eee9;
+    --badge-n5: #2a6b4a;
+    --badge-n4: #2c5f8a;
+    --badge-n3: #6b4a2a;
+    --badge-n2: #7a2a6b;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.05);
+    --font-jp: 'Noto Serif JP', 'Noto Sans JP', serif;
+    --font-body: 'Source Serif 4', 'Noto Serif JP', serif;
+    --font-ui: 'Noto Sans JP', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    background: #edeae4;
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 15px;
+    padding: 32px 16px 64px;
+  }
+
+  .book {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: var(--shadow), 0 0 0 1px rgba(0,0,0,0.04);
+    border-radius: 2px;
+  }
+
+  /* ── Header ── */
+  .book-header {
+    background: var(--ink);
+    color: #fff;
+    padding: 40px 52px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .book-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg, transparent, transparent 59px,
+      rgba(255,255,255,0.03) 59px, rgba(255,255,255,0.03) 60px
+    );
+  }
+  .book-header::after {
+    content: '組み立て';
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-jp);
+    font-size: 72px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    pointer-events: none;
+    letter-spacing: 0.02em;
+  }
+  .book-header-inner { position: relative; }
+  .book-series {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.42);
+    margin-bottom: 12px;
+  }
+  .book-title {
+    font-family: var(--font-jp);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #fff;
+  }
+  .book-title .main-kana {
+    font-size: 40px;
+    letter-spacing: 0.06em;
+    color: #f0e6c8;
+  }
+  .book-title .toiu { color: #6fd6b8; }
+  .book-title .kimatta { color: #e8a880; }
+  .book-title span {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.52);
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+  .book-meta { margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* ── Legend chips ── */
+  .legend-strip {
+    display: flex;
+    gap: 16px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .legend-chip {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+  }
+  .legend-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .legend-dot.t { background: #6fd6b8; }
+  .legend-dot.k { background: #e8a880; }
+
+  /* ── Body ── */
+  .book-body { padding: 44px 52px 52px; }
+
+  /* ── Chapter Intro ── */
+  .chapter-intro {
+    border-left: 4px solid var(--accent-red);
+    padding: 14px 20px;
+    background: var(--paper-warm);
+    margin-bottom: 36px;
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 1.9;
+  }
+  .chapter-intro strong { font-weight: 600; color: var(--ink); }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+  }
+  .toc-title {
+    font-family: var(--font-ui);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .toc-list li { display: flex; align-items: baseline; gap: 10px; font-size: 13px; color: var(--ink-light); }
+  .toc-num { font-family: var(--font-ui); font-size: 10px; font-weight: 700; color: var(--accent-red); white-space: nowrap; min-width: 32px; }
+  .toc-jp { font-family: var(--font-jp); font-size: 15px; color: var(--ink); }
+  .toc-desc { color: var(--ink-muted); font-size: 12px; }
+
+  /* ── JLPT Badge ── */
+  .jlpt-badge {
+    display: inline-flex; align-items: center;
+    padding: 3px 9px; border-radius: 2px;
+    font-family: var(--font-ui); font-size: 10px;
+    font-weight: 700; letter-spacing: 0.12em; color: #fff;
+  }
+  .jlpt-badge.n5 { background: var(--badge-n5); }
+  .jlpt-badge.n4 { background: var(--badge-n4); }
+  .jlpt-badge.n3 { background: var(--badge-n3); }
+  .jlpt-badge.n2 { background: var(--badge-n2); }
+
+  /* ── Chapter Banner (per 課) ── */
+  .chapter-banner {
+    display: flex; align-items: center; gap: 18px;
+    padding: 20px 26px;
+    border-radius: 3px;
+    margin: 56px 0 28px;
+    color: #fff;
+  }
+  .chapter-banner.banner-toiu { background: linear-gradient(135deg, var(--toiu-col), #154d40); }
+  .chapter-banner.banner-kimatta { background: linear-gradient(135deg, var(--kimatta-col), #4a2719); }
+  .chapter-banner .cb-num {
+    font-family: var(--font-ui); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    background: rgba(255,255,255,0.16); padding: 5px 11px; border-radius: 2px;
+    white-space: nowrap;
+  }
+  .chapter-banner .cb-jp { font-family: var(--font-jp); font-size: 22px; font-weight: 700; letter-spacing: 0.04em; }
+  .chapter-banner .cb-id { font-family: var(--font-ui); font-size: 12.5px; color: rgba(255,255,255,0.72); margin-top: 3px; }
+  .chapter-banner .cb-text { flex: 1; }
+  .first-banner { margin-top: 0; }
+
+  /* ── Section ── */
+  .section { margin-bottom: 60px; }
+  .section-header {
+    background: #1e1e1e; color: #fff;
+    padding: 16px 22px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .section-num {
+    font-family: var(--font-ui); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.36); white-space: nowrap;
+  }
+  .section-jp { font-family: var(--font-jp); font-size: 20px; font-weight: 700; color: #f0e6c8; letter-spacing: 0.06em; }
+  .section-id { font-family: var(--font-ui); font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  /* ── Subsection ── */
+  .subsection { border: 1px solid var(--rule); border-top: none; }
+  .subsection-body { padding: 26px 24px; }
+
+  /* Sub-sub header */
+  .sub-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 24px;
+    background: #f0ede7;
+    border-bottom: 1px solid var(--rule);
+    border-top: 1px solid var(--rule);
+    margin: 0 -24px 20px;
+    flex-wrap: wrap;
+  }
+  .sub-label { font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); }
+  .sub-title { font-family: var(--font-ui); font-size: 12.5px; font-weight: 600; color: var(--ink); }
+  .sub-divider { border: none; border-top: 1px solid var(--rule-light); margin: 32px 0; }
+
+  /* ── Grammar Box ── */
+  .grammar-box {
+    background: #1e2a3a; border-radius: 3px;
+    padding: 15px 20px; margin-bottom: 20px;
+    display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap;
+  }
+  .gb-label { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.38); padding-top: 3px; white-space: nowrap; }
+  .gb-pola { font-family: var(--font-jp); font-size: 15.5px; color: #f0e6c8; line-height: 1.9; letter-spacing: 0.04em; }
+  .gb-pola .alt { color: rgba(240,230,200,0.52); font-size: 13px; }
+
+  /* ── Desc ── */
+  .desc { font-size: 13.5px; color: var(--ink-light); line-height: 1.9; margin-bottom: 18px; }
+  .desc strong { font-weight: 600; color: var(--ink); }
+
+  /* ── Concept Box ── */
+  .concept-box {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .concept-box-head {
+    background: #2a2a2a; color: #fff;
+    padding: 10px 18px;
+    font-family: var(--font-ui); font-size: 9.5px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .concept-box-body { padding: 16px 18px; background: var(--paper); font-size: 13.5px; color: var(--ink-light); line-height: 1.9; }
+  .concept-box-body strong { color: var(--ink); font-weight: 600; }
+
+  /* ── Table ── */
+  .grammar-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 22px; border: 1px solid var(--rule); }
+  .grammar-table thead tr { background: #2a2a2a; color: #fff; }
+  .grammar-table thead th { padding: 10px 13px; text-align: left; font-family: var(--font-ui); font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+  .grammar-table tbody tr:nth-child(even) { background: var(--paper-warm); }
+  .grammar-table tbody tr:hover { background: #ece8df; transition: background 0.15s; }
+  .grammar-table td { padding: 11px 13px; border-bottom: 1px solid var(--rule-light); vertical-align: top; line-height: 1.75; color: var(--ink-light); font-size: 13px; }
+  .grammar-table td.pola-cell { font-family: var(--font-jp); font-size: 13.5px; color: var(--accent-indigo); line-height: 1.9; }
+  .grammar-table td.makna { font-weight: 600; color: var(--ink); }
+
+  /* ── Example Box ── */
+  .example-box { border: 1px solid var(--rule); border-left: 3px solid var(--accent-indigo); border-radius: 2px; margin-bottom: 10px; overflow: hidden; }
+  .example-box.ex-t { border-left-color: var(--toiu-col); }
+  .example-box.ex-k { border-left-color: var(--kimatta-col); }
+  .example-box-head { background: #eceaf5; padding: 4px 14px; font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-indigo); border-bottom: 1px solid #d8d4f0; display: flex; align-items: center; gap: 8px; }
+  .example-box.ex-t .example-box-head { background: #e3f3ec; color: var(--toiu-col); border-bottom-color: #bfe4d4; }
+  .example-box.ex-k .example-box-head { background: #f4e8e2; color: var(--kimatta-col); border-bottom-color: #e8cdb8; }
+  .example-box-body { padding: 13px 17px; background: var(--paper); }
+  .example-jp { font-family: var(--font-jp); font-size: 17px; font-weight: 400; line-height: 2.1; color: var(--ink); margin-bottom: 5px; }
+  .example-jp .ht { color: var(--toiu-col); font-weight: 700; border-bottom: 1.5px solid var(--toiu-col); padding-bottom: 1px; }
+  .example-jp .hk { color: var(--kimatta-col); font-weight: 700; border-bottom: 1.5px solid var(--kimatta-col); padding-bottom: 1px; }
+  .example-jp .highlight { color: var(--accent-red); font-weight: 700; border-bottom: 1.5px solid var(--accent-red); padding-bottom: 1px; }
+  .example-id { font-size: 13px; color: var(--ink-muted); font-style: italic; line-height: 1.6; }
+  .example-note { margin-top: 6px; font-size: 11.5px; color: var(--accent-indigo); font-family: var(--font-ui); font-style: normal; }
+
+  .ctx { display: inline-block; background: #2a2a2a; color: rgba(255,255,255,0.85); font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; padding: 1px 7px; border-radius: 2px; text-transform: uppercase; }
+  .ctx-t { background: var(--toiu-col); }
+  .ctx-k { background: var(--kimatta-col); }
+
+  /* ── Note boxes ── */
+  .note-box { background: #fff9ec; border: 1px solid #e8d89a; border-left: 4px solid var(--accent-gold); border-radius: 2px; padding: 14px 18px; margin-top: 16px; font-size: 13px; line-height: 1.85; color: #4a3800; }
+  .note-box .note-title { font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .note-box .note-title::before { content: '★'; }
+  .note-box ul { padding-left: 18px; }
+  .note-box li { margin-bottom: 5px; }
+  .note-box p { margin-bottom: 6px; }
+
+  .warning-box { background: #fff4f4; border: 1px solid #e8a0a0; border-left: 4px solid var(--accent-red); border-radius: 2px; padding: 14px 18px; margin-top: 12px; font-size: 13px; line-height: 1.85; color: #4a0000; }
+  .warning-box .note-title { font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-red); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .warning-box .note-title::before { content: '✕'; }
+  .warning-box ul { padding-left: 18px; }
+  .warning-box li { margin-bottom: 5px; }
+
+  .info-box { background: #f0f4ff; border: 1px solid #aab8e8; border-left: 4px solid var(--accent-indigo); border-radius: 2px; padding: 14px 18px; margin-top: 14px; font-size: 13px; line-height: 1.85; color: #1a2240; }
+  .info-box .note-title { font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-indigo); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .info-box .note-title::before { content: '◆'; font-size: 10px; }
+  .info-box ul { padding-left: 18px; }
+  .info-box li { margin-bottom: 5px; }
+  .info-box p { margin-bottom: 6px; }
+
+  .teal-box { background: #f0faf7; border: 1px solid #9ad4c4; border-left: 4px solid var(--accent-teal); border-radius: 2px; padding: 14px 18px; margin-top: 14px; font-size: 13px; line-height: 1.85; color: #0d2e26; }
+  .teal-box .note-title { font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-teal); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .teal-box .note-title::before { content: '▶'; font-size: 9px; }
+  .teal-box ul { padding-left: 18px; }
+  .teal-box li { margin-bottom: 5px; }
+
+  /* ── Pattern Card (untuk 8 pola decimal 決まった形) ── */
+  .pattern-card {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    margin-bottom: 26px;
+    overflow: hidden;
+  }
+  .pattern-card-head {
+    background: var(--kimatta-col);
+    color: #fff;
+    padding: 12px 20px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .pattern-card-head .pc-num {
+    font-family: var(--font-ui); font-size: 11px; font-weight: 700;
+    background: rgba(255,255,255,0.18); padding: 2px 9px; border-radius: 10px;
+  }
+  .pattern-card-head .pc-jp { font-family: var(--font-jp); font-size: 16px; letter-spacing: 0.03em; }
+  .pattern-card-head .pc-id { font-family: var(--font-ui); font-size: 11.5px; color: rgba(255,255,255,0.78); }
+  .pattern-card-body { padding: 20px 22px; background: var(--paper); }
+
+  /* ── Meaning equivalence strip ── */
+  .equiv-strip {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--kimatta-bg);
+    border: 1px solid #e0c4ad;
+    border-radius: 3px;
+    padding: 10px 16px;
+    margin-bottom: 16px;
+    font-family: var(--font-jp);
+    font-size: 14px;
+    color: var(--kimatta-col);
+    flex-wrap: wrap;
+  }
+  .equiv-strip .eq-arrow { font-family: var(--font-ui); color: var(--ink-muted); font-size: 13px; }
+  .equiv-strip .eq-id { font-family: var(--font-ui); font-size: 11.5px; color: var(--ink-muted); font-style: italic; margin-left: 4px; }
+
+  /* ── Nuance Chain (reused for という flow) ── */
+  .nuance-chain { display: flex; align-items: stretch; margin: 20px 0; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; flex-wrap: wrap; }
+  .nuance-step { flex: 1; min-width: 140px; padding: 14px 16px; background: var(--paper-warm); border-right: 1px solid var(--rule); font-size: 12.5px; color: var(--ink-light); line-height: 1.75; }
+  .nuance-step:last-child { border-right: none; }
+  .nuance-step .ns-label { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; }
+  .nuance-step .ns-jp { font-family: var(--font-jp); font-size: 14px; color: var(--ink); margin-bottom: 4px; }
+
+  /* ── Section divider ── */
+  .section-divider { border: none; border-top: 1px solid var(--rule); margin: 52px 0; }
+
+  /* ── Comparison section ── */
+  .comparison-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule); }
+  .comparison-section h3 { font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 16px; border-left: 3px solid var(--accent-indigo); padding-left: 10px; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid var(--rule); margin-bottom: 18px; }
+  .compare-table thead tr { background: #3d3d3d; color: #fff; }
+  .compare-table thead th { padding: 9px 12px; text-align: left; font-family: var(--font-ui); font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .compare-table tbody tr:nth-child(even) { background: var(--paper-warm); }
+  .compare-table tbody tr:hover { background: #ece8df; }
+  .compare-table td { padding: 11px 13px; border-bottom: 1px solid var(--rule-light); vertical-align: top; line-height: 1.75; color: var(--ink-light); font-size: 13px; }
+  .compare-table td:first-child { font-family: var(--font-jp); font-size: 14px; font-weight: 700; color: var(--accent-red); white-space: nowrap; }
+
+  /* ── Tags ── */
+  .tag-formal { display: inline-block; background: #e8eaf4; color: var(--accent-indigo); font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; margin-left: 4px; vertical-align: middle; text-transform: uppercase; }
+  .tag-informal { display: inline-block; background: #f4e8ea; color: #8a2a3a; font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; margin-left: 4px; vertical-align: middle; text-transform: uppercase; }
+
+  /* ── Ruby ── */
+  ruby { ruby-align: center; }
+  rt { font-size: 0.55em; font-family: var(--font-ui); color: var(--ink-muted); letter-spacing: 0.01em; }
+
+  /* ── Footer ── */
+  .book-footer { border-top: 2px solid var(--ink); padding: 22px 52px; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-ui); font-size: 10px; color: var(--ink-muted); letter-spacing: 0.08em; }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    body { padding: 0 0 48px; }
+    .book { border-radius: 0; }
+    .book-header { padding: 28px 20px 24px; }
+    .book-header::after { display: none; }
+    .book-body { padding: 22px 18px 36px; }
+    .book-footer { padding: 18px 20px; flex-direction: column; gap: 8px; text-align: center; }
+    .book-title .main-kana { font-size: 26px; }
+    .nuance-chain { flex-direction: column; }
+    .nuance-step { border-right: none; border-bottom: 1px solid var(--rule); }
+    .grammar-table, .compare-table { font-size: 12px; }
+    .grammar-table thead th, .compare-table thead th { font-size: 9px; padding: 8px; }
+    .grammar-table td, .compare-table td { padding: 9px 8px; }
+    .example-jp { font-size: 15px; }
+    .sub-header { margin: 0 -18px 18px; padding: 10px 18px; }
+    .toc-desc { display: none; }
+    .chapter-banner { flex-direction: column; align-items: flex-start; gap: 8px; padding: 18px 20px; }
+    .equiv-strip { font-size: 12.5px; }
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .book { box-shadow: none; }
+    .example-box, .note-box, .warning-box, .info-box, .pattern-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<article class="book">
+
+  <!-- ══ HEADER ══ -->
+  <header class="book-header">
+    <div class="book-header-inner">
+      <p class="book-series">Pejuangyen · Seri Buku Grammar JLPT</p>
+      <h1 class="book-title">
+        <span class="main-kana"><span class="toiu">という・といった</span>と<span class="kimatta">決まった形</span></span>
+        Cara Merangkai Kalimat Lanjutan
+        <span>Menyebut Nama & Isi Ucapan, serta Pola-Pola Baku yang Wajib Dihafal</span>
+      </h1>
+      <div class="book-meta">
+        <span class="jlpt-badge n3">N3</span>
+        <span class="jlpt-badge n2">N2</span>
+      </div>
+      <div class="legend-strip">
+        <div class="legend-chip"><span class="legend-dot t"></span> 3課 という・といった — Menyebut nama, isi, contoh</div>
+        <div class="legend-chip"><span class="legend-dot k"></span> 4課 決まった形 — Pola tetap yang harus dihafal</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ BODY (placeholder, will be filled) ══ -->
+  <main class="book-body">
+
+    <div class="chapter-intro">
+      <strong>Pengantar Bab —</strong>
+      Pernah dengar orang Jepang bilang sesuatu kayak <em>"Suzuki-san といううわさを聞いた"</em> dan kamu langsung mikir, "loh, とう itu apa lagi"? Tenang, bukan grammar baru yang aneh-aneh. <strong>という</strong> dan <strong>といった</strong> itu sebenarnya cuma alat buat "membungkus" sesuatu — nama, isi obrolan, fakta, atau daftar contoh — biar bisa disambung ke kata benda berikutnya. Di bab ini kita juga bahas beberapa <strong>pola yang udah baku alias paten</strong>, yang bentuknya nggak berubah-ubah kayak rumus matematika. Nggak perlu dianalisis dalam-dalam kenapa bentuknya begitu — tinggal hafalin aja, terus pakai. Anggap aja kayak nge-save template chat yang udah jadi, tinggal isi bagian yang kosong.
+    </div>
+
+    <!-- TOC -->
+    <nav class="toc">
+      <div class="toc-title">Daftar Isi Bab</div>
+      <ul class="toc-list">
+        <li>
+          <span class="toc-num">３－１</span>
+          <span class="toc-jp">という — 名前を紹介する</span>
+          <span class="toc-desc">— Menyebut nama sesuatu / seseorang</span>
+        </li>
+        <li>
+          <span class="toc-num">３－２</span>
+          <span class="toc-jp">という — 内容を示す</span>
+          <span class="toc-desc">— Menyampaikan isi ucapan / kabar yang didengar</span>
+        </li>
+        <li>
+          <span class="toc-num">３－３</span>
+          <span class="toc-jp">ということ — 知識・事実を示す</span>
+          <span class="toc-desc">— Menjadikan fakta/info sebagai topik kalimat</span>
+        </li>
+        <li>
+          <span class="toc-num">３－４</span>
+          <span class="toc-jp">というの — よく知らない言葉</span>
+          <span class="toc-desc">— Menanyakan istilah yang belum familiar</span>
+        </li>
+        <li>
+          <span class="toc-num">３－５</span>
+          <span class="toc-jp">といった — いくつかの例</span>
+          <span class="toc-desc">— Menyebut beberapa contoh sekaligus</span>
+        </li>
+        <li>
+          <span class="toc-num">４－１</span>
+          <span class="toc-jp">〜から〜にかけて</span>
+          <span class="toc-desc">— Rentang waktu/tempat "dari... sampai..."</span>
+        </li>
+        <li>
+          <span class="toc-num">４－２</span>
+          <span class="toc-jp">〜を…として／〜を…に</span>
+          <span class="toc-desc">— Menjadikan sesuatu sebagai dasar/patokan</span>
+        </li>
+        <li>
+          <span class="toc-num">４－３</span>
+          <span class="toc-jp">〜はもちろん…も</span>
+          <span class="toc-desc">— "Udah pasti A, B juga ikut kena"</span>
+        </li>
+        <li>
+          <span class="toc-num">４－４</span>
+          <span class="toc-jp">（〜ば）〜ほど…</span>
+          <span class="toc-desc">— "Makin... makin..."</span>
+        </li>
+        <li>
+          <span class="toc-num">４－５</span>
+          <span class="toc-jp">〜くらい／ぐらい／ほど…はない</span>
+          <span class="toc-desc">— "Nggak ada yang sebanding sama ini"</span>
+        </li>
+        <li>
+          <span class="toc-num">４－６</span>
+          <span class="toc-jp">〜さえ〜ば／〜さえ〜なら</span>
+          <span class="toc-desc">— "Asal... aja udah cukup"</span>
+        </li>
+        <li>
+          <span class="toc-num">４－７</span>
+          <span class="toc-jp">〜ことは〜が…</span>
+          <span class="toc-desc">— Mengakui sesuatu, tapi ada "tapi"-nya</span>
+        </li>
+        <li>
+          <span class="toc-num">４－８</span>
+          <span class="toc-jp">〜も〜ば〜も…</span>
+          <span class="toc-desc">— "Ada yang gini, ada juga yang gitu"</span>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ══════════════════════════════ -->
+    <!--  CHAPTER BANNER 3課            -->
+    <!-- ══════════════════════════════ -->
+    <div class="chapter-banner banner-toiu first-banner">
+      <div class="cb-text">
+        <div class="cb-num">3課</div>
+        <div class="cb-jp">文の組み立て ー 3「～という・～といった」</div>
+        <div class="cb-id">Cara menyebut nama, isi ucapan, dan contoh dengan という／といった</div>
+      </div>
+    </div>
+
+    <div class="concept-box">
+      <div class="concept-box-head">Konsep Dasar</div>
+      <div class="concept-box-body">
+        Inti dari 「～という・・・」dan 「～といった・・・」itu gampang: bagian sebelum という/といった itu isinya <strong>nama, omongan, atau contoh</strong>, dan itu semua "ditempelin" ke kata benda yang nyusul setelahnya. Bayangin という itu kayak tanda kutip yang diomongin, bukan ditulis — "yang disebut ~", "yang katanya ~", gitu kira-kira. Kalau kamu mau kasih kesan nggak terlalu pasti / agak menghindar dari kepastian, tinggal tambahin <strong>ような</strong> di belakangnya jadi 「というような」atau 「といったような」.
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════ -->
+    <!--  SECTION 3-1: 名前を紹介する  -->
+    <!-- ══════════════════════════════ -->
+    <section class="section" id="toiu-1">
+      <div class="section-header">
+        <span class="section-num">3-1</span>
+        <span class="section-jp">名前を紹介する</span>
+        <span class="section-id">Menyebut nama sesuatu atau seseorang</span>
+      </div>
+      <div class="subsection">
+        <div class="subsection-body">
+
+          <div class="grammar-box">
+            <span class="gb-label">Pola</span>
+            <span class="gb-pola">名詞１＋という＋名詞２</span>
+          </div>
+
+          <div class="desc">
+            Dipakai waktu kamu mau <strong>kasih tahu nama</strong> dari orang, benda, atau hal yang lagi dibahas. Gampangnya, ini versi sopan dari "yang namanya ~" dalam bahasa Indonesia. Sering banget dipakai pas perkenalan diri atau nanya nama sesuatu yang baru kamu lihat.
+          </div>
+
+          <div class="example-box ex-t">
+            <div class="example-box-head"><span class="ctx ctx-t">紹介</span> Contoh 1 — Perkenalan Diri</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                わたしは<ruby>松下<rt>まつした</rt></ruby><span class="ht">という</span>者 (もの) です。<span class="tag-formal">Formal</span>
+              </p>
+              <p class="example-id">Saya orang yang bernama Matsushita.</p>
+              <p class="example-note">→ 「～という者です」ini ungkapan resmi banget buat perkenalan diri, kayak pas wawancara kerja atau ketemu klien.</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-t">
+            <div class="example-box-head"><span class="ctx ctx-t">紹介</span> Contoh 2 — Menanyakan Nama Benda</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                これは<ruby>何<rt>なん</rt></ruby><span class="ht">という</span><ruby>花<rt>はな</rt></ruby>ですか。
+              </p>
+              <p class="example-id">Ini bunga yang namanya apa, ya?</p>
+              <p class="example-note">→ Pola favorit buat nanya nama sesuatu yang asing buat kamu — "ini namanya apa?"</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-t">
+            <div class="example-box-head"><span class="ctx ctx-t">紹介</span> Contoh 3 — Reaksi Spontan</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                これ、<ruby>珍<rt>めずら</rt></ruby>しいですね。<ruby>何<rt>なん</rt></ruby><span class="ht">という</span><ruby>果物<rt>くだもの</rt></ruby>ですか。
+              </p>
+              <p class="example-id">Ini langka banget ya. Ini buah apa namanya?</p>
+              <p class="example-note">→ Cocok dipakai pas ngeliat sesuatu yang bikin penasaran spontan, kayak lagi jalan-jalan ke pasar luar negeri.</p>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <div class="note-title">Catatan Santai</div>
+            <p>「～という」di sini bukan grammar yang "berat" — anggap aja kayak kamu lagi nge-tag nama di caption foto. Jangan bingung sama という yang nanti dipakai buat nyampein isi ucapan (itu beda fungsi, lihat 3-2).</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ -->
+    <!--  SECTION 3-2: 内容を示す       -->
+    <!-- ══════════════════════════════ -->
+    <section class="section" id="toiu-2">
+      <div class="section-header">
+        <span class="section-num">3-2</span>
+        <span class="section-jp">内容を示す</span>
+        <span class="section-id">Menyampaikan isi ucapan, kabar, atau bunyi yang didengar</span>
+      </div>
+      <div class="subsection">
+        <div class="subsection-body">
+
+          <div class="grammar-box">
+            <span class="gb-label">Pola</span>
+            <span class="gb-pola">文（普通形）＋という＋名詞 <span class="alt">／「擬声語」＋という＋鳴き声・音</span></span>
+          </div>
+
+          <div class="desc">
+            Kalau di 3-1 という dipakai buat nama, di sini という dipakai buat <strong>"membungkus" isi dari sesuatu yang didengar atau dikatakan</strong> — entah itu rumor, kabar burung, atau bahkan bunyi suara hewan. Mikirnya gini aja: apa pun yang ada di depan という itu adalah "isi" dari kata benda yang nyusul (うわさ, 声, 意味, dst).
+          </div>
+
+          <div class="example-box ex-t">
+            <div class="example-box-head"><span class="ctx ctx-t">内容</span> Contoh 1 — Kabar / Rumor</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>鈴木<rt>すずき</rt></ruby>さんが<ruby>会社<rt>かいしゃ</rt></ruby>を<ruby>辞<rt>や</rt></ruby>める<span class="ht">という</span>うわさを<ruby>聞<rt>き</rt></ruby>いた。
+              </p>
+              <p class="example-id">Saya dengar kabar bahwa Suzuki akan keluar dari perusahaan.</p>
+              <p class="example-note">→ Pola wajib buat nyebarin atau nanggepin gosip kantor dengan sopan: "katanya sih..."</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-t">
+            <div class="example-box-head"><span class="ctx ctx-t">内容</span> Contoh 2 — Bunyi / Onomatope</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                「ワンワン」<span class="ht">という</span><ruby>犬<rt>いぬ</rt></ruby>の<ruby>鳴<rt>な</rt></ruby>き<ruby>声<rt>ごえ</rt></ruby>が<ruby>聞<rt>き</rt></ruby>こえます。
+              </p>
+              <p class="example-id">Terdengar suara gukan anjing yang berbunyi "guk-guk".</p>
+              <p class="example-note">→ Buat bunyi-bunyian (onomatope), という itu kayak nge-quote suara yang kedengeran.</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-t">
+            <div class="example-box-head"><span class="ctx ctx-t">内容＋ような</span> Contoh 3 — Menjelaskan Arti Secara Tidak Pasti</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                「<ruby>三日坊主<rt>みっかぼうず</rt></ruby>」はすぐにあきてしまう<span class="ht">というような</span><ruby>意味<rt>いみ</rt></ruby>だと<ruby>思<rt>おも</rt></ruby>います。
+              </p>
+              <p class="example-id">Saya pikir "mikka-bouzu" itu kira-kira artinya cepat bosan/nggak tahan lama.</p>
+              <p class="example-note">→ Nambahin ような di belakang という bikin kalimat kedengeran lebih "kira-kira", nggak yakin 100%. Cocok kalau kamu lagi nebak-nebak arti suatu istilah.</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <div class="note-title">Bedanya という Polos vs というような</div>
+            <p><strong>という</strong> = kamu cukup yakin sama isi yang disampein. <strong>というような</strong> = kamu agak ragu, atau emang sengaja bikin kedengeran nggak terlalu tegas (biar lebih sopan/halus).</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ -->
+    <!--  SECTION 3-3: 知識・事実を示す -->
+    <!-- ══════════════════════════════ -->
+    <section class="section" id="toiu-3">
+      <div class="section-header">
+        <span class="section-num">3-3</span>
+        <span class="section-jp">知識・事実を示す</span>
+        <span class="section-id">Menjadikan suatu fakta/pengetahuan sebagai topik kalimat</span>
+      </div>
+      <div class="subsection">
+        <div class="subsection-body">
+
+          <div class="grammar-box">
+            <span class="gb-label">Pola</span>
+            <span class="gb-pola">文（普通形）＋ということ（を／は／が...）</span>
+          </div>
+
+          <div class="desc">
+            Ini upgrade-an dari pola sebelumnya. Bedanya, sekarang yang dibungkus itu bukan cuma "isi ucapan orang lain", tapi <strong>fakta atau pengetahuan</strong> yang mau dijadiin subjek/objek dalam kalimat. Trik gampangnya: kalau abis という ada partikel (を、は、が) terus disambung kata kerja lain seperti 知っていた、初めて聞いた、問題だと思う — itu tandanya ということ.
+          </div>
+
+          <div class="example-box ex-t">
+            <div class="example-box-head"><span class="ctx ctx-t">事実</span> Contoh 1</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                かぜの<ruby>予防<rt>よぼう</rt></ruby>には<ruby>手洗<rt>てあら</rt></ruby>いがいい<span class="ht">ということ</span>を<ruby>知<rt>し</rt></ruby>っていましたか。
+              </p>
+              <p class="example-id">Apakah kamu sudah tahu bahwa cuci tangan itu baik untuk mencegah flu?</p>
+              <p class="example-note">→ Pola pas banget buat kalimat tips/edukasi — "tahu nggak sih kalau..."</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-t">
+            <div class="example-box-head"><span class="ctx ctx-t">事実</span> Contoh 2 — Kabar yang Baru Diketahui</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                まき<ruby>子<rt>こ</rt></ruby>さんのお<ruby>母<rt>かあ</rt></ruby>さんは<ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>女優<rt>じょゆう</rt></ruby>だ<span class="ht">ということ</span>を<ruby>初<rt>はじ</rt></ruby>めて<ruby>聞<rt>き</rt></ruby>いた。
+              </p>
+              <p class="example-id">Saya baru pertama kali dengar bahwa ibunya Makiko adalah aktris terkenal.</p>
+              <p class="example-note">→ "Eh baru tau gue" — ini banget vibe-nya kalimat ini.</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-t">
+            <div class="example-box-head"><span class="ctx ctx-t">事実＋は</span> Contoh 3 — Fakta Jadi Topik Kalimat</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                いい<ruby>教育<rt>きょういく</rt></ruby>を<ruby>受<rt>う</rt></ruby>けるのにたくさんのお<ruby>金<rt>かね</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>だ<span class="ht">ということ</span>は<ruby>問題<rt>もんだい</rt></ruby>だと<ruby>思<rt>おも</rt></ruby>う。
+              </p>
+              <p class="example-id">Saya pikir fakta bahwa pendidikan yang bagus butuh banyak uang itu adalah sebuah masalah.</p>
+              <p class="example-note">→ Di sini ということ diikuti は, jadi seluruh fakta tadi dijadikan topik utama kalimat — khas banget gaya nulis esai/opini.</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-t">
+            <div class="example-box-head"><span class="ctx ctx-t">事実＋ような</span> Contoh 4 — Versi Tidak Tegas</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>兄<rt>あに</rt></ruby>はこの<ruby>前<rt>まえ</rt></ruby><ruby>会<rt>あ</rt></ruby>ったとき、<ruby>今月<rt>こんげつ</rt></ruby>は<ruby>忙<rt>いそが</rt></ruby>しい<span class="ht">というような</span>ことを<ruby>言<rt>い</rt></ruby>っていた。
+              </p>
+              <p class="example-id">Waktu ketemu kemarin, kakak saya bilang sesuatu kayak "bulan ini sibuk".</p>
+              <p class="example-note">→ ということ + ような = "ngomong sesuatu yang kira-kira kayak gini" — dipakai kalau kamu nggak inget detail persisnya.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ -->
+    <!--  SECTION 3-4: よく知らない言葉 -->
+    <!-- ══════════════════════════════ -->
+    <section class="section" id="toiu-4">
+      <div class="section-header">
+        <span class="section-num">3-4</span>
+        <span class="section-jp">よく知らない言葉を示す</span>
+        <span class="section-id">Menanyakan istilah yang belum familiar</span>
+      </div>
+      <div class="subsection">
+        <div class="subsection-body">
+
+          <div class="grammar-box">
+            <span class="gb-label">Pola</span>
+            <span class="gb-pola">名詞＋というのは＋〜ですか／何ですか</span>
+          </div>
+
+          <div class="desc">
+            Khusus buat momen "ini istilah apa sih, aku nggak ngerti". という di sini ditempelin の (jadi というの), terus biasanya disambung は dan ditutup pertanyaan. Vibe-nya kayak lagi nanya ke senior atau googling istilah baru yang baru pertama kali kamu denger.
+          </div>
+
+          <div class="example-box ex-t">
+            <div class="example-box-head"><span class="ctx ctx-t">確認</span> Contoh 1 — Istilah Asing/Teknis</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                コンピューター<ruby>用語<rt>ようご</rt></ruby>で、アップデート<span class="ht">というのは</span><ruby>何<rt>なん</rt></ruby>ですか。
+              </p>
+              <p class="example-id">Dalam istilah komputer, "update" itu maksudnya apa ya?</p>
+              <p class="example-note">→ Cocok dipakai kalau ketemu istilah teknis/asing yang asal-katanya nggak familiar buat kamu — semacam, "btw ini artinya apa ya".</p>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <div class="note-title">Tips Cepat</div>
+            <p>Bedain sama 3-1 ya: 3-1 (という) = "nama apa", sedangkan 3-4 (というのは) = "ini istilahnya apa / maksudnya gimana". 3-1 nanya <em>nama</em>, 3-4 nanya <em>makna/definisi</em>.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ -->
+    <!--  SECTION 3-5: いくつかの例     -->
+    <!-- ══════════════════════════════ -->
+    <section class="section" id="toiu-5">
+      <div class="section-header">
+        <span class="section-num">3-5</span>
+        <span class="section-jp">いくつかの例を示す</span>
+        <span class="section-id">Menyebut beberapa contoh sekaligus dalam satu kalimat</span>
+      </div>
+      <div class="subsection">
+        <div class="subsection-body">
+
+          <div class="grammar-box">
+            <span class="gb-label">Pola</span>
+            <span class="gb-pola">名詞１、名詞２、名詞３＋といった＋名詞（カテゴリー）</span>
+          </div>
+
+          <div class="desc">
+            Kalau という itu fokus ke satu nama/isi, <strong>といった</strong> ini khusus buat nyebutin <strong>beberapa contoh dalam satu kategori</strong>. Mirip-mirip kayak pas kamu bilang "kayak matematika, fisika, kimia, gitu-gitu" — terus disimpulin jadi satu kategori besar di belakangnya.
+          </div>
+
+          <div class="example-box ex-t">
+            <div class="example-box-head"><span class="ctx ctx-t">例示</span> Contoh 1 — Daftar Mata Pelajaran</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                わたしは<ruby>数学<rt>すうがく</rt></ruby>、<ruby>物理<rt>ぶつり</rt></ruby>、<ruby>化学<rt>かがく</rt></ruby><span class="ht">といった</span><ruby>理科系<rt>りかけい</rt></ruby>の<ruby>科目<rt>かもく</rt></ruby>が<ruby>好<rt>す</rt></ruby>きだ。
+              </p>
+              <p class="example-id">Saya suka pelajaran sains seperti matematika, fisika, kimia, dan sejenisnya.</p>
+              <p class="example-note">→ Tiga contoh (matematika, fisika, kimia) dirangkum jadi "mata pelajaran sains".</p>
+            </div>
+          </div>
+
+          <div class="example-box ex-t">
+            <div class="example-box-head"><span class="ctx ctx-t">例示＋ような</span> Contoh 2 — Warna dan Kesan</div>
+            <div class="example-box-body">
+              <p class="example-jp">
+                <ruby>彼女<rt>かのじょ</rt></ruby>は<ruby>黒<rt>くろ</rt></ruby>とか<ruby>灰色<rt>はいいろ</rt></ruby><span class="ht">といったような</span><ruby>暗<rt>くら</rt></ruby>い<ruby>色<rt>いろ</rt></ruby>の<ruby>服<rt>ふく</rt></ruby>が<ruby>似合<rt>にあ</rt></ruby>う。
+              </p>
+              <p class="example-id">Dia cocok pakai baju warna gelap seperti hitam atau abu-abu gitu.</p>
+              <p class="example-note">→ といった + ような = makin kasual/kira-kira, dipakai pas ngasih contoh sambil ngobrol santai, bukan kalimat formal.</p>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <div class="note-title">Bedain という vs といった</div>
+            <ul>
+              <li><strong>という</strong> → fokus ke satu nama / satu isi spesifik</li>
+              <li><strong>といった</strong> → nyebutin beberapa contoh, lalu disimpulin jadi satu kategori</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="comparison-section">
+      <h3>Ringkasan Cepat — Semua Pola 「という・といった」</h3>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Pola</th>
+            <th>Fungsi</th>
+            <th>Contoh Singkat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>名詞＋という＋名詞</td>
+            <td>Menyebut nama sesuatu</td>
+            <td>何という花ですか</td>
+          </tr>
+          <tr>
+            <td>文＋という＋名詞</td>
+            <td>Isi ucapan/kabar/bunyi</td>
+            <td>辞めるといううわさ</td>
+          </tr>
+          <tr>
+            <td>文＋ということ</td>
+            <td>Fakta/pengetahuan jadi topik</td>
+            <td>必要だということ</td>
+          </tr>
+          <tr>
+            <td>名詞＋というのは</td>
+            <td>Tanya istilah yang belum familiar</td>
+            <td>アップデートというのは何ですか</td>
+          </tr>
+          <tr>
+            <td>名詞、名詞…＋といった</td>
+            <td>Sebutin beberapa contoh sekaligus</td>
+            <td>数学、物理といった科目</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="teal-box">
+        <div class="note-title">Satu Hal yang Penting Diingat</div>
+        <p>Nambahin <strong>ような</strong> di belakang という atau といった itu fungsinya sama: bikin kalimat kedengeran lebih "kira-kira" dan nggak terlalu pasti. Kalau kamu yakin 100% sama informasinya, skip aja ような-nya.</p>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════ -->
+    <!--  CHAPTER BANNER 4課            -->
+    <!-- ══════════════════════════════ -->
+    <div class="chapter-banner banner-kimatta">
+      <div class="cb-text">
+        <div class="cb-num">4課</div>
+        <div class="cb-jp">文の組み立て ー 4 決まった形</div>
+        <div class="cb-id">Pola-pola dengan bentuk yang sudah baku/paten</div>
+      </div>
+    </div>
+
+    <div class="concept-box">
+      <div class="concept-box-head">Konsep Dasar</div>
+      <div class="concept-box-body">
+        Nah, kalau bab-bab sebelumnya kita ngebahas grammar yang punya "logika" di balik bentuknya, 8 pola di bawah ini agak beda ceritanya. Mereka itu <strong>combo kata yang udah fix bentuknya</strong> — kayak kombo jurus yang nggak bisa diubah-ubah urutannya. Nggak usah dianalisis kenapa pakai partikel ini bukan itu; cara paling efektif adalah <strong>hafalin bentuk utuhnya sekalian</strong>, terus banyakin lihat contoh biar otomatis nempel di kepala.
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════ -->
+    <!--  4-1: から〜にかけて          -->
+    <!-- ══════════════════════════════ -->
+    <div class="pattern-card">
+      <div class="pattern-card-head">
+        <span class="pc-num">4-1</span>
+        <span class="pc-jp">～から～にかけて</span>
+        <span class="pc-id">Rentang waktu/tempat — "dari... sampai sekitar..."</span>
+      </div>
+      <div class="pattern-card-body">
+
+        <div class="equiv-strip">
+          ～から～にかけて <span class="eq-arrow">＝</span> ～から…の間（あいだ）
+          <span class="eq-id">(rentang dari A sampai sekitar B)</span>
+        </div>
+
+        <div class="desc">
+          Dipakai buat nyebut <strong>periode waktu atau wilayah</strong> yang membentang dari satu titik ke titik lain — tapi sifatnya agak "kabur batasannya", nggak presisi banget kayak から〜まで. Cocok buat ramalan cuaca atau cerita tentang musim.
+        </div>
+
+        <div class="example-box ex-k">
+          <div class="example-box-head"><span class="ctx ctx-k">期間</span> Contoh 1</div>
+          <div class="example-box-body">
+            <p class="example-jp">
+              <ruby>年末<rt>ねんまつ</rt></ruby>から<ruby>年始<rt>ねんし</rt></ruby><span class="hk">にかけて</span>わたしはとても<ruby>忙<rt>いそが</rt></ruby>しい。
+            </p>
+            <p class="example-id">Dari akhir tahun sampai awal tahun, saya sangat sibuk.</p>
+          </div>
+        </div>
+
+        <div class="example-box ex-k">
+          <div class="example-box-head"><span class="ctx ctx-k">範囲</span> Contoh 2 — Ramalan Cuaca</div>
+          <div class="example-box-body">
+            <p class="example-jp">
+              <ruby>明日<rt>あした</rt></ruby>は<ruby>関東地方<rt>かんとうちほう</rt></ruby>から<ruby>東北地方<rt>とうほくちほう</rt></ruby><span class="hk">にかけて</span><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るでしょう。
+            </p>
+            <p class="example-id">Besok, dari wilayah Kanto sampai Tohoku diperkirakan akan turun hujan.</p>
+            <p class="example-note">→ Pola klasik yang selalu muncul di ramalan cuaca NHK. Wajib hafal buat yang suka dengerin berita Jepang.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-title">Bedain dari から〜まで</div>
+          <p>から〜まで itu batasnya jelas dan tegas (misal jam 9 sampai jam 5 pas). から〜にかけて lebih ke "kira-kira sekitar situ", nggak harus presisi ke detik/titik tertentu.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════ -->
+    <!--  4-2: を…として／を…に        -->
+    <!-- ══════════════════════════════ -->
+    <div class="pattern-card">
+      <div class="pattern-card-head">
+        <span class="pc-num">4-2</span>
+        <span class="pc-jp">～を…として・～を…に</span>
+        <span class="pc-id">Menjadikan sesuatu sebagai dasar / pusat / tema</span>
+      </div>
+      <div class="pattern-card-body">
+
+        <div class="equiv-strip">
+          ～を…として／に <span class="eq-arrow">＝</span> ～を…と考えて（認めて）
+          <span class="eq-id">(menganggap/menetapkan A sebagai B)</span>
+        </div>
+
+        <div class="desc">
+          Dipakai waktu kamu mau bilang sesuatu <strong>"dijadikan" atau "ditetapkan sebagai"</strong> hal lain — entah itu sebagai pemicu, pusat, atau tema. Sering muncul di tulisan formal kayak berita atau deskripsi karya seni.
+        </div>
+
+        <div class="example-box ex-k">
+          <div class="example-box-head"><span class="ctx ctx-k">きっかけ</span> Contoh 1 — Sebagai Pemicu</div>
+          <div class="example-box-body">
+            <p class="example-jp">
+              <ruby>入院<rt>にゅういん</rt></ruby><span class="hk">をきっかけとして</span>わたしは<ruby>健康<rt>けんこう</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>するようになった。
+            </p>
+            <p class="example-id">Berawal dari (dijadikan pemicu) opname di rumah sakit, saya jadi mulai peduli dengan kesehatan.</p>
+          </div>
+        </div>
+
+        <div class="example-box ex-k">
+          <div class="example-box-head"><span class="ctx ctx-k">中心</span> Contoh 2 — Sebagai Pusat</div>
+          <div class="example-box-body">
+            <p class="example-jp">
+              <ruby>日本<rt>にほん</rt></ruby>の<ruby>世界地図<rt>せかいちず</rt></ruby>は<ruby>日本<rt>にほん</rt></ruby><span class="hk">を中心に</span>かかれている。
+            </p>
+            <p class="example-id">Peta dunia versi Jepang digambar dengan menjadikan Jepang sebagai pusatnya.</p>
+          </div>
+        </div>
+
+        <div class="example-box ex-k">
+          <div class="example-box-head"><span class="ctx ctx-k">テーマ</span> Contoh 3 — Sebagai Tema</div>
+          <div class="example-box-body">
+            <p class="example-jp">
+              この<ruby>小説家<rt>しょうせつか</rt></ruby>は<ruby>家族<rt>かぞく</rt></ruby><span class="hk">をテーマとした</span><ruby>小説<rt>しょうせつ</rt></ruby>をたくさん<ruby>書<rt>か</rt></ruby>いている。
+            </p>
+            <p class="example-id">Novelis ini banyak menulis novel yang menjadikan keluarga sebagai tema.</p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="note-title">Kata yang Sering Nemplok di Pola Ini</div>
+          <p>きっかけ（pemicu）、中心（pusat）、テーマ（tema）、対象（objek/target）— semua kata ini cocok dipasangin sama として／に. Hafalin kombo-kombo ini sekalian, lebih efektif daripada hafal rumusnya doang.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════ -->
+    <!--  4-3: はもちろん…も            -->
+    <!-- ══════════════════════════════ -->
+    <div class="pattern-card">
+      <div class="pattern-card-head">
+        <span class="pc-num">4-3</span>
+        <span class="pc-jp">～はもちろん…も</span>
+        <span class="pc-id">"Udah pasti A, ternyata B juga ikut kena"</span>
+      </div>
+      <div class="pattern-card-body">
+
+        <div class="equiv-strip">
+          ～はもちろん…も <span class="eq-arrow">＝</span> ～は当然だが、…も同じように
+          <span class="eq-id">(A sudah pasti, B pun sama saja)</span>
+        </div>
+
+        <div class="desc">
+          Dipakai buat nunjukkin bahwa <strong>satu hal itu udah jelas/sudah pasti</strong>, dan ternyata <strong>hal lain pun ikut berlaku dengan tingkat yang sama</strong>. Mirip kayak "udah jelas A, eh B juga ternyata begitu". Biasanya buat ngasih kesan "lebih luas dari yang dikira".
+        </div>
+
+        <div class="example-box ex-k">
+          <div class="example-box-head"><span class="ctx ctx-k">範囲拡大</span> Contoh 1</div>
+          <div class="example-box-body">
+            <p class="example-jp">
+              このゲームは<ruby>子<rt>こ</rt></ruby>どもは<span class="hk">もちろん</span>おとな<span class="hk">も</span><ruby>楽<rt>たの</rt></ruby>しめる。
+            </p>
+            <p class="example-id">Game ini bisa dinikmati anak-anak, bahkan orang dewasa pun bisa menikmatinya juga.</p>
+            <p class="example-note">→ Anak-anak sudah pasti suka; ternyata orang dewasa juga ikut suka — kesannya jadi "lebih universal".</p>
+          </div>
+        </div>
+
+        <div class="example-box ex-k">
+          <div class="example-box-head"><span class="ctx ctx-k">範囲拡大</span> Contoh 2</div>
+          <div class="example-box-body">
+            <p class="example-jp">
+              <ruby>夫<rt>おっと</rt></ruby>は<ruby>国内<rt>こくない</rt></ruby>の<ruby>山<rt>やま</rt></ruby>は<span class="hk">もちろん</span><ruby>外国<rt>がいこく</rt></ruby>の<ruby>山<rt>やま</rt></ruby>に<span class="hk">も</span>あちこち<ruby>登<rt>のぼ</rt></ruby>っている。
+            </p>
+            <p class="example-id">Suami saya tidak hanya naik gunung-gunung dalam negeri, gunung-gunung luar negeri pun ikut dia daki di sana-sini.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-title">Mirip dengan だけでなく〜も?</div>
+          <p>Iya, fungsinya mirip 「だけでなく～も」, tapi はもちろん lebih nge-highlight kesan "yang satu ini emang udah obvious/jelas duluan", baru disusul hal lain yang agak bikin "wah, ternyata sampai segitu juga".</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════ -->
+    <!--  4-4: （ば）〜ほど…            -->
+    <!-- ══════════════════════════════ -->
+    <div class="pattern-card">
+      <div class="pattern-card-head">
+        <span class="pc-num">4-4</span>
+        <span class="pc-jp">（～ば）～ほど… ・（～なら）～ほど…</span>
+        <span class="pc-id">"Makin... makin..." — perubahan yang sebanding</span>
+      </div>
+      <div class="pattern-card-body">
+
+        <div class="desc">
+          Ini pola "makin... makin..." versi Jepang. Dipakai waktu <strong>dua hal berubah secara beriringan</strong> — makin banyak/kuat yang satu, makin banyak/kuat juga yang lain. Biasanya kata kerja/sifat yang sama diulang dua kali: sekali dalam bentuk ば, sekali dalam bentuk dasar + ほど.
+        </div>
+
+        <div class="example-box ex-k">
+          <div class="example-box-head"><span class="ctx ctx-k">比例</span> Contoh 1</div>
+          <div class="example-box-body">
+            <p class="example-jp">
+              <ruby>考<rt>かんが</rt></ruby>えれば<ruby>考<rt>かんが</rt></ruby>える<span class="hk">ほど</span>わからなくなってきた。
+            </p>
+            <p class="example-id">Semakin dipikirkan, semakin tidak mengerti.</p>
+            <p class="example-note">→ Perhatikan kata 考える diulang dua kali: 考えれば (bentuk ば) + 考える ほど (bentuk dasar). Ini ciri khas pola 4-4.</p>
+          </div>
+        </div>
+
+        <div class="warning-box">
+          <div class="note-title">Jangan Sampai Salah Bentuk</div>
+          <ul>
+            <li>Kata kerja/sifat yang dipakai di depan dan belakang ほど itu <strong>harus sama</strong> — cuma bentuknya yang beda (ば vs bentuk dasar).</li>
+            <li><strong>× 高ければ高いほど安い</strong> kalau makna yang mau disampein nggak nyambung secara logis — pastikan dua hal yang dibandingkan memang benar-benar berkorelasi.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════ -->
+    <!--  4-5: くらい／ぐらい／ほど…はない -->
+    <!-- ══════════════════════════════ -->
+    <div class="pattern-card">
+      <div class="pattern-card-head">
+        <span class="pc-num">4-5</span>
+        <span class="pc-jp">～くらい・～ぐらい・～ほど…はない</span>
+        <span class="pc-id">"Nggak ada yang sebanding sama ini" — superlatif paling ekstrem</span>
+      </div>
+      <div class="pattern-card-body">
+
+        <div class="desc">
+          Cara bilang "ini yang paling ~" tapi dengan gaya membandingkan, bukan langsung pakai 一番. Logikanya: "sejauh ini, nggak ada yang sebanding levelnya kayak ini". Bikin kesan lebih dramatis dan personal dibanding cuma bilang 一番.
+        </div>
+
+        <div class="example-box ex-k">
+          <div class="example-box-head"><span class="ctx ctx-k">最上級</span> Contoh 1</div>
+          <div class="example-box-body">
+            <p class="example-jp">
+              <ruby>今<rt>いま</rt></ruby>まで<ruby>見<rt>み</rt></ruby>た<ruby>中<rt>なか</rt></ruby>で、これ<span class="hk">ほど</span><ruby>面白<rt>おもしろ</rt></ruby>い<ruby>映画<rt>えいが</rt></ruby><span class="hk">はない</span>。
+            </p>
+            <p class="example-id">Dari semua yang pernah saya tonton, tidak ada film yang seseru ini.</p>
+            <p class="example-note">→ Daripada bilang "ini film paling seru" (datar), pola ini kasih kesan "gue udah nonton banyak film, dan belum pernah ada yang ngalahin ini" — lebih punya emosi.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-title">くらい／ぐらい vs ほど</div>
+          <p>Dua-duanya bisa dipakai bergantian di pola ini, beda-beda dikit soal nuansa formalitas/dialek aja — nggak perlu terlalu dipusingin, fokus aja ke struktur「～ほど（くらい）…はない」-nya.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════ -->
+    <!--  4-6: さえ～ば／さえ～なら     -->
+    <!-- ══════════════════════════════ -->
+    <div class="pattern-card">
+      <div class="pattern-card-head">
+        <span class="pc-num">4-6</span>
+        <span class="pc-jp">～さえ～ば… ・～さえ～なら…</span>
+        <span class="pc-id">"Asal... aja, udah cukup" — syarat minimal</span>
+      </div>
+      <div class="pattern-card-body">
+
+        <div class="desc">
+          Dipakai buat bilang <strong>"syarat minimal yang harus dipenuhi"</strong> — selama satu hal itu terpenuhi, sisanya nggak masalah. Vibe-nya kayak "yang penting tuh cuma satu hal ini doang".
+        </div>
+
+        <div class="example-box ex-k">
+          <div class="example-box-head"><span class="ctx ctx-k">最小条件</span> Contoh 1</div>
+          <div class="example-box-body">
+            <p class="example-jp">
+              <ruby>自分<rt>じぶん</rt></ruby><span class="hk">さえ</span><ruby>良<rt>よ</rt></ruby>ければ<ruby>満足<rt>まんぞく</rt></ruby>なのですか。
+            </p>
+            <p class="example-id">Apakah kamu cuma puas asal diri kamu sendiri saja yang baik-baik?</p>
+            <p class="example-note">→ Konteksnya agak sindiran di sini — nyiratin "kamu cuma mikirin diri sendiri doang ya".</p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="note-title">Nuansa yang Dibawa さえ</div>
+          <p>さえ itu sering bawa nuansa "cukup satu hal ini aja yang penting" — bisa positif (motivasi: "asal niat aja, pasti bisa") atau bisa kedengeran agak menyindir (kayak contoh di atas).</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════ -->
+    <!--  4-7: ことは〜が…              -->
+    <!-- ══════════════════════════════ -->
+    <div class="pattern-card">
+      <div class="pattern-card-head">
+        <span class="pc-num">4-7</span>
+        <span class="pc-jp">～ことは～が…</span>
+        <span class="pc-id">Mengakui sesuatu, tapi ada "tapi"-nya</span>
+      </div>
+      <div class="pattern-card-body">
+
+        <div class="desc">
+          Pola ini buat ngakuin kalau sesuatu itu emang bener terjadi/dilakukan — tapi terus dilanjut sama kenyataan yang kontras. Kata kerja yang sama biasanya diulang dua kali (mirip pola 4-4): sekali biasa, sekali lagi diikuti ことは.
+        </div>
+
+        <div class="example-box ex-k">
+          <div class="example-box-head"><span class="ctx ctx-k">譲歩</span> Contoh 1</div>
+          <div class="example-box-body">
+            <p class="example-jp">
+              その<ruby>本<rt>ほん</rt></ruby>は<ruby>読<rt>よ</rt></ruby>んだ<span class="hk">ことは</span><ruby>読<rt>よ</rt></ruby>んだが、<ruby>内容<rt>ないよう</rt></ruby>は<ruby>忘<rt>わす</rt></ruby>れた。
+            </p>
+            <p class="example-id">Soal buku itu, memang sudah saya baca sih, tapi isinya saya sudah lupa.</p>
+            <p class="example-note">→ Perhatikan 読んだ diulang: 読んだことは読んだ. Ini struktur khasnya — ngakuin dulu, baru kasih "tapi"-nya.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-title">Kapan Pola Ini Kepake</div>
+          <p>Cocok dipakai pas kamu mau jujur jawab sesuatu tapi nggak enak kalau cuma bilang "ya" doang — jadi diakui dulu faktanya, baru dikasih catatan/pengecualian setelahnya.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════ -->
+    <!--  4-8: も〜ば〜も…              -->
+    <!-- ══════════════════════════════ -->
+    <div class="pattern-card">
+      <div class="pattern-card-head">
+        <span class="pc-num">4-8</span>
+        <span class="pc-jp">～も～ば～も… ・～も～なら～も…</span>
+        <span class="pc-id">"Ada yang gini, ada juga yang gitu" — variasi dalam satu kelompok</span>
+      </div>
+      <div class="pattern-card-body">
+
+        <div class="desc">
+          Dipakai buat ngomongin <strong>keberagaman dalam satu kelompok besar</strong> — ada yang tipe A, ada juga yang tipe B, dua-duanya sama-sama eksis dan nggak bisa digeneralisir jadi satu.
+        </div>
+
+        <div class="example-box ex-k">
+          <div class="example-box-head"><span class="ctx ctx-k">多様性</span> Contoh 1</div>
+          <div class="example-box-body">
+            <p class="example-jp">
+              <ruby>世<rt>よ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>にはいい<ruby>人<rt>ひと</rt></ruby><span class="hk">も</span>いれば<ruby>悪<rt>わる</rt></ruby>い<ruby>人<rt>ひと</rt></ruby><span class="hk">もいる</span>。
+            </p>
+            <p class="example-id">Di dunia ini, ada orang baik, ada juga orang jahat.</p>
+            <p class="example-note">→ Nggak bisa main nge-judge "semua orang itu begini" — pola ini ngasih ruang buat dua sisi yang sama-sama nyata.</p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="note-title">も〜ば vs も〜なら</div>
+          <p>Dua-duanya bisa dipakai bergantian tergantung jenis kata yang disambung (kata kerja/sifat biasanya pakai ば, kata benda/na-adjective pakai なら) — fungsinya tetap sama: nunjukkin dua sisi/jenis yang berbeda dalam satu kelompok.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="comparison-section">
+      <h3>Ringkasan Cepat — 8 Pola 決まった形</h3>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Pola</th>
+            <th>Makna Singkat</th>
+            <th>Contoh Singkat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>から〜にかけて</td>
+            <td>Dari... sampai sekitar...</td>
+            <td>年末から年始にかけて</td>
+          </tr>
+          <tr>
+            <td>を…として／に</td>
+            <td>Menjadikan sebagai...</td>
+            <td>入院をきっかけとして</td>
+          </tr>
+          <tr>
+            <td>はもちろん…も</td>
+            <td>Udah pasti A, B juga ikut</td>
+            <td>子どもはもちろん大人も</td>
+          </tr>
+          <tr>
+            <td>（ば）〜ほど…</td>
+            <td>Makin... makin...</td>
+            <td>考えれば考えるほど</td>
+          </tr>
+          <tr>
+            <td>くらい／ほど…はない</td>
+            <td>Nggak ada yang sebanding</td>
+            <td>これほど面白い映画はない</td>
+          </tr>
+          <tr>
+            <td>さえ～ば／なら</td>
+            <td>Asal... aja cukup</td>
+            <td>自分さえよければ</td>
+          </tr>
+          <tr>
+            <td>ことは～が…</td>
+            <td>Diakui, tapi ada tapinya</td>
+            <td>読んだことは読んだが</td>
+          </tr>
+          <tr>
+            <td>も～ば～も…</td>
+            <td>Ada yang gini, ada yang gitu</td>
+            <td>いい人もいれば悪い人もいる</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="warning-box">
+        <div class="note-title">Jebakan yang Sering Muncul di Soal JLPT</div>
+        <ul>
+          <li>Pola-pola ini sering ketuker karena bentuknya mirip-mirip (semua ada partikel berulang). Jangan cuma hafal "rumus", tapi hafal juga <strong>contoh utuhnya</strong> biar nggak bingung pas lihat soal baru.</li>
+          <li><strong>×</strong> 考えるほど考えれば <strong>○</strong> 考えれば考えるほど — urutan ば dulu baru ほど, jangan kebalik.</li>
+          <li>はもちろん vs だけでなく itu sering dianggap sama persis di soal — padahal はもちろん lebih nge-highlight bagian yang "udah pasti/obvious"-nya duluan.</li>
+          <li>さえ～ば bisa kedengeran netral atau menyindir tergantung konteks kalimatnya — jangan keburu nyimpulin maknanya cuma dari rumusnya doang, baca dulu konteks seluruh kalimat.</li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="book-footer">
+    <span>という・といった と決まった形 · JLPT N3〜N2 · 3課〜4課</span>
+    <span>PejuangYen Series · © 2026</span>
+  </footer>
+
+</article>
+</body>
+</html>
